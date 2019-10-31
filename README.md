@@ -14,7 +14,7 @@ The objective of this project is to deliver a home care on demand mobile applica
 
 ## Quick Links
 Presentations:
-- [Project Introduction]("./Presentations/Project Introduction.pptx.pdf")
+- [Project Introduction](./Presentations/Project%20Introduction.pptx.pdf)
 - [Scrum Meeting 1]
 - [Scrum Meeting 2]
 
