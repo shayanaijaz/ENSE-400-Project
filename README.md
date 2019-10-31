@@ -13,10 +13,13 @@ Contributors:
 The objective of this project is to deliver a home care on demand mobile application to Eden Care Communities. This application will allow users to order home care from Eden Care as required, through the application, to receieve service sooner than the current appointment model employed. The Ni(c)(k)S are working with Eden Care Communities to develop the application to meet their needs within the available timeframe.
 
 ## Quick Links
+Documentation:
+- [Functional Requirements Document]
+
+Prototyping:
+- [Wireframes](./Prototypes/Wireframes)
+
 Presentations:
 - [Project Introduction](./Presentations/Project%20Introduction.pptx.pdf)
 - [Scrum Meeting 1]
 - [Scrum Meeting 2]
-
-Prototyping:
-- [Wireframes](./Prototypes/Wireframes)
