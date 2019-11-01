@@ -6,7 +6,7 @@ Duration: Sept 2019 - April 2020
 ## The Ni(c)(k)S
 Contributors:
 - Nicolas Achter - achter4n
-- Nickolas Schmidt - 
+- Nickolas Schmidt - SchmidtyNick
 - Nikolas Lendvoy - NLendvoy
 - Shayan Khan - shayanaijaz
 
