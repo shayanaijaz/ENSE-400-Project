@@ -6,8 +6,8 @@ Duration: Sept 2019 - April 2020
 ## The Ni(c)(k)S
 Contributors:
 - Nicolas Achter - achter4n
-- Nickolas Schmidt - 
-- Nikolas Lendvoy - 
+- Nickolas Schmidt - SchmidtyNick
+- Nikolas Lendvoy - NLendvoy
 - Shayan Khan - shayanaijaz
 
 ## Objective
@@ -22,5 +22,5 @@ Prototyping:
 
 Presentations:
 - [Project Introduction](./Presentations/Project%20Introduction.pptx.pdf)
-- [Scrum Meeting 1]
+- [Scrum Meeting 1](./Presentations/October%2021st%20Scrum.pdf)
 - [Scrum Meeting 2]
