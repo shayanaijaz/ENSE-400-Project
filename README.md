@@ -7,7 +7,7 @@ Duration: Sept 2019 - April 2020
 Contributors:
 - Nicolas Achter - achter4n
 - Nickolas Schmidt - 
-- Nikolas Lendvoy - 
+- Nikolas Lendvoy - NLendvoy
 - Shayan Khan - shayanaijaz
 
 ## Objective
