@@ -17,6 +17,7 @@ The objective of this project is to deliver a home care on demand mobile applica
 Documentation:
 - [Functional Requirements Document](./Documentation/Functional%20Requirements%20Document.pdf)
 - [User Stories](./Documentation/User%20Stories.pdf)
+- [User Flows](./Documentation/User Flows.pdf)
 
 Prototyping:
 - [Wireframes](./Prototypes/Wireframes)
