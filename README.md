@@ -26,3 +26,4 @@ Presentations:
 - [Project Introduction](./Presentations/Project%20Introduction.pptx.pdf)
 - [Scrum Meeting 1](./Presentations/October%2021st%20Scrum.pdf)
 - [Scrum Meeting 2](./Presentations/October%2031st%20Scrum.pdf)
+- [Scrum Meeting 3](./Presentations/November%2022nd%20Scrum.pdf)
