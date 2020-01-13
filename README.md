@@ -22,6 +22,7 @@ Documentation:
 Prototyping:
 - [Wireframes](./Prototypes/Wireframes)
 - [High Fidelity Prototypes](./Prototypes/HighFidelityPrototypes)
+- [Diagrams](./Prototypes/Diagrams)
 
 Presentations:
 - [Project Introduction](./Presentations/Project%20Introduction.pptx.pdf)
