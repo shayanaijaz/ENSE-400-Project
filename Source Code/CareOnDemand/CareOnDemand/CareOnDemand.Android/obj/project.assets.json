@@ -1938,11 +1938,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\shaya\\Source\\Repos\\shayanaijaz\\ENSE-400-Project\\Source Code\\CareOnDemand\\CareOnDemand\\CareOnDemand.Android\\CareOnDemand.Android.csproj",
+      "projectUniqueName": "C:\\Users\\Nicolas\\Documents\\GitHub\\ENSE-400-Project\\Source Code\\CareOnDemand\\CareOnDemand\\CareOnDemand.Android\\CareOnDemand.Android.csproj",
       "projectName": "CareOnDemand.Android",
-      "projectPath": "C:\\Users\\shaya\\Source\\Repos\\shayanaijaz\\ENSE-400-Project\\Source Code\\CareOnDemand\\CareOnDemand\\CareOnDemand.Android\\CareOnDemand.Android.csproj",
-      "packagesPath": "C:\\Users\\shaya\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\shaya\\Source\\Repos\\shayanaijaz\\ENSE-400-Project\\Source Code\\CareOnDemand\\CareOnDemand\\CareOnDemand.Android\\obj\\",
+      "projectPath": "C:\\Users\\Nicolas\\Documents\\GitHub\\ENSE-400-Project\\Source Code\\CareOnDemand\\CareOnDemand\\CareOnDemand.Android\\CareOnDemand.Android.csproj",
+      "packagesPath": "C:\\Users\\Nicolas\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Nicolas\\Documents\\GitHub\\ENSE-400-Project\\Source Code\\CareOnDemand\\CareOnDemand\\CareOnDemand.Android\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [
@@ -1963,8 +1963,8 @@
       "frameworks": {
         "monoandroid90": {
           "projectReferences": {
-            "C:\\Users\\shaya\\Source\\Repos\\shayanaijaz\\ENSE-400-Project\\Source Code\\CareOnDemand\\CareOnDemand\\CareOnDemand\\CareOnDemand.csproj": {
-              "projectPath": "C:\\Users\\shaya\\Source\\Repos\\shayanaijaz\\ENSE-400-Project\\Source Code\\CareOnDemand\\CareOnDemand\\CareOnDemand\\CareOnDemand.csproj"
+            "C:\\Users\\Nicolas\\Documents\\GitHub\\ENSE-400-Project\\Source Code\\CareOnDemand\\CareOnDemand\\CareOnDemand\\CareOnDemand.csproj": {
+              "projectPath": "C:\\Users\\Nicolas\\Documents\\GitHub\\ENSE-400-Project\\Source Code\\CareOnDemand\\CareOnDemand\\CareOnDemand\\CareOnDemand.csproj"
             }
           }
         }
