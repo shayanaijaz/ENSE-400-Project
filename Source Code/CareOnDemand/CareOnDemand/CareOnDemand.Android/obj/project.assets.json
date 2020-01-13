@@ -1932,24 +1932,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Nicolas\\.nuget\\packages\\": {},
+    "C:\\Users\\shaya\\.nuget\\packages\\": {},
     "C:\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Nicolas\\Desktop\\Capstone\\CareOnDemand\\CareOnDemand\\CareOnDemand.Android\\CareOnDemand.Android.csproj",
+      "projectUniqueName": "C:\\Users\\shaya\\Source\\Repos\\shayanaijaz\\ENSE-400-Project\\Source Code\\CareOnDemand\\CareOnDemand\\CareOnDemand.Android\\CareOnDemand.Android.csproj",
       "projectName": "CareOnDemand.Android",
-      "projectPath": "C:\\Users\\Nicolas\\Desktop\\Capstone\\CareOnDemand\\CareOnDemand\\CareOnDemand.Android\\CareOnDemand.Android.csproj",
-      "packagesPath": "C:\\Users\\Nicolas\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Nicolas\\Desktop\\Capstone\\CareOnDemand\\CareOnDemand\\CareOnDemand.Android\\obj\\",
+      "projectPath": "C:\\Users\\shaya\\Source\\Repos\\shayanaijaz\\ENSE-400-Project\\Source Code\\CareOnDemand\\CareOnDemand\\CareOnDemand.Android\\CareOnDemand.Android.csproj",
+      "packagesPath": "C:\\Users\\shaya\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\shaya\\Source\\Repos\\shayanaijaz\\ENSE-400-Project\\Source Code\\CareOnDemand\\CareOnDemand\\CareOnDemand.Android\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\"
       ],
       "configFilePaths": [
-        "C:\\Users\\Nicolas\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\shaya\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
@@ -1963,8 +1963,8 @@
       "frameworks": {
         "monoandroid90": {
           "projectReferences": {
-            "C:\\Users\\Nicolas\\Desktop\\Capstone\\CareOnDemand\\CareOnDemand\\CareOnDemand\\CareOnDemand.csproj": {
-              "projectPath": "C:\\Users\\Nicolas\\Desktop\\Capstone\\CareOnDemand\\CareOnDemand\\CareOnDemand\\CareOnDemand.csproj"
+            "C:\\Users\\shaya\\Source\\Repos\\shayanaijaz\\ENSE-400-Project\\Source Code\\CareOnDemand\\CareOnDemand\\CareOnDemand\\CareOnDemand.csproj": {
+              "projectPath": "C:\\Users\\shaya\\Source\\Repos\\shayanaijaz\\ENSE-400-Project\\Source Code\\CareOnDemand\\CareOnDemand\\CareOnDemand\\CareOnDemand.csproj"
             }
           }
         }
