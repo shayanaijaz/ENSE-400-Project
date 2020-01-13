@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Nicolas\\Desktop\\Capstone\\CareOnDemand\\CareOnDemand\\CareOnDemand.Android\\CareOnDemand.Android.csproj": {}
+    "C:\\Users\\Nicolas\\Documents\\GitHub\\ENSE-400-Project\\Source Code\\CareOnDemand\\CareOnDemand\\CareOnDemand.Android\\CareOnDemand.Android.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Nicolas\\Desktop\\Capstone\\CareOnDemand\\CareOnDemand\\CareOnDemand.Android\\CareOnDemand.Android.csproj": {
+    "C:\\Users\\Nicolas\\Documents\\GitHub\\ENSE-400-Project\\Source Code\\CareOnDemand\\CareOnDemand\\CareOnDemand.Android\\CareOnDemand.Android.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Nicolas\\Desktop\\Capstone\\CareOnDemand\\CareOnDemand\\CareOnDemand.Android\\CareOnDemand.Android.csproj",
+        "projectUniqueName": "C:\\Users\\Nicolas\\Documents\\GitHub\\ENSE-400-Project\\Source Code\\CareOnDemand\\CareOnDemand\\CareOnDemand.Android\\CareOnDemand.Android.csproj",
         "projectName": "CareOnDemand.Android",
-        "projectPath": "C:\\Users\\Nicolas\\Desktop\\Capstone\\CareOnDemand\\CareOnDemand\\CareOnDemand.Android\\CareOnDemand.Android.csproj",
+        "projectPath": "C:\\Users\\Nicolas\\Documents\\GitHub\\ENSE-400-Project\\Source Code\\CareOnDemand\\CareOnDemand\\CareOnDemand.Android\\CareOnDemand.Android.csproj",
         "packagesPath": "C:\\Users\\Nicolas\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Nicolas\\Desktop\\Capstone\\CareOnDemand\\CareOnDemand\\CareOnDemand.Android\\obj\\",
+        "outputPath": "C:\\Users\\Nicolas\\Documents\\GitHub\\ENSE-400-Project\\Source Code\\CareOnDemand\\CareOnDemand\\CareOnDemand.Android\\obj\\",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
         "fallbackFolders": [
@@ -32,8 +32,8 @@
         "frameworks": {
           "monoandroid90": {
             "projectReferences": {
-              "C:\\Users\\Nicolas\\Desktop\\Capstone\\CareOnDemand\\CareOnDemand\\CareOnDemand\\CareOnDemand.csproj": {
-                "projectPath": "C:\\Users\\Nicolas\\Desktop\\Capstone\\CareOnDemand\\CareOnDemand\\CareOnDemand\\CareOnDemand.csproj"
+              "C:\\Users\\Nicolas\\Documents\\GitHub\\ENSE-400-Project\\Source Code\\CareOnDemand\\CareOnDemand\\CareOnDemand\\CareOnDemand.csproj": {
+                "projectPath": "C:\\Users\\Nicolas\\Documents\\GitHub\\ENSE-400-Project\\Source Code\\CareOnDemand\\CareOnDemand\\CareOnDemand\\CareOnDemand.csproj"
               }
             }
           }
@@ -54,14 +54,14 @@
         }
       }
     },
-    "C:\\Users\\Nicolas\\Desktop\\Capstone\\CareOnDemand\\CareOnDemand\\CareOnDemand\\CareOnDemand.csproj": {
+    "C:\\Users\\Nicolas\\Documents\\GitHub\\ENSE-400-Project\\Source Code\\CareOnDemand\\CareOnDemand\\CareOnDemand\\CareOnDemand.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Nicolas\\Desktop\\Capstone\\CareOnDemand\\CareOnDemand\\CareOnDemand\\CareOnDemand.csproj",
+        "projectUniqueName": "C:\\Users\\Nicolas\\Documents\\GitHub\\ENSE-400-Project\\Source Code\\CareOnDemand\\CareOnDemand\\CareOnDemand\\CareOnDemand.csproj",
         "projectName": "CareOnDemand",
-        "projectPath": "C:\\Users\\Nicolas\\Desktop\\Capstone\\CareOnDemand\\CareOnDemand\\CareOnDemand\\CareOnDemand.csproj",
+        "projectPath": "C:\\Users\\Nicolas\\Documents\\GitHub\\ENSE-400-Project\\Source Code\\CareOnDemand\\CareOnDemand\\CareOnDemand\\CareOnDemand.csproj",
         "packagesPath": "C:\\Users\\Nicolas\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Nicolas\\Desktop\\Capstone\\CareOnDemand\\CareOnDemand\\CareOnDemand\\obj\\",
+        "outputPath": "C:\\Users\\Nicolas\\Documents\\GitHub\\ENSE-400-Project\\Source Code\\CareOnDemand\\CareOnDemand\\CareOnDemand\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"

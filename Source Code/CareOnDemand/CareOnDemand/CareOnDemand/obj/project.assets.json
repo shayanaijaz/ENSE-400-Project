@@ -573,11 +573,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Nicolas\\Desktop\\Capstone\\CareOnDemand\\CareOnDemand\\CareOnDemand\\CareOnDemand.csproj",
+      "projectUniqueName": "C:\\Users\\Nicolas\\Documents\\GitHub\\ENSE-400-Project\\Source Code\\CareOnDemand\\CareOnDemand\\CareOnDemand\\CareOnDemand.csproj",
       "projectName": "CareOnDemand",
-      "projectPath": "C:\\Users\\Nicolas\\Desktop\\Capstone\\CareOnDemand\\CareOnDemand\\CareOnDemand\\CareOnDemand.csproj",
+      "projectPath": "C:\\Users\\Nicolas\\Documents\\GitHub\\ENSE-400-Project\\Source Code\\CareOnDemand\\CareOnDemand\\CareOnDemand\\CareOnDemand.csproj",
       "packagesPath": "C:\\Users\\Nicolas\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Nicolas\\Desktop\\Capstone\\CareOnDemand\\CareOnDemand\\CareOnDemand\\obj\\",
+      "outputPath": "C:\\Users\\Nicolas\\Documents\\GitHub\\ENSE-400-Project\\Source Code\\CareOnDemand\\CareOnDemand\\CareOnDemand\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\"
