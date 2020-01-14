@@ -7,9 +7,14 @@
              x:Class="CareOnDemand.Views.SharedViews.ErrorPage">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
+            <Label Text="Whoops! An error occured!"
                 VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+                HorizontalOptions="CenterAndExpand" 
+                FontSize="Header" 
+                FontAttributes="Bold"
+                TextColor="Black"
+                   />
         </StackLayout>
+        
     </ContentPage.Content>
 </ContentPage>
