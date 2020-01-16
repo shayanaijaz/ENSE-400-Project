@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="CareOnDemand.Views.CustomerViews.RegisterPage">
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+             
+                <RowDefinition Height="*" /> <!-- Row for Image-->
+                <RowDefinition Height="*" /> <!-- Row for Label1-->
+                <RowDefinition Height="*" /> <!-- Row for Email-->
+                <RowDefinition Height="*" /> <!-- Row for Password-->
+                <RowDefinition Height="*" /><!-- Row for FName-->
+                <RowDefinition Height="*" /><!-- Row for LName-->
+                <RowDefinition Height="*" /><!-- Row for Address-->
+                <RowDefinition Height="*" /><!-- Row for Phone Number-->
+                <RowDefinition Height="*" /><!-- Row for Button-->
+                <RowDefinition Height="*" /><!-- Row for EdenCare Num-->
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Image Source="" BackgroundColor="Green" Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="1" />
+
+            <Label Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Text="Create an Account:" FontSize="30" />
+            
+            <Label Grid.Row="2" Grid.Column="0"  Text="Email:" FontSize="20" />
+            <Entry Grid.Row="2" Grid.Column="1" VerticalOptions="Start" FontSize="20" Placeholder="Email"/>
+            
+            <Label Grid.Row="3" Grid.Column="0" Text="Password:" FontSize="20" />
+            <Entry Grid.Row="3" Grid.Column="1"  VerticalOptions="Start" FontSize="20" Placeholder="Password"/>
+            
+            <Label Grid.Row="4" Grid.Column="0" Text="First Name:" FontSize="20" />
+            <Entry Grid.Row="4" Grid.Column="1"  VerticalOptions="Start" FontSize="20" Placeholder="First Name"/>
+
+            <Label Grid.Row="5" Grid.Column="0" Text="Last Name:" FontSize="20" />
+            <Entry Grid.Row="5" Grid.Column="1"  VerticalOptions="Start" FontSize="20" Placeholder="Last Name"/>
+
+
+            <Label Grid.Row="6" Grid.Column="0" Text="Number:" FontSize="20" />
+            <Entry Grid.Row="6" Grid.Column="1"  VerticalOptions="Start" FontSize="20" Placeholder="Number"/>
+            
+            <Label Grid.Row="7" Grid.Column="0" Text="Address:" FontSize="20" />
+            <Entry Grid.Row="7" Grid.Column="1"  VerticalOptions="Start" FontSize="20" Placeholder="Address"/>
+            
+            <Button Grid.Row="8" Grid.Column="1"  HeightRequest="10" HorizontalOptions="StartAndExpand" Grid.ColumnSpan="1" Text=" Create an account" />
+            <Label Grid.Row="9" Grid.Column="1" Grid.ColumnSpan="2" HorizontalOptions="StartAndExpand" Text="1-306-edn-care" />
+
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
