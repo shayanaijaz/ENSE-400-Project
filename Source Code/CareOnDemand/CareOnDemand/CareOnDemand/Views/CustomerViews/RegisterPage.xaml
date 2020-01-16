@@ -48,7 +48,7 @@
             <Label Grid.Row="7" Grid.Column="0" Text="Address:" FontSize="20" />
             <Entry Grid.Row="7" Grid.Column="1"  VerticalOptions="Start" FontSize="20" Placeholder="Address"/>
             
-            <Button Grid.Row="8" Grid.Column="1"  HeightRequest="10" HorizontalOptions="StartAndExpand" Grid.ColumnSpan="1" Text=" Create an account" />
+            <Button Grid.Row="8" Grid.Column="1"  HeightRequest="10" HorizontalOptions="StartAndExpand" Grid.ColumnSpan="1" Text="Create an account" />
             <Label Grid.Row="9" Grid.Column="1" Grid.ColumnSpan="2" HorizontalOptions="StartAndExpand" Text="1-306-edn-care" />
 
 

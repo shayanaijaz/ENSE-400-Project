@@ -461,7 +461,6 @@ C:\Users\Nickolas\Documents\GitHub\ENSE-400-Project\Source Code\CareOnDemand\Car
 C:\Users\Nickolas\Documents\GitHub\ENSE-400-Project\Source Code\CareOnDemand\CareOnDemand\CareOnDemand.Android\obj\Debug\90\app_shared_libraries\x86\libxamarin-app.so
 C:\Users\Nickolas\Documents\GitHub\ENSE-400-Project\Source Code\CareOnDemand\CareOnDemand\CareOnDemand.Android\obj\Debug\90\app_shared_libraries\x86_64\libxamarin-app.so
 C:\Users\Nickolas\Documents\GitHub\ENSE-400-Project\Source Code\CareOnDemand\CareOnDemand\CareOnDemand.Android\obj\Debug\90\android\bin\classes.dex
-C:\Users\Nickolas\Documents\GitHub\ENSE-400-Project\Source Code\CareOnDemand\CareOnDemand\CareOnDemand.Android\obj\Debug\90\stamp\SetupDependenciesForDesigner.stamp
 C:\Users\Nickolas\Documents\GitHub\ENSE-400-Project\Source Code\CareOnDemand\CareOnDemand\CareOnDemand.Android\obj\Debug\90\stamp\_BuildAdditionalResourcesCache.stamp
 C:\Users\Nickolas\Documents\GitHub\ENSE-400-Project\Source Code\CareOnDemand\CareOnDemand\CareOnDemand.Android\obj\Debug\90\stamp\_CleanIntermediateIfNuGetsChange.stamp
 C:\Users\Nickolas\Documents\GitHub\ENSE-400-Project\Source Code\CareOnDemand\CareOnDemand\CareOnDemand.Android\obj\Debug\90\stamp\_CompileToDalvik.stamp
