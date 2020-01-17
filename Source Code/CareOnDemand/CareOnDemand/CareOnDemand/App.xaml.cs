@@ -1,6 +1,7 @@
 ﻿using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using CareOnDemand.Views.SharedViews;
 
 namespace CareOnDemand
 {
@@ -10,7 +11,7 @@ namespace CareOnDemand
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            MainPage = new LoginPage();
         }
 
         protected override void OnStart()

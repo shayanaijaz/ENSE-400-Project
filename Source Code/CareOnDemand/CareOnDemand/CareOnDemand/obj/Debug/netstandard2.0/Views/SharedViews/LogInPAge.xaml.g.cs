@@ -8,17 +8,17 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: global::Xamarin.Forms.Xaml.XamlResourceIdAttribute("CareOnDemand.Views.SharedViews.LogInPage.xaml", "Views/SharedViews/LogInPage.xaml", typeof(global::CareOnDemand.Views.SharedViews.Page1))]
+[assembly: global::Xamarin.Forms.Xaml.XamlResourceIdAttribute("CareOnDemand.Views.SharedViews.LoginPage.xaml", "Views/SharedViews/LoginPage.xaml", typeof(global::CareOnDemand.Views.SharedViews.LoginPage))]
 
 namespace CareOnDemand.Views.SharedViews {
     
     
-    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("Views\\SharedViews\\LogInPage.xaml")]
-    public partial class Page1 : global::Xamarin.Forms.ContentPage {
+    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("Views\\SharedViews\\LoginPage.xaml")]
+    public partial class LoginPage : global::Xamarin.Forms.ContentPage {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
         private void InitializeComponent() {
-            global::Xamarin.Forms.Xaml.Extensions.LoadFromXaml(this, typeof(Page1));
+            global::Xamarin.Forms.Xaml.Extensions.LoadFromXaml(this, typeof(LoginPage));
         }
     }
 }
