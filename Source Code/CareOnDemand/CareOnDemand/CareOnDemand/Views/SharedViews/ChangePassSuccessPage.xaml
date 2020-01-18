@@ -26,7 +26,7 @@
 
 
             <Label Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" FontAttributes="Bold" HorizontalOptions="CenterAndExpand" Text="Password Reset" FontSize="30" />
-            <Label Grid.Row= "2" Grid.Column="0" Margin="10" Grid.ColumnSpan="3" Text="Your password has been reset successfully" HorizontalOptions="CenterAndExpand"/>
+            <Label Grid.Row= "2" Grid.Column="0" Margin="10" Grid.ColumnSpan="3" Text="Your password has successfully been reset" HorizontalOptions="CenterAndExpand"/>
             <Button Grid.Row="3" Grid.Column="0" HeightRequest="3" Margin="10" FontSize="Large" HorizontalOptions="Fill" Grid.ColumnSpan="3" Text="Return" />
 
             <Label Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3" HorizontalOptions="CenterAndExpand" Text="Contact Eden Care" FontSize="30" />
