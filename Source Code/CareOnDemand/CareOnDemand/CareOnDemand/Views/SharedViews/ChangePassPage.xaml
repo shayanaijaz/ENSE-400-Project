@@ -6,10 +6,40 @@
              mc:Ignorable="d"
              x:Class="CareOnDemand.Views.SharedViews.ChangePassPage">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                
+
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+
+            <Label Grid.Row="2" Grid.Column="0" Margin="10" Grid.ColumnSpan="3" FontAttributes="Bold" Text="Reset Password:" FontSize="30" />
+
+
+            <Entry Grid.Row="3" Grid.Column="0" Margin="10" Grid.ColumnSpan="3"  HorizontalTextAlignment="Start" FontSize="20" Placeholder="Current Password"/>
+
+            <Entry Grid.Row="4" Grid.Column="0" Margin="10" Grid.ColumnSpan="3"  HorizontalTextAlignment="Start" FontSize="20" Placeholder="New Password"/>
+            <Entry Grid.Row="5" Grid.Column="0" Margin="10" Grid.ColumnSpan="3"  HorizontalTextAlignment="Start" FontSize="20" Placeholder="Confirm New Password"/>
+
+            <Button Grid.Row="6" Grid.Column="0" Margin="10"  HeightRequest="3" FontSize="Large" HorizontalOptions="Fill" Grid.ColumnSpan="3" Text="Update Password" />
+
+            <Label Grid.Row="7" Grid.Column="0" Margin="10" Grid.ColumnSpan="3" HorizontalOptions="CenterAndExpand" Text="Contact Eden Care" FontSize="30" />
+            <Label Grid.Row="8" Grid.Column="1" Text="1-306-EDN-CARE" HorizontalOptions="Start" VerticalOptions="Center" Grid.ColumnSpan="2" />
+
+            </Grid>
     </ContentPage.Content>
 </ContentPage>

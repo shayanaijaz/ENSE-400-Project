@@ -27,28 +27,21 @@
             </Grid.ColumnDefinitions>
             <Image Source="" BackgroundColor="Green" Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="1" />
 
-            <Label Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Text="Create an Account:" FontSize="30" />
-            
-            <Label Grid.Row="2" Grid.Column="0"  Text="Email:" FontSize="20" />
-            <Entry Grid.Row="2" Grid.Column="1" VerticalOptions="Start" FontSize="20" Placeholder="Email"/>
-            
-            <Label Grid.Row="3" Grid.Column="0" Text="Password:" FontSize="20" />
-            <Entry Grid.Row="3" Grid.Column="1"  VerticalOptions="Start" FontSize="20" Placeholder="Password"/>
-            
-            <Label Grid.Row="4" Grid.Column="0" Text="First Name:" FontSize="20" />
-            <Entry Grid.Row="4" Grid.Column="1"  VerticalOptions="Start" FontSize="20" Placeholder="First Name"/>
+            <Label Grid.Row="1" Margin="10" Grid.Column="0" Grid.ColumnSpan="3" FontAttributes="Bold" Text="Create Account" FontSize="30" />
 
-            <Label Grid.Row="5" Grid.Column="0" Text="Last Name:" FontSize="20" />
-            <Entry Grid.Row="5" Grid.Column="1"  VerticalOptions="Start" FontSize="20" Placeholder="Last Name"/>
+            <Entry Grid.Row="2" Margin="10" Grid.Column="0" VerticalOptions="Start" Grid.ColumnSpan="3" FontSize="20" Placeholder="Email"/>
 
+            <Entry Grid.Row="3" Margin="10" Grid.Column="0"  VerticalOptions="Start" Grid.ColumnSpan="3" FontSize="20" Placeholder="Password"/>
 
-            <Label Grid.Row="6" Grid.Column="0" Text="Number:" FontSize="20" />
-            <Entry Grid.Row="6" Grid.Column="1"  VerticalOptions="Start" FontSize="20" Placeholder="Number"/>
-            
-            <Label Grid.Row="7" Grid.Column="0" Text="Address:" FontSize="20" />
-            <Entry Grid.Row="7" Grid.Column="1"  VerticalOptions="Start" FontSize="20" Placeholder="Address"/>
-            
-            <Button Grid.Row="8" Grid.Column="1"  HeightRequest="10" HorizontalOptions="StartAndExpand" Grid.ColumnSpan="1" Text="Create an account" />
+            <Entry Grid.Row="4" Margin="10" Grid.Column="0"  VerticalOptions="Start" Grid.ColumnSpan="3" FontSize="20" Placeholder="First Name"/>
+
+            <Entry Grid.Row="5" Margin="10" Grid.Column="0"  VerticalOptions="Start" Grid.ColumnSpan="3" FontSize="20" Placeholder="Last Name"/>
+
+            <Entry Grid.Row="6" Margin="10" Grid.Column="0"  VerticalOptions="Start" Grid.ColumnSpan="3" FontSize="20" Placeholder="Number"/>
+
+            <Entry Grid.Row="7" Margin="10" Grid.Column="0"  VerticalOptions="Start" Grid.ColumnSpan="3" FontSize="20" Placeholder="Address"/>
+
+            <Button Grid.Row="8" Grid.Column="0" HeightRequest="3" Margin="10" FontSize="Large" HorizontalOptions="Fill" Grid.ColumnSpan="3" Text="Create Account" />
             <Label Grid.Row="9" Grid.Column="1" Grid.ColumnSpan="2" HorizontalOptions="StartAndExpand" Text="1-306-edn-care" />
 
 

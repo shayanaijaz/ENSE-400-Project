@@ -23,15 +23,15 @@
             </Grid.ColumnDefinitions>
             
             <Image Source="" BackgroundColor="Green" Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="1" />
-            <Label Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Text="Create an Account:" FontSize="30" />
+            <Label Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Margin="10" FontAttributes="Bold" Text="Forgot Password:" FontSize="30" />
             
-            <Label Grid.Row="2" Grid.Column="0"  Text="Email:" FontSize="20" />
+
             <Entry Grid.Row="2" Grid.Column="1" VerticalOptions="Start" FontSize="20" Placeholder="Email"/>
 
-            <Button Grid.Row="3" Grid.Column="1"  HeightRequest="10" HorizontalOptions="StartAndExpand" Grid.ColumnSpan="1" Text="Reset Password" />
+            <Button Grid.Row="3" Grid.Column="1"  HeightRequest="5" HorizontalOptions="Center" Grid.ColumnSpan="1" Text="Reset Password" />
             
-            <Label Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3" Text="Contact Eden Care" FontSize="30" />
-
+            <Label Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3" HorizontalOptions="CenterAndExpand" Text="Contact Eden Care" FontSize="30" />
+            <Label Grid.Row="4" Grid.Column="1" Text="1-306-EDN-CARE" HorizontalOptions="Start" VerticalOptions="Center" Grid.ColumnSpan="2" />
 
         </Grid>
     </ContentPage.Content>
