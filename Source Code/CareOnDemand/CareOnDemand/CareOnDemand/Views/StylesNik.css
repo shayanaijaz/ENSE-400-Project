@@ -1,0 +1,17 @@
+Content {
+    background-color: #CCCCCC
+}
+
+Grid {
+    margin: 20px,35px,20px,20px;
+}
+
+.primaryTheme {
+    border-radius: 15px;
+    background-color: #9966CC;
+}
+
+.secondaryTheme {
+    border-radius: 25px;
+    background-color: #58427C;
+}
