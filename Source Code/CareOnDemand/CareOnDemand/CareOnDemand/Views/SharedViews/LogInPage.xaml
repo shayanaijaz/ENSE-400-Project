@@ -7,7 +7,8 @@
              mc:Ignorable="d"
              x:Class="CareOnDemand.Views.SharedViews.Page1">
     <ContentPage.Content>
-        <Grid Margin="20,35,20,20">
+        <ContentView BackgroundColor="#CCCCCC">
+        <Grid Margin="20,35,20,20" >
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="0.5*" />
                 <ColumnDefinition Width="0.5*" />
@@ -21,16 +22,15 @@
                 <RowDefinition Height="0.05*" />
                 <RowDefinition Height="0.05*" />
             </Grid.RowDefinitions>
-            <Image Grid.ColumnSpan="2" Source="ENSE-400-Project\Pictures\Eden-Care-logo-main.png"/>
-            <Label Grid.Row="1" Grid.Column="0" VerticalOptions="Center" HorizontalOptions="End" FontSize="Large" Text="Email Address:" />
-            <Entry Grid.Row="1" Grid.Column="1" Placeholder="Please enter"/>
-            <Label Grid.Row="2" Grid.Column="0" VerticalOptions="Center" HorizontalOptions="End" FontSize="Large" Text="Password:" />
-            <Entry Grid.Row="2" Grid.Column="1" Placeholder="Please enter"/>
-            <Button Grid.Row="3" Text="Sign In" VerticalOptions="Center" Grid.ColumnSpan="2" BorderColor="Black" BorderWidth="2"/>
-            <Button Grid.Row="4" Text="New user?" VerticalOptions="Center" Grid.ColumnSpan="2" BorderColor="Black" BorderWidth="2"/>
-            <Button Grid.Row="5" Text="Forgot Password?" HorizontalOptions="Center" VerticalOptions="Center" Grid.ColumnSpan="2" BorderColor="Black" BorderWidth="2"/>
-            <Button Grid.Row="6" Text="1-306-EDN-CARE" HorizontalOptions="Center" VerticalOptions="Center" Grid.ColumnSpan="2" BorderColor="Black" BorderWidth="2"/>
+            <Image Grid.Row="0" Source="Eden-Care-logo-main.png" />
+            <Entry Placeholder="Email" Grid.Row="1" Grid.Column="0"  VerticalOptions="Center" Grid.ColumnSpan="2"/>
+            <Entry Grid.Row="2" Grid.Column="0" Placeholder="Password" VerticalOptions="Center" Grid.ColumnSpan="2"/>
+                <Button Grid.Row="3" Text="Sign In" VerticalOptions="Center" Grid.ColumnSpan="2" BorderRadius="15"  BackgroundColor="#9966CC" BorderWidth="2"/>
+            <Button Grid.Row="4" Text="New user?" VerticalOptions="Center" Grid.ColumnSpan="2" BorderRadius="15"  BackgroundColor="#9966CC" BorderWidth="2"/>
+                <Button Grid.Row="5" Text="Forgot Password?" HorizontalOptions="Center" BorderRadius="25"  VerticalOptions="Center" Grid.ColumnSpan="2" BackgroundColor="#58427C" BorderWidth="2"/>
+                <Button Grid.Row="6" Text="     1-306-EDN-CARE    " HorizontalOptions="Center" BorderRadius="25"  VerticalOptions="Center" Grid.ColumnSpan="2" BackgroundColor="#58427C" BorderWidth="2"/>
         </Grid>
+        </ContentView>
     </ContentPage.Content>
-
+    
 </ContentPage>
