@@ -25,7 +25,7 @@
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
-            <Image Source="" BackgroundColor="Green" Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="1" />
+            <Image Source="" Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="1" />
 
             <Label Grid.Row="1" Margin="10" Grid.Column="0" Grid.ColumnSpan="3" FontAttributes="Bold" Text="Create Account" FontSize="30" />
 
@@ -41,8 +41,9 @@
 
             <Entry Grid.Row="7" Margin="10" Grid.Column="0"  VerticalOptions="Start" Grid.ColumnSpan="3" FontSize="20" Placeholder="Address"/>
 
-            <Button Grid.Row="8" Grid.Column="0" HeightRequest="3" Margin="10" FontSize="Large" HorizontalOptions="Fill" Grid.ColumnSpan="3" Text="Create Account" />
-            <Label Grid.Row="9" Grid.Column="1" Grid.ColumnSpan="2" HorizontalOptions="StartAndExpand" Text="1-306-edn-care" />
+            <Button Grid.Row="8" BackgroundColor="#9966CC" CornerRadius="15"  Grid.Column="0" HeightRequest="3" Margin="10" FontSize="Large" HorizontalOptions="Fill" Grid.ColumnSpan="3" Text="Create Account" />
+            
+            <Label Grid.Row="9" Grid.Column="1" Grid.ColumnSpan="2" VerticalOptions="End" HorizontalOptions="StartAndExpand" Text="1-306-edn-care" />
 
 
         </Grid>
