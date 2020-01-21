@@ -11,7 +11,7 @@ namespace CareOnDemand
         {
             InitializeComponent();
 
-            MainPage = new ForgotPassPage();
+            MainPage = new NavigationPage(new LoginPage());
         }
 
         protected override void OnStart()
