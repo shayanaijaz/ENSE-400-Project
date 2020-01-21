@@ -23,9 +23,9 @@
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
-            <Label Grid.Row="0" FontSize="20" FontAttributes="Bold" Grid.Column="1" Grid.ColumnSpan="2" Text="Order a Service" HorizontalOptions="Start" VerticalOptions="CenterAndExpand" />
+            <Label Grid.Row="0" FontSize="20" FontAttributes="Bold" Grid.Column="1" Grid.ColumnSpan="2" Text="Order Services" HorizontalTextAlignment="Start"  VerticalTextAlignment="Center" />
             <Picker x:Name="service selector"
-                    Title="Order a Service"
+                    Title="Order Service"
                     Grid.Row="1"
                     Grid.Column="0"
                     Grid.ColumnSpan="3"
@@ -38,13 +38,13 @@
                     </x:Array>
                 </Picker.ItemsSource>
             </Picker>
-            <Label Text="Selected service Description" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" FontSize="Small" />
-            <Label Text="Selected service Price" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" FontSize="Small" />
+            <Label Text="Selected Service Description" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" FontSize="Small" />
+            <Label Text="Selected Service Price" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" FontSize="Small" />
             <Button Text="Add Selected Service" Grid.Row="5"  Grid.Column="1" VerticalOptions="Center" FontSize="Small"/>
-            <Label Text="Selected Services" Grid.Row="6" Grid.Column="0" FontSize="Small" />
+            <Label Text="Selected Services" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2" FontSize="Small" />
             <Button Text="Continue Order" Grid.Row="7" Grid.Column="1" VerticalOptions="Center" FontSize="Small" />
             <Image Source="" Grid.Row="8" Grid.Column="1" BackgroundColor="#9966CC" />
-            <Label Grid.Row="9" Grid.Column="1" Grid.ColumnSpan="2" VerticalOptions="End" HorizontalOptions="StartAndExpand" Text="1-306-edn-care" />
+            <Label Grid.Row="9" Grid.Column="1" Grid.ColumnSpan="2" VerticalOptions="End" HorizontalOptions="StartAndExpand" Text="1-306-EDN-CARE" />
             
         </Grid>
     </ContentPage.Content>
