@@ -24,20 +24,14 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
             <Label Grid.Row="0" FontSize="20" FontAttributes="Bold" Grid.Column="1" Grid.ColumnSpan="2" Text="Order Services" HorizontalTextAlignment="Start"  VerticalTextAlignment="Center" />
-            <Picker x:Name="service selector"
+            <Picker x:Name="ServiceSelector"
                     Title="Order Service"
                     Grid.Row="1"
                     Grid.Column="0"
                     Grid.ColumnSpan="3"
-                    TitleColor="#9966CC">
-                <Picker.ItemsSource>
-                    <x:Array Type="{x:Type x:String}">
-                        <x:String>Drive to Pharmacy</x:String>
-                        <x:String>Companionship </x:String>
-                        <x:String>Wipe ass</x:String>
-                    </x:Array>
-                </Picker.ItemsSource>
-            </Picker>
+                    SelectedIndexChanged="ServiceSelector_SelectedIndexChanged" />
+
+
             <Label Text="Selected Service Description" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" FontSize="Small" />
             <Label Text="Selected Service Price" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" FontSize="Small" />
             <Button Text="Add Selected Service" Grid.Row="5"  Grid.Column="1" VerticalOptions="Center" FontSize="Small"/>
