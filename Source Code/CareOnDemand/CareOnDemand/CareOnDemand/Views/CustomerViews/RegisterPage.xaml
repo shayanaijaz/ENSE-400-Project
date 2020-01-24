@@ -5,6 +5,9 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="CareOnDemand.Views.CustomerViews.RegisterPage">
+    <ContentPage.Resources>
+        <StyleSheet Source="/Views/StyleSheet.css" />
+    </ContentPage.Resources>
     <ContentPage.Content>
         <Grid>
             <Grid.RowDefinitions>
@@ -41,7 +44,7 @@
 
             <Entry Grid.Row="7" Margin="10" Grid.Column="0"  VerticalOptions="Start" Grid.ColumnSpan="3" FontSize="20" Placeholder="Address"/>
 
-            <Button Grid.Row="8" BackgroundColor="#9966CC" CornerRadius="15"  Grid.Column="0" HeightRequest="3" Margin="10" FontSize="Large" HorizontalOptions="Fill" Grid.ColumnSpan="3" Text="Create Account" />
+            <Button StyleClass="primaryTheme" Grid.Row="8" Grid.Column="0" HeightRequest="3" Margin="10" FontSize="Large" HorizontalOptions="Fill" Grid.ColumnSpan="3" Text="Create Account" />
             
             <Label Grid.Row="9" Grid.Column="1" Grid.ColumnSpan="2" VerticalOptions="End" HorizontalOptions="StartAndExpand" Text="1-306-edn-care" />
 
