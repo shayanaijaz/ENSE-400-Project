@@ -5,7 +5,11 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="CareOnDemand.Views.SharedViews.ErrorPage">
+    <ContentPage.Resources>
+        <StyleSheet Source="/Views/StyleSheet.css" />
+    </ContentPage.Resources>
     <ContentPage.Content>
+
         <StackLayout>
             <Label Text="Whoops! An error occured!"
                 VerticalOptions="CenterAndExpand" 

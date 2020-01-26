@@ -1,0 +1,36 @@
+﻿/*
+Format to include this file in any .xaml file that we need to include
+<ContentPage>
+<ContentPage.Resources>
+<StyleSheet Source="../StylesNik.css" />
+</ContentPage.Resources>
+</ContentPage>
+*/
+
+^ContentPage {
+    background-color:azure;
+}
+
+grid.main {
+   padding: 15;
+}
+
+.primaryLabel
+{
+    text-align: center;
+    font-size: 30;
+    font-style: bold;
+}
+
+.primaryButton {
+    border-radius: 15;
+    border-width: 5;
+    background-color:lightblue;
+
+}
+
+.secondaryButton {
+    border-radius: 25;
+    background-color:#003152;
+    font-size: small;
+}

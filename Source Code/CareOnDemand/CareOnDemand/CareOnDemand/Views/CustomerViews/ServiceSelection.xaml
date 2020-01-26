@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="CareOnDemand.Views.CustomerViews.ServiceSelection">
+    <ContentPage.Resources>
+        <StyleSheet Source="/Views/StyleSheet.css" />
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <Grid StyleClass="main">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Label Grid.Row="0" StyleClass="primaryLabel"  Grid.ColumnSpan="2" Text="Order Services"  />
+            <Picker x:Name="ServiceSelector"
+                    Title="Order Service"
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="3"
+                    SelectedIndexChanged="ServiceSelector_SelectedIndexChanged" />
+
+
+            <Label Text="Selected Service Description" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" FontSize="Small" />
+            <Label Text="Selected Service Price" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" FontSize="Small" />
+            <Button StyleClass="secondaryButton" Text="Add Selected Service" Grid.Row="5"  Grid.Column="1" />
+            <Label Text="Selected Services" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2" FontSize="Small" />
+            <Button Text="Continue Order" Grid.Row="7" Grid.Column="1" StyleClass="secondaryButton"  />
+            <Label Grid.Row="9" Grid.Column="1" Grid.ColumnSpan="2" VerticalOptions="End" HorizontalOptions="StartAndExpand" Text="1-306-EDN-CARE" />
+            
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

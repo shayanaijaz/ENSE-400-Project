@@ -5,11 +5,44 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="CareOnDemand.Views.SharedViews.ChangePassPage">
+    <ContentPage.Resources>
+        <StyleSheet Source="/Views/StyleSheet.css" />
+    </ContentPage.Resources>
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <Grid StyleClass="main">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+
+            <Label StyleClass="primaryLabel" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3"  Text="Reset Password:" />
+
+            <Entry Grid.Row="3" Grid.Column="0" Margin="10" Grid.ColumnSpan="3"  HorizontalTextAlignment="Start" FontSize="20" Placeholder="Email"/>
+            <Entry Grid.Row="4" Grid.Column="0" Margin="10" Grid.ColumnSpan="3"  HorizontalTextAlignment="Start" FontSize="20" Placeholder="Current Password"/>
+
+            <Entry Grid.Row="5" Grid.Column="0" Margin="10" Grid.ColumnSpan="3"  HorizontalTextAlignment="Start" FontSize="20" Placeholder="New Password"/>
+            <Entry Grid.Row="6" Grid.Column="0" Margin="10" Grid.ColumnSpan="3"  HorizontalTextAlignment="Start" FontSize="20" Placeholder="Confirm New Password"/>
+
+            <Button StyleClass="primaryButton" Grid.Row="7" Grid.Column="0" Margin="10"  FontSize="Large" Grid.ColumnSpan="3" Text="Update Password" />
+
+            <Label Grid.Row="8" Grid.Column="0" Margin="10" Grid.ColumnSpan="3" HorizontalOptions="CenterAndExpand" Text="Contact Eden Care" FontSize="30" />
+            <Label Grid.Row="9" Grid.Column="1" Text="1-306-EDN-CARE" HorizontalOptions="Start" VerticalOptions="End" Grid.ColumnSpan="2" />
+
+            </Grid>
     </ContentPage.Content>
 </ContentPage>
