@@ -1,0 +1,3 @@
+Purple: #9966cc
+Dark Purpe: #58427c
+Grey: #cccccc
