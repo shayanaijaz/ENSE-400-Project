@@ -18,6 +18,7 @@ Documentation:
 - [Functional Requirements Document](./Documentation/Functional%20Requirements%20Document.pdf)
 - [User Stories](./Documentation/User%20Stories.pdf)
 - [User Flows](./Documentation/User%20Flows.pdf)
+- [Personas](./Documentation/Eden%20Care%20Personas.pdf)
 
 Prototyping:
 - [Wireframes](./Prototypes/Wireframes)
