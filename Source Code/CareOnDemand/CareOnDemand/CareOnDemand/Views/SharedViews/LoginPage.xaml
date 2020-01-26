@@ -22,10 +22,10 @@
             </Grid.RowDefinitions>
             <Image Grid.ColumnSpan="2" Source="ENSE-400-Project\Pictures\Eden-Care-logo-main.png"/>
             <Label Grid.Row="1" Grid.Column="0" VerticalOptions="Center" HorizontalOptions="End" FontSize="Large" Text="Email Address:" />
-            <Entry Grid.Row="1" Grid.Column="1" Placeholder="Please enter"/>
+            <Entry Grid.Row="1" Grid.Column="1" Placeholder="Please enter" Text="{Binding Email}"/>
             <Label Grid.Row="2" Grid.Column="0" VerticalOptions="Center" HorizontalOptions="End" FontSize="Large" Text="Password:" />
-            <Entry Grid.Row="2" Grid.Column="1" Placeholder="Please enter"/>
-            <Button Grid.Row="3" Text="Sign In" VerticalOptions="Center" Grid.ColumnSpan="2" BorderColor="Black" BorderWidth="2"/>
+            <Entry Grid.Row="2" Grid.Column="1" Placeholder="Please enter" Text="{Binding Password}"/>
+            <Button Grid.Row="3" Text="Sign In" VerticalOptions="Center" Grid.ColumnSpan="2" BorderColor="Black" BorderWidth="2" Command="{Binding LoginCommand}"/>
             <Button Grid.Row="4" Text="New user?" VerticalOptions="Center" Grid.ColumnSpan="2" BorderColor="Black" BorderWidth="2" Command="{Binding GoToRegisterPageCommand}"/>
             <Button Grid.Row="5" Text="Forgot Password?" HorizontalOptions="Center" VerticalOptions="Center" Grid.ColumnSpan="2" BorderColor="Black" BorderWidth="2"/>
             <Button Grid.Row="6" Text="1-306-EDN-CARE" HorizontalOptions="Center" VerticalOptions="Center" Grid.ColumnSpan="2" BorderColor="Black" BorderWidth="2"/>

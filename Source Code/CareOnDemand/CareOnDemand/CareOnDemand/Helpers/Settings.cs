@@ -31,13 +31,13 @@ namespace CareOnDemand.Helpers
 
         public static string AWS_CLIENT_ID
         {
-            get => AppSettings.GetValueOrDefault(nameof(AWS_CLIENT_ID), "1lbtbj2tjg9dd8v1o5sdv3cvra");
+            get => AppSettings.GetValueOrDefault(nameof(AWS_CLIENT_ID), "3347gn412kvgl1gtus49go3tvo");
             set => AppSettings.GetValueOrDefault(nameof(AWS_CLIENT_ID), value);
         }
 
         public static string AWS_COGNITO_POOL_ID
         {
-            get => AppSettings.GetValueOrDefault(nameof(AWS_COGNITO_POOL_ID), "ca-central-1_V4kc3XfXh");
+            get => AppSettings.GetValueOrDefault(nameof(AWS_COGNITO_POOL_ID), "ca-central-1_5g4GbAmLU");
             set => AppSettings.GetValueOrDefault(nameof(AWS_COGNITO_POOL_ID), value);
         }
 
