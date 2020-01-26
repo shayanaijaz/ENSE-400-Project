@@ -8,16 +8,16 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using CareOnDemand.ViewModels;
 
-namespace CareOnDemand.Views.CustomerViews
+namespace CareOnDemand.Views.SharedViews
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class RegisterPage : ContentPage
+    public partial class LoginPage : ContentPage
     {
-        public RegisterPage()
+        public LoginPage()
         {
             InitializeComponent();
 
-            BindingContext = new RegisterViewModel();
+            BindingContext = new LoginViewModel();
         }
     }
 }
