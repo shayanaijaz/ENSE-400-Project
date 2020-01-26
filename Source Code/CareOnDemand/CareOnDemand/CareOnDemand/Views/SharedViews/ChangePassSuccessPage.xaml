@@ -5,17 +5,18 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="CareOnDemand.Views.SharedViews.ChangePassSuccessPage">
+    <ContentPage.Resources>
+        <StyleSheet Source="/Views/StyleSheet.css" />
+    </ContentPage.Resources>
     <ContentPage.Content>
-        <Grid>
+
+        <Grid StyleClass="main">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*" />
                 <RowDefinition Height="35" />
                 <RowDefinition Height="*" />
                 <RowDefinition Height="75" />
                 <RowDefinition Height="105" />
-
-
-
             </Grid.RowDefinitions>
 
             <Grid.ColumnDefinitions>
@@ -24,10 +25,9 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
-
-            <Label Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" FontAttributes="Bold" HorizontalOptions="CenterAndExpand" Text="Password Reset" FontSize="30" />
+            <Label StyleClass="primaryLabel" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" FontAttributes="Bold" HorizontalOptions="CenterAndExpand" Text="Password Reset"/>
             <Label Grid.Row= "2" Grid.Column="0" Margin="10" Grid.ColumnSpan="3" Text="Your password has successfully been reset" HorizontalOptions="CenterAndExpand"/>
-            <Button Grid.Row="3" Grid.Column="0" HeightRequest="3" Margin="10" FontSize="Large" HorizontalOptions="Fill" Grid.ColumnSpan="3" Text="Return" />
+            <Button Grid.Row="3" Grid.Column="0" StyleClass="primaryButton"  Margin="10" FontSize="Large"  Grid.ColumnSpan="3" Text="Return" />
 
             <Label Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3" HorizontalOptions="CenterAndExpand" Text="Contact Eden Care" FontSize="30" />
             <Label Grid.Row="4" Grid.Column="1" Text="1-306-EDN-CARE" HorizontalOptions="Start" VerticalOptions="Center" Grid.ColumnSpan="2" />

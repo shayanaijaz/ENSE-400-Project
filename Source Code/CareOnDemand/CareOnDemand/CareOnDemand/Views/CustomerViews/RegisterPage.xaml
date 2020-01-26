@@ -5,8 +5,12 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="CareOnDemand.Views.CustomerViews.RegisterPage">
+    <ContentPage.Resources>
+        <StyleSheet Source="/Views/StyleSheet.css" />
+    </ContentPage.Resources>
     <ContentPage.Content>
-        <Grid BackgroundColor="#CCCCCC">
+        <Grid StyleClass="main">
+
             <Grid.RowDefinitions>
              
                 <RowDefinition Height="*" /> <!-- Row for Image-->
@@ -25,26 +29,26 @@
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
+
+            <Image Source="" Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="1" />
+
+            <Label StyleClass="primaryLabel" Grid.Row="1"  Grid.Column="0" Grid.ColumnSpan="3" Text="Create Account"  />
+
+            <Entry Grid.Row="2"  Grid.Column="0" VerticalOptions="Start" Grid.ColumnSpan="3" FontSize="20" Placeholder="Email" Text="{Binding Email}/>
+
+            <Entry Grid.Row="3"  Grid.Column="0"  VerticalOptions="Start" Grid.ColumnSpan="3" FontSize="20" Placeholder="Password" IsPassword="True" Text="{Binding Password}/>
+
+            <Entry Grid.Row="4" Grid.Column="0"  VerticalOptions="Start" Grid.ColumnSpan="3" FontSize="20" Placeholder="First Name" Text="{Binding FirstName}/>
+
+            <Entry Grid.Row="5" Grid.Column="0"  VerticalOptions="Start" Grid.ColumnSpan="3" FontSize="20" Placeholder="Last Name" Text="{Binding LastName}/>
+
+            <Entry Grid.Row="6"  Grid.Column="0"  VerticalOptions="Start" Grid.ColumnSpan="3" FontSize="20" Placeholder="Number" {Binding Number}/>
+
+            <Entry Grid.Row="7"  Grid.Column="0"  VerticalOptions="Start" Grid.ColumnSpan="3" FontSize="20" Placeholder="Address" Text="{Binding Address}/>
+
+            <Button StyleClass="primaryButton" Grid.Row="8" Grid.Column="0" HeightRequest="3" Margin="10" FontSize="Large" HorizontalOptions="Fill" Grid.ColumnSpan="3" Text="Create Account" Command="{Binding RegisterCommand}/>
             
-            <Image Source="" BackgroundColor="#9966CC" Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="1" />
-
-            <Label Grid.Row="1" Margin="10" Grid.Column="0" Grid.ColumnSpan="3" TextColor="Black" FontAttributes="Bold" Text="Create Account" FontSize="30" />
-
-            <Entry Grid.Row="2" Margin="10" Grid.Column="0" VerticalOptions="Start" Grid.ColumnSpan="3" FontSize="20" Placeholder="Email" Text="{Binding Email}"/>
-
-            <Entry Grid.Row="3" Margin="10" Grid.Column="0"  VerticalOptions="Start" Grid.ColumnSpan="3" FontSize="20" Placeholder="Password" IsPassword="True" Text="{Binding Password}"/>
-
-            <Entry Grid.Row="4" Margin="10" Grid.Column="0"  VerticalOptions="Start" Grid.ColumnSpan="3" FontSize="20" Placeholder="First Name" Text="{Binding FirstName}"/>
-
-            <Entry Grid.Row="5" Margin="10" Grid.Column="0"  VerticalOptions="Start" Grid.ColumnSpan="3" FontSize="20" Placeholder="Last Name" Text="{Binding LastName}"/>
-
-            <Entry Grid.Row="6" Margin="10" Grid.Column="0"  VerticalOptions="Start" Grid.ColumnSpan="3" FontSize="20" Placeholder="Number" Text="{Binding Number}"/>
-
-            <Entry Grid.Row="7" Margin="10" Grid.Column="0"  VerticalOptions="Start" Grid.ColumnSpan="3" FontSize="20" Placeholder="Address" Text="{Binding Address}"/>
-
-            <Button Grid.Row="8" Grid.Column="0" HeightRequest="3" BackgroundColor="#9966CC" Margin="10" FontSize="Large"  HorizontalOptions="Fill" Grid.ColumnSpan="3" Text="Create Account" Command="{Binding RegisterCommand}" />
-            <Label Grid.Row="9" Grid.Column="1" Grid.ColumnSpan="2" HorizontalOptions="StartAndExpand" Text="1-306-edn-care" />
-
+            <Label Grid.Row="9" Grid.Column="1" Grid.ColumnSpan="2" VerticalOptions="End" HorizontalOptions="StartAndExpand" Text="1-306-edn-care" />
 
 
         </Grid>

@@ -4,21 +4,12 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="CareOnDemand.Views.SharedViews.ErrorPage">
-    <ContentPage.Resources>
-        <StyleSheet Source="/Views/StyleSheet.css" />
-    </ContentPage.Resources>
+             x:Class="CareOnDemand.Views.CustomerViews.ServiceReview">
     <ContentPage.Content>
-
         <StackLayout>
-            <Label Text="Whoops! An error occured!"
+            <Label Text="Welcome to Xamarin.Forms!"
                 VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" 
-                FontSize="Header" 
-                FontAttributes="Bold"
-                TextColor="Black"
-                   />
+                HorizontalOptions="CenterAndExpand" />
         </StackLayout>
-        
     </ContentPage.Content>
 </ContentPage>
