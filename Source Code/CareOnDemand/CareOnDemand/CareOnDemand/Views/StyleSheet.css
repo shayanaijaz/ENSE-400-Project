@@ -2,7 +2,7 @@
 Format to include this file in any .xaml file that we need to include
 <ContentPage>
 <ContentPage.Resources>
-<StyleSheet Source="../StylesNik.css" />
+<StyleSheet Source="../StyleSheet.css" />
 </ContentPage.Resources>
 </ContentPage>
 */
@@ -17,8 +17,8 @@ grid.main {
 
 .primaryLabel
 {
-    text-align: center;
-    font-size: 30;
+    text-align:center;
+    font-size:30;
     font-style: bold;
 }
 
@@ -37,6 +37,7 @@ grid.main {
 
 .secondaryButton {
     border-radius: 25;
-    background-color: lightblue;
+    background-color:#a5d5ed;
     font-size: small;
+    text-decoration-color: black;
 }
