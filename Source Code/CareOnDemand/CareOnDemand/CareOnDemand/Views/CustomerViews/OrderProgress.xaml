@@ -5,11 +5,40 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="CareOnDemand.Views.CustomerViews.OrderProgress">
+    <ContentPage.Resources>
+        <StyleSheet Source="/Views/StyleSheet.css" />
+    </ContentPage.Resources>
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <ContentView>
+            <Grid Padding="15" StyleClass="main">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.15*" />
+                    <RowDefinition Height="0.1*" />
+                    <RowDefinition Height="0.05*" />
+                    <RowDefinition Height="0.25*" />
+                    <RowDefinition Height="0.05*" />
+                    <RowDefinition Height="0.05*" />
+                    <RowDefinition Height="0.05*" />
+                    <RowDefinition Height="0.05*" />
+                    <RowDefinition Height="0.15*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.1*" />
+                    <ColumnDefinition Width="0.9*" />
+                </Grid.ColumnDefinitions>
+                <Label Text="PLACEHOLDER" Grid.Row="0" Grid.ColumnSpan="2" FontSize="Large" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
+                <Label Text="Your order is being processed"  Grid.Row="1" Grid.ColumnSpan="2"  FontSize="Large" VerticalOptions="Center" HorizontalOptions="CenterAndExpand"/>
+                <Label Text="Order in Progess" Grid.Row="2" Grid.ColumnSpan="2" VerticalOptions="Center" FontSize="Large"/>
+                <Label Text="Details" Grid.Row="3" Grid.ColumnSpan="2" VerticalOptions="Start"/>
+                <Label Text="Your care provider" Grid.Row="4" Grid.ColumnSpan="2" VerticalOptions="Start" FontSize="Large"/>
+                <CheckBox IsChecked="True" IsEnabled="False" Grid.Row="5" Grid.Column="0"/>
+                <Label Text="Is providing another service" Grid.Row="5" Grid.Column="1" VerticalOptions="Center"/>
+                <CheckBox IsChecked="False" IsEnabled="False" Grid.Row="6" Grid.Column="0"/>
+                <Label Text="Is on the way to your location" Grid.Row="6" Grid.Column="1" VerticalOptions="Center"/>
+                <CheckBox IsChecked="False" IsEnabled="False" Grid.Row="7" Grid.Column="0"/>
+                <Label Text="Has arrived st you location" Grid.Row="7" Grid.Column="1" VerticalOptions="Center"/>
+                <Label Text="1-306-EDN-CARE" Grid.Row="8" Grid.ColumnSpan="2" VerticalOptions="End" HorizontalOptions="Center" TextDecorations="Underline"/>
+            </Grid>
+        </ContentView>
     </ContentPage.Content>
 </ContentPage>
