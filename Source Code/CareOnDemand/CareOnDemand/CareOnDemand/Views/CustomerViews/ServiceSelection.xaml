@@ -27,12 +27,13 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
             <Label Grid.Row="0" StyleClass="primaryLabel"  Grid.ColumnSpan="2" Text="Order Services"  />
-            <Picker x:Name="ServiceSelector"
-                    Title="Order Service"
+            <Picker Title="Select Service"
                     Grid.Row="1"
                     Grid.Column="0"
                     Grid.ColumnSpan="3"
-                    SelectedIndexChanged="ServiceSelector_SelectedIndexChanged" />
+                    ItemsSource="{Binding ServicesList}"
+                    ItemDisplayBinding="{Binding Value}"
+                    />
 
             <Label Text="Selected Service Description" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" FontSize="Small" />
             <Label Text="Selected Service Price" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" FontSize="Small" />
