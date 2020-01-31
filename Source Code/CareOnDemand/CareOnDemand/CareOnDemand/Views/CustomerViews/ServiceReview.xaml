@@ -32,17 +32,17 @@
                     <ColumnDefinition Width="1*" />
                 </Grid.ColumnDefinitions>
                 <Label StyleClass="primaryLabel" Text="PLACEHOLDER" Grid.Row="0" FontSize="Large" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
-                <Label Text="Service(s) Ordered"  Grid.Row="1" FontSize="Large" VerticalOptions="Center" HorizontalOptions="Start"/>
+                <Label Text="Service(s) Ordered"  Grid.Row="1" FontSize="Large" VerticalOptions="End" HorizontalOptions="Start"/>
                 <Label Text="Item 1 &#10;Item 2 &#10;Item 3" Grid.Row="2" VerticalOptions="Start" FontSize="Medium"/>
-                <Label Text="Location" Grid.Row="3" FontSize="Large" VerticalOptions="Start"/>
+                <Label Text="Location" Grid.Row="3" FontSize="Large" VerticalOptions="End"/>
                 <Label Text="123 Example Avenue, Regina SK" Grid.Row="4" VerticalOptions="Start" FontSize="Medium"/>
-                <Label Text="Time" Grid.Row="5" FontSize="Large" VerticalOptions="Start"/>
+                <Label Text="Time" Grid.Row="5" FontSize="Large" VerticalOptions="End"/>
                 <Label Text="7:30 AM" Grid.Row="6" VerticalOptions="Start" FontSize="Medium"/>
-                <Label Text="Recipient" Grid.Row="7" FontSize="Large" VerticalOptions="Start"/>
+                <Label Text="Recipient" Grid.Row="7" FontSize="Large" VerticalOptions="End"/>
                 <Label Text="Jon Doe" Grid.Row="8" VerticalOptions="Start" FontSize="Medium"/>
-                <Label Text="Final Price" Grid.Row="9" FontSize="Large" VerticalOptions="Start"/>
+                <Label Text="Final Price" Grid.Row="9" FontSize="Large" VerticalOptions="End"/>
                 <Label Text="123 Example Avenue, Regina SK" Grid.Row="10" VerticalOptions="Start" FontSize="Medium"/>
-                <Label Text="Additonal Instructions" Grid.Row="11" FontSize="Large" VerticalOptions="Start"/>
+                <Label Text="Additonal Instructions" Grid.Row="11" FontSize="Large" VerticalOptions="End"/>
                 <Entry Grid.Row="12" VerticalOptions="EndAndExpand"/>
                 <Button StyleClass="primaryButton" Text="Submit Order" Grid.Row="13" VerticalOptions="Start"/>
                 <Label StyleClass="contactLabel" Text="1-306-EDN-CARE" Grid.Row="14" VerticalOptions="End" />
