@@ -30,7 +30,7 @@
             </Grid.ColumnDefinitions>
 
 
-            <Label StyleClass="primaryLabel" Grid.Row="0"  Grid.Column="0" Grid.ColumnSpan="3" Text="Update Address"  />
+            <Label StyleClass="primaryLabel" Grid.Row="0"  Grid.Column="0" Grid.ColumnSpan="3" Text="Add Address"  />
             <Entry Grid.Row="1"  Grid.Column="0"  VerticalOptions="End" Grid.ColumnSpan="3"  FontSize="20" Placeholder="Province"/>
             <Entry Grid.Row="2"  Grid.Column="0"  VerticalOptions="Center" Grid.ColumnSpan="3" FontSize="20" Placeholder="City"/>
             <Entry Grid.Row="3"  Grid.Column="0"  VerticalOptions="Center" Grid.ColumnSpan="3" FontSize="20" Placeholder="Postal Code"/>
