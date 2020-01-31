@@ -33,53 +33,31 @@
                 <Label Text="Selected Service(s)"  Grid.Row="1" FontSize="Large" VerticalOptions="End" HorizontalOptions="Start"/>
                 <Label Text="AUTOFILL FROM PREV PAGE" Grid.Row="2" VerticalOptions="Start" FontSize="Medium"/>
                 
-                <Picker Title="Where?" Grid.Row="3" VerticalOptions="Start" FontSize="Large">
-                    <Picker.Items>
-                        <x:String>*My Location*</x:String>
-                        <x:String>*Saved Location*</x:String>
-                        <x:String>Add New Location</x:String>
-                    </Picker.Items>
-                </Picker>
+                <Picker Title="Where?" Grid.Row="3" VerticalOptions="Start" FontSize="Large"
+                    ItemsSource="{Binding LocationList}"
+                    ItemDisplayBinding="{Binding Value}"
+                />
 
                 <Label Text="What day?" Grid.Row="4" VerticalOptions="Start" FontSize="Large"/>
                 <DatePicker Date="{x:Static sys:DateTime.Now}" Grid.Row="5" VerticalOptions="Start" FontSize="Large">
                     <DatePicker.Format>yyyy-MM-dd</DatePicker.Format>
-                    <DatePicker.MinimumDate>
-                        <sys:DateTime x:FactoryMethod="Parse">
-                            <x:Arguments>
-                                <x:String>Jan 1 2000</x:String>
-                            </x:Arguments>
-                        </sys:DateTime>
-                    </DatePicker.MinimumDate>
-                    <DatePicker.MaximumDate>
-                        <sys:DateTime x:FactoryMethod="Parse">
-                            <x:Arguments>
-                                <x:String>Dec 31 2050</x:String>
-                            </x:Arguments>
-                        </sys:DateTime>
-                    </DatePicker.MaximumDate>
+                    <DatePicker.MinimumDate>{Binding MinimumDate}</DatePicker.MinimumDate>
                 </DatePicker>
 
-                <Picker Title="Select a time" Grid.Row="6" VerticalOptions="Start" FontSize="Large">
-                    <Picker.Items>
-                        <x:String>ASAP</x:String>
-                        <x:String>*Available times*</x:String>
-                    </Picker.Items>
-                </Picker>
-                
-                <Picker Title="Who is the service for?" Grid.Row="7" VerticalOptions="Start" FontSize="Large">
-                    <Picker.Items>
-                        <x:String>Myself</x:String>
-                        <x:String>*Family Member*</x:String>
-                    </Picker.Items>
-                </Picker>
+                <Picker Title="Select a time" Grid.Row="6" VerticalOptions="Start" FontSize="Large"
+                    ItemsSource="{Binding TimeList}"
+                    ItemDisplayBinding="{Binding Value}"
+                />
 
-                <Picker Title="Select your desired Care Partner" Grid.Row="8" VerticalOptions="Start" FontSize="Large">
-                    <Picker.Items>
-                        <x:String>No preference</x:String>
-                        <x:String>Joe</x:String>
-                    </Picker.Items>
-                </Picker>
+                <Picker Title="Who is the service for?" Grid.Row="7" VerticalOptions="Start" FontSize="Large"
+                    ItemsSource="{Binding RecipientList}"
+                    ItemDisplayBinding="{Binding Value}"
+                />
+
+                <Picker Title="Select your desired Care Partner" Grid.Row="8" VerticalOptions="Start" FontSize="Large"
+                    ItemsSource="{Binding CarePartnerList}"
+                    ItemDisplayBinding="{Binding Value}"
+                />
                 
                 <Button StyleClass="primaryButton" Text="Continue Order" Grid.Row="9" VerticalOptions="Start"/>
                 
