@@ -34,7 +34,6 @@
                     Grid.ColumnSpan="3"
                     SelectedIndexChanged="ServiceSelector_SelectedIndexChanged" />
 
-
             <Label Text="Selected Service Description" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" FontSize="Small" />
             <Label Text="Selected Service Price" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" FontSize="Small" />
             <Button StyleClass="secondaryButton" Text="Add Selected Service" Grid.Row="5"  Grid.Column="1" />

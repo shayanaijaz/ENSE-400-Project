@@ -5,8 +5,11 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="CareOnDemand.Views.SharedViews.LoginPage">
+    <ContentPage.Resources>
+        <StyleSheet Source="/Views/StyleSheet.css" />
+    </ContentPage.Resources>
     <ContentPage.Content>
-        <Grid Margin="20,35,20,20">
+        <Grid StyleClass="main">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="0.5*" />
                 <ColumnDefinition Width="0.5*" />
@@ -20,15 +23,14 @@
                 <RowDefinition Height="0.05*" />
                 <RowDefinition Height="0.05*" />
             </Grid.RowDefinitions>
-            <Image Grid.ColumnSpan="2" Source="ENSE-400-Project\Pictures\Eden-Care-logo-main.png"/>
-            <Label Grid.Row="1" Grid.Column="0" VerticalOptions="Center" HorizontalOptions="End" FontSize="Large" Text="Email Address:" />
-            <Entry Grid.Row="1" Grid.Column="1" Placeholder="Please enter" Text="{Binding Email}"/>
-            <Label Grid.Row="2" Grid.Column="0" VerticalOptions="Center" HorizontalOptions="End" FontSize="Large" Text="Password:" />
-            <Entry Grid.Row="2" Grid.Column="1" Placeholder="Please enter" Text="{Binding Password}"/>
-            <Button Grid.Row="3" Text="Sign In" VerticalOptions="Center" Grid.ColumnSpan="2" BorderColor="Black" BorderWidth="2" Command="{Binding LoginCommand}"/>
-            <Button Grid.Row="4" Text="New user?" VerticalOptions="Center" Grid.ColumnSpan="2" BorderColor="Black" BorderWidth="2" Command="{Binding GoToRegisterPageCommand}"/>
-            <Button Grid.Row="5" Text="Forgot Password?" HorizontalOptions="Center" VerticalOptions="Center" Grid.ColumnSpan="2" BorderColor="Black" BorderWidth="2"/>
-            <Button Grid.Row="6" Text="1-306-EDN-CARE" HorizontalOptions="Center" VerticalOptions="Center" Grid.ColumnSpan="2" BorderColor="Black" BorderWidth="2"/>
+            <Image Grid.ColumnSpan="2" Source="C:\Users\Nickolas\Documents\GitHub\ENSE-400-Project\Source Code\Resources\Eden-Care-logo-main.png"/>
+
+            <Entry Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" HorizontalTextAlignment="Start" Placeholder="Email" Text="{Binding Email}"/>
+            <Entry Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Placeholder="Password" Text="{Binding Password}"/>
+            <Button StyleClass="primaryButton" Grid.Row="3" Text="Sign In" VerticalOptions="Center" Grid.ColumnSpan="2"  Command="{Binding LoginCommand}"/>
+            <Button StyleClass="primaryButton" Grid.Row="4" Text="New user?" VerticalOptions="Center" Grid.ColumnSpan="2"  Command="{Binding GoToRegisterPageCommand}"/>
+            <Button StyleClass="secondaryButton" Grid.Row="5" Text="Forgot Password?" HorizontalOptions="Center" VerticalOptions="Center" FontAttributes="Bold" Grid.ColumnSpan="2" />
+            <Label StyleClass="contactLabel" Grid.Row="6" Text="1-306-EDN-CARE" HorizontalOptions="Center" VerticalOptions="End" Grid.ColumnSpan="2" />
         </Grid>
     </ContentPage.Content>
 </ContentPage>

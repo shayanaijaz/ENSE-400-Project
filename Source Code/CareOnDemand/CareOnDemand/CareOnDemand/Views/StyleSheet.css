@@ -2,13 +2,13 @@
 Format to include this file in any .xaml file that we need to include
 <ContentPage>
 <ContentPage.Resources>
-<StyleSheet Source="../StylesNik.css" />
+<StyleSheet Source="../StyleSheet.css" />
 </ContentPage.Resources>
 </ContentPage>
 */
 
 ^ContentPage {
-    background-color:azure;
+    background-color: beige;
 }
 
 grid.main {
@@ -17,20 +17,27 @@ grid.main {
 
 .primaryLabel
 {
-    text-align: center;
-    font-size: 30;
+    text-align:center;
+    font-size:30;
     font-style: bold;
+}
+
+.contactLabel
+{
+    text-align: center;
+    font-size: small;
+    text-decoration-color: black;
 }
 
 .primaryButton {
     border-radius: 15;
     border-width: 5;
-    background-color:lightblue;
-
+    background-color:#119bcc;
 }
 
 .secondaryButton {
     border-radius: 25;
-    background-color:#003152;
+    background-color:#a5d5ed;
     font-size: small;
+    text-decoration-color: black;
 }

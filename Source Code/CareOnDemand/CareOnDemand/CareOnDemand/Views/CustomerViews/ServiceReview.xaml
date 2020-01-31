@@ -5,11 +5,48 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="CareOnDemand.Views.CustomerViews.ServiceReview">
+    <ContentPage.Resources>
+        <StyleSheet Source="/Views/StyleSheet.css" />
+    </ContentPage.Resources>
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <ContentView>
+            <Grid Padding="15" StyleClass="main">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.1*" />
+                    <RowDefinition Height="0.05*" />
+                    <RowDefinition Height="0.1*" />
+                    <RowDefinition Height="0.05*" />
+                    <RowDefinition Height="0.02*" />
+                    <RowDefinition Height="0.05*" />
+                    <RowDefinition Height="0.02*" />
+                    <RowDefinition Height="0.05*" />
+                    <RowDefinition Height="0.02*" />
+                    <RowDefinition Height="0.05*" />
+                    <RowDefinition Height="0.02*" />
+                    <RowDefinition Height="0.05*" />
+                    <RowDefinition Height="0.1*"  />
+                    <RowDefinition Height="0.07*" />
+                    <RowDefinition Height="0.03*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*" />
+                </Grid.ColumnDefinitions>
+                <Label StyleClass="primaryLabel" Text="PLACEHOLDER" Grid.Row="0" FontSize="Large" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
+                <Label Text="Service(s) Ordered"  Grid.Row="1" FontSize="Large" VerticalOptions="Center" HorizontalOptions="Start"/>
+                <Label Text="Item 1 &#10;Item 2 &#10;Item 3" Grid.Row="2" VerticalOptions="Start" FontSize="Medium"/>
+                <Label Text="Location" Grid.Row="3" FontSize="Large" VerticalOptions="Start"/>
+                <Label Text="123 Example Avenue, Regina SK" Grid.Row="4" VerticalOptions="Start" FontSize="Medium"/>
+                <Label Text="Time" Grid.Row="5" FontSize="Large" VerticalOptions="Start"/>
+                <Label Text="7:30 AM" Grid.Row="6" VerticalOptions="Start" FontSize="Medium"/>
+                <Label Text="Recipient" Grid.Row="7" FontSize="Large" VerticalOptions="Start"/>
+                <Label Text="Jon Doe" Grid.Row="8" VerticalOptions="Start" FontSize="Medium"/>
+                <Label Text="Final Price" Grid.Row="9" FontSize="Large" VerticalOptions="Start"/>
+                <Label Text="123 Example Avenue, Regina SK" Grid.Row="10" VerticalOptions="Start" FontSize="Medium"/>
+                <Label Text="Additonal Instructions" Grid.Row="11" FontSize="Large" VerticalOptions="Start"/>
+                <Entry Grid.Row="12" VerticalOptions="EndAndExpand"/>
+                <Button StyleClass="primaryButton" Text="Submit Order" Grid.Row="13" VerticalOptions="Start"/>
+                <Label StyleClass="contactLabel" Text="1-306-EDN-CARE" Grid.Row="14" VerticalOptions="End" />
+            </Grid>
+        </ContentView>
     </ContentPage.Content>
 </ContentPage>
