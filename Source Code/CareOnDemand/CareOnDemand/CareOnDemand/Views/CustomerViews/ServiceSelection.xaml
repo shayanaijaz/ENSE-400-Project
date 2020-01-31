@@ -35,10 +35,10 @@
                     ItemDisplayBinding="{Binding Value}"
                     />
 
-            <Label Text="Selected Service Description" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" FontSize="Small" />
+            <Label Text="Selected Service Description" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3" FontSize="Small" />
             <Label Text="Selected Service Price" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" FontSize="Small" />
             <Button StyleClass="secondaryButton" Text="Add Selected Service" Grid.Row="5"  Grid.Column="1" />
-            <Label Text="Selected Services" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2" FontSize="Small" />
+            <Label Text="Selected Services" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="3" FontSize="Small" />
             <Button Text="Continue Order" Grid.Row="7" Grid.Column="1" StyleClass="secondaryButton"  />
             <Label Grid.Row="9" Grid.Column="1" Grid.ColumnSpan="2" VerticalOptions="End" HorizontalOptions="StartAndExpand" Text="1-306-EDN-CARE" />
             
