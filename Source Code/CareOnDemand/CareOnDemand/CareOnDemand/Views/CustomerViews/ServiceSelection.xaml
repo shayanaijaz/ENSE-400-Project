@@ -11,36 +11,31 @@
     <ContentPage.Content>
         <Grid StyleClass="main">
             <Grid.RowDefinitions>
-                <RowDefinition Height="*" />
-                <RowDefinition Height="*" />
-                <RowDefinition Height="*" />
-                <RowDefinition Height="*" />
-                <RowDefinition Height="*" />
-                <RowDefinition Height="*" />
-                <RowDefinition Height="*" />
-                <RowDefinition Height="*" />
-                <RowDefinition Height="*" />
+                <RowDefinition Height="0.05*" /> <!--Page Title-->
+                <RowDefinition Height="0.1*" /> <!--Service Picker-->
+                <RowDefinition Height="0.1*" /> <!--Service Description-->
+                <RowDefinition Height="0.1*" /> <!--Service Price-->
+                <RowDefinition Height="0.05*" /> <!--Add Service Button-->
+                <RowDefinition Height="0.2*" /> <!--Service List-->
+                <RowDefinition Height="0.05*" /> <!--Continue Order-->
+                <RowDefinition Height="0.05*" /> <!--Call Eden Care-->
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="1*"/>
             </Grid.ColumnDefinitions>
-            <Label Grid.Row="0" StyleClass="primaryLabel"  Grid.ColumnSpan="2" Text="Order Services"  />
+            <Label Grid.Row="0" StyleClass="primaryLabel" Text="Order Services" HorizontalOptions="StartAndExpand" />
             <Picker Title="Select Service"
                     Grid.Row="1"
-                    Grid.Column="0"
-                    Grid.ColumnSpan="3"
                     ItemsSource="{Binding ServicesList}"
                     ItemDisplayBinding="{Binding Value}"
                     />
 
-            <Label Text="Selected Service Description" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3" FontSize="Small" />
-            <Label Text="Selected Service Price" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" FontSize="Small" />
-            <Button StyleClass="secondaryButton" Text="Add Selected Service" Grid.Row="5"  Grid.Column="1" />
-            <Label Text="Selected Services" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="3" FontSize="Small" />
-            <Button Text="Continue Order" Grid.Row="7" Grid.Column="1" StyleClass="secondaryButton"  />
-            <Label Grid.Row="9" Grid.Column="1" Grid.ColumnSpan="2" VerticalOptions="End" HorizontalOptions="StartAndExpand" Text="1-306-EDN-CARE" />
+            <Label Text="Selected Service Description" Grid.Row="2" HorizontalOptions="StartAndExpand" FontSize="Small" />
+            <Label Text="Selected Service Price" Grid.Row="3" HorizontalOptions="StartAndExpand" FontSize="Small" />
+            <Button StyleClass="secondaryButton" Text="Add Selected Service" VerticalOptions="Start" Grid.Row="4"/>
+            <Label Text="Selected Services" Grid.Row="5" FontSize="Small" />
+            <Button Text="Continue Order" Grid.Row="6" StyleClass="secondaryButton" />
+            <Label Grid.Row="7" VerticalOptions="End" HorizontalOptions="CenterAndExpand" Text="1-306-EDN-CARE" />
             
         </Grid>
     </ContentPage.Content>

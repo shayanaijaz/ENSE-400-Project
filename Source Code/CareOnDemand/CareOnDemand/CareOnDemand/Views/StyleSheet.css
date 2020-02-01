@@ -8,7 +8,7 @@ Format to include this file in any .xaml file that we need to include
 */
 
 ^ContentPage {
-    background-color: beige;
+    background-color: lightgrey;
 }
 
 grid.main {
@@ -26,6 +26,7 @@ grid.main {
 {
     text-align: center;
     font-size: small;
+    horizontal-align: center;
     text-decoration-color: black;
 }
 

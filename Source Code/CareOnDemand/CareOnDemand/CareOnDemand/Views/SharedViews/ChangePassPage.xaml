@@ -13,11 +13,11 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="*" />
                 <RowDefinition Height="*" />
-                <RowDefinition Height="*" />
-                <RowDefinition Height="*" />
-                <RowDefinition Height="*" />
-                <RowDefinition Height="*" />
-                <RowDefinition Height="*" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
                 <RowDefinition Height="*" />
                 <RowDefinition Height="*" />
 
@@ -30,19 +30,17 @@
             </Grid.ColumnDefinitions>
 
 
-            <Label StyleClass="primaryLabel" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3"  Text="Reset Password:" />
+            <Label StyleClass="primaryLabel" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3"  Text="Reset Password" />
 
-            <Entry Grid.Row="3" Grid.Column="0" Margin="10" Grid.ColumnSpan="3"  HorizontalTextAlignment="Start" FontSize="20" Placeholder="Email"/>
-            <Entry Grid.Row="4" Grid.Column="0" Margin="10" Grid.ColumnSpan="3"  HorizontalTextAlignment="Start" FontSize="20" Placeholder="Current Password"/>
+            <Entry Grid.Row="3" Grid.Column="0" Margin="10" Grid.ColumnSpan="3"  FontSize="20" Placeholder="Email"/>
+            <Entry Grid.Row="4" Grid.Column="0" Margin="10" Grid.ColumnSpan="3"  FontSize="20" Placeholder="Current Password"/>
 
-            <Entry Grid.Row="5" Grid.Column="0" Margin="10" Grid.ColumnSpan="3"  HorizontalTextAlignment="Start" FontSize="20" Placeholder="New Password"/>
-            <Entry Grid.Row="6" Grid.Column="0" Margin="10" Grid.ColumnSpan="3"  HorizontalTextAlignment="Start" FontSize="20" Placeholder="Confirm New Password"/>
+            <Entry Grid.Row="5" Grid.Column="0" Margin="10" Grid.ColumnSpan="3"  FontSize="20" Placeholder="New Password"/>
+            <Entry Grid.Row="6" Grid.Column="0" Margin="10" Grid.ColumnSpan="3"  FontSize="20" Placeholder="Confirm New Password"/>
 
             <Button StyleClass="primaryButton" Grid.Row="7" Grid.Column="0" Margin="10"  FontSize="Large" Grid.ColumnSpan="3" Text="Update Password" />
+            <Button Grid.Row="8" StyleClass="secondaryButton" Grid.Column="0" Grid.ColumnSpan="3" VerticalOptions="End" HorizontalOptions="CenterAndExpand" Text="1-306-EDN-CARE" FontSize="30" />
 
-            <Label Grid.Row="8" Grid.Column="0" Margin="10" Grid.ColumnSpan="3" HorizontalOptions="CenterAndExpand" Text="Contact Eden Care" FontSize="30" />
-            <Label Grid.Row="9" Grid.Column="1" Text="1-306-EDN-CARE" HorizontalOptions="Start" VerticalOptions="End" Grid.ColumnSpan="2" />
-
-            </Grid>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>
