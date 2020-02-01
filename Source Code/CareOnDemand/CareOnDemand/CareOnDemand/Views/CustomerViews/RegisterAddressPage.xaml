@@ -21,7 +21,6 @@
                     <RowDefinition Height="0.1*" />
                     <RowDefinition Height="0.1*" />
 
-
             </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
@@ -31,8 +30,14 @@
 
 
             <Label StyleClass="primaryLabel" Grid.Row="0"  Grid.Column="0" Grid.ColumnSpan="3" Text="Add Address"  />
-            <Entry Grid.Row="1"  Grid.Column="0"  VerticalOptions="End" Grid.ColumnSpan="3"  FontSize="20" Placeholder="Province"/>
-            <Entry Grid.Row="2"  Grid.Column="0"  VerticalOptions="Center" Grid.ColumnSpan="3" FontSize="20" Placeholder="City"/>
+            <Picker Title="Province"
+                    Grid.Row="1"  Grid.Column="0" VerticalOptions="Center" Grid.ColumnSpan="3" FontSize="20"
+                    >
+            </Picker>
+            <Picker Title="City"
+                    Grid.Row="2"  Grid.Column="0" VerticalOptions="Center" Grid.ColumnSpan="3" FontSize="20"
+                    >
+            </Picker>
             <Entry Grid.Row="3"  Grid.Column="0"  VerticalOptions="Center" Grid.ColumnSpan="3" FontSize="20" Placeholder="Postal Code"/>
             <Entry Grid.Row="4"  Grid.Column="0"  VerticalOptions="Center" Grid.ColumnSpan="3" FontSize="20" Placeholder="Street Address" Text="{Binding Address}"/>
             <Button StyleClass="primaryButton" Grid.Row="5" Text="Create Account"  VerticalOptions="Center" Grid.ColumnSpan="3" Command="{Binding RegisterCommand}"/>
