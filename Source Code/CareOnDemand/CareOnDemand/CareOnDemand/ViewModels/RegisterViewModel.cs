@@ -10,6 +10,8 @@ using Amazon.CognitoIdentityProvider.Model;
 //using Amazon.Extensions.CognitoAuthentication;
 using Amazon.Runtime;
 using CareOnDemand.Models;
+using System.Threading.Tasks;
+using CareOnDemand.Views.CustomerViews;
 
 namespace CareOnDemand.ViewModels
 {
@@ -17,7 +19,7 @@ namespace CareOnDemand.ViewModels
     {
         public RegisterViewModel()
         {
-            RegisterCommand = new Command(Register);
+            NextPageCommand = new Command(async () => await NextButtonClicked());
         }
 
         private String email;
@@ -37,14 +39,16 @@ namespace CareOnDemand.ViewModels
         public String Address { get; set; }
 
 
-        public Command RegisterCommand { private set; get; }
+        public Command NextPageCommand { private set; get; }
 
-        public void Register ()
+        async Task NextButtonClicked()
         {
-            RegisterModel registerModel = new RegisterModel(email, Password, Number, FirstName, Address);
-            registerModel.CreateCognitoUser();
-                       
-           
+            //RegisterModel registerModel = new RegisterModel(email, Password, Number, FirstName, Address);
+            //registerModel.CreateCognitoUser();
+
+            await Application.Current.MainPage.Navigation.PushAsync(new RegisterAddressPage());
+
+
         }
 
     }

@@ -4,28 +4,28 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="CareOnDemand.Views.CustomerViews.RegisterPage">
+             x:Class="CareOnDemand.Views.CustomerViews.RegisterAddressPage">
     <ContentPage.Resources>
         <StyleSheet Source="/Views/StyleSheet.css" />
     </ContentPage.Resources>
     <ContentPage.Content>
         <Grid StyleClass="main">
 
-                <Grid.RowDefinitions>
+            <Grid.RowDefinitions>
 
-                    <RowDefinition Height="0.15*" />
-                    <RowDefinition Height="0.1*" />
-                    <RowDefinition Height="0.1*" />
-                    <RowDefinition Height="0.1*" />
-                    <RowDefinition Height="0.1*" />
-                    <RowDefinition Height="0.1*" />
-                    <RowDefinition Height="0.1*" />
+                <RowDefinition Height="0.15*" />
+                <RowDefinition Height="0.1*" />
+                <RowDefinition Height="0.1*" />
+                <RowDefinition Height="0.1*" />
+                <RowDefinition Height="0.1*" />
+                <RowDefinition Height="0.1*" />
+                <RowDefinition Height="0.1*" />
 
             </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
 
@@ -43,6 +43,6 @@
             <Button StyleClass="primaryButton" Grid.Row="5" Text="Create Account"  VerticalOptions="Center" Grid.ColumnSpan="3" Command="{Binding RegisterCommand}"/>
             <Label Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="2" VerticalOptions="End" HorizontalOptions="StartAndExpand" Text="1-306-EDN-CARE" />
 
-            </Grid>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>
