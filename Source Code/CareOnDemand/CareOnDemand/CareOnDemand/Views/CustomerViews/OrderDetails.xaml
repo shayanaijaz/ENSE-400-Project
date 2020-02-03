@@ -56,7 +56,7 @@
                 
                 <Button StyleClass="primaryButton" Text="Continue Order" Grid.Row="10" VerticalOptions="Start"/>
                 
-                <Label StyleClass="contactLabel" Text="1-306-EDN-CARE" Grid.Row="11" VerticalOptions="End" />
+                <Label StyleClass="contactLabel" Text="1-306-EDN-CARE" Grid.Row="11" HorizontalOptions="Center" VerticalOptions="End" />
             </Grid>
         </ContentView>-->
     </ContentPage.Content>
