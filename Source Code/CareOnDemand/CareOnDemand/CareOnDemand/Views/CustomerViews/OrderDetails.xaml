@@ -38,10 +38,7 @@
                 />
 
                 <Label Text="What day?" Grid.Row="4" VerticalOptions="Start" FontSize="Large"/>
-                <DatePicker Grid.Row="5" VerticalOptions="Start" FontSize="Large">
-                    <DatePicker.Format>yyyy-MM-dd</DatePicker.Format>
-                    <DatePicker.MinimumDate>{Binding MinimumDate}</DatePicker.MinimumDate>
-                </DatePicker>
+                <DatePicker Grid.Row="5" VerticalOptions="Start" FontSize="Large"/>
 
                 <Picker Title="Select a time" Grid.Row="6" VerticalOptions="Start" FontSize="Large"
                     ItemsSource="{Binding TimeList}"
