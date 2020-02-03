@@ -7,18 +7,20 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using CareOnDemand.ViewModels;
+using CareOnDemand.Models;
 
 namespace CareOnDemand.Views.CustomerViews
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class RegisterPage : ContentPage
+    public partial class RegisterAddressPage : ContentPage
     {
-        public RegisterPage()
+        public RegisterAddressPage()
         {
             InitializeComponent();
 
             BindingContext = new RegisterViewModel();
 
+            
         }
     }
 }

@@ -9,52 +9,56 @@
         <StyleSheet Source="/Views/StyleSheet.css" />
     </ContentPage.Resources>
     <ContentPage.Content>
-        <Grid StyleClass="main">
+        <ScrollView>
+            <Grid StyleClass="main">
 
-            <Grid.RowDefinitions>
-             
-                <RowDefinition Height="*" /> <!-- Row for Image-->
-                <RowDefinition Height="auto" /> <!-- Row for Label1-->
-                <RowDefinition Height="auto" /> <!-- Row for Email-->
-                <RowDefinition Height="auto" /> <!-- Row for Password-->
-                <RowDefinition Height="auto" /> <!-- Row for Confirm Password-->
-                <RowDefinition Height="auto" /><!-- Row for FName-->
-                <RowDefinition Height="auto" /><!-- Row for LName-->
-                <RowDefinition Height="auto" /><!-- Row for Address-->
-                <RowDefinition Height="auto" /><!-- Row for Phone Number-->
-                <RowDefinition Height="*0.5" /><!-- Row for Button-->
-                <RowDefinition Height="*" /><!-- Row for EdenCare Num-->
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
 
-
-            <Label StyleClass="primaryLabel" Grid.Row="0"  Grid.Column="0" Grid.ColumnSpan="3" Text="Create Account"  />
-
-            <Entry Grid.Row="1"  Grid.Column="0" VerticalOptions="Start" Grid.ColumnSpan="3" FontSize="20" Placeholder="Email" Text="{Binding Email}"/>
-
-            <Entry Grid.Row="2" Grid.Column="0"  VerticalOptions="Start" Grid.ColumnSpan="3" FontSize="20" Placeholder="Password" Text="{Binding Password}"/>
-
-            <Entry Grid.Row="3" Grid.Column="0" VerticalOptions="Start" Grid.ColumnSpan="3" FontSize="20" Placeholder="Confirm Password" Text="{Binding Password}"/>
-
-            <Entry Grid.Row="4" Grid.Column="0"  VerticalOptions="Start" Grid.ColumnSpan="3" FontSize="20" Placeholder="First Name" Text="{Binding FirstName}"/>
-
-            <Entry Grid.Row="5" Grid.Column="0"  VerticalOptions="Start" Grid.ColumnSpan="3" FontSize="20" Placeholder="Last Name" Text="{Binding LastName}"/>
-
-            <Entry Grid.Row="6"  Grid.Column="0"  VerticalOptions="Start" Grid.ColumnSpan="3" FontSize="20" Placeholder="Number" Text="{Binding Number}"/>
-
-            <Entry Grid.Row="7"  Grid.Column="0"  VerticalOptions="Start" Grid.ColumnSpan="3" FontSize="20" Placeholder="Address" Text="{Binding Address}"/>
-
-            <Entry Grid.Row="8"  Grid.Column="0"  VerticalOptions="Start" Grid.ColumnSpan="3" FontSize="20" Placeholder="Address" />
-            
-            <Button StyleClass="primaryButton" Grid.Row="9" Grid.Column="0" VerticalOptions="ce" HeightRequest="3" Margin="10" FontSize="Large" HorizontalOptions="" Grid.ColumnSpan="3" Text="Create Account" Command="{Binding RegisterCommand}"/>
-            
-            <Label Grid.Row="10" Grid.Column="1" Grid.ColumnSpan="2" VerticalOptions="End" HorizontalOptions="StartAndExpand" Text="1-306-edn-care" />
+                    <RowDefinition Height="0.1*" />
+                    <!-- Row for Image-->
+                    <RowDefinition Height="0.05*" />
+                    <!-- Row for Label1-->
+                    <RowDefinition Height="0.05*" />
+                    <!-- Row for Email-->
+                    <RowDefinition Height="0.05*" />
+                    <!-- Row for Password-->
+                    <RowDefinition Height="0.05*" />
+                    <!-- Row for Confirm Password-->
+                    <RowDefinition Height="0.05*" />
+                    <!-- Row for FName-->
+                    <RowDefinition Height="0.05*" />
+                    <!-- Row for LName-->
+                    <RowDefinition Height="0.05*" />
+                    <!-- Row for Address-->
 
 
-        </Grid>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.5*" />
+                    <ColumnDefinition Width="0.5*" />
+                </Grid.ColumnDefinitions>
+
+
+                <Label StyleClass="primaryLabel" Grid.Row="0"  Grid.Column="0" Grid.ColumnSpan="3" Text="Create Account"  />
+
+                <Entry Grid.Row="1"  Grid.Column="0" Grid.ColumnSpan="3" VerticalOptions="Start" FontSize="20" Placeholder="Email" Text="{Binding Email}"/>
+
+                <Entry Grid.Row="2" Grid.Column="0"  VerticalOptions="Start" Grid.ColumnSpan="3" FontSize="20" Placeholder="Password" Text="{Binding Password}"/>
+
+                <Entry Grid.Row="3" Grid.Column="0" VerticalOptions="Start" Grid.ColumnSpan="3" FontSize="20" Placeholder="Confirm Password" Text="{Binding Password}"/>
+
+                <Entry Grid.Row="4" Grid.Column="0"  VerticalOptions="Start" Grid.ColumnSpan="2" FontSize="20" Placeholder="First Name" Text="{Binding FirstName}"/>
+
+                <Entry Grid.Row="4" Grid.Column="2"  VerticalOptions="Start" Grid.ColumnSpan="1" FontSize="20" Placeholder="Last Name" Text="{Binding LastName}"/>
+
+                <Entry Keyboard="Numeric" Grid.Row="5"  Grid.Column="0"  VerticalOptions="Start" Grid.ColumnSpan="3" FontSize="20" Placeholder="Phone Number" Text="{Binding Number}"/>
+
+
+                <Button StyleClass="primaryButton" Grid.Row="6" Text="Next"  VerticalOptions="End" Grid.ColumnSpan="3" Command="{Binding NextPageCommand}"/>
+
+                <Label Grid.Row="7" Grid.ColumnSpan="3" VerticalOptions="End" HorizontalOptions="CenterAndExpand" Text="1-306-EDN-CARE" />
+
+            </Grid>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>
