@@ -10,7 +10,7 @@
         <StyleSheet Source="/Views/StyleSheet.css" />
     </ContentPage.Resources>
     <ContentPage.Content>
-        <ContentView>
+        <!--<ContentView>
             <Grid Padding="15" StyleClass="main">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="0.1*" />
@@ -63,6 +63,6 @@
                 
                 <Label StyleClass="contactLabel" Text="1-306-EDN-CARE" Grid.Row="10" VerticalOptions="End" />
             </Grid>
-        </ContentView>
+        </ContentView>-->
     </ContentPage.Content>
 </ContentPage>

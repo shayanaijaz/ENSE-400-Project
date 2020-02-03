@@ -9,7 +9,7 @@ using Amazon.Runtime;
 
 namespace CareOnDemand.Models
 {
-    class LoginModel
+    public class LoginModel
     {
         private string username; 
         private string password;

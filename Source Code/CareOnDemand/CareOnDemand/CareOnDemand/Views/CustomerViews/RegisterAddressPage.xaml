@@ -32,15 +32,14 @@
             <Label StyleClass="primaryLabel" Grid.Row="0"  Grid.Column="0" Grid.ColumnSpan="3" Text="Add Address"  />
             <Picker Title="Province"
                     Grid.Row="1"  Grid.Column="0" VerticalOptions="Center" Grid.ColumnSpan="3" FontSize="20"
+                    ItemsSource="{Binding ProvinceList}"
+                    ItemDisplayBinding="{Binding Value}"
                     >
             </Picker>
-            <Picker Title="City"
-                    Grid.Row="2"  Grid.Column="0" VerticalOptions="Center" Grid.ColumnSpan="3" FontSize="20"
-                    >
-            </Picker>
-            <Entry Grid.Row="3"  Grid.Column="0"  VerticalOptions="Center" Grid.ColumnSpan="3" FontSize="20" Placeholder="Postal Code"/>
-            <Entry Grid.Row="4"  Grid.Column="0"  VerticalOptions="Center" Grid.ColumnSpan="3" FontSize="20" Placeholder="Street Address" Text="{Binding Address}"/>
-            <Button StyleClass="primaryButton" Grid.Row="5" Text="Create Account"  VerticalOptions="Center" Grid.ColumnSpan="3" Command="{Binding RegisterCommand}"/>
+            <Entry Grid.Row="2"  Grid.Column="0"  VerticalOptions="Center" Grid.ColumnSpan="3" FontSize="20" Placeholder="City" Text="{Binding AddressCity}" />
+            <Entry Grid.Row="3"  Grid.Column="0"  VerticalOptions="Center" Grid.ColumnSpan="3" FontSize="20" Placeholder="Postal Code" Text="{Binding AddressPostalCode}"/>
+            <Entry Grid.Row="4"  Grid.Column="0"  VerticalOptions="Center" Grid.ColumnSpan="3" FontSize="20" Placeholder="Street Address" Text="{Binding AddressLine1}"/>
+            <Button StyleClass="primaryButton" Grid.Row="5" Text="Create Account"  VerticalOptions="Center" Grid.ColumnSpan="3" Command="{Binding CreateAccountCommand}"/>
             <Label Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="2" VerticalOptions="End" HorizontalOptions="StartAndExpand" Text="1-306-EDN-CARE" />
 
         </Grid>

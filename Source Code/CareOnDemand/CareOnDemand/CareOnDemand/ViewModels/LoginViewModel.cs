@@ -20,6 +20,7 @@ namespace CareOnDemand.ViewModels
         }
 
         private String email;
+        private String password;
 
         public String Email
         {

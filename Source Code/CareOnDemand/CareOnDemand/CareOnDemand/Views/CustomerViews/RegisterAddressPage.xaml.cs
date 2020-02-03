@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using CareOnDemand.ViewModels;
+using CareOnDemand.Models;
 
 namespace CareOnDemand.Views.CustomerViews
 {
@@ -15,6 +17,10 @@ namespace CareOnDemand.Views.CustomerViews
         public RegisterAddressPage()
         {
             InitializeComponent();
+
+            BindingContext = new RegisterViewModel();
+
+            
         }
     }
 }

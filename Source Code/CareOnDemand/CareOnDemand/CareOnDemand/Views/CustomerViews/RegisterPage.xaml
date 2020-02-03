@@ -51,7 +51,7 @@
 
                 <Entry Grid.Row="4" Grid.Column="2"  VerticalOptions="Start" Grid.ColumnSpan="1" FontSize="20" Placeholder="Last Name" Text="{Binding LastName}"/>
 
-                <Entry Grid.Row="5"  Grid.Column="0"  VerticalOptions="Start" Grid.ColumnSpan="3" FontSize="20" Placeholder="Phone Number" Text="{Binding Number}"/>
+                <Entry Keyboard="Numeric" Grid.Row="5"  Grid.Column="0"  VerticalOptions="Start" Grid.ColumnSpan="3" FontSize="20" Placeholder="Phone Number" Text="{Binding Number}"/>
 
 
                 <Button StyleClass="primaryButton" Grid.Row="6" Text="Next"  VerticalOptions="End" Grid.ColumnSpan="3" Command="{Binding NextPageCommand}"/>

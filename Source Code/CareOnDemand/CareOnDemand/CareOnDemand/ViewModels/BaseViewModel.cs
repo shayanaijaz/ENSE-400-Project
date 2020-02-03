@@ -3,14 +3,12 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Text;
+using CareOnDemand.Models;
 
 namespace CareOnDemand.ViewModels
 {
     public abstract class BaseViewModel : INotifyPropertyChanged
     {
-        protected BaseViewModel()
-        {
-        }
 
         public event PropertyChangedEventHandler PropertyChanged;
 
