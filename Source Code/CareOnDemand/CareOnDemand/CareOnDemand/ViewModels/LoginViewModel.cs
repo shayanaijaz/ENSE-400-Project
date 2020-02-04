@@ -40,10 +40,12 @@ namespace CareOnDemand.ViewModels
             await Application.Current.MainPage.Navigation.PushAsync(new RegisterPage());
         }
 
-        public void Login()
+        async void Login()
         {
             LoginModel loginModel = new LoginModel(email, Password);
-            loginModel.Login();
+            await loginModel.Login();
+            await Application.Current.MainPage.Navigation.PushAsync(new ServiceSelection());
+
         }
     }
 }

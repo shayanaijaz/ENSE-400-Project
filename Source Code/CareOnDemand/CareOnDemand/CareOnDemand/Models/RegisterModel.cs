@@ -8,35 +8,37 @@ using Amazon.CognitoIdentityProvider.Model;
 //using Amazon.CognitoIdentity;
 //using Amazon.Extensions.CognitoAuthentication;
 using Amazon.Runtime;
+using CareOnDemandRest.Models;
 
 namespace CareOnDemand.Models
 {
-    class RegisterModel
+    public class RegisterModel
     {
         private String email;
         private String password;
         private String number;
         private String name;
-        private String address;
+        private String address_line_1;
+        private String address_city;
+        private String address_province;
+        private String address_postal_code;
 
-        public RegisterModel(String userEmail, String userPassword, String userNumber, String userFullName, String userAddress)
+        public RegisterModel(Customer customer, Address customer_address)
         {
-            email = userEmail;
-            password = userPassword;
-            number = userNumber;
-            name = userFullName;
-            address = userAddress;
+            email = customer.Account.Email;
+            password = customer.Account.Password;
+            number = customer.Account.PhoneNumber;
+            name = customer.Account.FirstName + " " + customer.Account.LastName;
+            address_line_1 = customer_address.AddrLine1;
+            address_city = customer_address.City;
+            address_province = customer_address.Province;
+            address_postal_code = customer_address.PostalCode;
         }
 
-        public async void CreateCognitoUser()
+        public async Task CreateCognitoUser()
         {
-
-            //var client = new AmazonCognitoIdentityProviderClient();
             AmazonCognitoIdentityProviderClient client =
                      new AmazonCognitoIdentityProviderClient(new Amazon.Runtime.AnonymousAWSCredentials(), Amazon.RegionEndpoint.CACentral1);
-
-            //var userPool = new CognitoUserPool(Settings.AWS_COGNITO_POOL_ID, Settings.AWS_CLIENT_ID, client);
-
 
 
             var signUpRequest = new SignUpRequest
@@ -71,6 +73,8 @@ namespace CareOnDemand.Models
             var result = await client.SignUpAsync(signUpRequest);
 
             Console.Out.WriteLine(result);
+
+
 
         }
     }

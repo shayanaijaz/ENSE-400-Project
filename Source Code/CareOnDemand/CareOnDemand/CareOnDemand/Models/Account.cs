@@ -14,6 +14,8 @@ namespace CareOnDemandRest.Models
         public string PhoneNumber { get; set; }
         public string Email { get; set; }
 
+        public string Password { get; set; }
+
         //references
         public AccountLevel AccountLevel { get; set; }
 
