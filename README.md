@@ -19,6 +19,7 @@ Documentation:
 - [User Stories](./Documentation/User%20Stories.pdf)
 - [User Flows](./Documentation/User%20Flows.pdf)
 - [Personas](./Documentation/Eden%20Care%20Personas.pdf)
+- [Trello Screenshots](./Documentation/Screenshots)
 
 Prototyping:
 - [Wireframes](./Prototypes/Wireframes)
