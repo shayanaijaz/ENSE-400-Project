@@ -6,6 +6,7 @@ using Amazon.CognitoIdentity;
 using Amazon.CognitoIdentityProvider;
 using Amazon.Extensions.CognitoAuthentication;
 using Amazon.Runtime;
+using System.Threading.Tasks;
 
 namespace CareOnDemand.Models
 {
@@ -19,7 +20,7 @@ namespace CareOnDemand.Models
             password = userPassword;
         }
 
-        public async void Login()
+        public async Task Login()
         {
             AmazonCognitoIdentityProviderClient provider =
                     new AmazonCognitoIdentityProviderClient(new Amazon.Runtime.AnonymousAWSCredentials(), Amazon.RegionEndpoint.CACentral1);

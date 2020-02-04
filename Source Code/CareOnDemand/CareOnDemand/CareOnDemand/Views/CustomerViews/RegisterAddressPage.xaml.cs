@@ -18,7 +18,7 @@ namespace CareOnDemand.Views.CustomerViews
         {
             InitializeComponent();
 
-            BindingContext = new RegisterViewModel();
+            BindingContext = new RegisterAddressViewModel();
 
             
         }
