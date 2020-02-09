@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-
 using CareOnDemand.ViewModels;
+
 namespace CareOnDemand.Views.SharedViews
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]

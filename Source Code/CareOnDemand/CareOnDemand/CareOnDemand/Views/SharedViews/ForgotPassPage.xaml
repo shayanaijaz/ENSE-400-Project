@@ -33,7 +33,7 @@
 
             <Entry Grid.Row="2" Margin="10" Grid.Column="0" VerticalOptions="Start" Grid.ColumnSpan="3" FontSize="20" Placeholder="Email"/>
 
-            <Button StyleClass="primaryButton" Grid.Row="3" Clicked="Button_Clicked" Grid.Column="0"  Margin="10" FontSize="Large"  Grid.ColumnSpan="3" Text="Reset Password" />
+            <Button StyleClass="primaryButton" Grid.Row="3" Grid.Column="0"  Margin="10" FontSize="Large"  Grid.ColumnSpan="3" Text="Reset Password" />
             <Label Grid.Row="4" StyleClass="primaryLabel" Grid.Column="0" Grid.ColumnSpan="3" VerticalOptions="End" HorizontalOptions="CenterAndExpand" Text="1-306-EDN-CARE" FontSize="30" />
 
         </Grid>
