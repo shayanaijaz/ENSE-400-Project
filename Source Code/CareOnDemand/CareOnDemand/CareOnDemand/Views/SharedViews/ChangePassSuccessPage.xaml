@@ -5,6 +5,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              Title="Change Pass Success"
+             NavigationPage.HasNavigationBar="True"
              x:Class="CareOnDemand.Views.SharedViews.ChangePassSuccessPage">
     <ContentPage.Resources>
         <StyleSheet Source="/Views/StyleSheet.css" />
