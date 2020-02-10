@@ -42,7 +42,7 @@ namespace CareOnDemand.ViewModels
 
         async void Login()
         {
-            LoginModel loginModel = new LoginModel(email, Password);
+            LoginService loginModel = new LoginService(email, Password);
             await loginModel.Login();
             await Application.Current.MainPage.Navigation.PushAsync(new ServiceSelection());
 

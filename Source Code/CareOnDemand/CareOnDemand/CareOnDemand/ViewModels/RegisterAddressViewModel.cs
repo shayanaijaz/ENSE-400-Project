@@ -5,7 +5,6 @@ using System.Text;
 using Xamarin.Forms;
 using CareOnDemand.Models;
 using CareOnDemand.Views.SharedViews;
-using CareOnDemandRest.Models;
 
 namespace CareOnDemand.ViewModels
 {
@@ -108,7 +107,7 @@ namespace CareOnDemand.ViewModels
 
         async void CreateAccountClicked()
         {
-            RegisterModel registerModel = new RegisterModel(customer_details, customer_address);
+            RegisterService registerModel = new RegisterService(customer_details, customer_address);
             await registerModel.CreateCognitoUser();
             await Application.Current.MainPage.Navigation.PushAsync(new LoginPage());
 

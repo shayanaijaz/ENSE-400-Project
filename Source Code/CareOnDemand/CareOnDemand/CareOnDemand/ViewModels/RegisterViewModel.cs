@@ -10,7 +10,6 @@ using Amazon.CognitoIdentityProvider.Model;
 //using Amazon.Extensions.CognitoAuthentication;
 using Amazon.Runtime;
 using CareOnDemand.Models;
-using CareOnDemandRest.Models;
 using System.Threading.Tasks;
 using CareOnDemand.Views.CustomerViews;
 using System.Linq;

@@ -10,11 +10,11 @@ using System.Threading.Tasks;
 
 namespace CareOnDemand.Models
 {
-    public class LoginModel
+    public class LoginService
     {
         private string username; 
         private string password;
-        public LoginModel(string userEmail, string userPassword)
+        public LoginService(string userEmail, string userPassword)
         {
             username = userEmail;
             password = userPassword;
