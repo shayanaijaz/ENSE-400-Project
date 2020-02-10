@@ -225,3 +225,5 @@ project.lock.json
 # End of core ignore list, below put you custom 'per project' settings (patterns or path)
 #####
 Source Code/CareOnDemand/.vs/CareOnDemand/v16/.suo
+Source Code/CareOnDemand/CareOnDemand/CareOnDemand/Helpers/Constants.cs
+Source Code/CareOnDemand/CareOnDemand/CareOnDemand/CareOnDemand.csproj
