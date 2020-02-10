@@ -11,10 +11,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Views\CustomerViews\ServiceReview.xaml.cs" />
     <Compile Remove="Views\CustomerViews\ServiceSummary.xaml.cs" />
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Remove="Views\CustomerViews\ServiceReview.xaml" />
     <EmbeddedResource Remove="Views\CustomerViews\ServiceSummary.xaml" />
   </ItemGroup>
 
@@ -44,13 +46,13 @@
     <EmbeddedResource Update="Views\CustomerViews\OrderProgress.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Update="Views\CustomerViews\OrderReview.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Views\CustomerViews\RegisterAddressPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\CustomerViews\RegisterPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Views\CustomerViews\ServiceReview.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\CustomerViews\ServiceSelection.xaml">

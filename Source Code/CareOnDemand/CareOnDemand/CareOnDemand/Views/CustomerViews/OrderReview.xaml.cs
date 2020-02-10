@@ -10,9 +10,9 @@ using Xamarin.Forms.Xaml;
 namespace CareOnDemand.Views.CustomerViews
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class ServiceReview : ContentPage
+    public partial class OrderReview : ContentPage
     {
-        public ServiceReview()
+        public OrderReview()
         {
             InitializeComponent();
         }
