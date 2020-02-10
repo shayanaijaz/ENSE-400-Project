@@ -50,9 +50,19 @@ namespace CareOnDemand.ViewModels
         async void Login()
         {
             LoginModel loginModel = new LoginModel(email, Password);
-            await loginModel.Login();
-            await Application.Current.MainPage.Navigation.PushAsync(new ServiceSelection());
-            
+
+            try
+            {
+                ActivityIndicator activityIndicator = new ActivityIndicator { IsRunning = true };
+                await loginModel.Login();
+                activityIndicator.IsRunning = false;
+                await Application.Current.MainPage.Navigation.PushAsync(new ServiceSelection());
+            }
+            catch (Exception e)
+            {
+                await Application.Current.MainPage.DisplayAlert("Error", e.Message, "OK");
+            }
+
         }
 
 

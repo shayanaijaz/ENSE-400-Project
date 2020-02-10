@@ -6,6 +6,9 @@ using Xamarin.Forms;
 using CareOnDemand.Models;
 using CareOnDemand.Views.SharedViews;
 using CareOnDemandRest.Models;
+using CareOnDemand.Validators;
+using FluentValidation;
+using FluentValidation.Results;
 
 namespace CareOnDemand.ViewModels
 {
@@ -108,9 +111,32 @@ namespace CareOnDemand.ViewModels
 
         async void CreateAccountClicked()
         {
-            RegisterModel registerModel = new RegisterModel(customer_details, customer_address);
-            await registerModel.CreateCognitoUser();
-            await Application.Current.MainPage.Navigation.PushAsync(new LoginPage());
+            CustomerAddressValidator customer_address_validator = new CustomerAddressValidator();
+            ValidationResult results = customer_address_validator.Validate(customer_address);
+
+            if (!results.IsValid)
+            {
+                String result_messages = results.ToString("\n");
+                await Application.Current.MainPage.DisplayAlert("Error", result_messages, "OK");
+            }
+            else
+            {
+                RegisterModel registerModel = new RegisterModel(customer_details, customer_address);
+
+                try
+                {
+                    ActivityIndicator activityIndicator = new ActivityIndicator { IsRunning = true };
+                    await registerModel.CreateCognitoUser();
+                    activityIndicator.IsRunning = false;
+                    await Application.Current.MainPage.Navigation.PushAsync(new LoginPage());
+                }
+                catch(Exception e)
+                {
+                    await Application.Current.MainPage.DisplayAlert("Error", e.Message, "OK");
+                }
+            }
+
+
 
         }
 

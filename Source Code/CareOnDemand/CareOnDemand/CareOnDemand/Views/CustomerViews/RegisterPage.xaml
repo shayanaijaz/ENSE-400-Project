@@ -46,7 +46,7 @@
 
                 <Entry Grid.Row="2" Grid.Column="0"  VerticalOptions="Start" Grid.ColumnSpan="3" FontSize="20" Placeholder="Password" IsPassword="True" Text="{Binding Password}"/>
 
-                <Entry Grid.Row="3" Grid.Column="0" VerticalOptions="Start" Grid.ColumnSpan="3" FontSize="20" Placeholder="Confirm Password" IsPassword="True" Text="{Binding Password}"/>
+                <Entry Grid.Row="3" Grid.Column="0" VerticalOptions="Start" Grid.ColumnSpan="3" FontSize="20" Placeholder="Confirm Password" IsPassword="True" Text="{Binding PasswordConfirmation}"/>
 
                 <Entry Grid.Row="4" Grid.Column="0"  VerticalOptions="Start" Grid.ColumnSpan="2" FontSize="20" Placeholder="First Name" Text="{Binding FirstName}"/>
 
@@ -57,8 +57,8 @@
 
                 <Button StyleClass="primaryButton" Grid.Row="6" Text="Next"  VerticalOptions="End" Grid.ColumnSpan="3" Command="{Binding NextPageCommand}"/>
 
-                <Label Grid.Row="7" Grid.ColumnSpan="3" VerticalOptions="End" HorizontalOptions="CenterAndExpand" Text="1-306-EDN-CARE" />
-
+                <!--<Label Grid.Row="7" Grid.ColumnSpan="3" VerticalOptions="End" HorizontalOptions="CenterAndExpand" Text="1-306-EDN-CARE" />-->
+                <Button Grid.Row="7" Text="Contact Eden Care" HorizontalOptions="Center" VerticalOptions="Center" Grid.ColumnSpan="3" BackgroundColor="Transparent" BorderColor="Transparent" Command="{Binding ContactCommand}"/>
             </Grid>
         </ScrollView>
     </ContentPage.Content>

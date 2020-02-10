@@ -16,6 +16,8 @@ namespace CareOnDemandRest.Models
 
         public string Password { get; set; }
 
+        public string PasswordConfirmation { get; set; }
+
         //references
         public AccountLevel AccountLevel { get; set; }
 
