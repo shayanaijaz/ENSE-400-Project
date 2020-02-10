@@ -4,7 +4,7 @@ using System.Text;
 
 namespace CareOnDemand.ViewModels
 {
-    class ChangePassViewModel
+    class ChangePassViewModel : BaseViewModel
     {
     }
 }
