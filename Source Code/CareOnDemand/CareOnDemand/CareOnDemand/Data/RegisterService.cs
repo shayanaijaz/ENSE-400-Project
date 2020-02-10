@@ -8,11 +8,11 @@ using Amazon.CognitoIdentityProvider.Model;
 //using Amazon.CognitoIdentity;
 //using Amazon.Extensions.CognitoAuthentication;
 using Amazon.Runtime;
-using CareOnDemandRest.Models;
+using CareOnDemand.Models;
 
 namespace CareOnDemand.Models
 {
-    public class RegisterModel
+    public class RegisterService
     {
         private String email;
         private String password;
@@ -23,7 +23,7 @@ namespace CareOnDemand.Models
         private String address_province;
         private String address_postal_code;
 
-        public RegisterModel(Customer customer, Address customer_address)
+        public RegisterService(Customer customer, Address customer_address)
         {
             email = customer.Account.Email;
             password = customer.Account.Password;

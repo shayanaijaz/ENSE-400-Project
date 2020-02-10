@@ -136,8 +136,6 @@ namespace CareOnDemand.ViewModels
                 }
             }
 
-
-
         }
 
     }
