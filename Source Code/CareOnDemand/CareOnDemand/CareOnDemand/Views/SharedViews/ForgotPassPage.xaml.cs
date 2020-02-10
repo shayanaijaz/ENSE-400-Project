@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using CareOnDemand.ViewModels;
 
 namespace CareOnDemand.Views.SharedViews
 {
@@ -15,6 +16,10 @@ namespace CareOnDemand.Views.SharedViews
         public ForgotPassPage()
         {
             InitializeComponent();
+
+            BindingContext = new ForgotPassViewModel();
         }
+
+
     }
 }

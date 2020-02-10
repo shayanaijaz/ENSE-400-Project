@@ -4,6 +4,8 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
+             Title="Change Pass"
+             NavigationPage.HasNavigationBar="True"
              x:Class="CareOnDemand.Views.SharedViews.ChangePassPage">
     <ContentPage.Resources>
         <StyleSheet Source="/Views/StyleSheet.css" />
