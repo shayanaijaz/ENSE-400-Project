@@ -41,6 +41,13 @@ namespace CareOnDemand.Helpers
             set => AppSettings.GetValueOrDefault(nameof(AWS_COGNITO_POOL_ID), value);
         }
 
+        public static string EDEN_CARE_PHONE_NUMBER
+        {
+            get => AppSettings.GetValueOrDefault(nameof(EDEN_CARE_PHONE_NUMBER), "3062060260");
+            set => AppSettings.GetValueOrDefault(nameof(EDEN_CARE_PHONE_NUMBER), value);
+        }
+
+
 
 
 

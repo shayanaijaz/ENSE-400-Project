@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Text;
 using Xamarin.Forms;
 using CareOnDemand.Views.CustomerViews;
+using CareOnDemand.Views.SharedViews;
 using System.Windows.Input;
 using System.Threading.Tasks;
 using CareOnDemand.Models;
@@ -17,6 +18,7 @@ namespace CareOnDemand.ViewModels
         {
             GoToRegisterPageCommand = new Command(async () => await RegisterButtonClicked());
             LoginCommand = new Command(Login);
+            GoToForgotCommand = new Command(async () => await ForgotButtonClicked());
         }
 
         private String email;
@@ -35,17 +37,34 @@ namespace CareOnDemand.ViewModels
         public Command GoToRegisterPageCommand { private set; get; }
         public Command LoginCommand { private set; get; }
 
+        public Command GoToForgotCommand { private set; get; }
+
         async Task RegisterButtonClicked()
         {
             await Application.Current.MainPage.Navigation.PushAsync(new RegisterPage());
         }
-
+        async Task ForgotButtonClicked()
+        {
+            await Application.Current.MainPage.Navigation.PushAsync(new ForgotPassPage());
+        }
         async void Login()
         {
-            LoginService loginModel = new LoginService(email, Password);
-            await loginModel.Login();
-            await Application.Current.MainPage.Navigation.PushAsync(new ServiceSelection());
+            LoginModel loginModel = new LoginModel(email, Password);
+
+            try
+            {
+                ActivityIndicator activityIndicator = new ActivityIndicator { IsRunning = true };
+                await loginModel.Login();
+                activityIndicator.IsRunning = false;
+                await Application.Current.MainPage.Navigation.PushAsync(new ServiceSelection());
+            }
+            catch (Exception e)
+            {
+                await Application.Current.MainPage.DisplayAlert("Error", e.Message, "OK");
+            }
 
         }
+
+
     }
 }
