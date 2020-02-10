@@ -13,7 +13,11 @@ using CareOnDemand.Models;
 using CareOnDemandRest.Models;
 using System.Threading.Tasks;
 using CareOnDemand.Views.CustomerViews;
+using CareOnDemand.Validators;
+using FluentValidation;
 using System.Linq;
+using FluentValidation.Results;
+//using System.ComponentModel.DataAnnotations;
 
 namespace CareOnDemand.ViewModels
 {
@@ -24,7 +28,7 @@ namespace CareOnDemand.ViewModels
             NextPageCommand = new Command(async () => await NextButtonClicked());
             customer_details = new Customer();
             customer_details.Account = new Account();
-         
+            
         }
 
         public String Email
@@ -40,6 +44,15 @@ namespace CareOnDemand.ViewModels
             set
             {
                 customer_details.Account.Password = value;
+            }
+        }
+
+        public String PasswordConfirmation
+        {
+            get => customer_details.Account.PasswordConfirmation;
+            set
+            {
+                customer_details.Account.PasswordConfirmation = value;
             }
         }
         public String Number { 
@@ -68,8 +81,18 @@ namespace CareOnDemand.ViewModels
         
         async Task NextButtonClicked()
         {
+            CustomerDetailsValidator customer_details_validator = new CustomerDetailsValidator();
+            ValidationResult results = customer_details_validator.Validate(customer_details.Account);
 
-            await Application.Current.MainPage.Navigation.PushAsync(new RegisterAddressPage());
+            if (!results.IsValid)
+            {
+                String result_messages = results.ToString("\n");
+                await Application.Current.MainPage.DisplayAlert("Error", result_messages, "OK");
+            }
+            else
+            {
+                await Application.Current.MainPage.Navigation.PushAsync(new RegisterAddressPage());
+            }
         }
     }
 }
