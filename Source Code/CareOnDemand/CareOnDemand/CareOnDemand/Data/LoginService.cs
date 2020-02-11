@@ -12,7 +12,7 @@ namespace CareOnDemand.Models
 {
     public class LoginService
     {
-        private string username; 
+        private string username;
         private string password;
         public LoginService(string userEmail, string userPassword)
         {
