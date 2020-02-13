@@ -54,7 +54,11 @@ namespace CareOnDemand.ViewModels
             try
             {
                 await loginModel.Login();
-                await Application.Current.MainPage.Navigation.PushAsync(new ServiceSelection());
+
+                Application.Current.Properties["isLoggedIn"] = Boolean.TrueString;
+
+                await Application.Current.MainPage.Navigation.PushAsync(new NavBar());
+
             }
             catch (Exception e)
             {

@@ -32,11 +32,12 @@
 
             <Label Text="Selected Service Description" Grid.Row="2" HorizontalOptions="StartAndExpand" FontSize="Small" />
             <Label Text="Selected Service Price" Grid.Row="3" HorizontalOptions="StartAndExpand" FontSize="Small" />
-            <Button StyleClass="secondaryButton" Text="Add Selected Service" VerticalOptions="Start" Grid.Row="4"/>
+            <Button StyleClass="secondaryButton" Text="Add Selected Service" VerticalOptions="Start" Grid.Row="4" Command="{Binding AddServiceCommand}"/>
             <Label Text="Selected Services" Grid.Row="5" FontSize="Small" />
             <Button Text="Continue Order" Grid.Row="6" StyleClass="secondaryButton" />
             <Label Grid.Row="7" VerticalOptions="End" HorizontalOptions="CenterAndExpand" Text="1-306-EDN-CARE" />
-            
+
+
         </Grid>
     </ContentPage.Content>
 </ContentPage>
