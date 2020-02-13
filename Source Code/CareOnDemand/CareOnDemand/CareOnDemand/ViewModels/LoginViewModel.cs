@@ -49,14 +49,16 @@ namespace CareOnDemand.ViewModels
         }
         async void Login()
         {
-            LoginModel loginModel = new LoginModel(email, Password);
+            LoginService loginModel = new LoginService(email, Password);
 
             try
             {
-                ActivityIndicator activityIndicator = new ActivityIndicator { IsRunning = true };
                 await loginModel.Login();
-                activityIndicator.IsRunning = false;
-                await Application.Current.MainPage.Navigation.PushAsync(new ServiceSelection());
+
+                Application.Current.Properties["isLoggedIn"] = Boolean.TrueString;
+
+                await Application.Current.MainPage.Navigation.PushAsync(new NavBar());
+
             }
             catch (Exception e)
             {

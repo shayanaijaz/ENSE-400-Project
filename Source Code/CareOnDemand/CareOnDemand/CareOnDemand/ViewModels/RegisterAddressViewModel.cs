@@ -5,7 +5,6 @@ using System.Text;
 using Xamarin.Forms;
 using CareOnDemand.Models;
 using CareOnDemand.Views.SharedViews;
-using CareOnDemandRest.Models;
 using CareOnDemand.Validators;
 using FluentValidation;
 using FluentValidation.Results;
@@ -121,13 +120,12 @@ namespace CareOnDemand.ViewModels
             }
             else
             {
-                RegisterModel registerModel = new RegisterModel(customer_details, customer_address);
+                RegisterService registerModel = new RegisterService(customer_details, customer_address);
 
                 try
                 {
-                    ActivityIndicator activityIndicator = new ActivityIndicator { IsRunning = true };
                     await registerModel.CreateCognitoUser();
-                    activityIndicator.IsRunning = false;
+                    await Application.Current.MainPage.DisplayAlert("Success", "Account created succesfully. Please check your email for verification link", "OK");
                     await Application.Current.MainPage.Navigation.PushAsync(new LoginPage());
                 }
                 catch(Exception e)
