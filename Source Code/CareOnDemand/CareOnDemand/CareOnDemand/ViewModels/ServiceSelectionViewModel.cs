@@ -1,7 +1,10 @@
-﻿using System;
+﻿using CareOnDemand.Views.SharedViews;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
+using Xamarin.Forms;
 
 namespace CareOnDemand.ViewModels
 {
@@ -10,9 +13,11 @@ namespace CareOnDemand.ViewModels
         public ServiceSelectionViewModel()
         {
             ServicesList = GetServices().ToList();
+            AddServiceCommand = new Command(async () => await AddServiceButtonClicked());
         }
 
         public List<Service> ServicesList { get; set; }
+        public Command AddServiceCommand { private set; get; }
 
 
         public List<Service> GetServices()
@@ -35,6 +40,12 @@ namespace CareOnDemand.ViewModels
         {
             public int Key { get; set; }
             public string Value { get; set; }
+        }
+
+        async Task AddServiceButtonClicked()
+        {
+            Application.Current.Properties["isLoggedIn"] = Boolean.FalseString;
+            await Application.Current.MainPage.Navigation.PushAsync(new LoginPage());
         }
     }
 }
