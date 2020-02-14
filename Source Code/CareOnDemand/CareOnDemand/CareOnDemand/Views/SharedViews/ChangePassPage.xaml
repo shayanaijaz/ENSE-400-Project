@@ -31,7 +31,7 @@
             </Grid.ColumnDefinitions>
 
             <Image Grid.ColumnSpan="3" HorizontalOptions="CenterAndExpand" Source="https://careondemand-storage.s3.ca-central-1.amazonaws.com/Eden-Care-logo-main.png"/>
-            <Label StyleClass="primaryLabel" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3"  Text="Reset Password" />
+            <Label StyleClass="primaryLabel" Grid.Row="1" VerticalOptions="End" Grid.Column="0" Grid.ColumnSpan="3"  Text="Reset Password" />
 
  
             <Entry Grid.Row="2" Grid.Column="0"  Grid.ColumnSpan="3"  FontSize="20" Placeholder="Current Password"/>
