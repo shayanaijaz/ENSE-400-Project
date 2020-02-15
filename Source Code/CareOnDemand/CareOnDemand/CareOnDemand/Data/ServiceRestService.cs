@@ -1,4 +1,5 @@
-﻿using System;
+﻿/*
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
@@ -25,10 +26,10 @@ namespace CareOnDemand.Data
         {
             Services = new List<Service>();
 
-            var uri = new Uri(string.Format(Constants.ServicesUrl, string.Empty));
+          //  var uri = new Uri(string.Format(Constants.ServicesUrl, string.Empty));
             try
             {
-                var response = await _client.GetAsync(uri);
+             //   var response = await _client.GetAsync(uri);
                 if (response.IsSuccessStatusCode)
                 {
                     var content = await response.Content.ReadAsStringAsync();
@@ -76,7 +77,7 @@ namespace CareOnDemand.Data
 
         public async Task DeleteServiceAsync(string id)
         {
-            var uri = new Uri(string.Format(Constants.ServicesUrl, id));
+          //  var uri = new Uri(string.Format(Constants.ServicesUrl, id));
 
             try
             {
@@ -110,7 +111,7 @@ namespace CareOnDemand.Data
         {
             ServiceTypes = new List<ServiceType>();
 
-            var uri = new Uri(string.Format(Constants.ServiceTypesUrl, string.Empty));
+          //  var uri = new Uri(string.Format(Constants.ServiceTypesUrl, string.Empty));
             try
             {
                 var response = await _client.GetAsync(uri);
@@ -128,4 +129,4 @@ namespace CareOnDemand.Data
             return ServiceTypes;
         }
     }
-}
+}*/

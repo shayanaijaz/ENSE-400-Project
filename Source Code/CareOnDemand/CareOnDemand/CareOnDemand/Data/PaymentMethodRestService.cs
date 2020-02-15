@@ -1,4 +1,5 @@
-﻿using System;
+﻿/*
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
@@ -25,7 +26,7 @@ namespace CareOnDemand.Data
         {
             PaymentMethods = new List<PaymentMethod>();
 
-            var uri = new Uri(string.Format(Constants.PaymentMethodsUrl, string.Empty));
+         //   var uri = new Uri(string.Format(Constants.PaymentMethodsUrl, string.Empty));
             try
             {
                 var response = await _client.GetAsync(uri);
@@ -95,3 +96,4 @@ namespace CareOnDemand.Data
         }
     }
 }
+*/
