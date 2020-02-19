@@ -47,6 +47,11 @@ namespace CareOnDemand.Helpers
             set => AppSettings.GetValueOrDefault(nameof(EDEN_CARE_PHONE_NUMBER), value);
         }
 
+        public static string UriBase
+        {
+            get => AppSettings.GetValueOrDefault(nameof(UriBase), "careondemandrestapi-prod.ca-central-1.elasticbeanstalk.com");
+            set => AppSettings.GetValueOrDefault(nameof(UriBase), value);
+        }
 
 
 
@@ -55,6 +60,5 @@ namespace CareOnDemand.Helpers
 
 
 
-
-    }
+        }
 }
