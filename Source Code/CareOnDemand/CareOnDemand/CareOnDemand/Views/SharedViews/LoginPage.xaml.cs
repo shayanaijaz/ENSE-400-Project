@@ -17,7 +17,15 @@ namespace CareOnDemand.Views.SharedViews
         {
             InitializeComponent();
 
-            BindingContext = new LoginViewModel();
+            try
+            {
+                BindingContext = new LoginViewModel();
+            }
+            catch (Exception ex)
+            {
+                Application.Current.MainPage.DisplayAlert("error", ex.Message, "OK");
+            }
+            
         }
 
         private void Button_Clicked(object sender, EventArgs e)

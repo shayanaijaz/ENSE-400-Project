@@ -11,51 +11,16 @@ using FluentValidation.Results;
 
 namespace CareOnDemand.ViewModels
 {
-    public class RegisterAddressViewModel   : BaseRegisterViewModel
+    public class RegisterAddressViewModel   : BaseCustomerDetailsViewModel
     {
         public RegisterAddressViewModel()
         {
             ProvinceList = GetProvinces().ToList();
             CityList = GetCities().ToList();
             CreateAccountCommand = new Command(CreateAccountClicked);
-            customer_address = new Address();
         }
 
         public Command CreateAccountCommand { private set; get; }
-
-
-        public String AddressLine1
-        {
-            get => customer_address.AddrLine1;
-            set
-            {
-                customer_address.AddrLine1 = value;
-            }
-        }
-        public String AddressCity
-        {
-            get => customer_address.City;
-            set
-            {
-                customer_address.City = value;
-            }
-        }
-        public String AddressProvince
-        {
-            get => customer_address.Province;
-            set
-            {
-                customer_address.Province = value;
-            }
-        }
-        public String AddressPostalCode
-        {
-            get => customer_address.PostalCode;
-            set
-            {
-                customer_address.PostalCode = value;
-            }
-        }
 
         public List<Province> ProvinceList { get; set; }
         public List<City> CityList { get; set; }

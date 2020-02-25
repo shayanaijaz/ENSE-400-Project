@@ -5,10 +5,12 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="CareOnDemand.Views.CustomerViews.RegisterPage"
-             NavigationPage.HasNavigationBar="False">
+             NavigationPage.HasNavigationBar="True"
+             >
     <ContentPage.Resources>
         <StyleSheet Source="/Views/StyleSheet.css" />
     </ContentPage.Resources>
+
     <ContentPage.Content>
         <ScrollView>
             <Grid StyleClass="main">
@@ -40,7 +42,7 @@
                 </Grid.ColumnDefinitions>
 
 
-                <Label StyleClass="primaryLabel" Grid.Row="0"  Grid.Column="0" Grid.ColumnSpan="3" Text="Create Account"  />
+                <Label StyleClass="primaryLabel" Grid.Row="0"  Grid.Column="0" Grid.ColumnSpan="3" Text="Create Account" />
 
                 <Entry Grid.Row="1"  Grid.Column="0" Grid.ColumnSpan="3" VerticalOptions="Start" FontSize="20" Placeholder="Email" Text="{Binding Email}"/>
 

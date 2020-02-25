@@ -7,35 +7,35 @@ using System.Windows.Input;
 using System.Threading.Tasks;
 using CareOnDemand.Models;
 using CareOnDemand.Data;
+using CareOnDemand.Views.SharedViews;
 
 namespace CareOnDemand.ViewModels
 {
-    public class ForgotPassViewModel    : BaseViewModel
+    public class ForgotPassViewModel    : BaseCustomerDetailsViewModel
     {
-        private String email;
         public ForgotPassViewModel()
         {
             ForgotPasswordCommand = new Command(ForgotPassword);
-        }
-
-        public String Email
-        {
-            get => email;
-            set
-            {
-                email = value;
-            }
         }
 
         public Command ForgotPasswordCommand { private set; get; }
 
         async void ForgotPassword()
         {
-            ForgotPasswordService forgotPasswordService = new ForgotPasswordService(email);
+            try
+            {
+                ForgotPasswordService forgotPasswordService = new ForgotPasswordService(Email);
 
-            await forgotPasswordService.ForgotPassowrd();
+                await forgotPasswordService.ForgotPassowrd();
 
-            await Application.Current.MainPage.DisplayAlert("Success", "Password reset request successful. Please check your email for verification code.", "OK");
+                await Application.Current.MainPage.DisplayAlert("Success", "Password reset request successful. Please check your email for verification code.", "OK");
+
+                await Application.Current.MainPage.Navigation.PushAsync(new ConfirmForgotPasswordPage());
+            }
+            catch (Exception e)
+            {
+                await Application.Current.MainPage.DisplayAlert("Error", e.Message, "OK");
+            }
         }
     }
 
