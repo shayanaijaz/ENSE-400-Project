@@ -20,62 +20,12 @@ using FluentValidation.Results;
 
 namespace CareOnDemand.ViewModels
 {
-    public class RegisterViewModel : BaseRegisterViewModel
-    {        
+    public class RegisterViewModel : BaseCustomerDetailsViewModel
+    {
         public RegisterViewModel()
         {
             NextPageCommand = new Command(async () => await NextButtonClicked());
-            customer_details = new Customer();
-            customer_details.Account = new Account();
-            
         }
-
-        public String Email
-        {
-            get => customer_details.Account.Email;
-            set
-            {
-                customer_details.Account.Email = value.Trim().ToLower();
-            }
-        }
-        public String Password { 
-            get => customer_details.Account.Password; 
-            set
-            {
-                customer_details.Account.Password = value;
-            }
-        }
-
-        public String PasswordConfirmation
-        {
-            get => customer_details.Account.PasswordConfirmation;
-            set
-            {
-                customer_details.Account.PasswordConfirmation = value;
-            }
-        }
-        public String Number { 
-            get => customer_details.Account.PhoneNumber; 
-            set
-            {
-                customer_details.Account.PhoneNumber = "+1" + value;
-            }
-        }
-        public String FirstName { 
-            get => customer_details.Account.FirstName; 
-            set
-            {
-                customer_details.Account.FirstName = value;
-            }
-        }
-        public String LastName { 
-            get => customer_details.Account.LastName; 
-            set
-            {
-                customer_details.Account.LastName = value;
-            }
-        }
-     
         public Command NextPageCommand { private set; get; }
         
         async Task NextButtonClicked()

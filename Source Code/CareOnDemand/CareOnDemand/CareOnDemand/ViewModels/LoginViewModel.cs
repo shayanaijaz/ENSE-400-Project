@@ -11,7 +11,7 @@ using CareOnDemand.Models;
 
 namespace CareOnDemand.ViewModels
 {
-    public class LoginViewModel : BaseViewModel
+    public class LoginViewModel : BaseCustomerDetailsViewModel
     {
 
         public LoginViewModel()
@@ -20,19 +20,6 @@ namespace CareOnDemand.ViewModels
             LoginCommand = new Command(Login);
             GoToForgotCommand = new Command(async () => await ForgotButtonClicked());
         }
-
-        private String email;
-        private String password;
-
-        public String Email
-        {
-            get { return email; }
-            set
-            {
-                email = value.Trim().ToLower();
-            }
-        }
-        public String Password { get; set; }
 
         public Command GoToRegisterPageCommand { private set; get; }
         public Command LoginCommand { private set; get; }
@@ -49,7 +36,7 @@ namespace CareOnDemand.ViewModels
         }
         async void Login()
         {
-            LoginService loginModel = new LoginService(email, Password);
+            LoginService loginModel = new LoginService(Email, Password);
 
             try
             {
