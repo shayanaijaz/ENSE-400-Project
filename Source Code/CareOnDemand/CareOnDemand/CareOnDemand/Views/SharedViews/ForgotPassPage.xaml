@@ -5,7 +5,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              NavigationPage.HasNavigationBar="True"
-             x:Class="CareOnDemand.Views.SharedViews.ForgotPassPage">
+             x:Class="CareOnDemand.Views.SharedViews.ForgotPassPage"
+             Title="Test Title">
              
     <ContentPage.Resources>
         <StyleSheet Source="/Views/StyleSheet.css" />

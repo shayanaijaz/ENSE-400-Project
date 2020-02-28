@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using CareOnDemand.ViewModels;
+using Xamarin.Forms.PlatformConfiguration.AndroidSpecific;
+
 
 namespace CareOnDemand.Views.CustomerViews
 {
@@ -18,6 +20,7 @@ namespace CareOnDemand.Views.CustomerViews
             InitializeComponent();
 
             BindingContext = new RegisterViewModel();
+
 
         }
     }
