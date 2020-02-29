@@ -225,3 +225,4 @@ project.lock.json
 # End of core ignore list, below put you custom 'per project' settings (patterns or path)
 #####
 Source Code/CareOnDemand/.vs/CareOnDemand/v16/.suo
+Source Code/CareOnDemandRestApi/CareOnDemandRestApi/aws-beanstalk-tools-defaults.json
