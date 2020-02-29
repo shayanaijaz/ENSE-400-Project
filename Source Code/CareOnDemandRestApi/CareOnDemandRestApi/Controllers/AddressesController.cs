@@ -109,16 +109,16 @@ namespace CareOnDemandRestApi.Controllers
 
     [Route("api/[controller]")]
     [ApiController]
-    public class Customer_AddressController : ControllerBase
+    public class Customer_AddressesController : ControllerBase
     {
         private readonly CareOnDemandContext _context;
 
-        public Customer_AddressController(CareOnDemandContext context)
+        public Customer_AddressesController(CareOnDemandContext context)
         {
             _context = context;
         }
 
-        // GET: api/Customer_Address
+        // GET: api/Customer_Addresses
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Customer_Address>>> GetCustomer_Addresses()
         {

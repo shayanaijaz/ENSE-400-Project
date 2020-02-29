@@ -109,16 +109,16 @@ namespace CareOnDemandRestApi.Controllers
 
     [Route("api/[controller]")]
     [ApiController]
-    public class OrderStatusController : ControllerBase
+    public class OrderStatusesController : ControllerBase
     {
         private readonly CareOnDemandContext _context;
 
-        public OrderStatusController(CareOnDemandContext context)
+        public OrderStatusesController(CareOnDemandContext context)
         {
             _context = context;
         }
 
-        // GET: api/OrderStatus
+        // GET: api/OrderStatuses
         [HttpGet]
         public async Task<ActionResult<IEnumerable<OrderStatus>>> GetOrderStatuses()
         {
@@ -207,16 +207,16 @@ namespace CareOnDemandRestApi.Controllers
 
     [Route("api/[controller]")]
     [ApiController]
-    public class Order_ServiceController : ControllerBase
+    public class Order_ServicesController : ControllerBase
     {
         private readonly CareOnDemandContext _context;
 
-        public Order_ServiceController(CareOnDemandContext context)
+        public Order_ServicesController(CareOnDemandContext context)
         {
             _context = context;
         }
 
-        // GET: api/Order_Service
+        // GET: api/Order_Services
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Order_Service>>> GetOrder_Services()
         {
