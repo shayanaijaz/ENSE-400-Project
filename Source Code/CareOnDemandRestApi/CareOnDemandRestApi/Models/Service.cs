@@ -12,6 +12,7 @@ namespace CareOnDemandRestApi.Models
         public string ServiceName { get; set; }
         public string ServiceDescription { get; set; }
         public float ServicePrice { get; set; }
+        public float Length { get; set; }
 
         //reference
         public int ServiceTypeID { get; set; }
