@@ -12,6 +12,7 @@ namespace CareOnDemand.ViewModels
         {
             customer_details = new Customer();
             customer_details.Account = new Account();
+            customer_address = new Address();
         }
 
         protected static Customer customer_details;
