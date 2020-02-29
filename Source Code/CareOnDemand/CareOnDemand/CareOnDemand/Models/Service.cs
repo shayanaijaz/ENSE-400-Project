@@ -11,7 +11,8 @@ namespace CareOnDemand.Models
         public int ServiceID { get; set; }
         public string ServiceName { get; set; }
         public string ServiceDescription { get; set; }
-        public float ServicePrice { get; set; }
+        public int ServicePrice { get; set; }
+        public int Length { get; set; }
 
         //reference
         public int ServiceTypeID { get; set; }
