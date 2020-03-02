@@ -9,10 +9,15 @@
         <StyleSheet Source="/Views/StyleSheet.css" />
     </ContentPage.Resources>
     <ContentPage.Content>
-        <ScrollView>
-            <ListView ItemsSource="{Binding ServiceList}"
+        <StackLayout>
+        <Frame BorderColor="Black">
+            <Label Text="Select a Service"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+        </Frame>
+        <ListView ItemsSource="{Binding ServiceList}"
                   SeparatorVisibility="Default"
-                  RowHeight="100"
+                  RowHeight="80"
                   SelectedItem="{Binding SelectedService}"
                       >
                 <ListView.ItemTemplate>
@@ -24,13 +29,14 @@
                                     <RowDefinition Height="20"/>
                                 </Grid.RowDefinitions>
 
-                                <Label Grid.Row="0"  Text="{Binding ServiceName}" />
-                                <Label Grid.Row="1"  Text="{Binding ServiceDescription}" />
-                        </Grid>
+                                <Label Grid.Row="0" FontAttributes="Bold" FontSize="Small" Text="{Binding ServiceName}" />
+                                <Label Grid.Row="1" VerticalOptions="Start"  Text="{Binding ServiceDescription}" />
+                                
+                            </Grid>
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        </ScrollView>
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>
