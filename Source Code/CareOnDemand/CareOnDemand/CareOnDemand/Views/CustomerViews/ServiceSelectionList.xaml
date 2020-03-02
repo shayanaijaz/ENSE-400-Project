@@ -12,8 +12,9 @@
         <StackLayout>
         <Frame BorderColor="Black">
             <Label Text="Select a Service"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+                   StyleClass="primaryLabel"
+                   VerticalOptions="CenterAndExpand" 
+                   HorizontalOptions="CenterAndExpand" />
         </Frame>
         <ListView ItemsSource="{Binding ServiceList}"
                   SeparatorVisibility="Default"
