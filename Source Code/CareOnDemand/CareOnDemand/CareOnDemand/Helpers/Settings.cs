@@ -49,8 +49,7 @@ namespace CareOnDemand.Helpers
 
         public static string UriBase
         {
-            //get => AppSettings.GetValueOrDefault(nameof(UriBase), "http://careondemandrestapi-prod.ca-central-1.elasticbeanstalk.com");
-            get => AppSettings.GetValueOrDefault(nameof(UriBase), "http://a9d6f9e9.ngrok.io");
+            get => AppSettings.GetValueOrDefault(nameof(UriBase), "http://careondemandrestapi-prod.ca-central-1.elasticbeanstalk.com");
             set => AppSettings.GetValueOrDefault(nameof(UriBase), value);
         }
 

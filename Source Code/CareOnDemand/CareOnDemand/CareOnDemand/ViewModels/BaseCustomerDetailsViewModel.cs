@@ -18,6 +18,14 @@ namespace CareOnDemand.ViewModels
         protected static Customer customer_details;
         protected static Address customer_address;
 
+        //public Account Account
+        //{
+        //    get { return customer_details.Account; }
+        //    set
+        //    {
+        //        customer_details.Account = value;
+        //    }
+        //}
 
         public String Email
         {

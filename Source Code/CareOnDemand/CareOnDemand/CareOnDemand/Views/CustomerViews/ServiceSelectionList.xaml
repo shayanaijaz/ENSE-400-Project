@@ -10,10 +10,12 @@
     </ContentPage.Resources>
     <ContentPage.Content>
         <ScrollView>
-        <ListView ItemsSource="{Binding ServiceList}"
+            <ListView ItemsSource="{Binding ServiceList}"
                   SeparatorVisibility="Default"
-                  RowHeight="100">
-            <ListView.ItemTemplate>
+                  RowHeight="100"
+                  SelectedItem="{Binding SelectedService}"
+                      >
+                <ListView.ItemTemplate>
                 <DataTemplate>
                         <ViewCell>
                             <Grid StyleClass="main">
@@ -22,8 +24,8 @@
                                     <RowDefinition Height="20"/>
                                 </Grid.RowDefinitions>
 
-                                <Label Grid.Row="0"  Text="{Binding Name}" />
-                                <Label Grid.Row="1"  Text="{Binding Description}" />
+                                <Label Grid.Row="0"  Text="{Binding ServiceName}" />
+                                <Label Grid.Row="1"  Text="{Binding ServiceDescription}" />
                         </Grid>
                     </ViewCell>
                 </DataTemplate>
