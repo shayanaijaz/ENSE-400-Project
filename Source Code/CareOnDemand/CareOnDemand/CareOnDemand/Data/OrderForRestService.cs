@@ -1,4 +1,4 @@
-﻿/*
+﻿
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -26,7 +26,7 @@ namespace CareOnDemand.Data
         {
             OrderFors = new List<OrderFor>();
 
-           // var uri = new Uri(string.Format(Constants.OrderForsUrl, string.Empty));
+            var uri = new Uri(string.Format(Constants.OrderForsUrl, string.Empty));
             try
             {
                 var response = await _client.GetAsync(uri);
@@ -46,7 +46,7 @@ namespace CareOnDemand.Data
 
         public async Task SaveOrderForAsync(OrderFor item, bool isNewItem = false)
         {
-          //  var uri = new Uri(string.Format(Constants.OrderForsUrl, string.Empty));
+            var uri = new Uri(string.Format(Constants.OrderForsUrl, string.Empty));
 
             try
             {
@@ -77,7 +77,7 @@ namespace CareOnDemand.Data
 
         public async Task DeleteOrderForAsync(string id)
         {
-          //  var uri = new Uri(string.Format(Constants.OrderForsUrl, id));
+            var uri = new Uri(string.Format(Constants.OrderForsUrl, id));
 
             try
             {
@@ -96,4 +96,3 @@ namespace CareOnDemand.Data
         }
     }
 }
-*/
