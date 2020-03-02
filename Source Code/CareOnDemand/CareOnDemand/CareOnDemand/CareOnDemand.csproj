@@ -11,6 +11,24 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Views\AdminViews\ActiveOrders.xaml.cs" />
+    <Compile Remove="Views\AdminViews\ActivePastOrderReview.xaml.cs" />
+    <Compile Remove="Views\AdminViews\AdminMainPage.xaml.cs" />
+    <Compile Remove="Views\AdminViews\AdminNavBar.xaml.cs" />
+    <Compile Remove="Views\AdminViews\NewOrdersPage.xaml.cs" />
+    <Compile Remove="Views\AdminViews\PastOrders.xaml.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Remove="Views\AdminViews\ActiveOrders.xaml" />
+    <EmbeddedResource Remove="Views\AdminViews\ActivePastOrderReview.xaml" />
+    <EmbeddedResource Remove="Views\AdminViews\AdminMainPage.xaml" />
+    <EmbeddedResource Remove="Views\AdminViews\AdminNavBar.xaml" />
+    <EmbeddedResource Remove="Views\AdminViews\NewOrdersPage.xaml" />
+    <EmbeddedResource Remove="Views\AdminViews\PastOrders.xaml" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Amazon.Extensions.CognitoAuthentication" Version="1.0.3" />
     <PackageReference Include="AWSSDK.CognitoIdentity" Version="3.3.101.33" />
     <PackageReference Include="AWSSDK.CognitoIdentityProvider" Version="3.3.107.25" />
@@ -22,6 +40,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Update="Views\CustomerViews\CustomerNavBar.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Views\CustomerViews\NavBar.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
@@ -34,5 +55,9 @@
     <EmbeddedResource Update="Views\SharedViews\ConfirmForgotPasswordPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Views\AdminViews\" />
   </ItemGroup>
 </Project>

@@ -10,9 +10,9 @@ using Xamarin.Forms.Xaml;
 namespace CareOnDemand.Views.AdminViews
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class AdminMainPage : ContentPage
+    public partial class ActiveOrders : ContentPage
     {
-        public AdminMainPage()
+        public ActiveOrders()
         {
             InitializeComponent();
         }

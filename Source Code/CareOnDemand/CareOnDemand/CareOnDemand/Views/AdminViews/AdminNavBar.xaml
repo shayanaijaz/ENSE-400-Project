@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local1="clr-namespace:CareOnDemand.Views.AdminViews"
+            xmlns:local11="clr-namespace:CareOnDemand.Views.CustomerViews"
+            mc:Ignorable="d"
+             x:Class="CareOnDemand.Views.AdminViews.AdminNavBar"
+             NavigationPage.HasNavigationBar="False"
+             SelectedTabColor="White"
+             BarBackgroundColor="#119bcc"
+             UnselectedTabColor="Black">
+    
+    <NavigationPage Title="New Order">
+        <x:Arguments>
+            <local11:ServiceSelectionList />
+        </x:Arguments>
+    </NavigationPage>
+
+    <NavigationPage Title="Active Orders">
+        <x:Arguments>
+            <!--<local:ForgotPassPage />-->
+        </x:Arguments>
+    </NavigationPage>
+
+    <NavigationPage Title="Past Orders">
+        <x:Arguments>
+            <!--<local:ForgotPassPage />-->
+        </x:Arguments>
+    </NavigationPage>
+</TabbedPage>

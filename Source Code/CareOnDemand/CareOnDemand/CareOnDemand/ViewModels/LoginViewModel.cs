@@ -44,7 +44,7 @@ namespace CareOnDemand.ViewModels
 
                 Application.Current.Properties["isLoggedIn"] = Boolean.TrueString;
 
-                await Application.Current.MainPage.Navigation.PushAsync(new NavBar());
+                await Application.Current.MainPage.Navigation.PushAsync(new CustomerNavBar());
 
             }
             catch (Exception e)
