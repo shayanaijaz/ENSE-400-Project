@@ -1,30 +1,39 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using CareOnDemand.Data;
+using CareOnDemand.Models;
+using CareOnDemand.Views.CustomerViews;
 using System.Text;
+using Xamarin.Forms;
 
 namespace CareOnDemand.ViewModels
 {
-    class ServiceSelectionListViewModel : BaseViewModel
+    class ServiceSelectionListViewModel : BaseServiceViewModel
     {
 
         public ServiceSelectionListViewModel()
         {
             ServiceList = new ObservableCollection<Service>();
-            ServiceList.Add(new Service { Name = "Laundry", Description = "We do yo laundry bih" });
-            ServiceList.Add(new Service { Name = "Housekeeping", Description = "We keep yo house duh" });
-            ServiceList.Add(new Service { Name = "Meal Prep", Description = "Make sure to get yo protein" });
-            ServiceList.Add(new Service { Name = "Medical Assistance", Description = "We got yo boo boo" });
+            PopulateServiceList();
         }
 
         public ObservableCollection<Service> ServiceList { get; set; }
 
-        public class Service
+        async void PopulateServiceList()
         {
-            public String Name { get; set; }
-            public String Description { get; set; }
+            ServiceRestService serviceRestService = new ServiceRestService();
+
+            var result = await serviceRestService.RefreshDataAsync();
+
+            if(result.Count != 0)
+            {
+                foreach(var service_result in result)
+                {
+                    ServiceList.Add(new Service { ServiceName = service_result.ServiceName, ServiceDescription = service_result.ServiceDescription, ServicePrice = service_result.ServicePrice,
+                    Length = service_result.Length});
+                }
+            }
         }
-
-
     }
 }

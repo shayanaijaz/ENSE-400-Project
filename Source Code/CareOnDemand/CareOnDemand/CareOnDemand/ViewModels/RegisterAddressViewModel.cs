@@ -8,6 +8,7 @@ using CareOnDemand.Views.SharedViews;
 using CareOnDemand.Validators;
 using FluentValidation;
 using FluentValidation.Results;
+using CareOnDemand.Data;
 
 namespace CareOnDemand.ViewModels
 {
@@ -86,9 +87,21 @@ namespace CareOnDemand.ViewModels
             else
             {
                 RegisterService registerModel = new RegisterService(customer_details, customer_address);
+                AccountRestService accountRestService = new AccountRestService();
 
                 try
                 {
+                    //AccountLevel accountLevel = new AccountLevel();
+                    //accountLevel.AccountLevelID = 3;
+                    //accountLevel.LevelTitle = "Customer";
+
+                    //customer_details.Account.AccountLevel = accountLevel;
+
+                    //customer_details.Account.AccountID = 3;
+
+                    //await accountRestService.SaveAccountAsync(customer_details.Account, true);
+                    //var result = await accountRestService.RefreshDataAsync();
+
                     await registerModel.CreateCognitoUser();
                     await Application.Current.MainPage.DisplayAlert("Success", "Account created succesfully. Please check your email for verification link", "OK");
                     await Application.Current.MainPage.Navigation.PushAsync(new LoginPage());

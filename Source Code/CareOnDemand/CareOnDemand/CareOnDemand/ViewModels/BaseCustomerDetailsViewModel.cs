@@ -12,11 +12,20 @@ namespace CareOnDemand.ViewModels
         {
             customer_details = new Customer();
             customer_details.Account = new Account();
+            customer_address = new Address();
         }
 
         protected static Customer customer_details;
         protected static Address customer_address;
 
+        //public Account Account
+        //{
+        //    get { return customer_details.Account; }
+        //    set
+        //    {
+        //        customer_details.Account = value;
+        //    }
+        //}
 
         public String Email
         {
