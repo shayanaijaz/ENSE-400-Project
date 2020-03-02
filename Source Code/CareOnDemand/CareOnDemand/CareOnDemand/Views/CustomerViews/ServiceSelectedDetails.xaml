@@ -4,6 +4,8 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
+             NavigationPage.HasNavigationBar="True"
+             Title="Select a service"
              x:Class="CareOnDemand.Views.CustomerViews.ServiceSelectedDetails">
     <ContentPage.Resources>
         <StyleSheet Source="/Views/StyleSheet.css" />
@@ -11,12 +13,12 @@
     <ContentPage.Content>
         <StackLayout>
             <Frame BorderColor="Black">
-            <Label Text="{Binding SelectedService.ServiceDescription}"
+                <Label Text="{Binding SelectedService.ServiceDescription}"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
             </Frame>
-            <Label Text="Duration" />
-            <Label Text="{Binding SelectedDuration.Price}" />
+            <Label Text="Select a duration" StyleClass="durationLabel"  VerticalOptions="End" />
+
 
             <ListView ItemsSource="{Binding DurationList}"
                       SeparatorVisibility="Default"
@@ -32,9 +34,23 @@
                                 <Label Grid.Row="0" Text="{Binding TimeSentence}"/>
                             </Grid>
                         </ViewCell>
+
                     </DataTemplate>
                 </ListView.ItemTemplate>
+
             </ListView>
+            <Label Margin="13">
+
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span FontSize="20" Text="Price:  " />
+                        <Span FontSize="20"  FontAttributes="Bold"  Text="{Binding SelectedDuration.Price}" />
+
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label> 
+            <Button Text="Add to cart" StyleClass="primaryButton" />
         </StackLayout>
+
     </ContentPage.Content>
 </ContentPage>

@@ -19,7 +19,7 @@ namespace CareOnDemand
 
             bool isLoggedIn = Current.Properties.ContainsKey("isLoggedIn") ? Convert.ToBoolean(Current.Properties["isLoggedIn"]) : false;
 
-            isLoggedIn = false;
+           // isLoggedIn = false;
 
             if (!isLoggedIn)
             {
