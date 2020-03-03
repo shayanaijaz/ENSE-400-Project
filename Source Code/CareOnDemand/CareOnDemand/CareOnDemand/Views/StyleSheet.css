@@ -57,12 +57,14 @@ grid.main {
     text-decoration-color: black;
 }
 
-.contactLabel
-{
+.contactLabel {
     text-align: center;
     font-size: small;
     horizontal-align: center;
     text-decoration-color: black;
+    background-color: transparent;
+    border-color: transparent;
+
 }
 
 .primaryButton {
