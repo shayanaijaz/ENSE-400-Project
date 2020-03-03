@@ -16,6 +16,8 @@ namespace CareOnDemand.ViewModels
 
         public ObservableCollection<Duration> DurationList { get; set; }
         protected static Duration selected_duration;
+        public string PriceText { get; set; }
+        public bool AddToCartIsVisible { get; set; }
 
         public Duration SelectedDuration
         {
@@ -23,7 +25,16 @@ namespace CareOnDemand.ViewModels
             set
             {
                 selected_duration = value;
-                OnPropertyChanged(nameof(SelectedDuration));
+
+                if (value != null)
+                {
+                    PriceText = "Price: $";
+                    AddToCartIsVisible = true;
+                    OnPropertyChanged(nameof(SelectedDuration));
+                    OnPropertyChanged(nameof(PriceText));
+                    OnPropertyChanged(nameof(AddToCartIsVisible));
+                }
+                
             }
         }
 

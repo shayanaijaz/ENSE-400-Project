@@ -12,7 +12,7 @@
     </ContentPage.Resources>
     <ContentPage.Content>
         <StackLayout>
-            <Frame BorderColor="Black">
+            <Frame BorderColor="LightGray">
                 <Label Text="{Binding SelectedService.ServiceDescription}"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
@@ -26,7 +26,7 @@
                       SelectedItem="{Binding SelectedDuration}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <ViewCell>
+                        <ViewCell Tapped="ViewCellTapped">
                             <Grid StyleClass="main">
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="20"/>
@@ -43,13 +43,13 @@
 
                 <Label.FormattedText>
                     <FormattedString>
-                        <Span FontSize="20" Text="Price:  " />
+                        <Span FontSize="20" FontAttributes="Bold" Text="{Binding PriceText}"  />
                         <Span FontSize="20"  FontAttributes="Bold"  Text="{Binding SelectedDuration.Price}" />
 
                     </FormattedString>
                 </Label.FormattedText>
             </Label> 
-            <Button Text="Add to cart" StyleClass="primaryButton" />
+            <Button Text="Add to cart" StyleClass="primaryButton" CornerRadius="0" HeightRequest="60" IsVisible="{Binding AddToCartIsVisible}" />
         </StackLayout>
 
     </ContentPage.Content>

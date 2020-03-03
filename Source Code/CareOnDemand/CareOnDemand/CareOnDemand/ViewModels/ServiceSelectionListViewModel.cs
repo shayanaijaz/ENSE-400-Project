@@ -11,7 +11,6 @@ namespace CareOnDemand.ViewModels
 {
     class ServiceSelectionListViewModel : BaseServiceViewModel
     {
-
         public ServiceSelectionListViewModel()
         {
             ServiceList = new ObservableCollection<Service>();
@@ -19,6 +18,7 @@ namespace CareOnDemand.ViewModels
         }
 
         public ObservableCollection<Service> ServiceList { get; set; }
+
 
         async void PopulateServiceList()
         {

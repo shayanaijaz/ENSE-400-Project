@@ -15,13 +15,13 @@
     <ContentPage.Content>
         <StackLayout>
             <Grid StyleClass="serviceSelectionGrid">
-                <ListView ItemsSource="{Binding ServiceList}"
+                <ListView x:Name="ServiceListView" ItemsSource="{Binding ServiceList}"
                     SeparatorVisibility="Default"
                     RowHeight="80"
                     SelectedItem="{Binding SelectedService}">
                     <ListView.ItemTemplate>
                         <DataTemplate>
-                            <ViewCell>
+                            <ViewCell Tapped="ViewCellTapped">
                                 <Grid StyleClass="main">
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="20"/>

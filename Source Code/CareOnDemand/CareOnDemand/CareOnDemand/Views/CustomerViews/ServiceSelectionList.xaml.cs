@@ -13,11 +13,33 @@ namespace CareOnDemand.Views.CustomerViews
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ServiceSelectionList : ContentPage
     {
+        ViewCell lastCell;
         public ServiceSelectionList()
         {
             InitializeComponent();
 
             BindingContext = new ServiceSelectionListViewModel();
+        }
+
+        private void ViewCellTapped(object sender, System.EventArgs e)
+        {
+            if (lastCell != null)
+                lastCell.View.BackgroundColor = Color.Transparent;
+            if (ServiceListView.SelectedItem == null)
+                lastCell.View.BackgroundColor = Color.Transparent;
+            
+            var viewCell = (ViewCell)sender;
+            if (viewCell.View != null)
+            {
+                viewCell.View.BackgroundColor = Color.FromHex("#a5d5ed");
+                lastCell = viewCell;
+            }
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            ServiceListView.SelectedItem = null;
         }
     }
 }
