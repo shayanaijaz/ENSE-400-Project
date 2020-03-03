@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="CareOnDemand.Views.AdminViews.ActivePastOrderReview">
+    <ContentPage.Resources>
+        <StyleSheet Source="/Views/StyleSheet.css" />
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <ContentView>
+            <Grid Padding="15" StyleClass="main">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.05*" />
+                    <RowDefinition Height="0.05*" />
+                    <RowDefinition Height="0.05*" />
+                    <RowDefinition Height="0.02*" />
+                    <RowDefinition Height="0.05*" />
+                    <RowDefinition Height="0.02*" />
+                    <RowDefinition Height="0.05*" />
+                    <RowDefinition Height="0.02*" />
+                    <RowDefinition Height="0.05*" />
+                    <RowDefinition Height="0.02*" />
+                    <RowDefinition Height="0.05*" />
+                    <RowDefinition Height="0.1*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*" />
+                </Grid.ColumnDefinitions>
+                <Label Text="Service(s) Ordered"  Grid.Row="0" FontSize="Large" VerticalOptions="End" HorizontalOptions="Start"/>
+                <Label Text="Item 1 &#10;Item 2 &#10;Item 3" Grid.Row="1" VerticalOptions="Start" FontSize="Medium"/>
+                <Label Text="Location" Grid.Row="2" FontSize="Large" VerticalOptions="End"/>
+                <Label Text="123 Example Avenue, Regina SK" Grid.Row="3" VerticalOptions="Start" FontSize="Medium"/>
+                <Label Text="Time" Grid.Row="4" FontSize="Large" VerticalOptions="End"/>
+                <Label Text="7:30 AM" Grid.Row="5" VerticalOptions="Start" FontSize="Medium"/>
+                <Label Text="Recipient" Grid.Row="6" FontSize="Large" VerticalOptions="End"/>
+                <Label Text="Jon Doe" Grid.Row="7" VerticalOptions="Start" FontSize="Medium"/>
+                <Label Text="Final Price" Grid.Row="8" FontSize="Large" VerticalOptions="End"/>
+                <Label Text="$$$$" Grid.Row="9" VerticalOptions="Start" FontSize="Medium"/>
+                <Label Text="Additonal Instructions" Grid.Row="10" FontSize="Large" VerticalOptions="End"/>
+                <Label Text="*Populate with database*" Grid.Row="11" VerticalOptions="StartAndExpand"/>
+            </Grid>
+        </ContentView>
+    </ContentPage.Content>
+</ContentPage>

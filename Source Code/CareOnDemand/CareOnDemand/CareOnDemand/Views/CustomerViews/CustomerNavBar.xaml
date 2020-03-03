@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+            xmlns:local="clr-namespace:CareOnDemand.Views.SharedViews"
+            xmlns:local1="clr-namespace:CareOnDemand.Views.CustomerViews"
+            mc:Ignorable="d"
+             x:Class="CareOnDemand.Views.CustomerViews.CustomerNavBar"            
+            NavigationPage.HasNavigationBar="False"
+            SelectedTabColor="White"
+            BarBackgroundColor="#119bcc"
+            UnselectedTabColor="Black"
+            >
+
+
+    <NavigationPage Title="Order">
+        <x:Arguments>
+            <local1:ServiceSelectionList />
+        </x:Arguments>
+    </NavigationPage>
+
+    <NavigationPage Title="Account">
+        <x:Arguments>
+            <!--<local:ForgotPassPage />-->
+        </x:Arguments>
+    </NavigationPage>
+</TabbedPage>
