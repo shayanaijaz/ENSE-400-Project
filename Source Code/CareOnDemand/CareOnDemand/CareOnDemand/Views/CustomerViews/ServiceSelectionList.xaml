@@ -4,40 +4,41 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="CareOnDemand.Views.CustomerViews.ServiceSelectionList">
+             NavigationPage.HasNavigationBar="True"
+             x:Class="CareOnDemand.Views.CustomerViews.ServiceSelectionList"
+             Title="Select a Service">
+    
+    
     <ContentPage.Resources>
         <StyleSheet Source="/Views/StyleSheet.css" />
     </ContentPage.Resources>
     <ContentPage.Content>
         <StackLayout>
-        <Frame BorderColor="Black">
-            <Label Text="Select a Service"
-                   StyleClass="primaryLabel"
-                   VerticalOptions="CenterAndExpand" 
-                   HorizontalOptions="CenterAndExpand" />
-        </Frame>
-        <ListView ItemsSource="{Binding ServiceList}"
-                  SeparatorVisibility="Default"
-                  RowHeight="80"
-                  SelectedItem="{Binding SelectedService}"
-                      >
-                <ListView.ItemTemplate>
-                <DataTemplate>
-                        <ViewCell>
-                            <Grid StyleClass="main">
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="20"/>
-                                    <RowDefinition Height="20"/>
-                                </Grid.RowDefinitions>
+            <Grid StyleClass="serviceSelectionGrid">
+                <ListView ItemsSource="{Binding ServiceList}"
+                    SeparatorVisibility="Default"
+                    RowHeight="80"
+                    SelectedItem="{Binding SelectedService}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid StyleClass="main">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="20"/>
+                                        <RowDefinition Height="20"/>
+                                    </Grid.RowDefinitions>
 
-                                <Label Grid.Row="0" FontAttributes="Bold" FontSize="Small" Text="{Binding ServiceName}" />
-                                <Label Grid.Row="1" VerticalOptions="Start"  Text="{Binding ServiceDescription}" />
-                                
-                            </Grid>
-                    </ViewCell>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+                                    <Label Grid.Row="0" FontAttributes="Bold" FontSize="Small" Text="{Binding ServiceName}" />
+                                    <Label Grid.Row="1" VerticalOptions="Start"  Text="{Binding ServiceDescription}" />
+
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <Button Text="Checkout" StyleClass="secondaryButton" VerticalOptions="End" HorizontalOptions="CenterAndExpand" WidthRequest="200"  />
+            </Grid>
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
