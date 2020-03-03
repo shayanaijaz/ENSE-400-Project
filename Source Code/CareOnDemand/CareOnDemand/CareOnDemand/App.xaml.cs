@@ -27,7 +27,7 @@ namespace CareOnDemand
             }
             else if (isLoggedIn)
             {
-                MainPage = new NavigationPage(new NavBar());
+                MainPage = new NavigationPage(new CustomerNavBar());
 
             }
             //MainPage = new NavigationPage(new TestTabbed());

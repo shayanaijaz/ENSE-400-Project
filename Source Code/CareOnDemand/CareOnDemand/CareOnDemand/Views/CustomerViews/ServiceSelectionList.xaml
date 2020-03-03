@@ -13,32 +13,29 @@
         <StyleSheet Source="/Views/StyleSheet.css" />
     </ContentPage.Resources>
     <ContentPage.Content>
-        <StackLayout>
-            <Grid StyleClass="serviceSelectionGrid">
-                <ListView x:Name="ServiceListView" ItemsSource="{Binding ServiceList}"
+        <Grid StyleClass="serviceSelectionGrid">
+            <ListView x:Name="ServiceListView" ItemsSource="{Binding ServiceList}"
                     SeparatorVisibility="Default"
                     RowHeight="80"
                     SelectedItem="{Binding SelectedService}">
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <ViewCell Tapped="ViewCellTapped">
-                                <Grid StyleClass="main">
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="20"/>
-                                        <RowDefinition Height="20"/>
-                                    </Grid.RowDefinitions>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell Tapped="ViewCellTapped">
+                            <Grid StyleClass="main">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="20"/>
+                                    <RowDefinition Height="20"/>
+                                </Grid.RowDefinitions>
 
-                                    <Label Grid.Row="0" FontAttributes="Bold" FontSize="Small" Text="{Binding ServiceName}" />
-                                    <Label Grid.Row="1" VerticalOptions="Start"  Text="{Binding ServiceDescription}" />
+                                <Label Grid.Row="0" FontAttributes="Bold" FontSize="Small" Text="{Binding ServiceName}" />
+                                <Label Grid.Row="1" VerticalOptions="Start"  Text="{Binding ServiceDescription}" />
 
-                                </Grid>
-                            </ViewCell>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
-                <Button Text="       Checkout       " StyleClass="secondaryButton" VerticalOptions="End" HorizontalOptions="CenterAndExpand" />
-            </Grid>
-
-        </StackLayout>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Button Text="       Checkout       " StyleClass="secondaryButton" VerticalOptions="End" HorizontalOptions="CenterAndExpand" />
+        </Grid>
     </ContentPage.Content>
 </ContentPage>
