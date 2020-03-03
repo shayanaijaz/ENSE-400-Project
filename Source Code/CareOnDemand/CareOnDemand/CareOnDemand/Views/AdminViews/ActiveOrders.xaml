@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="CareOnDemand.Views.AdminViews.ActiveOrders">
+    <ContentPage.Resources>
+        <StyleSheet Source="/Views/StyleSheet.css" />
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <ContentView>
+            <Grid Padding="15" StyleClass="main">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.05*" />
+                    <RowDefinition Height="0.2*" />
+                    <RowDefinition Height="0.05*" />
+                    <RowDefinition Height="0.7*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.7*" />
+                    <ColumnDefinition Width="0.25*" />
+                </Grid.ColumnDefinitions>
+                <SearchBar StyleClass="searchBar" Placeholder="Search Active Orders" Grid.Row="0" Grid.ColumnSpan="1" HorizontalOptions="Start" VerticalOptions="Center" BackgroundColor="White" />
+                <Button StyleClass="primaryButton" Text="Search" Grid.Row="0" Grid.Column="1" HorizontalOptions="End" />
+                <Label StyleClass="primaryLabel" Text="Select a date" Grid.Row="1" Grid.ColumnSpan="2" HorizontalOptions="Center" />
+                <DatePicker Grid.Row="1" Grid.ColumnSpan="2" FontSize="30" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" />
+                <Label StyleClass="primaryLabel" Text="Active Orders" Grid.Row="2" Grid.ColumnSpan="2" HorizontalOptions="Start"/>
+                <Label Text="*Active Orders Appear Here Based on Search/DatePicker*" Grid.Row="3" Grid.ColumnSpan="2" FontSize="Large" VerticalOptions="Start" HorizontalOptions="Center"/>
+            </Grid>
+        </ContentView>
+    </ContentPage.Content>
+</ContentPage>
