@@ -26,14 +26,12 @@
                 <RowDefinition Height="0.04*" />
                 <RowDefinition Height="0.05*" />
             </Grid.RowDefinitions>
-            <Image Grid.ColumnSpan="2" Source="https://careondemand-storage.s3.ca-central-1.amazonaws.com/Eden-Care-CoD-logo.png"/>
-
+            <Image Grid.ColumnSpan="2" Source="https://careondemand-storage.s3.ca-central-1.amazonaws.com/Eden-Care-CoD-logo.png" />
             <Entry Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" HorizontalTextAlignment="Start" Placeholder="Email" Text="{Binding Email}"/>
             <Entry Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Placeholder="Password" IsPassword="True"  Text="{Binding Password}"/>
             <Button StyleClass="primaryButton" Grid.Row="3" Text="Sign In" VerticalOptions="Center" Grid.ColumnSpan="2"  Command="{Binding LoginCommand}"/>
             <Button StyleClass="primaryButton" Grid.Row="4" Text="New user?" VerticalOptions="Center" Grid.ColumnSpan="2"  Command="{Binding GoToRegisterPageCommand}"/>
             <Button StyleClass="secondaryButton" Grid.Row="5" Text="Forgot Password?" HorizontalOptions="Center" VerticalOptions="Start" FontAttributes="Bold" Grid.ColumnSpan="2" Command="{Binding GoToForgotCommand}" />
-            <!--<Label StyleClass="contactLabel" Grid.Row="6" Text="1-306-EDN-CARE" HorizontalOptions="Center" VerticalOptions="End" Grid.ColumnSpan="2" />-->
             <Button Grid.Row="6" Text="Contact Eden Care" HorizontalOptions="Center" VerticalOptions="Center" Grid.ColumnSpan="2" BackgroundColor="Transparent" BorderColor="Transparent" Command="{Binding ContactCommand}"/>
 
         </Grid>

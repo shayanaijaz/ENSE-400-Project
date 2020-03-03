@@ -11,21 +11,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Views\AdminViews\ActiveOrders.xaml.cs" />
-    <Compile Remove="Views\AdminViews\ActivePastOrderReview.xaml.cs" />
     <Compile Remove="Views\AdminViews\AdminMainPage.xaml.cs" />
-    <Compile Remove="Views\AdminViews\AdminNavBar.xaml.cs" />
-    <Compile Remove="Views\AdminViews\NewOrdersPage.xaml.cs" />
-    <Compile Remove="Views\AdminViews\PastOrders.xaml.cs" />
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Remove="Views\AdminViews\ActiveOrders.xaml" />
-    <EmbeddedResource Remove="Views\AdminViews\ActivePastOrderReview.xaml" />
     <EmbeddedResource Remove="Views\AdminViews\AdminMainPage.xaml" />
-    <EmbeddedResource Remove="Views\AdminViews\AdminNavBar.xaml" />
-    <EmbeddedResource Remove="Views\AdminViews\NewOrdersPage.xaml" />
-    <EmbeddedResource Remove="Views\AdminViews\PastOrders.xaml" />
   </ItemGroup>
 
   <ItemGroup>
@@ -40,6 +30,21 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Update="Views\AdminViews\ActiveOrders.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\AdminViews\ActivePastOrderReview.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\AdminViews\AdminNavBar.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\AdminViews\NewOrdersPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\AdminViews\PastOrders.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Views\CustomerViews\CustomerNavBar.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
@@ -55,9 +60,5 @@
     <EmbeddedResource Update="Views\SharedViews\ConfirmForgotPasswordPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Views\AdminViews\" />
   </ItemGroup>
 </Project>
