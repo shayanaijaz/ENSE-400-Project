@@ -62,3 +62,7 @@ grid.main {
     font-size: small;
     text-decoration-color: black;
 }
+.durationLabel{
+    margin: 15;
+    font-size: medium;
+}

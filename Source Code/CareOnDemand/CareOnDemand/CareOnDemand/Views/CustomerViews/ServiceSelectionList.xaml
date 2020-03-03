@@ -38,10 +38,7 @@
                 </ListView>
                 <Button Text="Checkout" StyleClass="secondaryButton" VerticalOptions="End" HorizontalOptions="CenterAndExpand" WidthRequest="200"  />
             </Grid>
-            
-            
-            
-            
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
