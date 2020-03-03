@@ -14,11 +14,11 @@
     <ContentPage.Content>
         <Grid StyleClass="main">
             <Grid.RowDefinitions>
-                <RowDefinition Height="*" />
-                <RowDefinition Height="60" />
-                <RowDefinition Height="*" />
-                <RowDefinition Height="75" />
-                <RowDefinition Height="105" />         
+                <RowDefinition Height="120" />
+                <RowDefinition Height="150" />
+                <RowDefinition Height="100" />
+                <RowDefinition Height="70" />
+                <RowDefinition Height="250" />         
             </Grid.RowDefinitions>
             
             <Grid.ColumnDefinitions>
@@ -33,8 +33,8 @@
 
             <Entry Grid.Row="2" Grid.Column="0" VerticalOptions="Start" Keyboard="Email" Grid.ColumnSpan="3" FontSize="20" Placeholder="Email" Text="{Binding Email}"/>
 
-            <Button StyleClass="primaryButton" Grid.Row="3" Grid.Column="0" VerticalOptions="Center"  Margin="10" Grid.ColumnSpan="3" Text="Reset Password" Command="{Binding ForgotPasswordCommand}" />
-            <Button StyleClass="contactButton" Grid.Row="4" Text="Contact Eden Care" HorizontalOptions="Center" BackgroundColor="Transparent" BorderColor="Transparent" VerticalOptions="End" Grid.ColumnSpan="3" Command="{Binding ContactCommand}" />
+            <Button StyleClass="primaryButton" Grid.Row="3" Grid.Column="0" VerticalOptions="Center" FontSize="Medium"  Margin="10" Grid.ColumnSpan="3" Text="Reset Password" Command="{Binding ForgotPasswordCommand}" />
+            <Button StyleClass="contactButton" Grid.Row="4" Text="Contact Eden Care" HorizontalOptions="Center" VerticalOptions="End" Grid.ColumnSpan="3" Command="{Binding ContactCommand}" />
 
         </Grid>
     </ContentPage.Content>
