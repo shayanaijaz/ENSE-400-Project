@@ -12,21 +12,21 @@
              BarBackgroundColor="#119bcc"
              UnselectedTabColor="Black">
 
-    <NavigationPage Title="New Order" IconImageSource="https://careondemand-storage.s3.ca-central-1.amazonaws.com/newOrdersIcon.png" >
+    <NavigationPage Title="New Orders" IconImageSource="https://careondemand-storage.s3.ca-central-1.amazonaws.com/newOrdersIcon.png" >
         <x:Arguments>
-            <!--<local:NewOrdersPage />-->
+            <local1:NewOrdersPage />
         </x:Arguments>
     </NavigationPage>
 
     <NavigationPage Title="Active Orders" IconImageSource="https://careondemand-storage.s3.ca-central-1.amazonaws.com/inProgOrdersIcon.png" >
         <x:Arguments>
-            <!--<local:ActiveOrders />-->
+            <local1:ActiveOrders />
         </x:Arguments>
     </NavigationPage>
 
     <NavigationPage Title="Past Orders" IconImageSource="https://careondemand-storage.s3.ca-central-1.amazonaws.com/completeOrdersIcon.png" >
         <x:Arguments>
-            <!--<local:PastOrders />-->
+            <local1:PastOrders />
         </x:Arguments>
     </NavigationPage>
 </TabbedPage>
