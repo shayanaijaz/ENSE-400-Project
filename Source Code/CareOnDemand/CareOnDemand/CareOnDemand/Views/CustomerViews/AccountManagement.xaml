@@ -11,7 +11,7 @@
     <ContentPage.Content>
         <StackLayout>
 
-            <Button StyleClass="primaryButton" VerticalOptions="CenterAndExpand" Text="Log the fuck out" HorizontalOptions="Fill" ></Button>
+            <Button BackgroundColor="Red" VerticalOptions="CenterAndExpand" Text="Log the fuck out" HorizontalOptions="Fill" ></Button>
                     
         </StackLayout>
     </ContentPage.Content>
