@@ -3,6 +3,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using CareOnDemand.Views.SharedViews;
 using CareOnDemand.Views.CustomerViews;
+using CareOnDemand.Views.AdminViews;
 using Xamarin.Forms.PlatformConfiguration.AndroidSpecific;
 
 namespace CareOnDemand
