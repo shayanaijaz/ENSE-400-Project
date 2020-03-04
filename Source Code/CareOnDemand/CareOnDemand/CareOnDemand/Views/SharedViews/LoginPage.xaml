@@ -32,7 +32,7 @@
             <Entry Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Placeholder="Password" IsPassword="True"  Text="{Binding Password}"/>
             <Button StyleClass="primaryButton" Grid.Row="3" Text="Sign In" VerticalOptions="Center" Grid.ColumnSpan="2"  Command="{Binding LoginCommand}"/>
             <Button StyleClass="primaryButton" Grid.Row="4" Text="New user?" VerticalOptions="Center" Grid.ColumnSpan="2"  Command="{Binding GoToRegisterPageCommand}"/>
-            <Button StyleClass="secondaryButton" Grid.Column="0"  Grid.ColumnSpan="2" HorizontalOptions="CenterAndExpand" Grid.Row="5" Text="Forgot Password" VerticalOptions="End"  Command="{Binding GoToForgotCommand}" />
+            <Button StyleClass="secondaryButton" Grid.Column="0"  Grid.ColumnSpan="2" HorizontalOptions="CenterAndExpand" Grid.Row="5" Text="Forgot Password" VerticalOptions="End" Command="{Binding GoToForgotCommand}" />
             <Button Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2" StyleClass="contactButton" HorizontalOptions="Center" Text="Contact Eden Care"  VerticalOptions="End" Command="{Binding ContactCommand}"/>
 
         </Grid>
