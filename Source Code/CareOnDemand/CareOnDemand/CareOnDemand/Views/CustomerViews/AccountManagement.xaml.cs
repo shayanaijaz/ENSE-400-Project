@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using CareOnDemand.ViewModels;
 
 namespace CareOnDemand.Views.CustomerViews
 {
@@ -14,7 +15,10 @@ namespace CareOnDemand.Views.CustomerViews
     {
         public AccountManagement()
         {
+            BindingContext = new AccountManagementViewModel();
             InitializeComponent();
         }
     }
 }
+
+
