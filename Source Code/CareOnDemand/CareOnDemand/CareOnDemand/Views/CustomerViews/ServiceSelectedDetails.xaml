@@ -49,7 +49,7 @@
                     </FormattedString>
                 </Label.FormattedText>
             </Label> 
-            <Button Text="Add to cart" StyleClass="primaryButton" CornerRadius="0" HeightRequest="60" IsVisible="{Binding AddToCartIsVisible}" />
+            <Button Text="Add to cart" StyleClass="primaryButton" CornerRadius="0" HeightRequest="60" IsVisible="{Binding AddToCartIsVisible}" Command="{Binding AddToCartCommand}" />
         </StackLayout>
 
     </ContentPage.Content>

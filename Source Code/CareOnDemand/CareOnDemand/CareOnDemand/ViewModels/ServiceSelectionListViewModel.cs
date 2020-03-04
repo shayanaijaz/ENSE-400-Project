@@ -6,6 +6,7 @@ using CareOnDemand.Models;
 using CareOnDemand.Views.CustomerViews;
 using System.Text;
 using Xamarin.Forms;
+using System.Threading.Tasks;
 
 namespace CareOnDemand.ViewModels
 {
@@ -15,9 +16,12 @@ namespace CareOnDemand.ViewModels
         {
             ServiceList = new ObservableCollection<Service>();
             PopulateServiceList();
+            CheckoutCommand = new Command(async () => await CheckoutButtonClicked());
+
         }
 
         public ObservableCollection<Service> ServiceList { get; set; }
+        public Command CheckoutCommand { private set; get; }
 
 
         async void PopulateServiceList()
@@ -34,6 +38,11 @@ namespace CareOnDemand.ViewModels
                     Length = service_result.Length});
                 }
             }
+        }
+
+        async Task CheckoutButtonClicked()
+        {
+            await Application.Current.MainPage.Navigation.PushAsync(new OrderDetails());
         }
     }
 }

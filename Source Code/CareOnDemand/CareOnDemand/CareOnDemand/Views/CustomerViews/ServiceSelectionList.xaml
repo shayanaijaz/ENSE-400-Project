@@ -35,7 +35,7 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-            <Button Text="       Checkout       " StyleClass="secondaryButton" VerticalOptions="End" HorizontalOptions="CenterAndExpand" />
+            <Button Text="       Checkout       " StyleClass="secondaryButton" VerticalOptions="End" HorizontalOptions="CenterAndExpand" Command="{Binding CheckoutCommand}" />
         </Grid>
     </ContentPage.Content>
 </ContentPage>

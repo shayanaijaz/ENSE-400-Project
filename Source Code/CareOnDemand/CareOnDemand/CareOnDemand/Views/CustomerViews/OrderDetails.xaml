@@ -56,7 +56,7 @@
                     ItemDisplayBinding="{Binding Value}"
                 />
 
-                    <Button StyleClass="primaryButton" Text="Continue Order" Grid.Row="8" VerticalOptions="Start"/>
+                    <Button StyleClass="primaryButton" Text="Continue Order" Grid.Row="8" VerticalOptions="Start" Command="{Binding ContinueOrderCommand}"/>
 
 
                     <Button StyleClass="contactButton" Text="1-306-EDN-CARE" Grid.Row="9" HorizontalOptions="Center" VerticalOptions="End" />

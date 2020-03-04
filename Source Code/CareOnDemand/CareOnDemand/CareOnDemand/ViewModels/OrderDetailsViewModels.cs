@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Globalization;
+using Xamarin.Forms;
+using CareOnDemand.Views.CustomerViews;
+using System.Threading.Tasks;
 
 namespace CareOnDemand.ViewModels
 {
@@ -15,6 +18,8 @@ namespace CareOnDemand.ViewModels
             TimeList = GetTime().ToList();
             RecipientList = GetRecipient().ToList();
             CarePartnerList = GetCarePartner().ToList();
+            ContinueOrderCommand = new Command(async () => await ContinueOrderClicked());
+
         }
 
         public List<Location> LocationList { get; set; }
@@ -24,6 +29,12 @@ namespace CareOnDemand.ViewModels
         public List<Recipient> RecipientList { get; set; }
         public List<CarePartner> CarePartnerList { get; set; }
 
+        public Command ContinueOrderCommand { get; set; }
+
+        async Task ContinueOrderClicked()
+        {
+            await Application.Current.MainPage.Navigation.PushAsync(new ServiceReview());
+        }
         public List<Location> GetLocation()
         {
             var location = new List<Location>()

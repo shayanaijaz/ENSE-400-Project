@@ -1,7 +1,10 @@
-﻿using System;
+﻿using CareOnDemand.Views.CustomerViews;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
+using System.Threading.Tasks;
+using Xamarin.Forms;
 
 namespace CareOnDemand.ViewModels
 {
@@ -12,12 +15,16 @@ namespace CareOnDemand.ViewModels
             DurationList = new ObservableCollection<Duration>();
             selected_duration = new Duration();
             PopulateDurationList();
+            AddToCartCommand = new Command(async () => await AddToCartClicked());
+
         }
 
         public ObservableCollection<Duration> DurationList { get; set; }
         protected static Duration selected_duration;
         public string PriceText { get; set; }
         public bool AddToCartIsVisible { get; set; }
+
+        public Command AddToCartCommand { private set; get; }
 
         public Duration SelectedDuration
         {
@@ -47,6 +54,12 @@ namespace CareOnDemand.ViewModels
                     DurationList.Add(new Duration { Time = i, TimeSentence = i + " hours", Price = service.ServicePrice * i });
                 }
             }
+        }
+
+        async Task AddToCartClicked()
+        {
+            await Application.Current.MainPage.DisplayAlert("Success", "Item succesfully added to cart", "OK");
+            await Application.Current.MainPage.Navigation.PushAsync(new CustomerNavBar());
         }
         public class Duration
         {
