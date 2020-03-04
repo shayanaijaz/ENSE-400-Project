@@ -14,17 +14,17 @@
         <ContentView>
             <Grid Padding="15" StyleClass="main">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="0.05*" />
-                    <RowDefinition Height="0.2*" />
-                    <RowDefinition Height="0.05*" />
-                    <RowDefinition Height="0.7*" />
+                    <RowDefinition Height="0.08*" />
+                    <RowDefinition Height="0.1*" />
+                    <RowDefinition Height="0.1*" />
+                    <RowDefinition Height="0.5*" />
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="0.7*" />
                     <ColumnDefinition Width="0.25*" />
                 </Grid.ColumnDefinitions>
                 <SearchBar StyleClass="searchBar" Placeholder="Search New Orders" Grid.Row="0" Grid.ColumnSpan="1" HorizontalOptions="Start" VerticalOptions="Center" BackgroundColor="White" />
-                <Button StyleClass="primaryButton" Text="Search" Grid.Row="0" Grid.Column="1" HorizontalOptions="End" />
+                <Button StyleClass="secondaryButton" Text="Search" Grid.Row="0" Grid.Column="1" HorizontalOptions="End" />
                 <Button StyleClass="primaryButton" Text="Create New Order" Grid.Row="1" Grid.ColumnSpan="2" FontSize="Large" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
                 <Label StyleClass="primaryLabel" Text="New Orders" Grid.Row="2" Grid.ColumnSpan="2" HorizontalOptions="Start"/>
                 <Label Text="*New Orders Appear Here*" Grid.Row="3" Grid.ColumnSpan="2" FontSize="Large" VerticalOptions="Start" HorizontalOptions="Center"/>

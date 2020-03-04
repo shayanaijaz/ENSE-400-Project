@@ -14,7 +14,7 @@
             >
 
 
-    <NavigationPage Title="Order">
+    <NavigationPage Title="Order" IconImageSource="https://careondemand-storage.s3.ca-central-1.amazonaws.com/customerOrderIcon.png">
         <x:Arguments>
             <local1:ServiceSelectionList />
         </x:Arguments>
@@ -22,7 +22,7 @@
 
     <NavigationPage Title="Account" IconImageSource="https://careondemand-storage.s3.ca-central-1.amazonaws.com/accountIcon.png">
         <x:Arguments>
-            <!--<local:ForgotPassPage />-->
+            <local1:AccountManagement />
         </x:Arguments>
     </NavigationPage>
 </TabbedPage>
