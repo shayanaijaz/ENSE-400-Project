@@ -33,7 +33,22 @@
                     <!--<Label StyleClass="primaryLabel" Text="PLACEHOLDER" Grid.Row="0" FontSize="Large" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />-->
 
                     <!--<Label Text="Selected Service(s)"  Grid.Row="0" FontSize="Large" VerticalOptions="End" HorizontalOptions="Start"/>-->
-                    <Label Text="AUTOFILL FROM PREV PAGE" Grid.Row="0" VerticalOptions="Start" FontSize="Medium"/>
+                    <!--<Label Text="Services Ordered" Grid.Row="0" VerticalOptions="Start" FontSize="Medium"/>-->
+
+                    <ListView RowHeight="40" ItemsSource="{Binding OrderServicesList}" SelectionMode="None">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <Grid StyleClass="main">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="30"/>
+                                        </Grid.RowDefinitions>
+                                        <Label Grid.Row="0" FontSize="Subtitle" Text="{Binding}" />
+                                    </Grid>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
 
                     <Picker Title="Where?" Grid.Row="1" VerticalOptions="Start" FontSize="Large"
                     ItemsSource="{Binding LocationList}"

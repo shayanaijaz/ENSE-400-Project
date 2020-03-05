@@ -27,6 +27,9 @@ namespace CareOnDemand.Models
         //references
         public int OrderID { get; set; }
         public int ServiceID { get; set; }
+        public int ServiceLength { get; set; }
+        public string ServiceName { get; set; }
+
     }
 
     public class OrderStatus
@@ -43,5 +46,6 @@ namespace CareOnDemand.Models
         //references
         public int OrderID { get; set; }
         public int CarePartnerID { get; set; }
+
     }
 }
