@@ -6,10 +6,11 @@ using System.Globalization;
 using Xamarin.Forms;
 using CareOnDemand.Views.CustomerViews;
 using System.Threading.Tasks;
+using System.Collections.ObjectModel;
 
 namespace CareOnDemand.ViewModels
 {
-    public class OrderDetailsViewModel : BaseViewModel
+    public class OrderDetailsViewModel : BaseServiceAndOrderViewModel
     {
         public OrderDetailsViewModel()
         {
@@ -20,6 +21,9 @@ namespace CareOnDemand.ViewModels
             CarePartnerList = GetCarePartner().ToList();
             ContinueOrderCommand = new Command(async () => await ContinueOrderClicked());
 
+            OrderServicesList = new ObservableCollection<string>();
+            PopulateOrderServicesList();
+
         }
 
         public List<Location> LocationList { get; set; }
@@ -29,11 +33,21 @@ namespace CareOnDemand.ViewModels
         public List<Recipient> RecipientList { get; set; }
         public List<CarePartner> CarePartnerList { get; set; }
 
+        public ObservableCollection<String> OrderServicesList { get; set; }
+
         public Command ContinueOrderCommand { get; set; }
 
         async Task ContinueOrderClicked()
         {
             await Application.Current.MainPage.Navigation.PushAsync(new ServiceReview());
+        }
+
+        public void PopulateOrderServicesList()
+        {
+            foreach(var service in user_order.Order_Services)
+            {
+                OrderServicesList.Add(service.ServiceName.Trim() + " - " + service.ServiceLength + " hours");
+            }
         }
         public List<Location> GetLocation()
         {

@@ -6,6 +6,7 @@
              mc:Ignorable="d"
              NavigationPage.HasNavigationBar="True"
              x:Class="CareOnDemand.Views.CustomerViews.ServiceSelectionList"
+             x:Name="ServiceSelectionListPage"
              Title="Select a Service">
     
     
@@ -17,7 +18,7 @@
             <ListView x:Name="ServiceListView" ItemsSource="{Binding ServiceList}"
                     SeparatorVisibility="Default"
                     RowHeight="80"
-                    SelectedItem="{Binding SelectedService}">
+                      SelectedItem="{Binding SelectedService}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell Tapped="ViewCellTapped">
@@ -32,10 +33,11 @@
 
                             </Grid>
                         </ViewCell>
+                        <!--<TextCell Text="{Binding ServiceName}" Detail="{Binding ServiceDescription}" TextColor="Black" Command="{Binding Path=BindingContext.TextCellCommand, Source={x:Reference ServiceSelectionListPage}}" />-->
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-            <Button Text="       Checkout       " StyleClass="secondaryButton" VerticalOptions="End" HorizontalOptions="CenterAndExpand" Command="{Binding CheckoutCommand}" />
+            <Button Text="{Binding CheckoutText}"  StyleClass="secondaryButton" VerticalOptions="End" HorizontalOptions="CenterAndExpand" IsVisible="{Binding CheckoutIsVisible}" Command="{Binding CheckoutCommand}" />
         </Grid>
     </ContentPage.Content>
 </ContentPage>
