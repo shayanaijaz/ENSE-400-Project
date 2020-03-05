@@ -14,6 +14,9 @@ Format to include this file in any .xaml file that we need to include
 grid.main {
    padding: 15;
 }
+stacklayout.main{
+    padding:15;
+}
 
 .serviceSelectionGrid
 {

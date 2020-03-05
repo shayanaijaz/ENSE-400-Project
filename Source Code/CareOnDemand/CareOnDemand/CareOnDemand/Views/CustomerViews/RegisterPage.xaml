@@ -55,7 +55,7 @@
 
                 <Button StyleClass="primaryButton" Grid.Row="5" Text="Next"  VerticalOptions="Center" Grid.ColumnSpan="3" Command="{Binding NextPageCommand}"/>
 
-                <Button Grid.Row="6" Text="Contact Eden Care" HorizontalOptions="Center" VerticalOptions="Center" Grid.ColumnSpan="3" BackgroundColor="Transparent" BorderColor="Transparent" Command="{Binding ContactCommand}"/>
+                <Button Grid.Row="6" Text="Contact Eden Care" HorizontalOptions="Center" VerticalOptions="Center" Grid.ColumnSpan="3"  Command="{Binding ContactCommand}"/>
             </Grid>
         </ScrollView>
     </ContentPage.Content>
