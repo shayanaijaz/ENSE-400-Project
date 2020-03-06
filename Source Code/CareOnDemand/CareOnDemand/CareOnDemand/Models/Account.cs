@@ -15,15 +15,16 @@ namespace CareOnDemand.Models
         public string Email { get; set; }
 
         public string Password { get; set; }
-
         public string PasswordConfirmation { get; set; }
 
         //references
+        public int AccountLevelID { get; set; }
         public AccountLevel AccountLevel { get; set; }
 
-        public ICollection<Admin> Admins { get; set; }
-        public ICollection<CarePartner> CarePartners { get; set; }
-        public ICollection<Customer> Customers { get; set; }
+        //referred to by
+        public Admin Admin { get; set; }
+        public CarePartner CarePartner { get; set; }
+        public Customer Customer { get; set; }
     }
 
     public class AccountLevel
@@ -32,15 +33,17 @@ namespace CareOnDemand.Models
         public int AccountLevelID { get; set; }
         public string LevelTitle { get; set; }
 
+        //referred to by
         public ICollection<Account> Accounts { get; set; }
     }
 
     public class Admin
     {
-        //scalar
+        //scalars
         public int AdminID { get; set; }
 
-        //reference
+        //references
+        public int AccountID { get; set; }
         public Account Account { get; set; }
     }
 
@@ -50,20 +53,24 @@ namespace CareOnDemand.Models
         public int CarePartnerID { get; set; }
         public string Company { get; set; }
 
-        //reference
+        //references
+        public int AccountID { get; set; }
         public Account Account { get; set; }
 
+        //referred to by
         public ICollection<ServiceRequest> ServiceRequests { get; set; }
     }
 
     public class Customer
     {
-        //scalar
+        //scalars
         public int CustomerID { get; set; }
 
-        //reference
+        //references
+        public int AccountID { get; set; }
         public Account Account { get; set; }
 
+        //referred to by
         public ICollection<Customer_Address> Customer_Addresses { get; set; }
         public ICollection<OrderFor> OrderFors { get; set; }
         public ICollection<PaymentMethod> PaymentMethods { get; set; }

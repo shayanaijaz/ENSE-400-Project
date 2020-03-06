@@ -13,20 +13,28 @@ namespace CareOnDemand.Models
 
         //references
         public int CustomerID { get; set; }
+        public Customer Customer { get; set; }
         public int AddressID { get; set; }
+        public Address Address { get; set; }
         public int OrderForID { get; set; }
+        public OrderFor OrderFor { get; set; }
         public int PaymentMethodID { get; set; }
+        public PaymentMethod PaymentMethod { get; set; }
         public int OrderStatusID { get; set; }
+        public OrderStatus OrderStatus { get; set; }
 
+        //referred to by
         public ICollection<Order_Service> Order_Services { get; set; }
-        public ICollection<ServiceRequest> ServiceRequests { get; set; }
+        public ServiceRequest ServiceRequest { get; set; }
     }
 
     public class Order_Service
     {
         //references
         public int OrderID { get; set; }
+        public Order Order { get; set; }
         public int ServiceID { get; set; }
+        public Service Service { get; set; }
     }
 
     public class OrderStatus
@@ -35,6 +43,7 @@ namespace CareOnDemand.Models
         public int OrderStatusID { get; set; }
         public string Status { get; set; }
 
+        //referred to by
         public ICollection<Order> Orders { get; set; }
     }
 
@@ -42,6 +51,8 @@ namespace CareOnDemand.Models
     {
         //references
         public int OrderID { get; set; }
+        public Order Order { get; set; }
         public int CarePartnerID { get; set; }
+        public CarePartner CarePartner { get; set; }
     }
 }
