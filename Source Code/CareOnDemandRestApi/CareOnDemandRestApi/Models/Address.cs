@@ -29,8 +29,6 @@ namespace CareOnDemandRestApi.Models
         //references
         [Key]
         public int AddressID { get; set; }
-        public Address Address { get; set; }
         public int CustomerID { get; set; }
-        public Customer Customer { get; set; }
     }
 }

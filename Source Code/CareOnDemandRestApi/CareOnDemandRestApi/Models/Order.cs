@@ -14,15 +14,10 @@ namespace CareOnDemandRestApi.Models
 
         //references
         public int CustomerID { get; set; }
-        public Customer Customer { get; set; }
         public int AddressID { get; set; }
-        public Address Address { get; set; }
         public int OrderForID { get; set; }
-        public OrderFor OrderFor { get; set; }
         public int PaymentMethodID { get; set; }
-        public PaymentMethod PaymentMethod { get; set; }
         public int OrderStatusID { get; set; }
-        public OrderStatus OrderStatus { get; set; }
 
         //referred to by
         public ICollection<Order_Service> Order_Services { get; set; }
@@ -34,9 +29,7 @@ namespace CareOnDemandRestApi.Models
         //references
         [Key]
         public int OrderID { get; set; }
-        public Order Order { get; set; }
         public int ServiceID { get; set; }
-        public Service Service { get; set; }
     }
 
     public class OrderStatus
@@ -54,8 +47,6 @@ namespace CareOnDemandRestApi.Models
         //references
         [Key]
         public int OrderID { get; set; }
-        public Order Order { get; set; }
         public int CarePartnerID { get; set; }
-        public CarePartner CarePartner { get; set; }
     }
 }

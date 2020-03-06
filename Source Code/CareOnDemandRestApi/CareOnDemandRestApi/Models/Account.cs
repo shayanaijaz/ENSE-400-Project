@@ -16,7 +16,6 @@ namespace CareOnDemandRestApi.Models
 
         //references
         public int AccountLevelID { get; set; }
-        public AccountLevel AccountLevel { get; set; }
         
         //referred to by
         public Admin Admin { get; set; }
@@ -41,7 +40,6 @@ namespace CareOnDemandRestApi.Models
 
         //references
         public int AccountID { get; set; }
-        public Account Account { get; set; }
     }
 
     public class CarePartner
@@ -52,7 +50,6 @@ namespace CareOnDemandRestApi.Models
 
         //references
         public int AccountID { get; set; }
-        public Account Account { get; set; }
 
         //referred to by
         public ICollection<ServiceRequest> ServiceRequests { get; set; }
@@ -65,7 +62,6 @@ namespace CareOnDemandRestApi.Models
 
         //references
         public int AccountID { get; set; }
-        public Account Account { get; set; }
 
         //referred to by
         public ICollection<Customer_Address> Customer_Addresses { get; set; }

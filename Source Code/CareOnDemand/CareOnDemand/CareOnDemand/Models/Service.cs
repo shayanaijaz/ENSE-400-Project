@@ -16,7 +16,6 @@ namespace CareOnDemand.Models
 
         //references
         public int ServiceTypeID { get; set; }
-        public ServiceType ServiceType { get; set; }
 
         //referred to by
         public ICollection<Order_Service> Order_Services { get; set; }
