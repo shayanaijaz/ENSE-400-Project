@@ -14,20 +14,22 @@
         
         <Grid StyleClass="main">
             <Grid.RowDefinitions>
-                <RowDefinition Height="0.25"/>
-                <RowDefinition Height="0.25"/>
-                <RowDefinition Height="0.25"/>
-                <RowDefinition Height="0.25"/>
-                <RowDefinition Height="0.25"/>
+                <RowDefinition Height="0.25*"/>
+                <RowDefinition Height="0.25*"/>
+                <RowDefinition Height="0.25*"/>
+                <RowDefinition Height="0.25*"/>
+                <RowDefinition Height="0.25*"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width ="*"/>
-                <ColumnDefinition Width ="*"/>
+
             </Grid.ColumnDefinitions>
 
-            <Label StyleClass="primaryLabel" HorizontalOptions="CenterAndExpand" Text="Welcome *first name*" Grid.Row="0" Grid.Column="0" />
+            <Label StyleClass="primaryLabel" HorizontalOptions="CenterAndExpand" VerticalOptions="Center" Text="Welcome *first name*" Grid.Row="0" Grid.Column="0" />
             <Label StyleClass="secondaryLabel" Text="What are you searching for?" HorizontalOptions="CenterAndExpand" Grid.Row="1" Grid.Column="0" />
 
+            <Button StyleClass="primaryButton" Text="Orders" HorizontalOptions="Fill" VerticalOptions="End" Grid.Row="2" Grid.Column="0" />
+            <Button StyleClass="primaryButton" Text="Calendar" HorizontalOptions="Fill" VerticalOptions="Start" Grid.Row="3" Grid.Column="0" />
+            <Label StyleClass="secondaryLabel" Text="Next Appointment:" VerticalOptions="Start" HorizontalOptions="Center" Grid.Row="4" />
         </Grid>
 
     </ContentPage.Content>
