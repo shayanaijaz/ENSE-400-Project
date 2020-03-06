@@ -4,12 +4,7 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="CareOnDemand.Views.CarePartnerViews.CarePartnerNavBar"
-             NavigationPage.HasNavigationBar="False"
-            SelectedTabColor="White"
-            BarBackgroundColor="#119bcc"
-            UnselectedTabColor="Black">
-
+             x:Class="CareOnDemand.Views.CarePartnerViews.CarePartnerNavBar">
 
     <NavigationPage Title="Active Orders" IconImageSource="https://careondemand-storage.s3.ca-central-1.amazonaws.com/inProgOrdersIcon.png">
         <x:Arguments>
@@ -22,8 +17,8 @@
         </x:Arguments>
     </NavigationPage>
     <NavigationPage Title="Account" IconImageSource="https://careondemand-storage.s3.ca-central-1.amazonaws.com/accountIcon.png">
-            <x:Arguments>
-                <!--<local1:AccountManagement />-->
-            </x:Arguments>
+        <x:Arguments>
+            <!--<local1:AccountManagement />-->
+        </x:Arguments>
     </NavigationPage>
 </TabbedPage>

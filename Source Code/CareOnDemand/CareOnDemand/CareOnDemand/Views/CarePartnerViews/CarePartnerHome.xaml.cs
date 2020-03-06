@@ -10,9 +10,9 @@ using Xamarin.Forms.Xaml;
 namespace CareOnDemand.Views.CarePartnerViews
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class CarePartnerNavBar : TabbedPage
+    public partial class CarePartnerHome : ContentPage
     {
-        public CarePartnerNavBar()
+        public CarePartnerHome()
         {
             InitializeComponent();
         }

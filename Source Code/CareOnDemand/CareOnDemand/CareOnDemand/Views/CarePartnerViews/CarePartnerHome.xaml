@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             NavigationPage.HasNavigationBar="False"
+             x:Class="CareOnDemand.Views.CarePartnerViews.CarePartnerHome">
+    <ContentPage.Resources>
+        <StyleSheet Source="/Views/StyleSheet.css" />
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        
+        <Grid StyleClass="main">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.25"/>
+                <RowDefinition Height="0.25"/>
+                <RowDefinition Height="0.25"/>
+                <RowDefinition Height="0.25"/>
+                <RowDefinition Height="0.25"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width ="*"/>
+                <ColumnDefinition Width ="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Label StyleClass="primaryLabel" HorizontalOptions="CenterAndExpand" Text="Welcome *first name*" Grid.Row="0" Grid.Column="0" />
+            <Label StyleClass="secondaryLabel" Text="What are you searching for?" HorizontalOptions="CenterAndExpand" Grid.Row="1" Grid.Column="0" />
+
+        </Grid>
+
+    </ContentPage.Content>
+</ContentPage>
