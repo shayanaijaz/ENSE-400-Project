@@ -16,6 +16,7 @@ namespace CareOnDemandRestApi.Models
         public string Province { get; set; }
         public string PostalCode { get; set; }
 
+        //referred to by
         public ICollection<Customer_Address> Customer_Addresses { get; set; }
         public ICollection<Order> Orders { get; set; }
     }

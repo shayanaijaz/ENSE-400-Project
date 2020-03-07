@@ -14,9 +14,10 @@ namespace CareOnDemand.Models
         public int ServicePrice { get; set; }
         public int Length { get; set; }
 
-        //reference
+        //references
         public int ServiceTypeID { get; set; }
 
+        //referred to by
         public ICollection<Order_Service> Order_Services { get; set; }
     }
 
@@ -26,6 +27,7 @@ namespace CareOnDemand.Models
         public int ServiceTypeID { get; set; }
         public string Type { get; set; }
 
+        //referred to by
         public ICollection<Service> Services { get; set; }
     }
 }

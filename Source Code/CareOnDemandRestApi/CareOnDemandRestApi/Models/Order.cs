@@ -19,8 +19,9 @@ namespace CareOnDemandRestApi.Models
         public int PaymentMethodID { get; set; }
         public int OrderStatusID { get; set; }
 
+        //referred to by
         public ICollection<Order_Service> Order_Services { get; set; }
-        public ICollection<ServiceRequest> ServiceRequests { get; set; }
+        public ServiceRequest ServiceRequest { get; set; }
     }
 
     public class Order_Service
@@ -37,6 +38,7 @@ namespace CareOnDemandRestApi.Models
         public int OrderStatusID { get; set; }
         public string Status { get; set; }
 
+        //referred to by
         public ICollection<Order> Orders { get; set; }
     }
 

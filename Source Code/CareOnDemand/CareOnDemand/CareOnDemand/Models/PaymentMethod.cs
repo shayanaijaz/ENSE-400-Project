@@ -9,10 +9,11 @@ namespace CareOnDemand.Models
     {
         //scalars
         public int PaymentMethodID { get; set; }
-        
+
         //references
         public int CustomerID { get; set; }
 
+        //referred to by
         public ICollection<Order> Orders { get; set; }
     }
 }
