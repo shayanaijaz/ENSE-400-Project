@@ -11,11 +11,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Views\AdminViews\AdminCreateNewOrder.xaml.cs" />
     <Compile Remove="Views\AdminViews\AdminMainPage.xaml.cs" />
     <Compile Remove="Views\CustomerViews\NavBar.xaml.cs" />
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Remove="Views\AdminViews\AdminCreateNewOrder.xaml" />
     <EmbeddedResource Remove="Views\AdminViews\AdminMainPage.xaml" />
     <EmbeddedResource Remove="Views\CustomerViews\NavBar.xaml" />
   </ItemGroup>
@@ -46,6 +48,9 @@
     </EmbeddedResource>
     <EmbeddedResource Update="Views\AdminViews\PastOrders.xaml">
       <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\AdminViews\ViewNewOrder.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\CustomerViews\CustomerNavBar.xaml">
       <Generator>MSBuild:Compile</Generator>
