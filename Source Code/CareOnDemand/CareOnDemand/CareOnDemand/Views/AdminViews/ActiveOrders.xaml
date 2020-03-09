@@ -20,7 +20,7 @@
                       SelectedItem="{Binding ActiveOrders}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <ViewCell Tapped="ViewCellTapped">
+                        <!--<ViewCell Tapped="ViewCellTapped">
                             <Grid StyleClass="main">
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="20"/>
@@ -31,7 +31,7 @@
                                 <Label Grid.Row="1" VerticalOptions="Start"  Text="{Binding OrderTime}" />
 
                             </Grid>
-                        </ViewCell>
+                        </ViewCell>-->
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>

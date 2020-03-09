@@ -24,7 +24,7 @@ namespace CareOnDemand
 
             if (!isLoggedIn)
             {
-                MainPage = new NavigationPage(new ViewNewOrder());
+                MainPage = new NavigationPage(new LoginPage());
             }
             else if (isLoggedIn)
             {
