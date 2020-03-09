@@ -12,7 +12,7 @@
         <StackLayout StyleClass="main">
             <Label Text="This page will display the current working order"  VerticalOptions="Center"  HorizontalOptions="CenterAndExpand" />
             <Label  VerticalOptions="Center" Text=" A list including the current orders details will appear" />
-            <Button Text="Go to map" StyleClass="primaryButton" VerticalOptions="End" HorizontalOptions="fill" />
+            <Button Text="Go to map" StyleClass="primaryButton" VerticalOptions="End" HorizontalOptions="CenterAndExpand" />
             <Button Text="Notify Client" StyleClass="secondaryButton" VerticalOptions="End" HorizontalOptions="CenterAndExpand" />
 
         </StackLayout>
