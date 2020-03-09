@@ -29,6 +29,17 @@ stacklayout.main{
     background-color: transparent;
 }
 
+.serviceSelectionGrid
+{
+    padding-bottom: 5;
+}
+
+.floatingObject
+{
+    padding: 15;
+    background-color: transparent;
+}
+
 .primaryLabel
 {
     text-align: center;
@@ -39,6 +50,28 @@ stacklayout.main{
 
 .secondaryLabel
 {
+    text-align: center;
+    font-size: 20;
+    font-weight: bold;
+    text-decoration-color: black;
+}
+
+.listPrimaryLabel
+{
+    text-align: left;
+    font-size: medium;
+    font-weight: bold;
+    text-decoration-color: black;
+}
+
+.listSecondaryLabel {
+    text-align: left;
+    font-size: medium;
+    font-style: normal;
+    text-decoration-color: black;
+}
+
+.contactButton {
     text-align: center;
     font-size: 20;
     font-weight: bold;

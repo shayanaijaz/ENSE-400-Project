@@ -9,6 +9,7 @@ using Amazon.CognitoIdentityProvider.Model;
 //using Amazon.Extensions.CognitoAuthentication;
 using Amazon.Runtime;
 using CareOnDemand.Models;
+using CareOnDemand.Data;
 
 namespace CareOnDemand.Models
 {
@@ -23,12 +24,12 @@ namespace CareOnDemand.Models
         private String address_province;
         private String address_postal_code;
 
-        public RegisterService(Customer customer, Address customer_address)
+        public RegisterService(Account account, Address customer_address)
         {
-            email = customer.Account.Email;
-            password = customer.Account.Password;
-            number = customer.Account.PhoneNumber;
-            name = customer.Account.FirstName + " " + customer.Account.LastName;
+            email = account.Email;
+            password = account.Password;
+            number = account.PhoneNumber;
+            name = account.FirstName + " " + account.LastName;
             address_line_1 = customer_address.AddrLine1;
             address_city = customer_address.City;
             address_province = customer_address.Province;
@@ -74,6 +75,60 @@ namespace CareOnDemand.Models
 
             Console.Out.WriteLine(result);
 
+
+
+        }
+
+        public async Task CreateDatabaseUser(Account account)
+        {
+            AccountRestService accountRestService = new AccountRestService();
+
+            AccountLevelRestService accountLevelRestService = new AccountLevelRestService();
+
+            var accountLevel = await accountLevelRestService.RefreshDataAsync();
+
+            foreach (var level in accountLevel)
+            {
+                if (level.LevelTitle.Trim() == "Customer")
+                    account.AccountLevelID = level.AccountLevelID;
+            }
+
+
+            await accountRestService.SaveAccountAsync(account, true);
+            var result = await accountRestService.RefreshDataAsync();
+        }
+
+        public async Task AddAddress(Account account)
+        {
+            Address address = new Address();
+            address.AddrLine1 = "111 Solie Crescent";
+            address.City = "Regina";
+            address.Province = "Saskatchewan";
+            address.PostalCode = "S4X3M4";
+
+            
+
+            AddressRestService addressRestService = new AddressRestService();
+            //Customer_AddressRestService customer_AddressRestService = new Customer_AddressRestService();
+
+            //Customer_Address customer_Address = new Customer_Address();
+            //customer_Address.AddressLabel = "Home";
+
+            ////account.Customer.Customer_Addresses = new List<Customer_Address>();
+
+            //address.Customer_Addresses = new List<Customer_Address>();
+            //address.Customer_Addresses.Add(customer_Address);
+
+            //account.Customer.Customer_Addresses = new List<Customer_Address>();
+            //account.Customer.Customer_Addresses.Add(customer_Address);
+
+            var created_address = await addressRestService.SaveAddressAsync(address, true);
+            var result = await addressRestService.RefreshDataAsync();
+
+            //await customer_AddressRestService.SaveCustomer_AddressAsync(customer_Address, true);
+            //var result2 = await customer_AddressRestService.RefreshDataAsync();
+
+            
 
 
         }

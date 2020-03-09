@@ -10,70 +10,73 @@ namespace CareOnDemand.ViewModels
 
         static BaseCustomerDetailsViewModel()
         {
-            customer_details = new Customer();
-            customer_details.Account = new Account();
+            account = new Account();
+            account.Customer = new Customer();
+
             customer_address = new Address();
+            //customer_address.Customer_Addresses = new List<Customer_Address>();
+            //account.Customer.Customer_Addresses = new List<Customer_Address>();
         }
 
-        protected static Customer customer_details;
+        protected static Account account;
         protected static Address customer_address;
 
         //public Account Account
         //{
-        //    get { return customer_details.Account; }
+        //    get { return account; }
         //    set
         //    {
-        //        customer_details.Account = value;
+        //        account = value;
         //    }
         //}
 
         public String Email
         {
-            get => customer_details.Account.Email;
+            get => account.Email;
             set
             {
-                customer_details.Account.Email = value.Trim().ToLower();
+                account.Email = value.Trim().ToLower();
             }
         }
         public String Password
         {
-            get => customer_details.Account.Password;
+            get => account.Password;
             set
             {
-                customer_details.Account.Password = value;
+                account.Password = value;
             }
         }
 
         public String PasswordConfirmation
         {
-            get => customer_details.Account.PasswordConfirmation;
+            get => account.PasswordConfirmation;
             set
             {
-                customer_details.Account.PasswordConfirmation = value;
+                account.PasswordConfirmation = value;
             }
         }
         public String Number
         {
-            get => customer_details.Account.PhoneNumber;
+            get => account.PhoneNumber;
             set
             {
-                customer_details.Account.PhoneNumber = "+1" + value;
+                account.PhoneNumber = "+1" + value;
             }
         }
         public String FirstName
         {
-            get => customer_details.Account.FirstName;
+            get => account.FirstName;
             set
             {
-                customer_details.Account.FirstName = value;
+                account.FirstName = value;
             }
         }
         public String LastName
         {
-            get => customer_details.Account.LastName;
+            get => account.LastName;
             set
             {
-                customer_details.Account.LastName = value;
+                account.LastName = value;
             }
         }
 
@@ -106,7 +109,7 @@ namespace CareOnDemand.ViewModels
             get => customer_address.PostalCode;
             set
             {
-                customer_address.PostalCode = value;
+                customer_address.PostalCode = value.Trim();
             }
         }
     }

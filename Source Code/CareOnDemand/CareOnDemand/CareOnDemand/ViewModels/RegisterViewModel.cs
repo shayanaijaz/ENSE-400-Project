@@ -31,7 +31,7 @@ namespace CareOnDemand.ViewModels
         async Task NextButtonClicked()
         {
             CustomerDetailsValidator customer_details_validator = new CustomerDetailsValidator();
-            ValidationResult results = customer_details_validator.Validate(customer_details.Account);
+            ValidationResult results = customer_details_validator.Validate(account);
 
             if (!results.IsValid)
             {

@@ -8,7 +8,6 @@
              NavigationPage.HasNavigationBar="True"
              NavigationPage.HasBackButton="False"
              Title="Active Orders">
-
     <ContentPage.Resources>
         <StyleSheet Source="/Views/StyleSheet.css" />
     </ContentPage.Resources>
