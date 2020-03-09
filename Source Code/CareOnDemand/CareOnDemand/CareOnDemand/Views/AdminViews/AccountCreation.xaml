@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             Title="Create New Accounts"
+             x:Class="CareOnDemand.Views.AdminViews.AccountCreation">
+    <ContentPage.Resources>
+        <StyleSheet Source="/Views/StyleSheet.css" />
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <Grid StyleClass="main">
+
+            <Grid.RowDefinitions>
+
+                <RowDefinition Height="0.1*" />
+                <RowDefinition Height="0.2*" />
+                <RowDefinition Height="0.2*" />
+                <RowDefinition Height="0.2*" />
+                <RowDefinition Height="0.1*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+             </Grid.ColumnDefinitions>
+
+            <Image Grid.Row="0"  Grid.ColumnSpan="2" HorizontalOptions="CenterAndExpand" Source="https://careondemand-storage.s3.ca-central-1.amazonaws.com/Eden-Care-logo-main.png"/>
+            <Picker ItemsSource="{Binding AccountList}" Title="Account Type" VerticalOptions="End" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" FontSize="20" />
+            <Entry Text="First Name" VerticalOptions="Center" Grid.Row="2" Grid.Column="0"/>
+            <Entry Text="Last name"  VerticalOptions="Center" Grid.Row="2" Grid.Column="1"/>
+            <Entry Text="Phone Number" VerticalOptions="Start" Grid.Row="3" Keyboard="Telephone" Grid.ColumnSpan="2" />
+            <Button Text="Create Account" VerticalOptions="Start" StyleClass="primaryButton" Grid.Row="4" Grid.ColumnSpan="2"/>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
