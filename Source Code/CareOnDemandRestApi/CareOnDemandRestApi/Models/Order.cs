@@ -12,6 +12,8 @@ namespace CareOnDemandRestApi.Models
         //scalars
         public int OrderID { get; set; }
         public string OrderInstructions { get; set; }
+        public DateTime RequestedTime { get; set; }
+        public DateTime CreationTime { get; set; }
 
         //references
         public int CustomerID { get; set; }
@@ -27,6 +29,9 @@ namespace CareOnDemandRestApi.Models
 
     public class Order_Service
     {
+        //scalars
+        public int RequestedLength { get; set; }
+
         //references
         [Key]
         [ForeignKey("Order")]
