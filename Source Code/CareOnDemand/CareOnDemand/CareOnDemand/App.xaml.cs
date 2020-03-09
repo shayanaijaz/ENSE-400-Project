@@ -4,6 +4,7 @@ using Xamarin.Forms.Xaml;
 using CareOnDemand.Views.SharedViews;
 using CareOnDemand.Views.CustomerViews;
 using CareOnDemand.Views.AdminViews;
+using CareOnDemand.Views.CarePartnerViews;
 using Xamarin.Forms.PlatformConfiguration.AndroidSpecific;
 
 namespace CareOnDemand
@@ -17,10 +18,9 @@ namespace CareOnDemand
             //MainPage = new NavigationPage(new LoginPage());
             //Xamarin.Forms.Application.Current.On<Xamarin.Forms.PlatformConfiguration.Android>().UseWindowSoftInputModeAdjust(WindowSoftInputModeAdjust.Resize);
 
-
             bool isLoggedIn = Current.Properties.ContainsKey("isLoggedIn") ? Convert.ToBoolean(Current.Properties["isLoggedIn"]) : false;
 
-            isLoggedIn = false;
+            //isLoggedIn = false;
 
             if (!isLoggedIn)
             {
@@ -28,6 +28,7 @@ namespace CareOnDemand
             }
             else if (isLoggedIn)
             {
+
                 MainPage = new NavigationPage(new CustomerNavBar());
 
             }

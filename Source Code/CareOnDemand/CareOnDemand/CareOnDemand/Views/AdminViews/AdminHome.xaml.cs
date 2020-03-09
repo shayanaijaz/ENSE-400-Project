@@ -6,18 +6,15 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using CareOnDemand.ViewModels;
 
-namespace CareOnDemand.Views.CustomerViews
+namespace CareOnDemand.Views.AdminViews
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class AccountManagement : ContentPage
+    public partial class AdminHome : ContentPage
     {
-        public AccountManagement()
+        public AdminHome()
         {
-            BindingContext = new AccountManagementViewModel();
             InitializeComponent();
         }
     }
 }
-

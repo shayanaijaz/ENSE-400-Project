@@ -5,32 +5,35 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="CareOnDemand.Views.AdminViews.ActiveOrders"
-             NavigationPage.HasNavigationBar="False">
-    
+             NavigationPage.HasNavigationBar="True"
+             NavigationPage.HasBackButton="False"
+             Title="Active Orders">
     <ContentPage.Resources>
         <StyleSheet Source="/Views/StyleSheet.css" />
     </ContentPage.Resources>
     <ContentPage.Content>
         <ContentView>
-            <Grid Padding="15" StyleClass="main">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="0.08*" />
-                    <RowDefinition Height="0.1*" />
-                    <RowDefinition Height="0.1*" />
-                    <RowDefinition Height="0.1*" />
-                    <RowDefinition Height="0.5*" />
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="0.7*" />
-                    <ColumnDefinition Width="0.25*" />
-                </Grid.ColumnDefinitions>
-                <SearchBar StyleClass="searchBar" Placeholder="Search Active Orders" Grid.Row="0" Grid.ColumnSpan="1" HorizontalOptions="Start" VerticalOptions="Center" BackgroundColor="White" />
-                <Button StyleClass="secondaryButton" Text="Search" Grid.Row="0" Grid.Column="1" HorizontalOptions="End" />
-                <Label StyleClass="primaryLabel" Text="Select a date" Grid.Row="1" Grid.ColumnSpan="2" HorizontalOptions="Center" />
-                <DatePicker Grid.Row="2" Grid.ColumnSpan="2" FontSize="30" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" />
-                <Label StyleClass="primaryLabel" Text="Active Orders" Grid.Row="3" Grid.ColumnSpan="2" HorizontalOptions="Start"/>
-                <Label Text="*Active Orders Appear Here Based on Search/DatePicker*" Grid.Row="4" Grid.ColumnSpan="2" FontSize="Large" VerticalOptions="Start" HorizontalOptions="Center"/>
-            </Grid>
+            <ListView x:Name="ServiceListView" ItemsSource="{Binding ActiveOrderList}" StyleClass="main"
+                    SeparatorVisibility="Default"
+                    RowHeight="80"
+                      SelectedItem="{Binding ActiveOrders}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <!--<ViewCell Tapped="ViewCellTapped">
+                            <Grid StyleClass="main">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="20"/>
+                                    <RowDefinition Height="20"/>
+                                </Grid.RowDefinitions>
+
+                                <Label Grid.Row="0" FontAttributes="Bold" FontSize="Small" Text="{Binding OrderName}" />
+                                <Label Grid.Row="1" VerticalOptions="Start"  Text="{Binding OrderTime}" />
+
+                            </Grid>
+                        </ViewCell>-->
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </ContentView>
     </ContentPage.Content>
 </ContentPage>

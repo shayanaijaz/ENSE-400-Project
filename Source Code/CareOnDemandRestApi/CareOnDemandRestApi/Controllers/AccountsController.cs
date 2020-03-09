@@ -27,7 +27,7 @@ namespace CareOnDemandRestApi.Controllers
             return await _context.Accounts.ToListAsync();
         }
 
-        // GET: api/Accounts/5
+        // GET: api/Accounts/{id}
         [HttpGet("{id}")]
         public async Task<ActionResult<Account>> GetAccount(int id)
         {
@@ -41,7 +41,21 @@ namespace CareOnDemandRestApi.Controllers
             return account;
         }
 
-        // PUT: api/Accounts/5
+        // GET: api/Accounts/email/{email}
+        [HttpGet("email/{email}")]
+        public async Task<ActionResult<Account>> GetAccount(string email)
+        {
+            var account = await _context.Accounts.Where(a => a.Email == email).ToListAsync();
+
+            if (account == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(account);
+        }
+
+        // PUT: api/Accounts/{id}
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
         [HttpPut("{id}")]
@@ -86,7 +100,7 @@ namespace CareOnDemandRestApi.Controllers
             return CreatedAtAction(nameof(GetAccount), new { id = account.AccountID }, account);
         }
 
-        // DELETE: api/Accounts/5
+        // DELETE: api/Accounts/{id}
         [HttpDelete("{id}")]
         public async Task<ActionResult<Account>> DeleteAccount(int id)
         {
@@ -126,7 +140,7 @@ namespace CareOnDemandRestApi.Controllers
             return await _context.AccountLevels.ToListAsync();
         }
 
-        // GET: api/AccountLevels/5
+        // GET: api/AccountLevels/{id}
         [HttpGet("{id}")]
         public async Task<ActionResult<AccountLevel>> GetAccountLevel(int id)
         {
@@ -140,7 +154,7 @@ namespace CareOnDemandRestApi.Controllers
             return accountLevel;
         }
 
-        // PUT: api/AccountLevels/5
+        // PUT: api/AccountLevels/{id}
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
         [HttpPut("{id}")]
@@ -184,7 +198,7 @@ namespace CareOnDemandRestApi.Controllers
             return CreatedAtAction("GetAccountLevel", new { id = accountLevel.AccountLevelID }, accountLevel);
         }
 
-        // DELETE: api/AccountLevels/5
+        // DELETE: api/AccountLevels/{id}
         [HttpDelete("{id}")]
         public async Task<ActionResult<AccountLevel>> DeleteAccountLevel(int id)
         {
@@ -224,7 +238,7 @@ namespace CareOnDemandRestApi.Controllers
             return await _context.Admins.ToListAsync();
         }
 
-        // GET: api/Admins/5
+        // GET: api/Admins/{id}
         [HttpGet("{id}")]
         public async Task<ActionResult<Admin>> GetAdmin(int id)
         {
@@ -238,7 +252,7 @@ namespace CareOnDemandRestApi.Controllers
             return admin;
         }
 
-        // PUT: api/Admins/5
+        // PUT: api/Admins/{id}
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
         [HttpPut("{id}")]
@@ -322,7 +336,7 @@ namespace CareOnDemandRestApi.Controllers
             return await _context.CarePartners.ToListAsync();
         }
 
-        // GET: api/CarePartners/5
+        // GET: api/CarePartners/{id}
         [HttpGet("{id}")]
         public async Task<ActionResult<CarePartner>> GetCarePartner(int id)
         {
@@ -336,7 +350,7 @@ namespace CareOnDemandRestApi.Controllers
             return carePartner;
         }
 
-        // PUT: api/CarePartners/5
+        // PUT: api/CarePartners/{id}
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
         [HttpPut("{id}")]
@@ -380,7 +394,7 @@ namespace CareOnDemandRestApi.Controllers
             return CreatedAtAction("GetCarePartner", new { id = carePartner.CarePartnerID }, carePartner);
         }
 
-        // DELETE: api/CarePartners/5
+        // DELETE: api/CarePartners/{id}
         [HttpDelete("{id}")]
         public async Task<ActionResult<CarePartner>> DeleteCarePartner(int id)
         {
@@ -420,7 +434,7 @@ namespace CareOnDemandRestApi.Controllers
             return await _context.Customers.ToListAsync();
         }
 
-        // GET: api/Customers/5
+        // GET: api/Customers/{5}
         [HttpGet("{id}")]
         public async Task<ActionResult<Customer>> GetCustomer(int id)
         {
@@ -434,7 +448,7 @@ namespace CareOnDemandRestApi.Controllers
             return customer;
         }
 
-        // PUT: api/Customers/5
+        // PUT: api/Customers/{5}
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
         [HttpPut("{id}")]
@@ -478,7 +492,7 @@ namespace CareOnDemandRestApi.Controllers
             return CreatedAtAction("GetCustomer", new { id = customer.CustomerID }, customer);
         }
 
-        // DELETE: api/Customers/5
+        // DELETE: api/Customers/{5}
         [HttpDelete("{id}")]
         public async Task<ActionResult<Customer>> DeleteCustomer(int id)
         {

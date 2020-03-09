@@ -51,7 +51,7 @@
             <Entry Grid.Row="4"  Grid.Column="0"  VerticalOptions="Center" Grid.ColumnSpan="3" FontSize="20" Placeholder="Postal Code" Text="{Binding AddressPostalCode}"/>
             
             <Button StyleClass="primaryButton" Grid.Row="5" Text="Create Account"  VerticalOptions="Center" Grid.ColumnSpan="3" Command="{Binding CreateAccountCommand}"/>
-            <Label Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="2" VerticalOptions="End" HorizontalOptions="StartAndExpand" Text="1-306-EDN-CARE" />
+            <Button Grid.Row="6" Grid.Column="1" StyleClass="contactButton" Grid.ColumnSpan="2" VerticalOptions="End" HorizontalOptions="StartAndExpand" Text="Contact Eden Care" Command="{Binding ContactCommand}" />
 
         </Grid>
     </ContentPage.Content>

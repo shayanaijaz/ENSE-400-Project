@@ -10,7 +10,6 @@ namespace CareOnDemand.ViewModels
 
         static BaseCustomerDetailsViewModel()
         {
-            
             account = new Account();
             account.Customer = new Customer();
 
