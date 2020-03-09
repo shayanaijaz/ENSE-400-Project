@@ -13,13 +13,11 @@
     <ContentPage.Content>
         <StackLayout>
             <Frame BorderColor="LightGray">
-                <Label Text="{Binding SelectedService.ServiceDescription}"
+                <Label Text="{Binding ServiceDescription}"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
             </Frame>
             <Label Text="Select a duration" StyleClass="durationLabel"  VerticalOptions="End" />
-
-
             <ListView ItemsSource="{Binding DurationList}"
                       SeparatorVisibility="Default"
                       RowHeight="50"
@@ -49,7 +47,7 @@
                     </FormattedString>
                 </Label.FormattedText>
             </Label> 
-            <Button Text="Add to cart" StyleClass="primaryButton" CornerRadius="0" HeightRequest="60" IsVisible="{Binding AddToCartIsVisible}" />
+            <Button Text="Add to cart" StyleClass="primaryButton" CornerRadius="0" HeightRequest="60" IsVisible="{Binding AddToCartIsVisible}" Command="{Binding AddToCartCommand}" />
         </StackLayout>
 
     </ContentPage.Content>

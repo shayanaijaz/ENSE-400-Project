@@ -1,5 +1,4 @@
-﻿using CareOnDemand.ViewModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,16 +7,14 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace CareOnDemand.Views.CustomerViews
+namespace CareOnDemand.Views.CarePartnerViews
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class OrderDetails : ContentPage
+    public partial class CarePartnerHome : ContentPage
     {
-        public OrderDetails()
+        public CarePartnerHome()
         {
             InitializeComponent();
-
-            BindingContext = new OrderDetailsViewModel();
         }
     }
 }

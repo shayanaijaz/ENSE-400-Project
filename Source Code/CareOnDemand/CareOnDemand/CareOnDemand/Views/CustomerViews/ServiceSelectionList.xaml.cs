@@ -27,7 +27,7 @@ namespace CareOnDemand.Views.CustomerViews
                 lastCell.View.BackgroundColor = Color.Transparent;
             if (ServiceListView.SelectedItem == null)
                 lastCell.View.BackgroundColor = Color.Transparent;
-            
+
             var viewCell = (ViewCell)sender;
             if (viewCell.View != null)
             {

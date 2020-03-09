@@ -1,17 +1,23 @@
-﻿using System;
+﻿using CareOnDemand.Models;
+using CareOnDemand.Views.CustomerViews;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
+using System.Threading.Tasks;
+using Xamarin.Forms;
 
 namespace CareOnDemand.ViewModels
 {
-    class ServiceSelectedDetailsViewModel : BaseServiceViewModel
+    class ServiceSelectedDetailsViewModel : BaseServiceAndOrderViewModel
     {
         public ServiceSelectedDetailsViewModel()
         {
             DurationList = new ObservableCollection<Duration>();
             selected_duration = new Duration();
             PopulateDurationList();
+            AddToCartCommand = new Command(async () => await AddToCartClicked());
+
         }
 
         public ObservableCollection<Duration> DurationList { get; set; }
@@ -19,6 +25,16 @@ namespace CareOnDemand.ViewModels
         public string PriceText { get; set; }
         public bool AddToCartIsVisible { get; set; }
 
+        public Command AddToCartCommand { private set; get; }
+
+        public String ServiceDescription
+        {
+            get => user_selected_service.ServiceDescription;
+            set
+            {
+                user_selected_service.ServiceDescription = value;
+            }
+        }
         public Duration SelectedDuration
         {
             get => selected_duration;
@@ -40,13 +56,30 @@ namespace CareOnDemand.ViewModels
 
         public void PopulateDurationList()
         {
-            if (service.Length == 1)
+            if (user_selected_service.Length == 1)
             {
                 for (int i = 1; i <= 3; i++)
                 {
-                    DurationList.Add(new Duration { Time = i, TimeSentence = i + " hours", Price = service.ServicePrice * i });
+                    DurationList.Add(new Duration { Time = i, TimeSentence = i + " hours", Price = user_selected_service.ServicePrice * i });
                 }
             }
+        }
+
+        async Task AddToCartClicked()
+        {
+
+            if (user_order == null)
+            {
+                user_order = new Order();
+                user_order.Order_Services = new List<Order_Service>();
+            }
+
+            Order_Service orderService = new Order_Service{ ServiceID = user_selected_service.ServiceID, ServiceLength = selected_duration.Time, ServiceName = user_selected_service.ServiceName};
+
+            user_order.Order_Services.Add(orderService);
+
+            await Application.Current.MainPage.DisplayAlert("Success", "Item succesfully added to cart", "OK");
+            await Application.Current.MainPage.Navigation.PushAsync(new CustomerNavBar());
         }
         public class Duration
         {

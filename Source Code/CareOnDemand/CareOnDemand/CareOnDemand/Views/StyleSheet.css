@@ -14,6 +14,9 @@ Format to include this file in any .xaml file that we need to include
 grid.main {
    padding: 15;
 }
+stacklayout.main{
+    padding:15;
+}
 
 .serviceSelectionGrid
 {
@@ -57,12 +60,15 @@ grid.main {
     text-decoration-color: black;
 }
 
-.contactLabel
-{
+.contactButton {
     text-align: center;
     font-size: small;
     horizontal-align: center;
-    text-decoration-color: black;
+    text-decoration-color:black;
+    background-color:transparent;
+    border-color:lightgray;
+    border-radius:15;
+    border-width:0.5;
 }
 
 .primaryButton {
@@ -72,7 +78,8 @@ grid.main {
 }
 
 .secondaryButton {
-    border-radius: 25;
+    border-radius: 15;
+    border-width:0.5;
     background-color:#a5d5ed;
     font-size: small;
     text-decoration-color: black;
