@@ -4,34 +4,35 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             NavigationPage.HasNavigationBar="False"
-             x:Class="CareOnDemand.Views.CarePartnerViews.CarePartnerHome">
+             x:Class="CareOnDemand.Views.AdminViews.AdminHome"
+             NavigationPage.HasNavigationBar="False">
     <ContentPage.Resources>
         <StyleSheet Source="/Views/StyleSheet.css" />
     </ContentPage.Resources>
 
     <ContentPage.Content>
-        
+
         <Grid StyleClass="main">
             <Grid.RowDefinitions>
                 <RowDefinition Height="0.35*"/>
-                <RowDefinition Height="0.15*"/>
-                <RowDefinition Height="0.10*"/>
                 <RowDefinition Height="0.20*"/>
                 <RowDefinition Height="0.20*"/>
-                <RowDefinition Height="0.25*"/>
+                <RowDefinition Height="0.20*"/>
+                <RowDefinition Height="0.20*"/>
+                <RowDefinition Height="0.20*"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
 
             </Grid.ColumnDefinitions>
 
-            <Image Grid.Row="0" Source="https://careondemand-storage.s3.ca-central-1.amazonaws.com/EdenCare_PlainLogo.png" />
             <Label StyleClass="primaryLabel" HorizontalOptions="CenterAndExpand" VerticalOptions="Center" Text="Welcome *first name*" Grid.Row="1" Grid.Column="0" />
-            <Label StyleClass="secondaryLabel" Text="What are you searching for?" HorizontalOptions="CenterAndExpand" VerticalOptions="Center" Grid.Row="2" Grid.Column="0" />
-
-            <Button StyleClass="secondaryButton" Text="Orders" HorizontalOptions="Fill" VerticalOptions="Center" Grid.Row="3" Grid.Column="0" />
-            <Button StyleClass="secondaryButton" Text="Account" HorizontalOptions="Fill" VerticalOptions="Start" Grid.Row="4" Grid.Column="0" />
-            <Label StyleClass="secondaryLabel" Text="Next Appointment:" VerticalOptions="Start" HorizontalOptions="Center" Grid.Row="5" />
+            <Image Grid.Row="0" Source="https://careondemand-storage.s3.ca-central-1.amazonaws.com/EdenCare_PlainLogo.png" />
+            
+            
+            <Button StyleClass="secondaryButton" Text="Create Order" VerticalOptions="Center" Grid.Row="2" Grid.Column="0" />
+            <Button StyleClass="secondaryButton" Text="Create Account" VerticalOptions="Center" Grid.Row="3" Grid.Column="0" />
+            <Button StyleClass="secondaryButton" Text="Modify User" VerticalOptions="Center" Grid.Row="4" Grid.Column="0" />
+            <Button StyleClass="secondaryButton" Text="My Account" VerticalOptions="Center" Grid.Row="5" Grid.Column="0" />
         </Grid>
 
     </ContentPage.Content>
