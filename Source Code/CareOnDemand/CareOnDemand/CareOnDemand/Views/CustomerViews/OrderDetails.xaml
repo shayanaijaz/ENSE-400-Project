@@ -52,8 +52,7 @@
 
                     <Picker Title="Where?" Grid.Row="1" VerticalOptions="Start" FontSize="Large"
                     ItemsSource="{Binding LocationList}"
-                    ItemDisplayBinding="{Binding Value}"
-                />
+                    ItemDisplayBinding="{Binding Value}"/>
 
                     <Label Text="What day?" Grid.Row="2" VerticalOptions="End" FontSize="Large"/>
                     <DatePicker Grid.Row="3" VerticalOptions="Start" FontSize="Large"/>
