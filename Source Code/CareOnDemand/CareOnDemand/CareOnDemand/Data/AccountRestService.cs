@@ -72,6 +72,7 @@ namespace CareOnDemand.Data
             {
                 Debug.WriteLine(@"\tERROR {0}", ex.Message);
             }
+
         }
 
         public async Task DeleteAccountAsync(string id)

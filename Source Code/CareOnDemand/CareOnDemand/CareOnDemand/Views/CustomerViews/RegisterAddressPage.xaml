@@ -33,16 +33,21 @@
             <Label StyleClass="primaryLabel" Grid.Row="0"  Grid.Column="0" Grid.ColumnSpan="3" Text="Add Address"  />
             <Entry Grid.Row="1"  Grid.Column="0"  VerticalOptions="Center" Grid.ColumnSpan="3" FontSize="20" Placeholder="Street Address" Text="{Binding AddressLine1}"/>
             <Picker Title="City" Grid.Row="2"  Grid.Column="0"  VerticalOptions="Center" Grid.ColumnSpan="3" FontSize="20"
-                    ItemsSource="{Binding CityList}"
-                    ItemDisplayBinding="{Binding Value}"
-                    />
+                    SelectedItem="{Binding AddressCity}">
+                <Picker.Items>
+                    <x:String>Moose Jaw</x:String>
+                    <x:String>Regina</x:String>
+                    <x:String>Saskatoon</x:String>
+                </Picker.Items>
+            </Picker>
             <Picker Title="Province"
                     Grid.Row="3"  Grid.Column="0" VerticalOptions="Center" Grid.ColumnSpan="3" FontSize="20"
-                    ItemsSource="{Binding ProvinceList}"
-                    ItemDisplayBinding="{Binding Value}"
-                    >
+                    SelectedItem="{Binding AddressProvince}" >
+                <Picker.Items>
+                    <x:String>Saskatchewan</x:String>
+                </Picker.Items>
             </Picker>
-            
+
             <Entry Grid.Row="4"  Grid.Column="0"  VerticalOptions="Center" Grid.ColumnSpan="3" FontSize="20" Placeholder="Postal Code" Text="{Binding AddressPostalCode}"/>
             
             <Button StyleClass="primaryButton" Grid.Row="5" Text="Create Account"  VerticalOptions="Center" Grid.ColumnSpan="3" Command="{Binding CreateAccountCommand}"/>

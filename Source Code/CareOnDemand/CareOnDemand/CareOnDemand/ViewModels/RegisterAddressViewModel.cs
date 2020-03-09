@@ -16,63 +16,10 @@ namespace CareOnDemand.ViewModels
     {
         public RegisterAddressViewModel()
         {
-            ProvinceList = GetProvinces().ToList();
-            CityList = GetCities().ToList();
             CreateAccountCommand = new Command(CreateAccountClicked);
         }
 
         public Command CreateAccountCommand { private set; get; }
-
-        public List<Province> ProvinceList { get; set; }
-        public List<City> CityList { get; set; }
-    
-
-        public List<Province> GetProvinces()
-        {
-            var provinces = new List<Province>()
-            {
-                new Province(){Key =  1, Value= "Saskatchewan"},
-                //new Province(){Key =  2, Value= "BC"},
-                //new Province(){Key =  3, Value= "MB"},
-                //new Province(){Key =  4, Value= "NB"},
-                //new Province(){Key =  5, Value= "NL"},
-                //new Province(){Key =  6, Value= "NS"},
-                //new Province(){Key =  7, Value= "ON"},
-                //new Province(){Key =  8, Value= "PE"},
-                //new Province(){Key =  9, Value= "QC"},
-                //new Province(){Key =  10,Value= "SK"},
-                //new Province(){Key =  11,Value= "NT"},
-                //new Province(){Key =  12,Value= "NU"},
-                //new Province(){Key =  13,Value= "YT"}
-            };
-
-            return provinces;
-        }
-
-        public List<City> GetCities()
-        {
-            var cities = new List<City>()
-            {
-                new City(){Key = 1, Value= "Moose Jaw"},
-                new City(){Key = 2, Value= "Regina"},
-                new City(){Key = 3, Value= "Saskatoon"}
-            };
-
-            return cities;
-        }
-
-
-        public class Province
-        {
-            public int Key { get; set; }
-            public string Value { get; set; }
-        }
-
-        public class City
-        {
-            public int Key { get; set; }
-            public string Value { get; set; }
-        }
 
         async void CreateAccountClicked()
         {
@@ -86,22 +33,12 @@ namespace CareOnDemand.ViewModels
             }
             else
             {
-                RegisterService registerModel = new RegisterService(customer_details, customer_address);
-                AccountRestService accountRestService = new AccountRestService();
+                RegisterService registerModel = new RegisterService(account, customer_address);
 
                 try
                 {
-                    //AccountLevel accountLevel = new AccountLevel();
-                    //accountLevel.AccountLevelID = 3;
-                    //accountLevel.LevelTitle = "Customer";
-
-                    //customer_details.Account.AccountLevel = accountLevel;
-
-                    //customer_details.Account.AccountID = 3;
-
-                    //await accountRestService.SaveAccountAsync(customer_details.Account, true);
-                    //var result = await accountRestService.RefreshDataAsync();
-
+                    await registerModel.AddAddress(account);
+                    await registerModel.CreateDatabaseUser(account);
                     await registerModel.CreateCognitoUser();
                     await Application.Current.MainPage.DisplayAlert("Success", "Account created succesfully. Please check your email for verification link", "OK");
                     await Application.Current.MainPage.Navigation.PushAsync(new LoginPage());

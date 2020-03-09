@@ -43,19 +43,23 @@ namespace CareOnDemand.Data
             return Addresses;
         }
 
-        public async Task SaveAddressAsync(Address item, bool isNewItem = false)
+        public async Task<Address> SaveAddressAsync(Address item, bool isNewItem = false)
         {
             var uri = new Uri(string.Format(Constants.AddressesUrl, string.Empty));
 
+            HttpResponseMessage response = null;
+
+            Address Addresses = new Address();
             try
             {
                 var json = JsonConvert.SerializeObject(item);
                 var content = new StringContent(json, Encoding.UTF8, "application/json");
 
-                HttpResponseMessage response = null;
                 if (isNewItem)
                 {
                     response = await _client.PostAsync(uri, content);
+                    var response_content = await response.Content.ReadAsStringAsync();
+                    Addresses = JsonConvert.DeserializeObject<Address>(response_content);
                 }
                 else
                 {
@@ -72,6 +76,8 @@ namespace CareOnDemand.Data
             {
                 Debug.WriteLine(@"\tERROR {0}", ex.Message);
             }
+
+            return Addresses;
         }
 
         public async Task DeleteAddressAsync(string id)
