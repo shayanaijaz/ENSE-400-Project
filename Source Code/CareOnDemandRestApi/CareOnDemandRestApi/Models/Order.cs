@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CareOnDemandRestApi.Models
 {
@@ -28,7 +29,9 @@ namespace CareOnDemandRestApi.Models
     {
         //references
         [Key]
+        [ForeignKey("Order")]
         public int OrderID { get; set; }
+        public Order Order { get; set; }
         public int ServiceID { get; set; }
     }
 
@@ -43,10 +46,15 @@ namespace CareOnDemandRestApi.Models
     }
 
     public class ServiceRequest
-    {
+    {        
+        //scalars
+        public string OrderNotes { get; set; }
+
         //references
         [Key]
+        [ForeignKey("Order")]
         public int OrderID { get; set; }
+        public Order Order { get; set; }
         public int CarePartnerID { get; set; }
     }
 }

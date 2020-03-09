@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CareOnDemandRestApi.Models
 {
@@ -28,7 +29,9 @@ namespace CareOnDemandRestApi.Models
 
         //references
         [Key]
+        [ForeignKey("Address")]
         public int AddressID { get; set; }
+        public Address Address { get; set; }
         public int CustomerID { get; set; }
     }
 }
