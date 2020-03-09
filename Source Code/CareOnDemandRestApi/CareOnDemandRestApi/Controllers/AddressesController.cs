@@ -125,18 +125,17 @@ namespace CareOnDemandRestApi.Controllers
             return await _context.Customer_Addresses.ToListAsync();
         }
 
-        // GET: api/Customer_Address/5
-        [HttpGet("{id}")]
-        public async Task<ActionResult<Customer_Address>> GetCustomer_Address(int id)
+        // GET: api/Customer_Address/{CustomerID}
+        [HttpGet("{customerID}")]
+        public async Task<ActionResult<Customer_Address>> GetCustomer_Address(int customerID)
         {
-            var customer_Address = await _context.Customer_Addresses.FindAsync(id);
-
+            var customer_Address = await _context.Customer_Addresses.Where(ca => ca.CustomerID == customerID).ToListAsync();
             if (customer_Address == null)
             {
                 return NotFound();
             }
 
-            return customer_Address;
+            return Ok(customer_Address);
         }
 
         // PUT: api/Customer_Address/5

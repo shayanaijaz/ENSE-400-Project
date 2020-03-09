@@ -13,6 +13,7 @@ namespace CareOnDemandRestApi.Models
         //references
         public int CustomerID { get; set; }
 
+        //referred to by
         public ICollection<Order> Orders { get; set; }
     }
 }

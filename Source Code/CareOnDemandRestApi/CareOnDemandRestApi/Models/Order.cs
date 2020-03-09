@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CareOnDemandRestApi.Models
 {
@@ -11,6 +12,8 @@ namespace CareOnDemandRestApi.Models
         //scalars
         public int OrderID { get; set; }
         public string OrderInstructions { get; set; }
+        public DateTime RequestedTime { get; set; }
+        public DateTime CreationTime { get; set; }
 
         //references
         public int CustomerID { get; set; }
@@ -19,15 +22,21 @@ namespace CareOnDemandRestApi.Models
         public int PaymentMethodID { get; set; }
         public int OrderStatusID { get; set; }
 
+        //referred to by
         public ICollection<Order_Service> Order_Services { get; set; }
-        public ICollection<ServiceRequest> ServiceRequests { get; set; }
+        public ServiceRequest ServiceRequest { get; set; }
     }
 
     public class Order_Service
     {
+        //scalars
+        public int RequestedLength { get; set; }
+
         //references
         [Key]
+        [ForeignKey("Order")]
         public int OrderID { get; set; }
+        public Order Order { get; set; }
         public int ServiceID { get; set; }
     }
 
@@ -37,14 +46,20 @@ namespace CareOnDemandRestApi.Models
         public int OrderStatusID { get; set; }
         public string Status { get; set; }
 
+        //referred to by
         public ICollection<Order> Orders { get; set; }
     }
 
     public class ServiceRequest
-    {
+    {        
+        //scalars
+        public string OrderNotes { get; set; }
+
         //references
         [Key]
+        [ForeignKey("Order")]
         public int OrderID { get; set; }
+        public Order Order { get; set; }
         public int CarePartnerID { get; set; }
     }
 }
