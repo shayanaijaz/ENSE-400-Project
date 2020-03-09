@@ -20,7 +20,7 @@ namespace CareOnDemand
 
             bool isLoggedIn = Current.Properties.ContainsKey("isLoggedIn") ? Convert.ToBoolean(Current.Properties["isLoggedIn"]) : false;
 
-            isLoggedIn = false;
+            //isLoggedIn = false;
 
             if (!isLoggedIn)
             {
@@ -28,7 +28,7 @@ namespace CareOnDemand
             }
             else if (isLoggedIn)
             {
-                MainPage = new NavigationPage(new CustomerNavBar());
+                MainPage = new NavigationPage(new AdminCreateNewOrder());
 
             }
             //MainPage = new NavigationPage(new TestTabbed());

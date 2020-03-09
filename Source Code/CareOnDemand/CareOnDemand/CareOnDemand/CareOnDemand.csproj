@@ -11,11 +11,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Views\AdminViews\AdminCreateNewOrder.xaml.cs" />
     <Compile Remove="Views\AdminViews\AdminMainPage.xaml.cs" />
     <Compile Remove="Views\CustomerViews\NavBar.xaml.cs" />
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Remove="Views\AdminViews\AdminCreateNewOrder.xaml" />
     <EmbeddedResource Remove="Views\AdminViews\AdminMainPage.xaml" />
     <EmbeddedResource Remove="Views\CustomerViews\NavBar.xaml" />
   </ItemGroup>
@@ -32,6 +34,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Update="Views\AdminViews\AccountCreation.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Views\AdminViews\ActiveOrders.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
@@ -47,6 +52,7 @@
     <EmbeddedResource Update="Views\AdminViews\PastOrders.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Update="Views\AdminViews\ViewNewOrder.xaml">
     <EmbeddedResource Update="Views\CarePartnerViews\CarePartnerHome.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
