@@ -7,6 +7,7 @@ using Amazon.CognitoIdentityProvider;
 using Amazon.Extensions.CognitoAuthentication;
 using Amazon.Runtime;
 using System.Threading.Tasks;
+using CareOnDemand.Data;
 
 namespace CareOnDemand.Models
 {
@@ -35,6 +36,15 @@ namespace CareOnDemand.Models
             var accessToken = authResponse.AuthenticationResult.AccessToken;
 
             Console.Out.WriteLine(accessToken);
+        }
+
+        public async Task<int> GetUserAccountLevelIDFromDatabase()
+        {
+            AccountRestService accountRestService = new AccountRestService();
+
+            var result = await accountRestService.GetAccountByEmailAsync(username);
+
+            return result[0].AccountLevelID;
         }
     }
 }

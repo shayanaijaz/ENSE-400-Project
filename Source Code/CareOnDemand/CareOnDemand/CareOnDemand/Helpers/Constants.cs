@@ -7,6 +7,7 @@ namespace CareOnDemand.Helpers
     class Constants
     {
         public static string AccountsUrl = Settings.UriBase + "/api/Accounts/{0}";
+        public static string AccountsEmailUrl = Settings.UriBase + "/api/Accounts/email/{0}";
         public static string AccountLevelsUrl = Settings.UriBase + "/api/AccountLevels/{0}";
         public static string AdminsUrl = Settings.UriBase + "/api/Admins/{0}";
         public static string CarePartnersUrl = Settings.UriBase + "/api/CarePartners/{0}";

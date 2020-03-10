@@ -19,20 +19,18 @@ namespace CareOnDemand
             //Xamarin.Forms.Application.Current.On<Xamarin.Forms.PlatformConfiguration.Android>().UseWindowSoftInputModeAdjust(WindowSoftInputModeAdjust.Resize);
 
             bool isLoggedIn = Current.Properties.ContainsKey("isLoggedIn") ? Convert.ToBoolean(Current.Properties["isLoggedIn"]) : false;
+            int accountLevelID = Current.Properties.ContainsKey("accountLevelID") ? Convert.ToInt32(Current.Properties["accountLevelID"]) : 0;
 
-            //isLoggedIn = false;
+            isLoggedIn = false;
 
             if (!isLoggedIn)
-            {
                 MainPage = new NavigationPage(new LoginPage());
-            }
-            else if (isLoggedIn)
-            {
-
+            else if (isLoggedIn && accountLevelID == 3)
                 MainPage = new NavigationPage(new CustomerNavBar());
-
-            }
-            //MainPage = new NavigationPage(new TestTabbed());
+            else if (isLoggedIn && accountLevelID == 2)
+                MainPage = new NavigationPage(new CarePartnerHome());
+            else if (isLoggedIn && accountLevelID == 1)
+                MainPage = new NavigationPage(new AdminHome());
         }
 
         protected override void OnStart()

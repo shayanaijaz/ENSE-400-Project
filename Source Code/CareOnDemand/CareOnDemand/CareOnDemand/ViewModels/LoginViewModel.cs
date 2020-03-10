@@ -8,6 +8,8 @@ using CareOnDemand.Views.SharedViews;
 using System.Windows.Input;
 using System.Threading.Tasks;
 using CareOnDemand.Models;
+using CareOnDemand.Views.AdminViews;
+using CareOnDemand.Views.CarePartnerViews;
 
 namespace CareOnDemand.ViewModels
 {
@@ -36,15 +38,22 @@ namespace CareOnDemand.ViewModels
         }
         async void Login()
         {
-            LoginService loginModel = new LoginService(Email, Password);
+            LoginService loginService = new LoginService(Email, Password);
 
             try
             {
-                await loginModel.Login();
+                await loginService.Login();
+                int account_level_id = await loginService.GetUserAccountLevelIDFromDatabase();
 
                 Application.Current.Properties["isLoggedIn"] = Boolean.TrueString;
+                Application.Current.Properties["accountLevelID"] = account_level_id;
 
-                await Application.Current.MainPage.Navigation.PushAsync(new CustomerNavBar());
+                if (account_level_id == 1)
+                    await Application.Current.MainPage.Navigation.PushAsync(new AdminHome());
+                else if (account_level_id == 2)
+                    await Application.Current.MainPage.Navigation.PushAsync(new CarePartnerHome());
+                else if (account_level_id == 3)
+                    await Application.Current.MainPage.Navigation.PushAsync(new CustomerNavBar());
 
             }
             catch (Exception e)
