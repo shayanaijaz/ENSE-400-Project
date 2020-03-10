@@ -45,7 +45,7 @@ stacklayout.main{
     text-align: center;
     font-size: 30;
     font-weight: bold;
-    text-decoration-color: black;
+    color: black;
 }
 
 .secondaryLabel
@@ -53,7 +53,7 @@ stacklayout.main{
     text-align: center;
     font-size: 20;
     font-weight: bold;
-    text-decoration-color: black;
+    color: black;
 }
 
 .listPrimaryLabel
@@ -61,14 +61,14 @@ stacklayout.main{
     text-align: left;
     font-size: medium;
     font-weight: bold;
-    text-decoration-color: black;
+    color: black;
 }
 
 .listSecondaryLabel {
     text-align: left;
     font-size: medium;
     font-style: normal;
-    text-decoration-color: black;
+    color: black;
 }
 
 .contactButton {
@@ -83,21 +83,21 @@ stacklayout.main{
     text-align: left;
     font-size: medium;
     font-weight: bold;
-    text-decoration-color: black;
+    color: black;
 }
 
 .listSecondaryLabel {
     text-align: left;
     font-size: medium;
     font-style: normal;
-    text-decoration-color: black;
+    color: black;
 }
 
 .contactButton {
     text-align: center;
     font-size: small;
     horizontal-align: center;
-    text-decoration-color:black;
+    color:black;
     background-color:transparent;
     border-color:lightgray;
     border-radius:15;
@@ -115,7 +115,7 @@ stacklayout.main{
     border-width:0.5;
     background-color:#a5d5ed;
     font-size: small;
-    text-decoration-color: black;
+    color: black;
 }
 .durationLabel{
     margin: 15;
