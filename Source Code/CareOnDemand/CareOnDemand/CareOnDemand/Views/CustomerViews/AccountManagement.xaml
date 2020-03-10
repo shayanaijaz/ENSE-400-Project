@@ -13,7 +13,7 @@
         <StackLayout  StyleClass="main">
             <Image HeightRequest="150" HorizontalOptions="Center" Source="https://careondemand-storage.s3.ca-central-1.amazonaws.com/EdenCare_PlainLogo.png"/>
             <Button Text="Add an Address" HorizontalOptions="Fill" StyleClass="secondaryButton" />
-            <Button StyleClass="primaryButton" VerticalOptions="Start" Text="Log the fuck out" HorizontalOptions="Fill" ></Button>
+            <Button StyleClass="primaryButton" VerticalOptions="Start" Text="Log Out" HorizontalOptions="Fill" ></Button>
             <Button StyleClass="secondaryButton" Text="Change Password"  HorizontalOptions="Fill" Command="{Binding GoToForgotCommand}" />
             <Button StyleClass="contactButton" VerticalOptions="EndAndExpand" Text="Contact Eden Care" HorizontalOptions="Center" Command="{Binding ContactCommand}" ></Button>
         </StackLayout>
