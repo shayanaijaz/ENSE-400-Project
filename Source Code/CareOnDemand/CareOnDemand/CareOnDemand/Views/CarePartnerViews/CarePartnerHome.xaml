@@ -30,7 +30,7 @@
             <Label StyleClass="secondaryLabel" Text="What are you searching for?" HorizontalOptions="CenterAndExpand" VerticalOptions="Center" Grid.Row="2" Grid.Column="0" />
 
             <Button StyleClass="secondaryButton" Text="Orders" HorizontalOptions="Fill" VerticalOptions="Center" Grid.Row="3" Grid.Column="0" />
-            <Button StyleClass="secondaryButton" Text="Account" HorizontalOptions="Fill" VerticalOptions="Start" Grid.Row="4" Grid.Column="0" />
+            <Button StyleClass="secondaryButton" Text="My Account" HorizontalOptions="Fill" VerticalOptions="Start" Grid.Row="4" Grid.Column="0" />
             <Label StyleClass="secondaryLabel" Text="Next Appointment:" VerticalOptions="Start" HorizontalOptions="Center" Grid.Row="5" />
         </Grid>
 
