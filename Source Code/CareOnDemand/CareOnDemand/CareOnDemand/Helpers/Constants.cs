@@ -12,6 +12,7 @@ namespace CareOnDemand.Helpers
         public static string AdminsUrl = Settings.UriBase + "/api/Admins/{0}";
         public static string CarePartnersUrl = Settings.UriBase + "/api/CarePartners/{0}";
         public static string CustomersUrl = Settings.UriBase + "/api/Customers/{0}";
+        public static string CustomersAccountIDUrl = Settings.UriBase + "/api/Customers/Account/{0}";
         public static string AddressesUrl = Settings.UriBase + "/api/Addresses/{0}";
         public static string Customer_AddressesUrl = Settings.UriBase + "/api/Customer_Addresses/{0}";
         public static string OrdersUrl = Settings.UriBase + "/api/Orders/{0}";

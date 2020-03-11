@@ -38,13 +38,13 @@ namespace CareOnDemand.Models
             Console.Out.WriteLine(accessToken);
         }
 
-        public async Task<int> GetUserAccountLevelIDFromDatabase()
+        public async Task<Account> GetUserFromDatabase()
         {
             AccountRestService accountRestService = new AccountRestService();
 
             var result = await accountRestService.GetAccountByEmailAsync(username);
 
-            return result[0].AccountLevelID;
+            return result[0];
         }
     }
 }
