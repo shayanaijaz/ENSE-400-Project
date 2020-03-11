@@ -32,7 +32,6 @@
 
             <Entry Grid.Row="2" Grid.Column="0" VerticalOptions="Center" Keyboard="Email" Grid.ColumnSpan="3" FontSize="20" Placeholder="Email" Text="{Binding Email}"/>
             <!-- Entry for users email address-->
-
             <Button StyleClass="primaryButton" Grid.Row="3" Grid.Column="0" VerticalOptions="Start"  Grid.ColumnSpan="3" Text="Reset Password" Command="{Binding ForgotPasswordCommand}" />
             <!-- Button to redirect to ConfirmPassPage-->
             <Button StyleClass="contactButton" Grid.Row="4" Text="Contact Eden Care" HorizontalOptions="Center" VerticalOptions="End" Grid.ColumnSpan="3" Command="{Binding ContactCommand}" />
