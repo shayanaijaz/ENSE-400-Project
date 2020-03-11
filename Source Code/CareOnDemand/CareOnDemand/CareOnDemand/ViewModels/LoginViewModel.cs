@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using CareOnDemand.Models;
 using CareOnDemand.Views.AdminViews;
 using CareOnDemand.Views.CarePartnerViews;
+using CareOnDemand.Data;
 
 namespace CareOnDemand.ViewModels
 {
@@ -39,11 +40,15 @@ namespace CareOnDemand.ViewModels
         async void Login()
         {
             LoginService loginService = new LoginService(Email, Password);
+            CustomerRestService customerRestService = new CustomerRestService();
 
             try
             {
                 await loginService.Login();
-                int account_level_id = await loginService.GetUserAccountLevelIDFromDatabase();
+                Account retrieved_user = await loginService.GetUserFromDatabase();
+
+                int account_level_id = retrieved_user.AccountLevelID;
+                int account_id = retrieved_user.AccountID;
 
                 Application.Current.Properties["isLoggedIn"] = Boolean.TrueString;
                 Application.Current.Properties["accountLevelID"] = account_level_id;
@@ -52,8 +57,13 @@ namespace CareOnDemand.ViewModels
                     await Application.Current.MainPage.Navigation.PushAsync(new AdminHome());
                 else if (account_level_id == 2)
                     await Application.Current.MainPage.Navigation.PushAsync(new CarePartnerHome());
-                else if (account_level_id == 3)
+                else if (account_level_id == 3) // if the user is a customer
+                {
+                    var retrieved_customer = await customerRestService.GetCustomerByAccountIDAsync(account_id);
+                    int customer_id = retrieved_customer[0].CustomerID;
+                    Application.Current.Properties["customerID"] = customer_id; // Store CustomerID in persistent storage
                     await Application.Current.MainPage.Navigation.PushAsync(new CustomerNavBar());
+                }
 
             }
             catch (Exception e)

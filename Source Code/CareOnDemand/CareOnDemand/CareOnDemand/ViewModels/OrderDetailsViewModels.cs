@@ -7,6 +7,8 @@ using Xamarin.Forms;
 using CareOnDemand.Views.CustomerViews;
 using System.Threading.Tasks;
 using System.Collections.ObjectModel;
+using CareOnDemand.Data;
+using CareOnDemand.Models;
 
 namespace CareOnDemand.ViewModels
 {
@@ -14,7 +16,10 @@ namespace CareOnDemand.ViewModels
     {
         public OrderDetailsViewModel()
         {
-            LocationList = GetLocation().ToList();
+            //LocationList = GetLocation().Result.ToList();
+            //var result = GetLocation();
+            //LocationList = result.Result.ToList();
+            PopulateAddressList();
             MinimumDate = GetMinimumDate();
             TimeList = GetTime().ToList();
             RecipientList = GetRecipient().ToList();
@@ -26,7 +31,26 @@ namespace CareOnDemand.ViewModels
 
         }
 
-        public List<Location> LocationList { get; set; }
+        protected DateTime selected_date;
+        protected Time selected_time;
+        public List<Address> AddressList { get; set; }
+
+        public DateTime SelectedDate { 
+            get => selected_date; 
+            set
+            {
+                selected_date = value;
+                OnPropertyChanged(nameof(SelectedDate));
+            }
+        }
+        public Time SelectedTime {
+            get => selected_time;
+            set
+            {
+                selected_time = value;
+                OnPropertyChanged(nameof(SelectedTime));
+            }
+        }
         public DateTime MinimumDate { get; set; }
         public static DateTime Now { get; }
         public List<Time> TimeList { get; set; }
@@ -46,19 +70,44 @@ namespace CareOnDemand.ViewModels
         {
             foreach(var service in user_order.Order_Services)
             {
-                OrderServicesList.Add(service.ServiceName.Trim() + " - " + service.ServiceLength + " hours");
+                OrderServicesList.Add(service.ServiceName.Trim() + " - " + service.RequestedLength + " hours");
             }
         }
-        public List<Location> GetLocation()
-        {
-            var location = new List<Location>()
-            {
-                new Location(){Key =  1, Value= "My Home"},
-                new Location(){Key =  2, Value= "Grandmas's Home"},
-                new Location(){Key =  3, Value= "*Add New*"}
-            };
 
-            return location;
+        async void PopulateAddressList()
+        {
+            var result = await GetLocation();
+            AddressList = result.ToList();
+            OnPropertyChanged(nameof(AddressList));
+        }
+        public async Task<List<Address>> GetLocation()
+        {
+            //var location = new List<Location>()
+            //{
+            //    new Location(){Key =  1, Value= "My Home"},
+            //    new Location(){Key =  2, Value= "Grandmas's Home"},
+            //    new Location(){Key =  3, Value= "*Add New*"}
+            //};
+
+            int customerID = Application.Current.Properties.ContainsKey("customerID") ? Convert.ToInt32(Application.Current.Properties["customerID"]) : 0;
+
+            AddressRestService addressRestService = new AddressRestService();
+            Customer_AddressRestService customer_AddressRestService = new Customer_AddressRestService();
+
+            List<Customer_Address> customer_addresses = await customer_AddressRestService.GetCustomerAddressesByCustomerIDAsync(customerID);
+
+
+            List<Address> address_list = new List<Address>();
+
+            foreach (var customer_address in customer_addresses)
+            {
+                var address = await addressRestService.GetAddressByIDAsync(customer_address.AddressID);
+                address_list.Add(address);
+            }
+
+            return address_list;
+
+
         }
         public DateTime GetMinimumDate()
         {

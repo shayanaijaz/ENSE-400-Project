@@ -15,8 +15,9 @@ namespace CareOnDemand.Views.SharedViews
     {
         public AccountManagement()
         {
-            BindingContext = new AccountManagementViewModel();
             InitializeComponent();
+            BindingContext = new AccountManagementViewModel();
+
         }
     }
 }

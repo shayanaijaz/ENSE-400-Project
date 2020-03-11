@@ -74,7 +74,7 @@ namespace CareOnDemand.ViewModels
                 user_order.Order_Services = new List<Order_Service>();
             }
 
-            Order_Service orderService = new Order_Service{ ServiceID = user_selected_service.ServiceID, ServiceLength = selected_duration.Time, ServiceName = user_selected_service.ServiceName};
+            Order_Service orderService = new Order_Service{ ServiceID = user_selected_service.ServiceID, RequestedLength = selected_duration.Time, ServiceName = user_selected_service.ServiceName};
 
             user_order.Order_Services.Add(orderService);
 

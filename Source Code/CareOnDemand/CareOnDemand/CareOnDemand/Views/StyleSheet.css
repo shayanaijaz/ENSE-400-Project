@@ -73,7 +73,7 @@ stacklayout.main{
     color:black;
     background-color:transparent;
     border-color:lightgray;
-    border-radius:px;
+    border-radius:5;
     border-width:0.5;
 }
 

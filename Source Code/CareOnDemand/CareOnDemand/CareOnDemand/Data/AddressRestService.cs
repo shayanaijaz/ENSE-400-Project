@@ -43,6 +43,28 @@ namespace CareOnDemand.Data
             return Addresses;
         }
 
+        public async Task<Address> GetAddressByIDAsync(int id)
+        {
+           Address Addresses = new Address();
+
+            var uri = new Uri(string.Format(Constants.AddressesUrl, id));
+            try
+            {
+                var response = await _client.GetAsync(uri);
+                if (response.IsSuccessStatusCode)
+                {
+                    var content = await response.Content.ReadAsStringAsync();
+                    Addresses = JsonConvert.DeserializeObject<Address>(content);
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(@"\tERROR {0}", ex.Message);
+            }
+
+            return Addresses;
+        }
+
         public async Task<Address> SaveAddressAsync(Address item, bool isNewItem = false)
         {
             var uri = new Uri(string.Format(Constants.AddressesUrl, string.Empty));
@@ -133,6 +155,31 @@ namespace CareOnDemand.Data
 
             return Customer_Addresses;
         }
+
+        public async Task<List<Customer_Address>> GetCustomerAddressesByCustomerIDAsync(int id)
+        {
+            Customer_Addresses = new List<Customer_Address>();
+
+            try
+            {
+                var uri = new Uri(string.Format(Constants.Customer_AddressesUrl, id));
+
+                var response = await _client.GetAsync(uri);
+                if (response.IsSuccessStatusCode)
+                {
+                    var content = await response.Content.ReadAsStringAsync();
+                    Customer_Addresses = JsonConvert.DeserializeObject<List<Customer_Address>>(content);
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(@"\tERROR {0}", ex.Message);
+            }
+
+            return Customer_Addresses;
+        }
+
+
 
         public async Task SaveCustomer_AddressAsync(Customer_Address item, bool isNewItem = false)
         {

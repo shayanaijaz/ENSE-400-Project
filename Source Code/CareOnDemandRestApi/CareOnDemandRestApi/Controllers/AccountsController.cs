@@ -450,16 +450,16 @@ namespace CareOnDemandRestApi.Controllers
 
         // GET: api/Customers/Account/{AccountID}
         [HttpGet("Account/{accountID}")]
-        public async Task<ActionResult<Account>> GetAccount(int accountID)
+        public async Task<ActionResult<Customer>> GetAccount(int accountID)
         {
-            var account = await _context.Accounts.Where(a => a.AccountID == accountID).ToListAsync();
+            var customer = await _context.Customers.Where(a => a.AccountID == accountID).ToListAsync();
 
-            if (account == null)
+            if (customer == null)
             {
                 return NotFound();
             }
 
-            return Ok(account);
+            return Ok(customer);
         }
 
         // PUT: api/Customers/{5}
