@@ -12,8 +12,8 @@
         <StyleSheet Source="/Views/StyleSheet.css" />
     </ContentPage.Resources>
     <ContentPage.Content>
-        <Grid StyleClass="main">
-            <Grid.RowDefinitions>
+        <Grid StyleClass="main"> <!-- Page layout Grid-->
+            <Grid.RowDefinitions> <!-- Grid Rows-->
                 <RowDefinition Height="0.15*" />
                 <RowDefinition Height="0.1*" />
                 <RowDefinition Height="0.15*" />
@@ -21,19 +21,22 @@
                 <RowDefinition Height="0.08*" />         
             </Grid.RowDefinitions>
             
-            <Grid.ColumnDefinitions>
+            <Grid.ColumnDefinitions> <!-- Grid Columns-->
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
             <Image Grid.ColumnSpan="3" HorizontalOptions="Center" Source="https://careondemand-storage.s3.ca-central-1.amazonaws.com/EdenCare_PlainLogo.png"/>
-            <Label FontSize="20" HorizontalOptions="Center"  Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" VerticalOptions="End" Text="Enter Email Address" />
+            <Label StyleClass="primaryLabel" HorizontalOptions="Center"  Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" VerticalOptions="End" Text="Enter Email Address" /> <!-- Primary label indicating purpose of page-->
 
             <Entry Grid.Row="2" Grid.Column="0" VerticalOptions="Center" Keyboard="Email" Grid.ColumnSpan="3" FontSize="20" Placeholder="Email" Text="{Binding Email}"/>
+            <!-- Entry for users email address-->
 
-            <Button StyleClass="primaryButton" Grid.Row="3" Grid.Column="0" VerticalOptions="Start" FontSize="Medium"   Grid.ColumnSpan="3" Text="Reset Password" Command="{Binding ForgotPasswordCommand}" />
+            <Button StyleClass="primaryButton" Grid.Row="3" Grid.Column="0" VerticalOptions="Start"  Grid.ColumnSpan="3" Text="Reset Password" Command="{Binding ForgotPasswordCommand}" />
+            <!-- Button to redirect to ConfirmPassPage-->
             <Button StyleClass="contactButton" Grid.Row="4" Text="Contact Eden Care" HorizontalOptions="Center" VerticalOptions="End" Grid.ColumnSpan="3" Command="{Binding ContactCommand}" />
+            <!-- Eden Care contact button-->
 
         </Grid>
     </ContentPage.Content>
