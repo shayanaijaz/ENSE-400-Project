@@ -11,36 +11,31 @@
         <StyleSheet Source="/Views/StyleSheet.css" />
     </ContentPage.Resources>
     <ContentPage.Content>
-        <Grid StyleClass="main">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*" />
-                <RowDefinition Height="*" />
-                <RowDefinition Height="auto" />
-                <RowDefinition Height="auto" />
-                <RowDefinition Height="auto" />
-                <RowDefinition Height="auto" />
-                <RowDefinition Height="auto" />
-                <RowDefinition Height="*" />
-
+        <Grid StyleClass="main">  <!-- Grid layout -->
+            <Grid.RowDefinitions> <!-- Grid Rows-->
+                <RowDefinition Height="0.15*" />
+                <RowDefinition Height="0.2*" />
+                <RowDefinition Height="0.1*" />
+                <RowDefinition Height="0.1*" />
+                <RowDefinition Height="0.1*" />
+                <RowDefinition Height="0.1*" />
+                <RowDefinition Height="0.1*" />
+                <RowDefinition Height="0.08*" />
             </Grid.RowDefinitions>
-
-            <Grid.ColumnDefinitions>
+            <Grid.ColumnDefinitions>  <!-- Grid Columns-->
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
+            </Grid.ColumnDefinitions> 
 
-            <Image Grid.ColumnSpan="3" HorizontalOptions="CenterAndExpand" Source="https://careondemand-storage.s3.ca-central-1.amazonaws.com/Eden-Care-logo-main.png"/>
-            <Label StyleClass="primaryLabel" Grid.Row="1" VerticalOptions="End" Grid.Column="0" Grid.ColumnSpan="3"  Text="Reset Password" />
-
- 
-            <Entry Grid.Row="2" Grid.Column="0"  Grid.ColumnSpan="3"  FontSize="20" Placeholder="Current Password"/>
-
-            <Entry Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3"  FontSize="20" Placeholder="New Password"/>
+            <Image Grid.ColumnSpan="3" Grid.Row="0" HorizontalOptions="CenterAndExpand" Source="https://careondemand-storage.s3.ca-central-1.amazonaws.com/Eden-Care-logo-main.png"/>
+            <Label StyleClass="primaryLabel" Grid.Row="1" VerticalOptions="End" Grid.Column="0" Grid.ColumnSpan="3"  Text="Reset Password" /> <!-- Primary label used to display primary purpose of page-->
+            <Entry Grid.Row="2" Grid.Column="0"  Grid.ColumnSpan="3"  FontSize="20" Placeholder="Current Password"/> <!-- Entry for user to input current password-->
+            <Entry Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3"  FontSize="20" Placeholder="New Password"/> <!--Entry for user to input new password-->
             <Entry Grid.Row="4" Grid.Column="0"  Grid.ColumnSpan="3"  FontSize="20" Placeholder="Confirm New Password"/>
-
-            <Button StyleClass="primaryButton" Grid.Row="6" Grid.Column="0" Margin="10"  FontSize="Large" Grid.ColumnSpan="3" Text="Update Password" />
+            <Button StyleClass="primaryButton" Grid.Row="6" VerticalOptions="Start" Grid.Column="0" Margin="10" Grid.ColumnSpan="3" Text="Update Password" /> <!-- Button used for a user to update password-->
             <Button StyleClass="contactButton" Grid.Row="7" Text="Contact Eden Care" HorizontalOptions="Center" VerticalOptions="End" Grid.ColumnSpan="3" Command="{Binding ContactCommand}" />
+            <!-- Contact eden care button-->
 
         </Grid>
     </ContentPage.Content>
