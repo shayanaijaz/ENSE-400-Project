@@ -57,7 +57,7 @@
                     <Label Text="blah blakjhkjhfssfdfh" StyleClass="listSecondaryLabel" FontSize="Medium" Grid.Row="7" Grid.ColumnSpan="3" VerticalOptions="CenterAndExpand"/>
                     
                     <Button StyleClass="secondaryButton" Text="View Map Location" Grid.Row="8" Grid.ColumnSpan="3" />
-                    <Button StyleClass="secondaryButton" Text="Start Order" Grid.Row="9" Grid.ColumnSpan="3" />
+                    <Button StyleClass="primaryButton" Text="Start Order" Grid.Row="9" Grid.ColumnSpan="3" />
                 </Grid>
             </ScrollView>
         </ContentView>

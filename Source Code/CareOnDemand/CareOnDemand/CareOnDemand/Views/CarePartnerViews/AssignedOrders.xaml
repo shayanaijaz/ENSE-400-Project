@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="CareOnDemand.Views.CarePartnerViews.AssignedOrders"
+             NavigationPage.HasBackButton="False"
+             NavigationPage.HasNavigationBar="True"
+             Title="Assigned Orders">
+    
+    <ContentPage.Resources>
+        <StyleSheet Source="/Views/StyleSheet.css" />
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <ContentView>
+            <ListView x:Name="ServiceListView" ItemsSource="{Binding AssignedOrderList}" StyleClass="main"
+                    SeparatorVisibility="Default"
+                    RowHeight="80"
+                      SelectedItem="{Binding AssignedOrders}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <!--<ViewCell Tapped="ViewCellTapped">
+                            <Grid StyleClass="main">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="20"/>
+                                    <RowDefinition Height="20"/>
+                                </Grid.RowDefinitions>
+
+                                <Label Grid.Row="0" FontAttributes="Bold" FontSize="Small" Text="{Binding OrderName}" />
+                                <Label Grid.Row="1" VerticalOptions="Start"  Text="{Binding OrderTime}" />
+
+                            </Grid>
+                        </ViewCell>-->
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </ContentView>
+    </ContentPage.Content>
+</ContentPage>
