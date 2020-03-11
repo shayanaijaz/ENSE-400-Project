@@ -23,6 +23,8 @@ namespace CareOnDemand.Models
         private String address_city;
         private String address_province;
         private String address_postal_code;
+        private Account created_account;
+        private Address created_address;
 
         public RegisterService(Account account, Address customer_address)
         {
@@ -75,8 +77,6 @@ namespace CareOnDemand.Models
 
             Console.Out.WriteLine(result);
 
-
-
         }
 
         public async Task CreateDatabaseUser(Account account)
@@ -93,43 +93,30 @@ namespace CareOnDemand.Models
                     account.AccountLevelID = level.AccountLevelID;
             }
 
-
-            await accountRestService.SaveAccountAsync(account, true);
-            var result = await accountRestService.RefreshDataAsync();
+            created_account = await accountRestService.SaveAccountAsync(account, true);
         }
 
-        public async Task AddAddress(Account account)
+        public async Task AddAddress(Address address)
         {
-            Address address = new Address();
-            address.AddrLine1 = "111 Solie Crescent";
+            //Address address = new Address();
+            address.AddrLine1 = "121 Solie Crescent";
             address.City = "Regina";
             address.Province = "Saskatchewan";
             address.PostalCode = "S4X3M4";
-
             
+           
 
             AddressRestService addressRestService = new AddressRestService();
-            //Customer_AddressRestService customer_AddressRestService = new Customer_AddressRestService();
 
-            //Customer_Address customer_Address = new Customer_Address();
-            //customer_Address.AddressLabel = "Home";
+            created_address = await addressRestService.SaveAddressAsync(address, true);
 
-            ////account.Customer.Customer_Addresses = new List<Customer_Address>();
+            Customer_Address customer_Address = new Customer_Address();
+            customer_Address.CustomerID = created_account.Customer.CustomerID;
+            customer_Address.AddressID = created_address.AddressID;
+            customer_Address.AddressLabel = "Myself";
 
-            //address.Customer_Addresses = new List<Customer_Address>();
-            //address.Customer_Addresses.Add(customer_Address);
-
-            //account.Customer.Customer_Addresses = new List<Customer_Address>();
-            //account.Customer.Customer_Addresses.Add(customer_Address);
-
-            var created_address = await addressRestService.SaveAddressAsync(address, true);
-            var result = await addressRestService.RefreshDataAsync();
-
-            //await customer_AddressRestService.SaveCustomer_AddressAsync(customer_Address, true);
-            //var result2 = await customer_AddressRestService.RefreshDataAsync();
-
-            
-
+            Customer_AddressRestService customer_AddressRestService = new Customer_AddressRestService();
+            await customer_AddressRestService.SaveCustomer_AddressAsync(customer_Address, true);
 
         }
     }

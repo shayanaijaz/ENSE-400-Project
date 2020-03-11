@@ -67,9 +67,11 @@ namespace CareOnDemand.Data
         }
 
 
-        public async Task SaveAccountAsync(Account item, bool isNewItem = false)
+        public async Task<Account> SaveAccountAsync(Account item, bool isNewItem = false)
         {
             var uri = new Uri(string.Format(Constants.AccountsUrl, string.Empty));
+
+            Account Accounts = new Account();
 
             try
             {
@@ -80,6 +82,8 @@ namespace CareOnDemand.Data
                 if (isNewItem)
                 {
                     response = await _client.PostAsync(uri, content);
+                    var response_content = await response.Content.ReadAsStringAsync();
+                    Accounts = JsonConvert.DeserializeObject<Account>(response_content);
                 }
                 else
                 {
@@ -97,6 +101,7 @@ namespace CareOnDemand.Data
                 Debug.WriteLine(@"\tERROR {0}", ex.Message);
             }
 
+            return Accounts;
         }
 
         public async Task DeleteAccountAsync(string id)

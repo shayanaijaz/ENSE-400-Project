@@ -37,9 +37,9 @@ namespace CareOnDemand.ViewModels
 
                 try
                 {
-                    //await registerModel.AddAddress(account);
                     await registerModel.CreateCognitoUser();
                     await registerModel.CreateDatabaseUser(account);
+                    await registerModel.AddAddress(customer_address);
                     await Application.Current.MainPage.DisplayAlert("Success", "Account created succesfully. Please check your email for verification link", "OK");
                     await Application.Current.MainPage.Navigation.PushAsync(new LoginPage());
                 }
