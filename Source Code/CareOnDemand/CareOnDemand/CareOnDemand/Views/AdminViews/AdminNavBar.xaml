@@ -10,7 +10,7 @@
              SelectedTabColor="White"
              BarBackgroundColor="#119bcc"
              UnselectedTabColor="Black">
-    <NavigationPage Title="Home Page" IconImageSource="https://careondemand-storage.s3.ca-central-1.amazonaws.com/newOrdersIcon.png" >
+    <NavigationPage Title="Home Page" IconImageSource="https://careondemand-storage.s3.ca-central-1.amazonaws.com/homeIcon.png" >
         <x:Arguments>
             <local1:AdminHome />
         </x:Arguments>

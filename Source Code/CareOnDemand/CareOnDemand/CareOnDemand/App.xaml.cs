@@ -23,6 +23,8 @@ namespace CareOnDemand
 
             isLoggedIn = false;
 
+            //MainPage = new NavigationPage(new ViewNewOrder());
+            
             if (!isLoggedIn)
                 MainPage = new NavigationPage(new LoginPage());
             else if (isLoggedIn && accountLevelID == 3)
