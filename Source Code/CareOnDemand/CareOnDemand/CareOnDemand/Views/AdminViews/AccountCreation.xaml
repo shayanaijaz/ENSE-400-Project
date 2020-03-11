@@ -14,7 +14,7 @@
 
             <Grid.RowDefinitions>
 
-                <RowDefinition Height="0.1*" />
+                <RowDefinition Height="0.3*" />
                 <RowDefinition Height="0.2*" />
                 <RowDefinition Height="0.2*" />
                 <RowDefinition Height="0.2*" />
@@ -25,8 +25,17 @@
                 <ColumnDefinition Width="*" />
              </Grid.ColumnDefinitions>
 
-            <Image Grid.Row="0"  Grid.ColumnSpan="2" HorizontalOptions="CenterAndExpand" Source="https://careondemand-storage.s3.ca-central-1.amazonaws.com/Eden-Care-logo-main.png"/>
-            <Picker ItemsSource="{Binding AccountList}" Title="Account Type" VerticalOptions="End" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" FontSize="20" />
+            <Image Grid.Row="0"  Grid.ColumnSpan="2" HorizontalOptions="CenterAndExpand" Source="https://careondemand-storage.s3.ca-central-1.amazonaws.com/EdenCare_PlainLogo.png"/>
+            <Picker Title="Account Type" 
+                    VerticalOptions="End" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" FontSize="20" 
+                    ItemsSource="{Binding AccountList}" >
+                <Picker.Items>
+                    <x:String>Administrator</x:String>
+                    <x:String>Care Partner</x:String>
+                    <x:String>Customer</x:String>
+                </Picker.Items>
+            </Picker>
+
             <Entry Text="First Name" VerticalOptions="Center" Grid.Row="2" Grid.Column="0"/>
             <Entry Text="Last name"  VerticalOptions="Center" Grid.Row="2" Grid.Column="1"/>
             <Entry Text="Phone Number" VerticalOptions="Start" Grid.Row="3" Keyboard="Telephone" Grid.ColumnSpan="2" />

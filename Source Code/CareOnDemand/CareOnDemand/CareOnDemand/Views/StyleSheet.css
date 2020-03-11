@@ -14,19 +14,9 @@ Format to include this file in any .xaml file that we need to include
 grid.main {
    padding: 15;
 }
+
 stacklayout.main{
     padding:15;
-}
-
-.serviceSelectionGrid
-{
-    padding-bottom: 5;
-}
-
-.floatingObject
-{
-    padding: 15;
-    background-color: transparent;
 }
 
 .serviceSelectionGrid
@@ -45,7 +35,7 @@ stacklayout.main{
     text-align: center;
     font-size: 30;
     font-weight: bold;
-    text-decoration-color: black;
+    color: black;
 }
 
 .secondaryLabel
@@ -53,7 +43,7 @@ stacklayout.main{
     text-align: center;
     font-size: 20;
     font-weight: bold;
-    text-decoration-color: black;
+    color: black;
 }
 
 .listPrimaryLabel
@@ -61,46 +51,29 @@ stacklayout.main{
     text-align: left;
     font-size: medium;
     font-weight: bold;
-    text-decoration-color: black;
+    color: black;
 }
 
 .listSecondaryLabel {
     text-align: left;
     font-size: medium;
     font-style: normal;
-    text-decoration-color: black;
+    color: black;
 }
 
-.contactButton {
-    text-align: center;
-    font-size: 20;
-    font-weight: bold;
-    text-decoration-color: black;
-}
-
-.listPrimaryLabel
-{
-    text-align: left;
+.durationLabel {
+    margin: 15;
     font-size: medium;
-    font-weight: bold;
-    text-decoration-color: black;
-}
-
-.listSecondaryLabel {
-    text-align: left;
-    font-size: medium;
-    font-style: normal;
-    text-decoration-color: black;
 }
 
 .contactButton {
     text-align: center;
     font-size: small;
-    horizontal-align: center;
-    text-decoration-color:black;
+    align-content: center;
+    color:black;
     background-color:transparent;
     border-color:lightgray;
-    border-radius:15;
+    border-radius:px;
     border-width:0.5;
 }
 
@@ -112,12 +85,29 @@ stacklayout.main{
 
 .secondaryButton {
     border-radius: 15;
-    border-width:0.5;
+    border-width: 0.5;
     background-color:#a5d5ed;
     font-size: small;
-    text-decoration-color: black;
+    color: black;
 }
-.durationLabel{
-    margin: 15;
-    font-size: medium;
+
+.plainFrame {
+    background-color: white;
+    border-radius: 5;
+    border-color: black;
+    border-width: 1;
+}
+
+.primaryFrame {
+    background-color: #119bcc;
+    border-radius: 5;
+    border-color: black;
+    border-width: 1;
+}
+
+.secondaryFrame {
+    background-color:#a5d5ed;
+    border-radius: 5;
+    border-color: black;
+    border-width: 1;
 }

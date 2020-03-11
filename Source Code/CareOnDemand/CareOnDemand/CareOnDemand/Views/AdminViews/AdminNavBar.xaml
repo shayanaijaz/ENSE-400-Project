@@ -4,14 +4,13 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:local1="clr-namespace:CareOnDemand.Views.AdminViews"
-             xmlns:local11="clr-namespace:CareOnDemand.Views.CustomerViews"
              mc:Ignorable="d"
              x:Class="CareOnDemand.Views.AdminViews.AdminNavBar"
              NavigationPage.HasNavigationBar="False"
              SelectedTabColor="White"
              BarBackgroundColor="#119bcc"
              UnselectedTabColor="Black">
-    <NavigationPage Title="Home Page" IconImageSource="https://careondemand-storage.s3.ca-central-1.amazonaws.com/newOrdersIcon.png" >
+    <NavigationPage Title="Home Page" IconImageSource="https://careondemand-storage.s3.ca-central-1.amazonaws.com/homeIcon.png" >
         <x:Arguments>
             <local1:AdminHome />
         </x:Arguments>

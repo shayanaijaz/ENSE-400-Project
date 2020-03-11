@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-            xmlns:local="clr-namespace:CareOnDemand.Views.SharedViews"
+            xmlns:local11="clr-namespace:CareOnDemand.Views.SharedViews"
             xmlns:local1="clr-namespace:CareOnDemand.Views.CustomerViews"
             mc:Ignorable="d"
              x:Class="CareOnDemand.Views.CustomerViews.CustomerNavBar"            
@@ -14,15 +14,15 @@
             >
 
 
-    <NavigationPage Title="Order" IconImageSource="https://careondemand-storage.s3.ca-central-1.amazonaws.com/customerOrderIcon.png">
+    <NavigationPage Title="Orders" IconImageSource="https://careondemand-storage.s3.ca-central-1.amazonaws.com/customerOrderIcon.png">
         <x:Arguments>
             <local1:ServiceSelectionList />
         </x:Arguments>
     </NavigationPage>
 
-    <NavigationPage Title="Account" IconImageSource="https://careondemand-storage.s3.ca-central-1.amazonaws.com/accountIcon.png">
+    <NavigationPage Title="My Account" IconImageSource="https://careondemand-storage.s3.ca-central-1.amazonaws.com/accountIcon.png">
         <x:Arguments>
-            <local1:AccountManagement />
+            <local11:AccountManagement />
         </x:Arguments>
     </NavigationPage>
 </TabbedPage>
