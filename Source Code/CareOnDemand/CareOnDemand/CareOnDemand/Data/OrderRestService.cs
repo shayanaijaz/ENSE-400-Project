@@ -43,10 +43,11 @@ namespace CareOnDemand.Data
             return Orders;
         }
 
-        public async Task SaveOrderAsync(Order item, bool isNewItem = false)
+        public async Task<Order> SaveOrderAsync(Order item, bool isNewItem = false)
         {
             var uri = new Uri(string.Format(Constants.OrdersUrl, string.Empty));
 
+            Order Orders = new Order();
             try
             {
                 var json = JsonConvert.SerializeObject(item);
@@ -56,6 +57,8 @@ namespace CareOnDemand.Data
                 if (isNewItem)
                 {
                     response = await _client.PostAsync(uri, content);
+                    var response_content = await response.Content.ReadAsStringAsync();
+                    Orders = JsonConvert.DeserializeObject<Order>(response_content);
                 }
                 else
                 {
@@ -72,6 +75,8 @@ namespace CareOnDemand.Data
             {
                 Debug.WriteLine(@"\tERROR {0}", ex.Message);
             }
+
+            return Orders;
         }
 
         public async Task DeleteOrderAsync(string id)

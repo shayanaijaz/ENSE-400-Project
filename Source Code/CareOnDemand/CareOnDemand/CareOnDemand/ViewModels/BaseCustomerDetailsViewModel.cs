@@ -109,7 +109,7 @@ namespace CareOnDemand.ViewModels
             get => customer_address.PostalCode;
             set
             {
-                customer_address.PostalCode = value.Trim();
+                customer_address.PostalCode = value.Trim().Replace(" ", String.Empty);
             }
         }
     }

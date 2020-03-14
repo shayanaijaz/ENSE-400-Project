@@ -76,7 +76,9 @@ namespace CareOnDemand.ViewModels
             if (user_order != null)
             {
                 CheckoutIsVisible = true;
-                CheckoutText = "Checkout " + "(" + user_order.Order_Services.Count + ")";
+                //CheckoutText = "Checkout " + "(" + user_order.Order_Services.Count + ")";
+                // placeholder
+                CheckoutText = "Checkout " + "(" + user_order_service.Count + ")";
             }
         }
 

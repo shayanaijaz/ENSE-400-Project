@@ -71,12 +71,16 @@ namespace CareOnDemand.ViewModels
             if (user_order == null)
             {
                 user_order = new Order();
-                user_order.Order_Services = new List<Order_Service>();
+                //user_order.Order_Services = new List<Order_Service>();
+                //placeholder
+                user_order_service = new List<Order_Service>();
             }
 
             Order_Service orderService = new Order_Service{ ServiceID = user_selected_service.ServiceID, RequestedLength = selected_duration.Time, ServiceName = user_selected_service.ServiceName};
 
-            user_order.Order_Services.Add(orderService);
+            //user_order.Order_Services.Add(orderService);
+            // placeholder
+            user_order_service.Add(orderService);
 
             await Application.Current.MainPage.DisplayAlert("Success", "Item succesfully added to cart", "OK");
             await Application.Current.MainPage.Navigation.PushAsync(new CustomerNavBar());
