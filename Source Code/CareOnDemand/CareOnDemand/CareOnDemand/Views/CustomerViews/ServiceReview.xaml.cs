@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CareOnDemand.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,7 @@ namespace CareOnDemand.Views.CustomerViews
         public ServiceReview()
         {
             InitializeComponent();
+            BindingContext = new ServiceReviewViewModel();
         }
     }
 }

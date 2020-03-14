@@ -44,6 +44,29 @@ namespace CareOnDemand.Data
             return Services;
         }
 
+        public async Task<Service> GetServiceByIDAsync(int serviceID)
+        {
+            Service Services = new Service();
+
+            try
+            {
+                var uri = new Uri(string.Format(Constants.ServicesUrl, serviceID));
+
+                var response = await _client.GetAsync(uri);
+                if (response.IsSuccessStatusCode)
+                {
+                    var content = await response.Content.ReadAsStringAsync();
+                    Services = JsonConvert.DeserializeObject<Service>(content);
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(@"\tERROR {0}", ex.Message);
+            }
+
+            return Services;
+        }
+
         public async Task SaveServiceAsync(Service item, bool isNewItem = false)
         {
             var uri = new Uri(string.Format(Constants.ServicesUrl, string.Empty));

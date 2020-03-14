@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:sys="clr-namespace:System;assembly=netstandard"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -52,23 +53,24 @@
 
                     <Picker Title="Where?" Grid.Row="1" VerticalOptions="Start" FontSize="Large"
                     ItemsSource="{Binding AddressList}"
-                    ItemDisplayBinding="{Binding AddrLine1}"/>
+                    ItemDisplayBinding="{Binding AddrLine1}"
+                    SelectedItem="{Binding SelectedAddress}" />
 
                     <Label Text="What day?" Grid.Row="2" VerticalOptions="End" FontSize="Large"/>
-                    <DatePicker Grid.Row="3" VerticalOptions="Start" FontSize="Large" Date="{Binding SelectedDate}"/>
+                    <DatePicker Grid.Row="3" VerticalOptions="Start" FontSize="Large" MinimumDate="{x:Static sys:DateTime.Today}" Date="{Binding SelectedDate}"/>
 
                     <Label Text="What time?" Grid.Row="4" VerticalOptions="End" FontSize="Large"/>
                     <TimePicker Grid.Row="5" VerticalOptions="Start" FontSize="Large" Time="{Binding SelectedTime}"/>
 
                     <Picker Title="Who is the service for?" Grid.Row="6" VerticalOptions="Start" FontSize="Large"
                     ItemsSource="{Binding RecipientList}"
-                    ItemDisplayBinding="{Binding Value}"
-                />
+                    ItemDisplayBinding="{Binding FullName}"
+                    SelectedItem="{Binding SelectedRecipient}"/>
 
                     <Picker Title="Select your desired Care Partner" Grid.Row="7" VerticalOptions="Start" FontSize="Large"
                     ItemsSource="{Binding CarePartnerList}"
-                    ItemDisplayBinding="{Binding Value}"
-                />
+                    ItemDisplayBinding="{Binding FullName}"
+                    SelectedItem="{Binding SelectedCarePartner}"/>
 
                     <Button StyleClass="primaryButton" Text="Continue Order" Grid.Row="8" VerticalOptions="Start" Command="{Binding ContinueOrderCommand}"/>
 
