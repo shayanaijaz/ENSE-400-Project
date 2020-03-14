@@ -1,4 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
+<!-- 
+   Care on Demand Application
+    Capstone 2020 - ENSE 400/477
+    The Ni(c)(k)S
+
+    Author: Nickolas Schmidt
+    Contributor(s): Nikolas Lendvoy
+    Last Modified: March 14th
+-->
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
@@ -8,36 +17,33 @@
              x:Name="ServiceSelectionListPage"
              NavigationPage.HasNavigationBar="True"
              Title="Select a Service">
-    
-    
     <ContentPage.Resources>
         <StyleSheet Source="/Views/StyleSheet.css" />
     </ContentPage.Resources>
     <ContentPage.Content>
-        <Grid StyleClass="serviceSelectionGrid">
+        <Grid StyleClass="serviceSelectionGrid"> <!-- Page layout Grid-->
             <ListView x:Name="ServiceListView" ItemsSource="{Binding ServiceList}"
                     SeparatorVisibility="Default"
                     RowHeight="80"
-                    SelectedItem="{Binding SelectedService}">
+                    SelectedItem="{Binding SelectedService}"> 
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell Tapped="ViewCellTapped">
-                            <Grid StyleClass="main">
+                            <Grid StyleClass="main"> <!-- Page layout inside Grid-->
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="20"/>
                                     <RowDefinition Height="20"/>
                                 </Grid.RowDefinitions>
 
-                                <Label Grid.Row="0" FontAttributes="Bold" FontSize="Small" Text="{Binding ServiceName}" />
-                                <Label Grid.Row="1" VerticalOptions="Start"  Text="{Binding ServiceDescription}" />
-
+                                <Label Grid.Row="0" FontAttributes="Bold" FontSize="Small" Text="{Binding ServiceName}" /> <!-- Service name label populated from list-->
+                                <Label Grid.Row="1" VerticalOptions="Start"  Text="{Binding ServiceDescription}" /> <!-- service description label  poplated from list-->
                             </Grid>
                         </ViewCell>
                         <!--<TextCell Text="{Binding ServiceName}" Detail="{Binding ServiceDescription}" TextColor="Black" Command="{Binding Path=BindingContext.TextCellCommand, Source={x:Reference ServiceSelectionListPage}}" />-->
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-            <Button Text="{Binding CheckoutText}"  StyleClass="secondaryButton" VerticalOptions="End" HorizontalOptions="CenterAndExpand" IsVisible="{Binding CheckoutIsVisible}" Command="{Binding CheckoutCommand}" />
+            <Button Text="{Binding CheckoutText}"  StyleClass="secondaryButton" VerticalOptions="End" HorizontalOptions="CenterAndExpand" IsVisible="{Binding CheckoutIsVisible}" Command="{Binding CheckoutCommand}" /> <!-- Chechout button to continue order-->
         </Grid>
     </ContentPage.Content>
 </ContentPage>

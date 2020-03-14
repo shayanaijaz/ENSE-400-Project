@@ -1,5 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+<!-- 
+   Care on Demand Application
+    Capstone 2020 - ENSE 400/477
+    The Ni(c)(k)S
+
+    Author: Nikolas Lendvoy
+    Contributor(s): Nickolas Schmidt
+    Last Modified: March 14th
+-->
+    <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:sys="clr-namespace:System;assembly=netstandard"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
@@ -14,9 +23,9 @@
     </ContentPage.Resources>
     <ContentPage.Content>
         <ContentView>
-            <ScrollView>
-                <Grid Padding="15" StyleClass="main">
-                    <Grid.RowDefinitions>
+            <ScrollView> <!-- Page is scrollable -->
+                <Grid Padding="15" StyleClass="main"> <!-- Page layout Grid-->
+                    <Grid.RowDefinitions> <!-- Grid Rows-->
                         <RowDefinition Height="0.10*" />
                         <RowDefinition Height="0.08*" />
                         <RowDefinition Height="0.05*" />
@@ -28,7 +37,7 @@
                         <RowDefinition Height="0.08*" />
                         <RowDefinition Height="0.08*" />
                     </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
+                    <Grid.ColumnDefinitions> <!-- Grid Columns-->
                         <ColumnDefinition Width="1*" />
                     </Grid.ColumnDefinitions>
                     <!--<Label StyleClass="primaryLabel" Text="PLACEHOLDER" Grid.Row="0" FontSize="Large" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />-->
@@ -37,7 +46,7 @@
                     <!--<Label Text="Services Ordered" Grid.Row="0" VerticalOptions="Start" FontSize="Medium"/>-->
 
                     <ListView RowHeight="40" ItemsSource="{Binding OrderServicesList}" SelectionMode="None">
-                        <ListView.ItemTemplate>
+                        <ListView.ItemTemplate> <!-- List view of orders from Database-->
                             <DataTemplate>
                                 <ViewCell>
                                     <Grid StyleClass="main">
@@ -51,31 +60,31 @@
                         </ListView.ItemTemplate>
                     </ListView>
 
-                    <Picker Title="Where?" Grid.Row="1" VerticalOptions="Start" FontSize="Large"
+                    <Picker Title="Where?" Grid.Row="1" VerticalOptions="Start" FontSize="Medium" 
                     ItemsSource="{Binding AddressList}"
                     ItemDisplayBinding="{Binding AddrLine1}"
                     SelectedItem="{Binding SelectedAddress}" />
+                    <!-- List view of added addresses -->
 
-                    <Label Text="What day?" Grid.Row="2" VerticalOptions="End" FontSize="Large"/>
-                    <DatePicker Grid.Row="3" VerticalOptions="Start" FontSize="Large" MinimumDate="{x:Static sys:DateTime.Today}" Date="{Binding SelectedDate}"/>
+                    <Label Text="What day?" Grid.Row="2" VerticalOptions="End" FontSize="Medium"/>
+                    <DatePicker Grid.Row="3" VerticalOptions="Start" FontSize="Medium" MinimumDate="{x:Static sys:DateTime.Today}" Date="{Binding SelectedDate}"/>
 
-                    <Label Text="What time?" Grid.Row="4" VerticalOptions="End" FontSize="Large"/>
-                    <TimePicker Grid.Row="5" VerticalOptions="Start" FontSize="Large" Time="{Binding SelectedTime}"/>
+                    <Label Text="What time?" Grid.Row="4" VerticalOptions="End" FontSize="Medium"/>
+                    <TimePicker Grid.Row="5" VerticalOptions="Start" FontSize="Medium" Time="{Binding SelectedTime}"/>
 
-                    <Picker Title="Who is the service for?" Grid.Row="6" VerticalOptions="Start" FontSize="Large"
+                    <Picker Title="Who is the service for?" Grid.Row="6" VerticalOptions="Start" FontSize="Medium"
                     ItemsSource="{Binding RecipientList}"
                     ItemDisplayBinding="{Binding FullName}"
                     SelectedItem="{Binding SelectedRecipient}"/>
+                    <!-- List view of added persons-->
 
-                    <Picker Title="Select your desired Care Partner" Grid.Row="7" VerticalOptions="Start" FontSize="Large"
+                    <Picker Title="Select your desired Care Partner" Grid.Row="7" VerticalOptions="Start" FontSize="Medium"
                     ItemsSource="{Binding CarePartnerList}"
                     ItemDisplayBinding="{Binding FullName}"
                     SelectedItem="{Binding SelectedCarePartner}"/>
-
-                    <Button StyleClass="primaryButton" Text="Continue Order" Grid.Row="8" VerticalOptions="Start" Command="{Binding ContinueOrderCommand}"/>
-
-
-                    <Button StyleClass="contactButton" Text="1-306-EDN-CARE" Grid.Row="9" HorizontalOptions="Center" VerticalOptions="End" />
+                    <!-- List view of available care partners-->
+                    <Button StyleClass="primaryButton" Text="Continue Order" Grid.Row="8" VerticalOptions="Start" Command="{Binding ContinueOrderCommand}"/> <!-- Continue order button-->
+                    <Button StyleClass="contactButton" Text="Contact Eden Care" Grid.Row="9" HorizontalOptions="Center" VerticalOptions="End" /> <!-- Contact Eden Care button-->
                 </Grid>
             </ScrollView>
         </ContentView>

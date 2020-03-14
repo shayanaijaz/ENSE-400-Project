@@ -1,4 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
+<!-- 
+   Care on Demand Application
+    Capstone 2020 - ENSE 400/477
+    The Ni(c)(k)S
+
+    Author: Nikolas Lendvoy
+    Contributor(s): 
+    Last Modified: March 14th
+-->
 <TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
@@ -12,15 +21,15 @@
             BarBackgroundColor="#119bcc"
             UnselectedTabColor="Black"
             >
-
+             <!-- Page style tabbed-->
 
     <NavigationPage Title="Orders" IconImageSource="https://careondemand-storage.s3.ca-central-1.amazonaws.com/customerOrderIcon.png">
+        <!-- Navigation to ServiceSelection page-->
         <x:Arguments>
             <local1:ServiceSelectionList />
         </x:Arguments>
     </NavigationPage>
-
-    <NavigationPage Title="My Account" IconImageSource="https://careondemand-storage.s3.ca-central-1.amazonaws.com/accountIcon.png">
+    <NavigationPage Title="My Account" IconImageSource="https://careondemand-storage.s3.ca-central-1.amazonaws.com/accountIcon.png"> <!-- Navigation to AccountManagement page-->
         <x:Arguments>
             <local11:AccountManagement />
         </x:Arguments>

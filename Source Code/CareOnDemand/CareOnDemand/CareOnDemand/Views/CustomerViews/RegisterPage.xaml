@@ -1,4 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
+<!-- 
+   Care on Demand Application
+    Capstone 2020 - ENSE 400/477
+    The Ni(c)(k)S
+
+    Author: Nickolas Schmidt
+    Contributor(s):
+    Last Modified: March 14th
+-->
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
@@ -13,50 +22,37 @@
     </ContentPage.Resources>
 
     <ContentPage.Content>
-        <ScrollView>
-            <Grid StyleClass="main">
+        <Grid StyleClass="main"> <!-- Page layout Grid -->
+            <Grid.RowDefinitions> <!-- Grid rows -->
+                <RowDefinition Height="0.07*" />
+                <!-- Row for Image-->
+                <RowDefinition Height="0.07*" />
+                <!-- Row for Email-->
+                <RowDefinition Height="0.07*" />
+                <!-- Row for Password-->
+                <RowDefinition Height="0.07*" />
+                <!-- Row for Confirm Password-->
+                <RowDefinition Height="0.07*" />
+                <!-- Row for FName-->
+                <RowDefinition Height="0.07*" />
+                <!-- Row for LName-->
+                <RowDefinition Height="0.07*" />
+                <!-- Row for Address-->
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions> <!-- Grid columns-->
+                <ColumnDefinition Width="0.5*" />
+                <ColumnDefinition Width="0.5*" />
+            </Grid.ColumnDefinitions>
 
-                <Grid.RowDefinitions>
+            <Entry Grid.Row="0"  Grid.Column="0" Grid.ColumnSpan="3" VerticalOptions="Center" FontSize="20" Keyboard="Email" Placeholder="Email" Text="{Binding Email}"/>
+            <Entry Grid.Row="1" Grid.Column="0"  VerticalOptions="Start" Grid.ColumnSpan="3" FontSize="20" Placeholder="Password" IsPassword="True" Text="{Binding Password}"/>
+            <Entry Grid.Row="2" Grid.Column="0" VerticalOptions="Start" Grid.ColumnSpan="3" FontSize="20" Placeholder="Confirm Password" IsPassword="True" Text="{Binding PasswordConfirmation}"/>
+            <Entry Grid.Row="3" Grid.Column="0"  VerticalOptions="Start" Grid.ColumnSpan="2" FontSize="20" Placeholder="First Name" Text="{Binding FirstName}"/>
+            <Entry Grid.Row="3" Grid.Column="2"  VerticalOptions="Start" Grid.ColumnSpan="1" FontSize="20" Placeholder="Last Name" Text="{Binding LastName}"/>
+            <Entry  Grid.Row="4" Grid.Column="0" VerticalOptions="Start" Grid.ColumnSpan="3" FontSize="20" Keyboard="Numeric" Placeholder="Phone Number" Text="{Binding Number}"/>
+            <Button StyleClass="primaryButton" Grid.Row="5" Text="Next"  VerticalOptions="Start" Grid.ColumnSpan="3" Command="{Binding NextPageCommand}"/>
+            <Button StyleClass="contactButton" Grid.Row="6" Text="Contact Eden Care" HorizontalOptions="Center" VerticalOptions="End" Grid.ColumnSpan="3"  Command="{Binding ContactCommand}"/>
 
-                    <RowDefinition Height="0.05*" />
-                    <!-- Row for Image-->
-                    <RowDefinition Height="0.05*" />
-                    <!-- Row for Email-->
-                    <RowDefinition Height="0.05*" />
-                    <!-- Row for Password-->
-                    <RowDefinition Height="0.05*" />
-                    <!-- Row for Confirm Password-->
-                    <RowDefinition Height="0.05*" />
-                    <!-- Row for FName-->
-                    <RowDefinition Height="0.05*" />
-                    <!-- Row for LName-->
-                    <RowDefinition Height="0.05*" />
-                    <!-- Row for Address-->
-
-
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="0.5*" />
-                    <ColumnDefinition Width="0.5*" />
-                </Grid.ColumnDefinitions>
-
-                <Entry Grid.Row="0"  Grid.Column="0" Grid.ColumnSpan="3" VerticalOptions="Center" FontSize="20" Keyboard="Email" Placeholder="Email" Text="{Binding Email}"/>
-
-                <Entry Grid.Row="1" Grid.Column="0"  VerticalOptions="Start" Grid.ColumnSpan="3" FontSize="20" Placeholder="Password" IsPassword="True" Text="{Binding Password}"/>
-
-                <Entry Grid.Row="2" Grid.Column="0" VerticalOptions="Start" Grid.ColumnSpan="3" FontSize="20" Placeholder="Confirm Password" IsPassword="True" Text="{Binding PasswordConfirmation}"/>
-
-                <Entry Grid.Row="3" Grid.Column="0"  VerticalOptions="Start" Grid.ColumnSpan="2" FontSize="20" Placeholder="First Name" Text="{Binding FirstName}"/>
-
-                <Entry Grid.Row="3" Grid.Column="2"  VerticalOptions="Start" Grid.ColumnSpan="1" FontSize="20" Placeholder="Last Name" Text="{Binding LastName}"/>
-
-                <Entry Keyboard="Numeric" Grid.Row="4"  Grid.Column="0"  VerticalOptions="Start" Grid.ColumnSpan="3" FontSize="20" Placeholder="Phone Number" Text="{Binding Number}"/>
-
-
-                <Button StyleClass="primaryButton" Grid.Row="5" Text="Next"  VerticalOptions="Center" Grid.ColumnSpan="3" Command="{Binding NextPageCommand}"/>
-                <Button Grid.Row="6" Text="Contact Eden Care" HorizontalOptions="Center" VerticalOptions="Center" Grid.ColumnSpan="3"  Command="{Binding ContactCommand}"/>
-
-            </Grid>
-        </ScrollView>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>
