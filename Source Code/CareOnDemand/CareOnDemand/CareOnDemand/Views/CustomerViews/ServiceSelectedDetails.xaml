@@ -1,4 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
+<!-- 
+   Care on Demand Application
+    Capstone 2020 - ENSE 400/477
+    The Ni(c)(k)S
+
+    Author: Nikolas Lendvoy
+    Contributor(s):
+    Last Modified: March 14th
+-->
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
@@ -12,20 +21,23 @@
     </ContentPage.Resources>
     <ContentPage.Content>
         <StackLayout>
+            <!-- Page Layout Stack-->
             <Frame BorderColor="LightGray">
                 <Label Text="{Binding ServiceDescription}"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
             </Frame>
+            <!-- Service Description frame-->
             <Label Text="Select a duration" StyleClass="durationLabel"  VerticalOptions="End" />
-            <ListView ItemsSource="{Binding DurationList}"
+            <ListView ItemsSource="{Binding DurationList}" 
                       SeparatorVisibility="Default"
                       RowHeight="50"
                       SelectedItem="{Binding SelectedDuration}">
+                <!-- List for selected durations-->
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell Tapped="ViewCellTapped">
-                            <Grid StyleClass="main">
+                            <Grid StyleClass="main"> <!-- Page layout Grid-->
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="20"/>
                                 </Grid.RowDefinitions>
@@ -38,17 +50,15 @@
 
             </ListView>
             <Label Margin="13">
-
                 <Label.FormattedText>
                     <FormattedString>
-                        <Span FontSize="20" FontAttributes="Bold" Text="{Binding PriceText}"  />
-                        <Span FontSize="20"  FontAttributes="Bold"  Text="{Binding SelectedDuration.Price}" />
+                        <Span FontSize="20" FontAttributes="Bold" Text="{Binding PriceText}"  /><!-- Price label text-->
+                        <Span FontSize="20"  FontAttributes="Bold"  Text="{Binding SelectedDuration.Price}" /> <!-- Price value pulled from db-->
 
                     </FormattedString>
                 </Label.FormattedText>
-            </Label> 
-            <Button Text="Add to cart" StyleClass="primaryButton" CornerRadius="0" HeightRequest="60" IsVisible="{Binding AddToCartIsVisible}" Command="{Binding AddToCartCommand}" />
+            </Label>
+            <Button Text="Add to Cart" StyleClass="primaryButton" CornerRadius="0" HeightRequest="60" IsVisible="{Binding AddToCartIsVisible}" Command="{Binding AddToCartCommand}" /> <!-- Add service to cart button-->
         </StackLayout>
-
     </ContentPage.Content>
 </ContentPage>

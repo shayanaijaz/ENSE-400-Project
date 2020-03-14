@@ -1,4 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
+<!-- 
+   Care on Demand Application
+    Capstone 2020 - ENSE 400/477
+    The Ni(c)(k)S
+
+    Author: Nikolas Lendvoy
+    Contributor(s):
+    Last Modified: March 14th
+-->
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
@@ -13,25 +22,19 @@
     </ContentPage.Resources>
     <ContentPage.Content>
         <ContentView>
-            <Grid Padding="15" StyleClass="main">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="0.08*" /> <!--Items-->
-                    
-                    <RowDefinition Height="0.03*" /> <!--Location-->
-                    
-                    <RowDefinition Height="0.03*" /> <!--Time-->
-                    
-                    <RowDefinition Height="0.03*" /> <!--Recipient-->
-                    
-                    <RowDefinition Height="0.03*" /> <!--Price-->
-                    
+            <Grid Padding="15" StyleClass="main"> <!-- Page layout Grid-->
+                <Grid.RowDefinitions> <!-- Grid rows-->
+                    <RowDefinition Height="0.08*" /> <!--Items-->                  
+                    <RowDefinition Height="0.03*" /> <!--Location-->                 
+                    <RowDefinition Height="0.03*" /> <!--Time-->                 
+                    <RowDefinition Height="0.03*" /> <!--Recipient-->                 
+                    <RowDefinition Height="0.03*" /> <!--Price-->                  
                     <RowDefinition Height="0.03*" /> <!--Add_Instructions-->
                     <RowDefinition Height="0.03*" />
-                    
                     <RowDefinition Height="0.04*" /> <!--Buttons-->
                     <RowDefinition Height="0.04*" />
                 </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
+                <Grid.ColumnDefinitions> <!-- Grid columns-->
                     <ColumnDefinition Width="0.334*" />
                     <ColumnDefinition Width="0.666*" />
                 </Grid.ColumnDefinitions>
@@ -39,7 +42,7 @@
                 <!--<Label Text="Service(s) Ordered"  Grid.Row="0" FontSize="Large" VerticalOptions="End" HorizontalOptions="Start"/>-->
                 <!--<Label Text="Item 1 &#10;Item 2 &#10;Item 3" StyleClass="listSecondaryLabel" Grid.Row="0" Grid.ColumnSpan="2" VerticalOptions="Start"/>-->
 
-                <ListView RowHeight="40" ItemsSource="{Binding OrderServicesList}" SelectionMode="None" Grid.ColumnSpan="2">
+                <ListView RowHeight="40" ItemsSource="{Binding OrderServicesList}" SelectionMode="None" Grid.ColumnSpan="2"> <!-- Listview from Selected Services from previous page-->
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
@@ -56,6 +59,7 @@
 
                 <Label Text="Location" StyleClass="listPrimaryLabel" Grid.Row="1" Grid.Column="0" VerticalOptions="CenterAndExpand"/>
                 <Label Text="{Binding Address}"  StyleClass="listSecondryLabel" Grid.Row="1" Grid.Column="1" VerticalOptions="CenterAndExpand" />
+                <!-- Location autofilled from previous page-->
 
                 <Label Text="Date" StyleClass="listPrimaryLabel" Grid.Row="2" Grid.Column="0" VerticalOptions="CenterAndExpand"/>
                 <Label Text="{Binding DateString}" StyleClass="listSecondryLabel" Grid.Row="2" Grid.Column="1" VerticalOptions="CenterAndExpand"/>
@@ -65,15 +69,17 @@
 
                 <Label Text="Recipient" StyleClass="listPrimaryLabel" Grid.Row="3" Grid.Column="0" VerticalOptions="CenterAndExpand"/>
                 <Label Text="{Binding Recipient}"  StyleClass="listSecondryLabel" Grid.Row="3" Grid.Column="1" VerticalOptions="CenterAndExpand" />
-
+                <!-- Recipient autofilled from previous page-->
+                
                 <Label Text="Final Price" StyleClass="listPrimaryLabel" Grid.Row="4" Grid.Column="0" VerticalOptions="CenterAndExpand"/>
                 <Label Text="{Binding FinalPrice}" StyleClass="listSecondryLabel" Grid.Row="4" Grid.Column="1" VerticalOptions="CenterAndExpand"/>
-
-                <Label Text="Additonal Instructions" StyleClass="listPrimaryLabel" Grid.Row="5" Grid.ColumnSpan="2" VerticalOptions="CenterAndExpand"/>
+                <!-- price autofilled from previous page-->
+                
+                <Label Text="Additonal Instructions" StyleClass="listPrimaryLabel" Grid.Row="5" Grid.ColumnSpan="2" VerticalOptions="End"/> <!-- Entry for additional instructions-->
                 <Entry StyleClass="listSecondryLabel" Grid.Row="6" Grid.ColumnSpan="2" VerticalOptions="CenterAndExpand"/>
                 
-                <Button StyleClass="primaryButton" Text="Submit Order" Grid.Row="7" Grid.ColumnSpan="2" VerticalOptions="CenterAndExpand" Command="{Binding SubmitOrderCommand}"/>
-                <Button StyleClass="contactButton" Text="1-306-EDN-CARE" Grid.Row="8" Grid.ColumnSpan="2" VerticalOptions="End" />
+                <Button StyleClass="primaryButton" Text="Submit Order" Grid.Row="7" Grid.ColumnSpan="2" VerticalOptions="CenterAndExpand" Command="{Binding SubmitOrderCommand}"/> <!-- Button to submit order-->
+                <Button StyleClass="contactButton" Text="Contact Eden Care" Grid.Row="8" Grid.ColumnSpan="2" HorizontalOptions="Center" VerticalOptions="End" /> <!-- Contact Eden Care button-->
             </Grid>
         </ContentView>
     </ContentPage.Content>

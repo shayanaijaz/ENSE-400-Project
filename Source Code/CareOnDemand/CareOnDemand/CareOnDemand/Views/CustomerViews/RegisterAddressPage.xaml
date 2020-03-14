@@ -1,39 +1,43 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
+<!-- 
+   Care on Demand Application
+    Capstone 2020 - ENSE 400/477
+    The Ni(c)(k)S
+
+    Author: Nickolas Schmidt
+    Contributor(s): 
+    Last Modified: March 14th
+-->
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
+             Title="Add Address"
              x:Class="CareOnDemand.Views.CustomerViews.RegisterAddressPage"
-             NavigationPage.HasNavigationBar="False">
+             NavigationPage.HasNavigationBar="True">
     <ContentPage.Resources>
         <StyleSheet Source="/Views/StyleSheet.css" />
     </ContentPage.Resources>
     <ContentPage.Content>
-        <Grid StyleClass="main">
-
-            <Grid.RowDefinitions>
-
-                <RowDefinition Height="0.15*" />
+        <Grid StyleClass="main"> <!-- Page layout Grid-->
+            <Grid.RowDefinitions> <!-- Grid Rows -->
                 <RowDefinition Height="0.1*" />
                 <RowDefinition Height="0.1*" />
                 <RowDefinition Height="0.1*" />
                 <RowDefinition Height="0.1*" />
-                <RowDefinition Height="0.1*" />
-                <RowDefinition Height="0.1*" />
-
+                <RowDefinition Height="0.08*" />
+                <RowDefinition Height="0.08*" />
             </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
+            <Grid.ColumnDefinitions> <!-- Grid Columns-->
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
-
-            <Label StyleClass="primaryLabel" Grid.Row="0"  Grid.Column="0" Grid.ColumnSpan="3" Text="Add Address"  />
-            <Entry Grid.Row="1"  Grid.Column="0"  VerticalOptions="Center" Grid.ColumnSpan="3" FontSize="20" Placeholder="Street Address" Text="{Binding AddressLine1}"/>
-            <Picker Title="City" Grid.Row="2"  Grid.Column="0"  VerticalOptions="Center" Grid.ColumnSpan="3" FontSize="20"
-                    SelectedItem="{Binding AddressCity}">
+            <Entry Grid.Row="0"  Grid.Column="0"  VerticalOptions="End" Grid.ColumnSpan="3" FontSize="20" Placeholder="Street Address" Text="{Binding AddressLine1}"/> <!-- Street Address entry-->
+            <Picker Title="City" Grid.Row="1"  Grid.Column="0"  VerticalOptions="Center" Grid.ColumnSpan="3" FontSize="20"
+                    SelectedItem="{Binding AddressCity}"> <!-- City picker-->
                 <Picker.Items>
                     <x:String>Moose Jaw</x:String>
                     <x:String>Regina</x:String>
@@ -41,17 +45,16 @@
                 </Picker.Items>
             </Picker>
             <Picker Title="Province"
-                    Grid.Row="3"  Grid.Column="0" VerticalOptions="Center" Grid.ColumnSpan="3" FontSize="20"
-                    SelectedItem="{Binding AddressProvince}" >
+                    Grid.Row="2"  Grid.Column="0" VerticalOptions="Start" Grid.ColumnSpan="3" FontSize="20"
+                    SelectedItem="{Binding AddressProvince}" > <!-- Province picker-->
                 <Picker.Items>
                     <x:String>Saskatchewan</x:String>
                 </Picker.Items>
             </Picker>
 
-            <Entry Grid.Row="4"  Grid.Column="0"  VerticalOptions="Center" Grid.ColumnSpan="3" FontSize="20" Placeholder="Postal Code" Text="{Binding AddressPostalCode}"/>
-            
-            <Button StyleClass="primaryButton" Grid.Row="5" Text="Create Account"  VerticalOptions="Center" Grid.ColumnSpan="3" Command="{Binding CreateAccountCommand}"/>
-            <Button Grid.Row="6" Grid.Column="1" StyleClass="contactButton" Grid.ColumnSpan="2" VerticalOptions="End" HorizontalOptions="StartAndExpand" Text="Contact Eden Care" Command="{Binding ContactCommand}" />
+            <Entry Grid.Row="3"  Grid.Column="0"  VerticalOptions="Start" Grid.ColumnSpan="3" FontSize="20" Placeholder="Postal Code" Text="{Binding AddressPostalCode}"/> <!-- Postal code entry-->
+            <Button StyleClass="primaryButton" Grid.Row="4" Text="Create Account"  VerticalOptions="Start" Grid.ColumnSpan="3" Command="{Binding CreateAccountCommand}"/> <!-- Creates an account-->
+            <Button Grid.Row="5" Grid.Column="0" StyleClass="contactButton" Grid.ColumnSpan="3" VerticalOptions="End" HorizontalOptions="CenterAndExpand" Text="Contact Eden Care" Command="{Binding ContactCommand}" /> <!-- Contact Eden Care button-->
 
         </Grid>
     </ContentPage.Content>
