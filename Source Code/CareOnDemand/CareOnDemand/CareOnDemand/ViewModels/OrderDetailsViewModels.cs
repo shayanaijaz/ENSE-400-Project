@@ -16,48 +16,64 @@ namespace CareOnDemand.ViewModels
     {
         public OrderDetailsViewModel()
         {
-            //LocationList = GetLocation().Result.ToList();
-            //var result = GetLocation();
-            //LocationList = result.Result.ToList();
-            PopulateAddressList();
-            MinimumDate = GetMinimumDate();
-            TimeList = GetTime().ToList();
-            RecipientList = GetRecipient().ToList();
-            CarePartnerList = GetCarePartner().ToList();
-            ContinueOrderCommand = new Command(async () => await ContinueOrderClicked());
-
             OrderServicesList = new ObservableCollection<string>();
             PopulateOrderServicesList();
-
+            PopulateLists();
+            ContinueOrderCommand = new Command(async () => await ContinueOrderClicked());
         }
 
-        protected DateTime selected_date;
-        protected Time selected_time;
+        
         public List<Address> AddressList { get; set; }
 
-        public DateTime SelectedDate { 
-            get => selected_date; 
+        public Address SelectedAddress
+        {
+            get => user_address;
             set
             {
-                selected_date = value;
+                user_address = value;
+            }
+        }
+
+        public DateTime SelectedDate
+        {
+            get => selected_date;
+            set
+            {
+                selected_date = value.Date;
                 OnPropertyChanged(nameof(SelectedDate));
             }
         }
-        public Time SelectedTime {
+        public TimeSpan SelectedTime
+        {
             get => selected_time;
             set
             {
                 selected_time = value;
                 OnPropertyChanged(nameof(SelectedTime));
+                OnPropertyChanged(nameof(SelectedDate));
             }
         }
-        public DateTime MinimumDate { get; set; }
-        public static DateTime Now { get; }
-        public List<Time> TimeList { get; set; }
-        public List<Recipient> RecipientList { get; set; }
-        public List<CarePartner> CarePartnerList { get; set; }
 
-        public ObservableCollection<String> OrderServicesList { get; set; }
+        public List<Account> RecipientList { get; set; }
+        
+        public Account SelectedRecipient
+        {
+            get => recipient;
+            set
+            {
+                recipient = value;
+            }
+        }
+        public List<Account> CarePartnerList { get; set; }
+        public Account SelectedCarePartner
+        {
+            get => care_partner;
+            set
+            {
+                care_partner = value;
+            }
+        }
+        
 
         public Command ContinueOrderCommand { get; set; }
 
@@ -66,29 +82,24 @@ namespace CareOnDemand.ViewModels
             await Application.Current.MainPage.Navigation.PushAsync(new ServiceReview());
         }
 
-        public void PopulateOrderServicesList()
-        {
-            foreach(var service in user_order.Order_Services)
-            {
-                OrderServicesList.Add(service.ServiceName.Trim() + " - " + service.RequestedLength + " hours");
-            }
-        }
 
-        async void PopulateAddressList()
+
+        async void PopulateLists()
         {
-            var result = await GetLocation();
-            AddressList = result.ToList();
+            var address_result = await GetAddressList();
+            AddressList = address_result.ToList();
             OnPropertyChanged(nameof(AddressList));
-        }
-        public async Task<List<Address>> GetLocation()
-        {
-            //var location = new List<Location>()
-            //{
-            //    new Location(){Key =  1, Value= "My Home"},
-            //    new Location(){Key =  2, Value= "Grandmas's Home"},
-            //    new Location(){Key =  3, Value= "*Add New*"}
-            //};
 
+            var account_result = await GetRecipientList();
+            RecipientList = account_result.ToList();
+            OnPropertyChanged(nameof(RecipientList));
+
+            var care_partner_result = await GetCarePartnerList();
+            CarePartnerList = care_partner_result.ToList();
+            OnPropertyChanged(nameof(CarePartnerList));
+        }
+        public async Task<List<Address>> GetAddressList()
+        {
             int customerID = Application.Current.Properties.ContainsKey("customerID") ? Convert.ToInt32(Application.Current.Properties["customerID"]) : 0;
 
             AddressRestService addressRestService = new AddressRestService();
@@ -106,69 +117,40 @@ namespace CareOnDemand.ViewModels
             }
 
             return address_list;
-
-
         }
-        public DateTime GetMinimumDate()
+
+        public async Task<List<Account>> GetRecipientList()
         {
-            var minimumDate = DateTime.Now;
-            return minimumDate;
+            int accountID = Application.Current.Properties.ContainsKey("accountID") ? Convert.ToInt32(Application.Current.Properties["accountID"]) : 0;
+
+            AccountRestService accountRestService = new AccountRestService();
+            var retrieved_account = await accountRestService.GetAccountByIDAsync(accountID);
+
+            retrieved_account.FullName = retrieved_account.FirstName.Trim() + " " + retrieved_account.LastName.Trim();
+
+            List<Account> account_list = new List<Account>();
+            account_list.Add(retrieved_account);
+
+            return account_list;
         }
-        public List<Time> GetTime()
+
+        public async Task<List<Account>> GetCarePartnerList()
         {
-            var time = new List<Time>()
+            CarePartnerRestService carePartnerRestService = new CarePartnerRestService();
+            AccountRestService accountRestService = new AccountRestService();
+            var retrieved_care_partners = await carePartnerRestService.RefreshDataAsync();
+
+            List<Account> care_partner_list = new List<Account>();
+
+            foreach (var care_partner in retrieved_care_partners)
             {
-                new Time(){Key =  1, Value= "9:00 AM"},
-                new Time(){Key =  2, Value= "10:00 AM"},
-                new Time(){Key =  3, Value= "11:30 AM"},
-                new Time(){Key =  3, Value= "11:30 AM"},
-                new Time(){Key =  3, Value= "12:30 PM"},
-                new Time(){Key =  3, Value= "1:30 PM"}
-            };
+                int care_partner_account_id = care_partner.AccountID;
+                var account = await accountRestService.GetAccountByIDAsync(care_partner_account_id);
+                account.FullName = account.FirstName.Trim() + " " + account.LastName.Trim();
+                care_partner_list.Add(account);
+            }
 
-            return time;
-        }
-        public List<Recipient> GetRecipient()
-        {
-            var recipient = new List<Recipient>()
-            {
-                new Recipient(){Key =  1, Value= "Myself"},
-                new Recipient(){Key =  2, Value= "Grandma"}
-            };
-
-            return recipient;
-        }
-        public List<CarePartner> GetCarePartner()
-        {
-            var carePartner = new List<CarePartner>()
-            {
-                new CarePartner(){Key =  1, Value= "No Preference"},
-                new CarePartner(){Key =  2, Value= "Joe Fresh"},
-                new CarePartner(){Key =  3, Value= "Bill Nye"},
-                new CarePartner(){Key =  3, Value= "Gary Snail"}
-            };
-            return carePartner;
-        }
-
-        public class Location
-        {
-            public int Key { get; set; }
-            public string Value { get; set; }
-        }
-        public class Time
-        {
-            public int Key { get; set; }
-            public string Value { get; set; }
-        }
-        public class Recipient
-        {
-            public int Key { get; set; }
-            public string Value { get; set; }
-        }
-        public class CarePartner
-        {
-            public int Key { get; set; }
-            public string Value { get; set; }
+            return care_partner_list;
         }
     }
 }

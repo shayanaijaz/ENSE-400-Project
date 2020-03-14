@@ -98,14 +98,6 @@ namespace CareOnDemand.Models
 
         public async Task AddAddress(Address address)
         {
-            //Address address = new Address();
-            address.AddrLine1 = "121 Solie Crescent";
-            address.City = "Regina";
-            address.Province = "Saskatchewan";
-            address.PostalCode = "S4X3M4";
-            
-           
-
             AddressRestService addressRestService = new AddressRestService();
 
             created_address = await addressRestService.SaveAddressAsync(address, true);
@@ -113,7 +105,7 @@ namespace CareOnDemand.Models
             Customer_Address customer_Address = new Customer_Address();
             customer_Address.CustomerID = created_account.Customer.CustomerID;
             customer_Address.AddressID = created_address.AddressID;
-            customer_Address.AddressLabel = "Myself";
+            customer_Address.AddressLabel = "Default";
 
             Customer_AddressRestService customer_AddressRestService = new Customer_AddressRestService();
             await customer_AddressRestService.SaveCustomer_AddressAsync(customer_Address, true);

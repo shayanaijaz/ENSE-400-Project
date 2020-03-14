@@ -52,6 +52,7 @@ namespace CareOnDemand.ViewModels
 
                 Application.Current.Properties["isLoggedIn"] = Boolean.TrueString;
                 Application.Current.Properties["accountLevelID"] = account_level_id;
+                Application.Current.Properties["accountID"] = account_id;
 
                 if (account_level_id == 1)
                     await Application.Current.MainPage.Navigation.PushAsync(new AdminHome());

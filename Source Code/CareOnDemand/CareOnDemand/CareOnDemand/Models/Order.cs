@@ -38,7 +38,6 @@ namespace CareOnDemand.Models
         public int OrderID { get; set; }
         public Order Order { get; set; }
         public int ServiceID { get; set; }
-        public int ServiceLength { get; set; }
         public string ServiceName { get; set; }
 
     }

@@ -43,6 +43,29 @@ namespace CareOnDemand.Data
             return Accounts;
         }
 
+        public async Task<Account> GetAccountByIDAsync(int accountID)
+        {
+            Account Accounts = new Account();
+
+            try
+            {
+                var uri = new Uri(string.Format(Constants.AccountsUrl, accountID));
+
+                var response = await _client.GetAsync(uri);
+                if (response.IsSuccessStatusCode)
+                {
+                    var content = await response.Content.ReadAsStringAsync();
+                    Accounts = JsonConvert.DeserializeObject<Account>(content);
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(@"\tERROR {0}", ex.Message);
+            }
+
+            return Accounts;
+        }
+
         public async Task<List<Account>> GetAccountByEmailAsync(string email)
         {
             Accounts = new List<Account>();
