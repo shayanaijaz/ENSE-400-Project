@@ -41,7 +41,7 @@
                     <ColumnDefinition Width="0.334*" />
                     <ColumnDefinition Width="0.666*" />
                 </Grid.ColumnDefinitions>
-                <ListView RowHeight="35" ItemsSource="{Binding OrderServicesList}" SelectionMode="None" Grid.ColumnSpan="2"> <!-- Listview from Selected Services from previous page-->
+                <ListView RowHeight="40" ItemsSource="{Binding OrderServicesList}" SelectionMode="None" Grid.ColumnSpan="2"> <!-- Listview from Selected Services from previous page-->
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>

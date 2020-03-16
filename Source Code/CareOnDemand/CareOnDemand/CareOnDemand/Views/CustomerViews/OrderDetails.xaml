@@ -43,7 +43,7 @@
                     <!--<Label Text="Selected Service(s)"  Grid.Row="0" FontSize="Large" VerticalOptions="End" HorizontalOptions="Start"/>-->
                     <!--<Label Text="Services Ordered" Grid.Row="0" VerticalOptions="Start" FontSize="Medium"/>-->
 
-                    <ListView RowHeight="35" ItemsSource="{Binding OrderServicesList}" SelectionMode="None">
+                    <ListView RowHeight="40" ItemsSource="{Binding OrderServicesList}" SelectionMode="None">
                         <ListView.ItemTemplate> <!-- List view of orders from Database-->
                             <DataTemplate>
                                 <ViewCell>
