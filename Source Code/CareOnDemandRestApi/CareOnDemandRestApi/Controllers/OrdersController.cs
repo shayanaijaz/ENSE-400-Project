@@ -41,6 +41,20 @@ namespace CareOnDemandRestApi.Controllers
             return order;
         }
 
+        // GET: api/Orders/OrderStatus/{orderStatus}
+        [HttpGet("OrderStatus/{orderStatus}")]
+        public async Task<ActionResult<Order>> GetAccount(int orderStatus)
+        {
+            var order = await _context.Orders.Where(a => a.OrderStatusID == orderStatus).ToListAsync();
+
+            if (order == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(order);
+        }
+
         // PUT: api/Orders/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.

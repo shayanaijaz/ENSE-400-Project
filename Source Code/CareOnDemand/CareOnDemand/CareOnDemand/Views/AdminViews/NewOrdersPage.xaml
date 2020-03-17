@@ -14,7 +14,7 @@
     </ContentPage.Resources>
     <ContentPage.Content>
         <ContentView>
-            <ListView x:Name="ServiceListView" ItemsSource="{Binding NewOrderList}" StyleClass="main"
+            <ListView x:Name="OrderListView" ItemsSource="{Binding NewOrderList}" StyleClass="main"
                     SeparatorVisibility="Default"
                     RowHeight="80"
                       SelectedItem="{Binding NewOrdersPage}">
