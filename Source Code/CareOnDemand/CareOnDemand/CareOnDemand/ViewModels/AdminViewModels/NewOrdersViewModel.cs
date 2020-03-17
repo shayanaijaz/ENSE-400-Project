@@ -6,6 +6,9 @@ namespace CareOnDemand.ViewModels.AdminViewModels
 {
     public class NewOrdersViewModel : BaseViewModel
     {
+        public NewOrdersViewModel()
+        {
 
+        }
     }
 }

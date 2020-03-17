@@ -17,6 +17,7 @@ namespace CareOnDemand.ViewModels
         public OrderDetailsViewModel()
         {
             OrderServicesList = new ObservableCollection<string>();
+            selected_date = DateTime.Today;
             PopulateOrderServicesList();
             PopulateLists();
             ContinueOrderCommand = new Command(async () => await ContinueOrderClicked());
