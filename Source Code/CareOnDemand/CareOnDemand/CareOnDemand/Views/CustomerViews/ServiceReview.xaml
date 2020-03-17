@@ -76,7 +76,7 @@
                 <!-- price autofilled from previous page-->
                 
                 <Label Text="Additonal Instructions" StyleClass="listPrimaryLabel" Grid.Row="5" Grid.ColumnSpan="2" VerticalOptions="End"/> <!-- Entry for additional instructions-->
-                <Entry StyleClass="listSecondryLabel" Grid.Row="6" Grid.ColumnSpan="2" VerticalOptions="CenterAndExpand"/>
+                <Entry StyleClass="listSecondryLabel" Grid.Row="6" Grid.ColumnSpan="2" VerticalOptions="CenterAndExpand" Text="{Binding AdditionalInstructions}"/>
                 
                 <Button StyleClass="primaryButton" Text="Submit Order" Grid.Row="7" Grid.ColumnSpan="2" VerticalOptions="CenterAndExpand" Command="{Binding SubmitOrderCommand}"/> <!-- Button to submit order-->
                 <Button StyleClass="contactButton" Text="Contact Eden Care" Grid.Row="8" Grid.ColumnSpan="2" HorizontalOptions="Center" VerticalOptions="End" /> <!-- Contact Eden Care button-->
