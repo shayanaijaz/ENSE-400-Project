@@ -91,6 +91,13 @@ stacklayout.main{
     color: black;
 }
 
+.itemRemovalButton {
+    border-radius: 25;
+    background-color: #a5d5ed;
+    font-size: small;
+    color: black;
+}
+
 .plainFrame {
     background-color: white;
     border-radius: 5;
