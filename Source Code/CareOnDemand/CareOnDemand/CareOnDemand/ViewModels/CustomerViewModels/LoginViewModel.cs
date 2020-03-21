@@ -55,7 +55,7 @@ namespace CareOnDemand.ViewModels
                 Application.Current.Properties["accountID"] = account_id;
 
                 if (account_level_id == 1)
-                    await Application.Current.MainPage.Navigation.PushAsync(new AdminHome());
+                    await Application.Current.MainPage.Navigation.PushAsync(new AdminNavBar());
                 else if (account_level_id == 2)
                     await Application.Current.MainPage.Navigation.PushAsync(new CarePartnerHome());
                 else if (account_level_id == 3) // if the user is a customer

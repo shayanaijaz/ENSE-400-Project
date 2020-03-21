@@ -43,6 +43,29 @@ namespace CareOnDemand.Data
             return Orders;
         }
 
+        public async Task<Order> GetOrderByOrderStatusIDAsync(int orderStatusID)
+        {
+            Order Orders = new Order();
+
+            try
+            {
+                var uri = new Uri(string.Format(Constants.OrdersByOrderStatusIDUrl, orderStatusID));
+
+                var response = await _client.GetAsync(uri);
+                if (response.IsSuccessStatusCode)
+                {
+                    var content = await response.Content.ReadAsStringAsync();
+                    Orders = JsonConvert.DeserializeObject<Order>(content);
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(@"\tERROR {0}", ex.Message);
+            }
+
+            return Orders;
+        }
+
         public async Task<Order> SaveOrderAsync(Order item, bool isNewItem = false)
         {
             var uri = new Uri(string.Format(Constants.OrdersUrl, string.Empty));

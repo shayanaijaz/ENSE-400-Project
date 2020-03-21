@@ -35,6 +35,7 @@ namespace CareOnDemand.ViewModels
         public String DateString { get; set; }
         public String TimeString { get; set; }
         public String FinalPrice { get; set; }
+        public String AdditionalInstructions { get; set; }
 
         public void GetFullUserAddress()
         {
@@ -84,6 +85,7 @@ namespace CareOnDemand.ViewModels
 
             user_order.AddressID = user_address.AddressID;
             user_order.CustomerID = customer[0].CustomerID;
+            user_order.OrderInstructions = AdditionalInstructions;
             user_order.OrderForID = 0;
             user_order.PaymentMethodID = 0;
 
