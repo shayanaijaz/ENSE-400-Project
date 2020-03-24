@@ -17,31 +17,23 @@
             <ScrollView>
                 <Grid Padding="15" StyleClass="main">
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="0.2*" />
-                        <!--Services-->
+                        <RowDefinition Height="0.2*" /> <!--Services-->
 
-                        <RowDefinition Height="0.1*" />
-                        <!--Location-->
+                        <RowDefinition Height="0.1*" /> <!--Location-->
 
-                        <RowDefinition Height="0.1*" />
-                        <!--Time-->
+                        <RowDefinition Height="0.1*" /> <!--Time-->
 
-                        <RowDefinition Height="0.1*" />
-                        <!--Recipient-->
+                        <RowDefinition Height="0.1*" /> <!--Recipient-->
 
-                        <RowDefinition Height="0.1*" />
-                        <!--Price-->
+                        <RowDefinition Height="0.1*" /> <!--Price-->
 
-                        <RowDefinition Height="0.1*" />
-                        <!--Additional Customer Instructions-->
+                        <RowDefinition Height="0.1*" /> <!--Additional Customer Instructions-->
                         <RowDefinition Height="0.2*" />
 
-                        <RowDefinition Height="0.1*" />
-                        <!--Additional Admin Instructions-->
+                        <RowDefinition Height="0.1*" /> <!--Additional Admin Instructions-->
                         <RowDefinition Height="0.1*" />
 
-                        <RowDefinition Height="0.1*" />
-                        <!--Buttons-->
+                        <RowDefinition Height="0.1*" /> <!--Buttons-->
                         <RowDefinition Height="0.1*" />
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
