@@ -1,17 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Text;
-using CareOnDemand.Data;
-using CareOnDemand.Models;
 
 namespace CareOnDemand.ViewModels.AdminViewModels
 {
-    public class NewOrdersViewModel : BaseAdminOrdersViewModel
+    public class ActiveOrdersViewModel : BaseAdminOrdersViewModel
     {
-        public NewOrdersViewModel()
+        public ActiveOrdersViewModel()
         {
-            NewOrders = new List<OrdersList>();
+            ActiveOrders = new List<OrdersList>();
             ActivityIndicatorVisible = true;
             ActivityIndicatorRunning = true;
             getNewOrder();
@@ -20,19 +17,17 @@ namespace CareOnDemand.ViewModels.AdminViewModels
         public bool ActivityIndicatorVisible { get; set; }
         public bool ActivityIndicatorRunning { get; set; }
 
-        public List<OrdersList> NewOrders { get; set; }
+        public List<OrdersList> ActiveOrders { get; set; }
         async void getNewOrder()
         {
-            string[] newOrderStatusArray = {"New"};
-
-            NewOrders = await getOrderData(newOrderStatusArray);
+            string[] activeOrderStatusArray = { "In Progress", "On The Way", "Waiting" };
+            ActiveOrders = await getOrderData(activeOrderStatusArray);
 
             ActivityIndicatorRunning = false;
             ActivityIndicatorVisible = false;
             OnPropertyChanged(nameof(ActivityIndicatorRunning));
             OnPropertyChanged(nameof(ActivityIndicatorVisible));
-            OnPropertyChanged(nameof(NewOrders));
+            OnPropertyChanged(nameof(ActiveOrders));
         }
-
     }
 }

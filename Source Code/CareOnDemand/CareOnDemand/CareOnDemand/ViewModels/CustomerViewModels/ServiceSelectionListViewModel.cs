@@ -17,6 +17,8 @@ namespace CareOnDemand.ViewModels
         {
             user_selected_service = new Service();
             ServiceList = new ObservableCollection<Service>();
+            ActivityIndicatorVisible = true;
+            ActivityIndicatorRunning = true;
             PopulateServiceList();
             PopulateCheckoutButton();
             CheckoutCommand = new Command(async () => await CheckoutButtonClicked());
@@ -29,7 +31,8 @@ namespace CareOnDemand.ViewModels
         public Command TextCellCommand { private set; get; }
         public bool CheckoutIsVisible { get; set; }
         public string CheckoutText { get; set; }
-
+        public bool ActivityIndicatorVisible { get; set; }
+        public bool ActivityIndicatorRunning { get; set; }
         public Service SelectedService
         {
             get => user_selected_service;
@@ -64,6 +67,11 @@ namespace CareOnDemand.ViewModels
                     Length = service_result.Length, ServiceID = service_result.ServiceID});
                 }
             }
+
+            ActivityIndicatorRunning = false;
+            ActivityIndicatorVisible = false;
+            OnPropertyChanged(nameof(ActivityIndicatorRunning));
+            OnPropertyChanged(nameof(ActivityIndicatorVisible));
         }
 
         async void ServiceSelectedClicked()

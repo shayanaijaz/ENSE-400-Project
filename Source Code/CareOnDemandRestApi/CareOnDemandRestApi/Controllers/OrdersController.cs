@@ -241,14 +241,15 @@ namespace CareOnDemandRestApi.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<Order_Service>> GetOrder_Service(int id)
         {
-            var order_Service = await _context.Order_Services.FindAsync(id);
+            var order_Service = await _context.Order_Services.Where(a => a.OrderID == id).AsNoTracking().ToListAsync();
+
 
             if (order_Service == null)
             {
                 return NotFound();
             }
 
-            return order_Service;
+            return Ok(order_Service);
         }
 
         // PUT: api/Order_Service/5

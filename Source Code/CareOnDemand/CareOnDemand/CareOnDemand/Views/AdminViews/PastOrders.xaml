@@ -13,27 +13,31 @@
     </ContentPage.Resources>
     <ContentPage.Content>
         <ContentView>
-            <ListView x:Name="ServiceListView" ItemsSource="{Binding PastOrderList}" StyleClass="main"
+            <ContentView.Content>
+                <Grid StyleClass="serviceSelectionGrid">
+                    <ActivityIndicator IsVisible="{Binding ActivityIndicatorVisible}" IsRunning="{Binding ActivityIndicatorRunning}" Scale="0.25" />
+                    <ListView x:Name="OrderListView" ItemsSource="{Binding PastOrders}" StyleClass="main"
                     SeparatorVisibility="Default"
-                    RowHeight="80"
-                      SelectedItem="{Binding PastOrders}">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <!--<ViewCell Tapped="ViewCellTapped">
-                            <Grid StyleClass="main">
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="20"/>
-                                    <RowDefinition Height="20"/>
-                                </Grid.RowDefinitions>
+                    RowHeight="100">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell Tapped="ViewCellTapped">
+                                    <Grid StyleClass="main">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="30"/>
+                                            <RowDefinition Height="60"/>
+                                        </Grid.RowDefinitions>
 
-                                <Label Grid.Row="0" FontAttributes="Bold" FontSize="Small" Text="{Binding OrderName}" />
-                                <Label Grid.Row="1" VerticalOptions="Start"  Text="{Binding OrderTime}" />
+                                        <Label Grid.Row="0" FontAttributes="Bold" FontSize="Medium" Text="{Binding CustomerName}" />
+                                        <Label Grid.Row="1" VerticalOptions="Start"  Text="{Binding ServicesOrderedString}" />
 
-                            </Grid>
-                        </ViewCell>-->
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+                                    </Grid>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </Grid>
+            </ContentView.Content>
         </ContentView>
     </ContentPage.Content>
 </ContentPage>

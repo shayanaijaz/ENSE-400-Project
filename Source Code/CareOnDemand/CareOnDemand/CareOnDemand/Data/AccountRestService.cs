@@ -385,6 +385,28 @@ namespace CareOnDemand.Data
             return Customers;
         }
 
+        public async Task<Customer> GetCustomerByIDAsync(int customerID)
+        {
+            Customer Customers = new Customer();
+
+            var uri = new Uri(string.Format(Constants.CustomersUrl, customerID));
+            try
+            {
+                var response = await _client.GetAsync(uri);
+                if (response.IsSuccessStatusCode)
+                {
+                    var content = await response.Content.ReadAsStringAsync();
+                    Customers = JsonConvert.DeserializeObject<Customer>(content);
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(@"\tERROR {0}", ex.Message);
+            }
+
+            return Customers;
+        }
+
         public async Task<List<Customer>> GetCustomerByAccountIDAsync(int accountID)
         {
             Customers = new List<Customer>();
