@@ -25,8 +25,6 @@ namespace CareOnDemand.Views.AdminViews
         {
             if (lastCell != null)
                 lastCell.View.BackgroundColor = Color.Transparent;
-            if (OrderListView.SelectedItem == null)
-                lastCell.View.BackgroundColor = Color.Transparent;
 
             var viewCell = (ViewCell)sender;
             if (viewCell.View != null)
@@ -39,6 +37,8 @@ namespace CareOnDemand.Views.AdminViews
         protected override void OnAppearing()
         {
             base.OnAppearing();
+            if (lastCell != null)
+                lastCell.View.BackgroundColor = Color.Transparent;
             OrderListView.SelectedItem = null;
         }
     }

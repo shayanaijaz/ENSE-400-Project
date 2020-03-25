@@ -43,9 +43,9 @@ namespace CareOnDemand.Data
             return Orders;
         }
 
-        public async Task<Order> GetOrderByOrderStatusIDAsync(int orderStatusID)
+        public async Task<List<Order>> GetOrderByOrderStatusIDAsync(int orderStatusID)
         {
-            Order Orders = new Order();
+            Orders = new List<Order>();
 
             try
             {
@@ -55,7 +55,7 @@ namespace CareOnDemand.Data
                 if (response.IsSuccessStatusCode)
                 {
                     var content = await response.Content.ReadAsStringAsync();
-                    Orders = JsonConvert.DeserializeObject<Order>(content);
+                    Orders = JsonConvert.DeserializeObject<List<Order>>(content);
                 }
             }
             catch (Exception ex)
@@ -156,6 +156,28 @@ namespace CareOnDemand.Data
             return Order_Services;
         }
 
+
+        public async Task<List<Order_Service>> GetOrderServiceByID(int orderID)
+        {
+            Order_Services = new List<Order_Service>();
+
+            var uri = new Uri(string.Format(Constants.Order_ServicesUrl, orderID));
+            try
+            {
+                var response = await _client.GetAsync(uri);
+                if (response.IsSuccessStatusCode)
+                {
+                    var content = await response.Content.ReadAsStringAsync();
+                    Order_Services = JsonConvert.DeserializeObject<List<Order_Service>>(content);
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(@"\tERROR {0}", ex.Message);
+            }
+
+            return Order_Services;
+        }
         public async Task SaveOrder_SericeAsync(Order_Service item, bool isNewItem = false)
         {
             var uri = new Uri(string.Format(Constants.Order_ServicesUrl, string.Empty));
