@@ -21,7 +21,7 @@ namespace CareOnDemand.ViewModels.AdminViewModels
         async void getNewOrder()
         {
             string[] activeOrderStatusArray = { "In Progress", "On The Way", "Waiting" };
-            ActiveOrders = await getOrderData(activeOrderStatusArray);
+            ActiveOrders = await GetOrdersFromDb(activeOrderStatusArray);
 
             ActivityIndicatorRunning = false;
             ActivityIndicatorVisible = false;

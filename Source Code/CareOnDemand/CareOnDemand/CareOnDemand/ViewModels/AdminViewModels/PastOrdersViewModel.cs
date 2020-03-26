@@ -22,7 +22,7 @@ namespace CareOnDemand.ViewModels.AdminViewModels
         {
             string[] pastOrderStatusArray = { "Cancelled", "Completed" };
 
-            PastOrders = await getOrderData(pastOrderStatusArray);
+            PastOrders = await GetOrdersFromDb(pastOrderStatusArray);
 
             ActivityIndicatorRunning = false;
             ActivityIndicatorVisible = false;

@@ -15,7 +15,7 @@
              mc:Ignorable="d"
              x:Class="CareOnDemand.Views.CustomerViews.ServiceReview"
              NavigationPage.HasNavigationBar="True"
-             Title="Service(s) Ordered">
+             Title="Services Ordered">
     
     <ContentPage.Resources>
         <StyleSheet Source="/Views/StyleSheet.css" />
@@ -50,7 +50,7 @@
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="30"/>
                                     </Grid.RowDefinitions>
-                                    <Label Grid.Row="0" FontSize="Subtitle" Text="{Binding}" />
+                                    <Label Grid.Row="0" Grid.Column="0" FontSize="Subtitle" Text="{Binding}" />
                                 </Grid>
                             </ViewCell>
                         </DataTemplate>
