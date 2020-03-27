@@ -1,4 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
+<!-- 
+   Care on Demand Application
+    Capstone 2020 - ENSE 400/477
+    The Ni(c)(k)S
+
+    Author: Nickolas Schmidt
+    Contributor(s): Nikolas Lendvoy
+    Last Modified: March 27th
+-->
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
@@ -10,36 +19,38 @@
         <StyleSheet Source="/Views/StyleSheet.css" />
     </ContentPage.Resources>
     <ContentPage.Content>
-        <Grid StyleClass="main">
-
-            <Grid.RowDefinitions>
-
-                <RowDefinition Height="0.3*" />
+        <Grid StyleClass="main"> <!-- Page Layout Grid-->
+            <Grid.RowDefinitions> <!-- Grid Rows-->
                 <RowDefinition Height="0.2*" />
                 <RowDefinition Height="0.2*" />
                 <RowDefinition Height="0.2*" />
-                <RowDefinition Height="0.1*" />
+                <RowDefinition Height="0.2*" />
+                <RowDefinition Height="0.2*" />
+                <RowDefinition Height="0.2*" />
+                <RowDefinition Height="0.15*" />
             </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
+            <Grid.ColumnDefinitions> <!-- Grid Columns-->
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
              </Grid.ColumnDefinitions>
-
+            <!-- Start of page content-->
             <Image Grid.Row="0"  Grid.ColumnSpan="2" HorizontalOptions="CenterAndExpand" Source="https://careondemand-storage.s3.ca-central-1.amazonaws.com/EdenCare_PlainLogo.png"/>
             <Picker Title="Account Type" 
-                    VerticalOptions="End" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" FontSize="20" 
+                    VerticalOptions="End" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" FontSize="20" TextColor="Black"
                     ItemsSource="{Binding AccountList}" >
+                <!-- Picker used to choose account type-->
                 <Picker.Items>
                     <x:String>Administrator</x:String>
                     <x:String>Care Partner</x:String>
                     <x:String>Customer</x:String>
                 </Picker.Items>
             </Picker>
-
-            <Entry Text="First Name" VerticalOptions="Center" Grid.Row="2" Grid.Column="0"/>
-            <Entry Text="Last name"  VerticalOptions="Center" Grid.Row="2" Grid.Column="1"/>
-            <Entry Text="Phone Number" VerticalOptions="Start" Grid.Row="3" Keyboard="Telephone" Grid.ColumnSpan="2" />
-            <Button Text="Create Account" VerticalOptions="Start" StyleClass="primaryButton" Grid.Row="4" Grid.ColumnSpan="2"/>
+            <Entry Text="First Name" VerticalOptions="Center" Grid.Row="2" Grid.Column="0"/> <!-- Entry for first name-->
+            <Entry Text="Last name"  VerticalOptions="Center" Grid.Row="2" Grid.Column="1"/> <!-- Entry for last name-->
+            <Entry Text="Email" VerticalOptions="Start" Grid.Row="3" Keyboard="Email" Grid.ColumnSpan="2" /> <!-- Email entry-->
+            <Entry Text="Password" VerticalOptions="Start" Grid.Row="4" Keyboard="Password" Grid.ColumnSpan="2" /> <!-- Password entry-->
+            <Entry Text="Phone Number" VerticalOptions="Start" Grid.Row="5" Keyboard="Telephone" Grid.ColumnSpan="2" /> <!-- Phone number entry-->
+            <Button Text="Create Account" VerticalOptions="Start" StyleClass="primaryButton" Grid.Row="6" Grid.ColumnSpan="2"/> <!-- Create account button-->
         </Grid>
     </ContentPage.Content>
 </ContentPage>

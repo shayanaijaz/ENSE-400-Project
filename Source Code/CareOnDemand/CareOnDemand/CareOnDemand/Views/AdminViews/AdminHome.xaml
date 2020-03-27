@@ -1,4 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
+<!-- 
+   Care on Demand Application
+    Capstone 2020 - ENSE 400/477
+    The Ni(c)(k)S
+
+    Author: Nickolas Schmidt
+    Contributor(s): Nikolas Lendvoy
+    Last Modified: March 27th
+-->
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
@@ -9,30 +18,30 @@
     <ContentPage.Resources>
         <StyleSheet Source="/Views/StyleSheet.css" />
     </ContentPage.Resources>
-
     <ContentPage.Content>
-
         <Grid StyleClass="main">
+            <!-- Page Layout Grid-->
             <Grid.RowDefinitions>
-                <RowDefinition Height="0.35*"/>
+                <!-- Grid Rows-->
+                <RowDefinition Height="0.25*"/>
                 <RowDefinition Height="0.20*"/>
                 <RowDefinition Height="0.20*"/>
                 <RowDefinition Height="0.20*"/>
                 <RowDefinition Height="0.20*"/>
                 <RowDefinition Height="0.20*"/>
             </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-
-            </Grid.ColumnDefinitions>
-
+            <!-- Start of page content -->
+            <Image Grid.Row="0" Source="https://careondemand-storage.s3.ca-central-1.amazonaws.com/EdenCare_PlainLogo.png" /> <!-- Eden Care image-->
             <Label StyleClass="primaryLabel" HorizontalOptions="CenterAndExpand" VerticalOptions="Center" Text="Welcome *first name*" Grid.Row="1" Grid.Column="0" />
-            <Image Grid.Row="0" Source="https://careondemand-storage.s3.ca-central-1.amazonaws.com/EdenCare_PlainLogo.png" />
-            
-            <Button StyleClass="secondaryButton" Text="Create Order" VerticalOptions="Center" Grid.Row="2" Grid.Column="0" />
-            <Button StyleClass="secondaryButton" Text="Create Account" VerticalOptions="Center" Grid.Row="3" Grid.Column="0" />
-            <Button StyleClass="secondaryButton" Text="Modify User" VerticalOptions="Center" Grid.Row="4" Grid.Column="0" />
-            <Button StyleClass="secondaryButton" Text="My Account" VerticalOptions="Center" Grid.Row="5" Grid.Column="0" />
+            <!-- Label indicating which admin account is logged in-->
+            <Button StyleClass="secondaryButton" Text="Create Order" VerticalOptions="Start" Grid.Row="2"  />
+            <!-- Button directing to Admin create order page-->
+            <Button StyleClass="secondaryButton" Text="Create Account" VerticalOptions="Start" Grid.Row="3" />
+            <!-- Button directing to AccountCreation page-->
+            <Button StyleClass="secondaryButton" Text="Modify User" VerticalOptions="Start" Grid.Row="4" />
+            <!-- Button navigating to Modify User page-->
+            <Button StyleClass="secondaryButton" Text="My Account" VerticalOptions="Start" Grid.Row="5" />
+            <!-- Button navigating to my account page-->
         </Grid>
-
     </ContentPage.Content>
 </ContentPage>
