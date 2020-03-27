@@ -19,7 +19,8 @@
                     <ActivityIndicator IsVisible="{Binding ActivityIndicatorVisible}" IsRunning="{Binding ActivityIndicatorRunning}" Scale="0.25" />
                     <ListView x:Name="OrderListView" ItemsSource="{Binding NewOrders}" StyleClass="main"
                     SeparatorVisibility="Default"
-                    RowHeight="100">
+                    RowHeight="100"
+                    SelectedItem="{Binding SelectedOrder}">
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <ViewCell Tapped="ViewCellTapped">

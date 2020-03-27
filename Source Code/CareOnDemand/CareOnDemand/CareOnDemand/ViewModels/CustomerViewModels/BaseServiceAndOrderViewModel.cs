@@ -10,7 +10,7 @@ namespace CareOnDemand.ViewModels
     {
         protected static Service user_selected_service;
         protected static Order user_order;
-        public static List<Order_Service> user_order_service;
+        public static ObservableCollection<Order_Service> user_order_service;
         protected static Address user_address;
         protected static Account recipient;
         protected static Account care_partner;
@@ -22,6 +22,15 @@ namespace CareOnDemand.ViewModels
         }
 
         public ObservableCollection<String> OrderServicesList { get; set; }
+
+        public ObservableCollection<Order_Service> Order_Service_List
+        {
+            get => user_order_service;
+            set
+            {
+                user_order_service = value;
+            }
+        }
 
         public void PopulateOrderServicesList()
         {

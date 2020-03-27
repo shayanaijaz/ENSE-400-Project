@@ -16,7 +16,8 @@
              mc:Ignorable="d"
              x:Class="CareOnDemand.Views.CustomerViews.OrderDetails"
              NavigationPage.HasNavigationBar="True"
-             Title="Selected Service(s)">
+             x:Name="OrderDetailsPage"
+             Title="Selected Service">
     
     <ContentPage.Resources>
         <StyleSheet Source="/Views/StyleSheet.css" />
@@ -26,6 +27,7 @@
           <!--  <ScrollView> --> <!-- Page is scrollable -->
                 <Grid Padding="15" StyleClass="main"> <!-- Page layout Grid-->
                     <Grid.RowDefinitions> <!-- Grid Rows-->
+                        <RowDefinition Height="Auto" />
                         <RowDefinition Height="0.08*" />
                         <RowDefinition Height="0.05*" />
                         <RowDefinition Height="0.05*" />
@@ -40,18 +42,24 @@
                     <Grid.ColumnDefinitions> <!-- Grid Columns-->
                         <ColumnDefinition Width="1*" />
                     </Grid.ColumnDefinitions>
-                    <!--<Label Text="Selected Service(s)"  Grid.Row="0" FontSize="Large" VerticalOptions="End" HorizontalOptions="Start"/>-->
-                    <!--<Label Text="Services Ordered" Grid.Row="0" VerticalOptions="Start" FontSize="Medium"/>-->
-
-                    <ListView RowHeight="40" ItemsSource="{Binding OrderServicesList}" SelectionMode="None">
+                    <ListView x:Name="ServicesOrdered" MinimumHeightRequest="70" RowHeight="70" VerticalOptions="FillAndExpand" Grid.Row="0" ItemsSource="{Binding Order_Service_List}" SelectionMode="None">
                         <ListView.ItemTemplate> <!-- List view of orders from Database-->
                             <DataTemplate>
                                 <ViewCell>
                                     <Grid StyleClass="main">
                                         <Grid.RowDefinitions>
-                                            <RowDefinition Height="20"/>
+                                            <RowDefinition Height="45"/>
                                         </Grid.RowDefinitions>
-                                        <Label Grid.Row="0" FontSize="Subtitle" Text="{Binding}" />
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="0.45*"/>
+                                            <ColumnDefinition Width="0.03*" />
+                                            <ColumnDefinition Width="0.37*" />
+                                            <ColumnDefinition Width="0.15*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Label Grid.Row="0" Grid.Column="0" FontSize="Subtitle" Text="{Binding ServiceName}" VerticalOptions="Center"/>
+                                        <Label Grid.Row="0" Grid.Column="1" FontSize="Subtitle" Text="{Binding RequestedLength}" VerticalOptions="Center"/>
+                                        <Label Grid.Row="0" Grid.Column="2" FontSize="Subtitle" Text="hours" VerticalOptions="Center"/>
+                                        <Button Grid.Row="0" Grid.Column="3" Text="X" StyleClass="itemRemovalButton" VerticalOptions="Start" Command="{Binding Source={x:Reference OrderDetailsPage}, Path=BindingContext.DeleteItemCommand}"  CommandParameter="{Binding}" />
                                     </Grid>
                                 </ViewCell>
                             </DataTemplate>

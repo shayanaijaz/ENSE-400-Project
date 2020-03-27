@@ -21,9 +21,19 @@ namespace CareOnDemand.ViewModels
             PopulateOrderServicesList();
             PopulateLists();
             ContinueOrderCommand = new Command(async () => await ContinueOrderClicked());
+            DeleteItemCommand = new Command<object>(async (x) => await DeleteItem(x));
         }
 
+        public Command<object> DeleteItemCommand { private set; get; }
         
+        async Task DeleteItem(object item)
+        {
+            user_order_service.Remove((Order_Service) item);
+            OnPropertyChanged(nameof(Order_Service_List));
+            await Application.Current.MainPage.Navigation.PopAsync();
+            await Application.Current.MainPage.Navigation.PushAsync(new OrderDetails());
+
+        }
         public List<Address> AddressList { get; set; }
 
         public Address SelectedAddress
@@ -54,7 +64,6 @@ namespace CareOnDemand.ViewModels
                 OnPropertyChanged(nameof(SelectedDate));
             }
         }
-
         public List<Account> RecipientList { get; set; }
         
         public Account SelectedRecipient

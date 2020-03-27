@@ -54,16 +54,24 @@ namespace CareOnDemand.ViewModels
                 Application.Current.Properties["accountLevelID"] = account_level_id;
                 Application.Current.Properties["accountID"] = account_id;
 
+
                 if (account_level_id == 1)
-                    await Application.Current.MainPage.Navigation.PushAsync(new AdminNavBar());
+                {
+                    Application.Current.MainPage.Navigation.InsertPageBefore(new AdminNavBar(), Application.Current.MainPage.Navigation.NavigationStack[0]);
+                    await Application.Current.MainPage.Navigation.PopToRootAsync();
+                }
                 else if (account_level_id == 2)
-                    await Application.Current.MainPage.Navigation.PushAsync(new CarePartnerHome());
+                {
+                    Application.Current.MainPage.Navigation.InsertPageBefore(new CarePartnerNavBar(), Application.Current.MainPage.Navigation.NavigationStack[0]);
+                    await Application.Current.MainPage.Navigation.PopToRootAsync();
+                }
                 else if (account_level_id == 3) // if the user is a customer
                 {
                     var retrieved_customer = await customerRestService.GetCustomerByAccountIDAsync(account_id);
                     int customer_id = retrieved_customer[0].CustomerID;
                     Application.Current.Properties["customerID"] = customer_id; // Store CustomerID in persistent storage
-                    await Application.Current.MainPage.Navigation.PushAsync(new CustomerNavBar());
+                    Application.Current.MainPage.Navigation.InsertPageBefore(new CustomerNavBar(), Application.Current.MainPage.Navigation.NavigationStack[0]);
+                    await Application.Current.MainPage.Navigation.PopToRootAsync();
                 }
 
             }

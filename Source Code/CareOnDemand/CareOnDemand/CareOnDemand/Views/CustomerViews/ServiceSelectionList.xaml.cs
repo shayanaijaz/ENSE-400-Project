@@ -40,6 +40,8 @@ namespace CareOnDemand.Views.CustomerViews
             if (lastCell != null)
                 lastCell.View.BackgroundColor = Color.Transparent;
             ServiceListView.SelectedItem = null;
+
+            BindingContext = new ServiceSelectionListViewModel();
         }
     }
 }

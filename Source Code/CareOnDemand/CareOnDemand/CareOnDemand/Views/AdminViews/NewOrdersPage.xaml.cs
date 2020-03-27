@@ -37,9 +37,9 @@ namespace CareOnDemand.Views.AdminViews
         protected override void OnAppearing()
         {
             base.OnAppearing();
+            OrderListView.SelectedItem = null;
             if (lastCell != null)
                 lastCell.View.BackgroundColor = Color.Transparent;
-            OrderListView.SelectedItem = null;
         }
     }
 }

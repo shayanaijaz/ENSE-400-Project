@@ -11,12 +11,13 @@ namespace CareOnDemand.ViewModels.AdminViewModels
 {
     public class BaseAdminOrdersViewModel : BaseViewModel
     {
-        public BaseAdminOrdersViewModel()
+        protected static Order admin_selected_order;
+        static BaseAdminOrdersViewModel()
         {
-
+            admin_selected_order = new Order();
         }
 
-        public async Task<List<OrdersList>> getOrderData(string[] OrderStatus)
+        public async Task<List<OrdersList>> GetOrdersFromDb(string[] OrderStatus)
         {
             List<OrderStatus> order_status_list_from_db = await new OrderStatusRestService().RefreshDataAsync();
 

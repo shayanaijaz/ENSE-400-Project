@@ -22,13 +22,10 @@ namespace CareOnDemand.ViewModels
             PopulateServiceList();
             PopulateCheckoutButton();
             CheckoutCommand = new Command(async () => await CheckoutButtonClicked());
-            TextCellCommand = new Command(async () => await TextCellClicked());
         }
 
         public ObservableCollection<Service> ServiceList { get; set; }
         public Command CheckoutCommand { private set; get; }
-
-        public Command TextCellCommand { private set; get; }
         public bool CheckoutIsVisible { get; set; }
         public string CheckoutText { get; set; }
         public bool ActivityIndicatorVisible { get; set; }
@@ -45,11 +42,6 @@ namespace CareOnDemand.ViewModels
 
                 ServiceSelectedClicked();
             }
-        }
-
-        async Task TextCellClicked()
-        {
-            await Application.Current.MainPage.Navigation.PushAsync(new ServiceSelectedDetails());
         }
 
 
