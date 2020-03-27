@@ -1,5 +1,6 @@
 ﻿using CareOnDemand.Data;
 using CareOnDemand.Models;
+using CareOnDemand.Views.CustomerViews;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -114,6 +115,7 @@ namespace CareOnDemand.ViewModels
             }
 
             await Application.Current.MainPage.DisplayAlert("Success", "Order placed successfully!", "OK");
+            await Application.Current.MainPage.Navigation.PushAsync(new ServiceSelectionList());
 
         }
     }
