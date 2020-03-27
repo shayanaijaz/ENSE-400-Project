@@ -1,4 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
+<!-- 
+   Care on Demand Application
+    Capstone 2020 - ENSE 400/477
+    The Ni(c)(k)S
+
+    Author: Nikolas Lendvoy
+    Contributor(s):
+    Last Modified: March 27th 
+-->
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
@@ -14,22 +23,21 @@
     <ContentPage.Content>
         <ContentView>
             <ContentView.Content>
-                <Grid StyleClass="serviceSelectionGrid">
+                <Grid StyleClass="serviceSelectionGrid"> <!-- Page Layout Grid-->
                     <ActivityIndicator IsVisible="{Binding ActivityIndicatorVisible}" IsRunning="{Binding ActivityIndicatorRunning}" Scale="0.25" />
                     <ListView x:Name="OrderListView" ItemsSource="{Binding ActiveOrders}" StyleClass="main"
                     SeparatorVisibility="Default"
-                    RowHeight="100">
+                    RowHeight="100"> <!-- Listview of current active orders-->
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <ViewCell Tapped="ViewCellTapped">
-                                    <Grid StyleClass="main">
+                                    <Grid StyleClass="main"> <!-- Grid layout to show orders-->
                                         <Grid.RowDefinitions>
                                             <RowDefinition Height="30"/>
                                             <RowDefinition Height="60"/>
                                         </Grid.RowDefinitions>
-
-                                        <Label Grid.Row="0" FontAttributes="Bold" FontSize="Medium" Text="{Binding CustomerName}" />
-                                        <Label Grid.Row="1" VerticalOptions="Start"  Text="{Binding ServicesOrderedString}" />
+                                        <Label Grid.Row="0" FontAttributes="Bold" FontSize="Medium" Text="{Binding CustomerName}" /> <!-- Customer name label-->
+                                        <Label Grid.Row="1" VerticalOptions="Start"  Text="{Binding ServicesOrderedString}" /> <!-- Customer services label-->
 
                                     </Grid>
                                 </ViewCell>

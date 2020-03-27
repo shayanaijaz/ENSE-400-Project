@@ -1,4 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
+<!-- 
+   Care on Demand Application
+    Capstone 2020 - ENSE 400/477
+    The Ni(c)(k)S
+
+    Author: Nikolas Lendvoy
+    Contributor(s): 
+    Last Modified: March 27th
+-->
 <TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
@@ -12,24 +21,24 @@
              UnselectedTabColor="Black">
     <NavigationPage Title="Home Page" IconImageSource="https://careondemand-storage.s3.ca-central-1.amazonaws.com/homeIcon.png" >
         <x:Arguments>
-            <local1:AdminHome />
+            <local1:AdminHome /> <!-- Button to direct to AdminHomepage-->
         </x:Arguments>
     </NavigationPage>
     <NavigationPage Title="New Orders" IconImageSource="https://careondemand-storage.s3.ca-central-1.amazonaws.com/newOrdersIcon.png" >
         <x:Arguments>
-            <local1:NewOrdersPage />
+            <local1:NewOrdersPage /> <!-- Button to direct to NewOrdersPage-->
         </x:Arguments>
     </NavigationPage>
 
     <NavigationPage Title="Active Orders" IconImageSource="https://careondemand-storage.s3.ca-central-1.amazonaws.com/inProgOrdersIcon.png" >
         <x:Arguments>
-            <local1:ActiveOrders />
+            <local1:ActiveOrders /> <!-- Button to  go to ActiveOrders page-->
         </x:Arguments>
     </NavigationPage>
 
     <NavigationPage Title="Past Orders" IconImageSource="https://careondemand-storage.s3.ca-central-1.amazonaws.com/completeOrdersIcon.png" >
         <x:Arguments>
-            <local1:PastOrders />
+            <local1:PastOrders /> <!-- Button to direct to PastOrders page -->
         </x:Arguments>
     </NavigationPage>
 </TabbedPage>

@@ -1,4 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
+<!-- 
+   Care on Demand Application
+    Capstone 2020 - ENSE 400/477
+    The Ni(c)(k)S
+
+    Author: Nikolas Lendvoy
+    Contributor(s):
+    Last Modified:
+-->
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
@@ -14,24 +23,18 @@
     </ContentPage.Resources>
     <ContentPage.Content>
         <ContentView>
-            <Grid Padding="15" StyleClass="main">
-                <Grid.RowDefinitions>
+            <Grid Padding="15" StyleClass="main"> <!-- Page layout Grid-->
+                <Grid.RowDefinitions> <!-- Grid Rows-->
                     <RowDefinition Height="0.08*" /> <!--Items-->
-
                     <RowDefinition Height="0.03*" /> <!--Location-->
-
                     <RowDefinition Height="0.03*" /> <!--Time-->
-
                     <RowDefinition Height="0.03*" /> <!--Recipient-->
-
                     <RowDefinition Height="0.03*" /> <!--Price-->
-
                     <RowDefinition Height="0.03*" /> <!--Add_Instructions-->
                     <RowDefinition Height="0.03*" />
-
                     <RowDefinition Height="0.04*" /> <!--Buttons-->
                 </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
+                <Grid.ColumnDefinitions> <!-- Grid Columns-->
                     <ColumnDefinition Width="0.334*" />
                     <ColumnDefinition Width="0.666*" />
                 </Grid.ColumnDefinitions>
