@@ -16,7 +16,7 @@ namespace CareOnDemand.ViewModels.AdminViewModels
             NewOrders = new List<OrdersList>();
             ActivityIndicatorVisible = true;
             ActivityIndicatorRunning = true;
-            getNewOrder();
+            GetNewOrder();
         }
 
         public bool ActivityIndicatorVisible { get; set; }
@@ -43,9 +43,10 @@ namespace CareOnDemand.ViewModels.AdminViewModels
 
         async void OrderSelected()
         {
+
             await Application.Current.MainPage.Navigation.PushAsync(new ViewNewOrder());
         }
-        async void getNewOrder()
+        async void GetNewOrder()
         {
             string[] newOrderStatusArray = {"New"};
 

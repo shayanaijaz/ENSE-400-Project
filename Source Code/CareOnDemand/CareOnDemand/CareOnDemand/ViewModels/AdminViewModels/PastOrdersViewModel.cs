@@ -11,14 +11,14 @@ namespace CareOnDemand.ViewModels.AdminViewModels
             PastOrders = new List<OrdersList>();
             ActivityIndicatorVisible = true;
             ActivityIndicatorRunning = true;
-            getNewOrder();
+            GetPastOrders();
         }
 
         public bool ActivityIndicatorVisible { get; set; }
         public bool ActivityIndicatorRunning { get; set; }
 
         public List<OrdersList> PastOrders { get; set; }
-        async void getNewOrder()
+        async void GetPastOrders()
         {
             string[] pastOrderStatusArray = { "Cancelled", "Completed" };
 

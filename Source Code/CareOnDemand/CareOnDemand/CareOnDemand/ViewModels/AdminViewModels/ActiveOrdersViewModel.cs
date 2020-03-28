@@ -11,14 +11,14 @@ namespace CareOnDemand.ViewModels.AdminViewModels
             ActiveOrders = new List<OrdersList>();
             ActivityIndicatorVisible = true;
             ActivityIndicatorRunning = true;
-            getNewOrder();
+            GetActiveOrders();
         }
 
         public bool ActivityIndicatorVisible { get; set; }
         public bool ActivityIndicatorRunning { get; set; }
 
         public List<OrdersList> ActiveOrders { get; set; }
-        async void getNewOrder()
+        async void GetActiveOrders()
         {
             string[] activeOrderStatusArray = { "In Progress", "On The Way", "Waiting" };
             ActiveOrders = await GetOrdersFromDb(activeOrderStatusArray);
