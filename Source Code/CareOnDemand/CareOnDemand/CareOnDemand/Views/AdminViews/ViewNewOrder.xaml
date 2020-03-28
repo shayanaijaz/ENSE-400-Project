@@ -1,4 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
+<!-- 
+   Care on Demand Application
+    Capstone 2020 - ENSE 400/477
+    The Ni(c)(k)S
+  
+    Author: Nikolas Lendvoy 
+    Contributor(s): 
+    Last Modified: March 27
+-->
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
@@ -7,38 +16,29 @@
              x:Class="CareOnDemand.Views.AdminViews.ViewNewOrder"
              NavigationPage.HasNavigationBar="True"
              NavigationPage.HasBackButton="True"
-             Title="New Order View">
-
+             Title="New Orders Details">
     <ContentPage.Resources>
         <StyleSheet Source="/Views/StyleSheet.css" />
     </ContentPage.Resources>
     <ContentPage.Content>
         <ContentView>
             <ScrollView>
-                <Grid Padding="15" StyleClass="main">
-                    <Grid.RowDefinitions>
+                <Grid Padding="15" StyleClass="main"> <!-- Page layout Grid-->
+                    <Grid.RowDefinitions> <!-- Grid rows-->
                         <RowDefinition Height="0.2*" /> <!--Services-->
-
                         <RowDefinition Height="0.1*" /> <!--Location-->
-
                         <RowDefinition Height="0.1*" /> <!--Time-->
-
                         <RowDefinition Height="0.1*" />
-
                         <RowDefinition Height="0.1*" /> <!--Recipient-->
-
                         <RowDefinition Height="0.1*" /> <!--Price-->
-
                         <RowDefinition Height="0.1*" /> <!--Additional Customer Instructions-->
                         <RowDefinition Height="0.2*" />
-
                         <RowDefinition Height="0.1*" /> <!--Additional Admin Instructions-->
                         <RowDefinition Height="0.1*" />
-
                         <RowDefinition Height="0.1*" /> <!--Buttons-->
                         <RowDefinition Height="0.1*" />
                     </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
+                    <Grid.ColumnDefinitions> <!-- Grid Columns-->
                         <ColumnDefinition Width="0.333*" />
                         <ColumnDefinition Width="0.333*" />
                         <ColumnDefinition Width="0.333*" />
@@ -85,7 +85,6 @@
 
                     <Label Text="Additonal Instructions" StyleClass="listPrimaryLabel" Grid.Row="6" Grid.ColumnSpan="3" VerticalOptions="Center"/>
                     <Label Text="{Binding AdditionalInstructions}"  StyleClass="listSecondaryLabel" FontSize="Medium" Grid.Row="7" Grid.ColumnSpan="3" VerticalOptions="Center"/>
-
                     <Picker Title="Select Care Partner" VerticalOptions="Center" FontSize="Large" Grid.Row="8" Grid.ColumnSpan="3"
                             ItemsSource="{Binding CarePartnerAccounts}"
                             ItemDisplayBinding="{Binding CarePartnerAccount.FullName}"
