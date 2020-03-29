@@ -23,7 +23,7 @@
     <ContentPage.Content>
         
         <ContentView>
-            <ScrollView>
+            <ScrollView VerticalScrollBarVisibility="Always">
                 <Grid Padding="15" StyleClass="main"> <!-- Page layout Grid-->
                     <Grid.RowDefinitions> <!-- Grid rows-->
                         <RowDefinition Height="Auto" /> <!--Services-->
@@ -44,24 +44,22 @@
                         <ColumnDefinition Width="0.333*" />
                         <ColumnDefinition Width="0.333*" />
                     </Grid.ColumnDefinitions>
-                    <ListView MinimumHeightRequest="70" RowHeight="70" VerticalOptions="FillAndExpand" Grid.Row="0" Grid.ColumnSpan="3" ItemsSource="{Binding OrderServicesList}" SelectionMode="None">
-                        <ListView.ItemTemplate>
+                    <ListView x:Name="ServicesOrdered" MinimumHeightRequest="70" RowHeight="70" VerticalOptions="FillAndExpand" Grid.Row="0" Grid.ColumnSpan="3" ItemsSource="{Binding OrderServicesList}" SelectionMode="None" VerticalScrollBarVisibility="Never">
+                        <ListView.ItemTemplate> <!-- List view of orders from Database-->
                             <DataTemplate>
                                 <ViewCell>
                                     <Grid StyleClass="main">
                                         <Grid.RowDefinitions>
-                                            <RowDefinition Height="45"/>
+                                            <RowDefinition Height="40"/>
                                         </Grid.RowDefinitions>
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition Width="0.45*"/>
                                             <ColumnDefinition Width="0.03*" />
                                             <ColumnDefinition Width="0.37*" />
-                                            <ColumnDefinition Width="0.15*"/>
                                         </Grid.ColumnDefinitions>
                                         <Label Grid.Row="0" Grid.Column="0" FontSize="Subtitle" Text="{Binding ServiceName}" VerticalOptions="Center"/>
                                         <Label Grid.Row="0" Grid.Column="1" FontSize="Subtitle" Text="{Binding RequestedLength}" VerticalOptions="Center"/>
                                         <Label Grid.Row="0" Grid.Column="2" FontSize="Subtitle" Text="hours" VerticalOptions="Center"/>
-                                      
                                     </Grid>
                                 </ViewCell>
                             </DataTemplate>
