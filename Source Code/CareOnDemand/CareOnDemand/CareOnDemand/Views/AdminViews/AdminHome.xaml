@@ -32,7 +32,7 @@
             </Grid.RowDefinitions>
             <!-- Start of page content -->
             <Image Grid.Row="0" Source="https://careondemand-storage.s3.ca-central-1.amazonaws.com/EdenCare_PlainLogo.png" /> <!-- Eden Care image-->
-            <Label StyleClass="primaryLabel" HorizontalOptions="CenterAndExpand" VerticalOptions="Center" Text="Welcome *first name*" Grid.Row="1" Grid.Column="0" />
+            <Label StyleClass="primaryLabel" HorizontalOptions="CenterAndExpand" VerticalOptions="Center" Text="{Binding AdminName}" Grid.Row="1" Grid.Column="0" />
             <!-- Label indicating which admin account is logged in-->
             <Button StyleClass="secondaryButton" Text="Create Order" VerticalOptions="Start" Grid.Row="2"  />
             <!-- Button directing to Admin create order page-->

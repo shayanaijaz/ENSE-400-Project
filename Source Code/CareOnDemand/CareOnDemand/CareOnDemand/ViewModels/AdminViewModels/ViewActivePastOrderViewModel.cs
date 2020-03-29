@@ -12,7 +12,6 @@ namespace CareOnDemand.ViewModels.AdminViewModels
         {
             GetOrderDetailsFromDb(admin_selected_order);
             OrderServicesList = new ObservableCollection<Order_Service>();
-
         }
 
 
