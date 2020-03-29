@@ -24,7 +24,7 @@
         
         <ContentView>
             <ScrollView VerticalScrollBarVisibility="Always">
-                <Grid Padding="15" StyleClass="main"> <!-- Page layout Grid-->
+                <Grid StyleClass="main"> <!-- Page layout Grid-->
                     <Grid.RowDefinitions> <!-- Grid rows-->
                         <RowDefinition Height="Auto" /> <!--Services-->
                         <RowDefinition Height="0.1*" /> <!--Location-->
@@ -48,7 +48,7 @@
                         <ListView.ItemTemplate> <!-- List view of orders from Database-->
                             <DataTemplate>
                                 <ViewCell>
-                                    <Grid StyleClass="main">
+                                    <Grid>
                                         <Grid.RowDefinitions>
                                             <RowDefinition Height="40"/>
                                         </Grid.RowDefinitions>
