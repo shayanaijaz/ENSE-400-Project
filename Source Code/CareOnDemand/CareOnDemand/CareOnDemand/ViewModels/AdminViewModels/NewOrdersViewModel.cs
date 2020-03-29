@@ -43,7 +43,6 @@ namespace CareOnDemand.ViewModels.AdminViewModels
 
         async void OrderSelected()
         {
-
             await Application.Current.MainPage.Navigation.PushAsync(new ViewNewOrder());
         }
         async void GetNewOrder()
