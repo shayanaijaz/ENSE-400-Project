@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CareOnDemand.ViewModels.AdminViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,8 @@ namespace CareOnDemand.Views.AdminViews
         public AdminHome()
         {
             InitializeComponent();
+
+            BindingContext = new AdminHomeViewModel();
         }
     }
 }

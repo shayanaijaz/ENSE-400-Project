@@ -24,8 +24,8 @@
     </ContentPage.Resources>
     <ContentPage.Content>
         <ContentView>
-          <!--  <ScrollView> --> <!-- Page is scrollable -->
-                <Grid Padding="15" StyleClass="main"> <!-- Page layout Grid-->
+            <ScrollView> <!-- Page is scrollable -->
+                <Grid StyleClass="main"> <!-- Page layout Grid-->
                     <Grid.RowDefinitions> <!-- Grid Rows-->
                         <RowDefinition Height="Auto" />
                         <RowDefinition Height="0.08*" />
@@ -92,7 +92,7 @@
                     <Button StyleClass="primaryButton" Text="Continue Order" Grid.Row="8" VerticalOptions="Center" Command="{Binding ContinueOrderCommand}"/> <!-- Continue order button-->
                     <Button StyleClass="contactButton" Text="Contact Eden Care" Grid.Row="9" HorizontalOptions="Center" VerticalOptions="End" /> <!-- Contact Eden Care button-->
                 </Grid>
-          <!--  </ScrollView> -->
+          </ScrollView>
         </ContentView>
     </ContentPage.Content>
 </ContentPage>

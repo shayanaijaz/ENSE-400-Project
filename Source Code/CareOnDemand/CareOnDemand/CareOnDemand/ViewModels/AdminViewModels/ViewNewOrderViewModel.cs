@@ -14,74 +14,17 @@ namespace CareOnDemand.ViewModels.AdminViewModels
     {
         public ViewNewOrderViewModel()
         {
-            GetOrderData(admin_selected_order);
+            GetOrderDetailsFromDb(admin_selected_order);
             GetCarePartnerData();
             AssignOrderCommand = new Command(async () => await CreateServiceRequest());
+            OrderServicesList = new ObservableCollection<Order_Service>();
+
         }
 
-        public string Location { get; set; }
-        public string DateString { get; set; }
-        public string TimeString { get; set; }
-        public string Recipient { get; set; }
-        public string FinalPrice { get; set; }
-        public string AdditionalInstructions { get; set; }
-        public string CarePartnerNotes { get; set; }
-        public ObservableCollection<Order_Service> OrderServicesList {get; set;}
         public ObservableCollection<CarePartnerDetails> CarePartnerAccounts { get; set; }
         public Command AssignOrderCommand { get; set; }
 
         public CarePartnerDetails SelectedCarePartner { get; set; }
-
-        async void GetOrderData(Order order)
-        {
-            Customer customer = await new CustomerRestService().GetCustomerByIDAsync(order.CustomerID);
-            Account account = await new AccountRestService().GetAccountByIDAsync(customer.AccountID);
-
-            List<Order_Service> order_services = await new Order_ServiceRestService().GetOrderServiceByID(order.OrderID);
-
-            List<Service> order_service_list = new List<Service>();
-
-            string servicesString = "";
-
-            double finalPrice = 0;
-
-            foreach (var service in order_services)
-            {
-                var service_details = await new ServiceRestService().GetServiceByIDAsync(service.ServiceID);
-                service.ServiceName = service_details.ServiceName;
-                order_service_list.Add(service_details);
-                servicesString += string.Format("\u2022 " + service_details.ServiceName.Trim() + " - " + service.RequestedLength + " hours " + "{0}", Environment.NewLine);
-                finalPrice += service.RequestedLength * service_details.ServicePrice;
-            }
-
-            Address user_address = await new AddressRestService().GetAddressByIDAsync(order.AddressID);
-
-            ObservableCollection<Order_Service> orderServiceCollection = new ObservableCollection<Order_Service>(order_services as List<Order_Service>);
-            OrderServicesList = orderServiceCollection;
-            OnPropertyChanged(nameof(OrderServicesList));
-
-            Location = user_address.AddrLine1.Trim() + ", " + user_address.City.Trim() + ", " + user_address.Province.Trim() + ", " + user_address.PostalCode.Trim();
-            OnPropertyChanged(nameof(Location));
-
-            DateString = order.RequestedTime.Date.ToString("yyyy-MM-dd");
-
-            TimeString = new DateTime(order.RequestedTime.Ticks).ToString("h:mm tt");
-
-            OnPropertyChanged(nameof(DateString));
-            OnPropertyChanged(nameof(TimeString));
-
-            Recipient = account.FirstName.Trim() + " " + account.LastName.Trim();
-            OnPropertyChanged(nameof(Recipient));
-
-            FinalPrice = "$" + finalPrice.ToString();
-            OnPropertyChanged(nameof(FinalPrice));
-
-            if (order.OrderInstructions != null)
-            {
-                AdditionalInstructions = order.OrderInstructions.Trim();
-                OnPropertyChanged(nameof(AdditionalInstructions));
-            }
-        }
 
         async void GetCarePartnerData()
         {
@@ -101,7 +44,6 @@ namespace CareOnDemand.ViewModels.AdminViewModels
 
             }
 
-
             CarePartnerAccounts = carePartnerDetails;
             OnPropertyChanged(nameof(CarePartnerAccounts));
 
@@ -114,10 +56,19 @@ namespace CareOnDemand.ViewModels.AdminViewModels
             ServiceRequest serviceRequest = new ServiceRequest { CarePartnerID = SelectedCarePartner.CarePartner.CarePartnerID, 
             OrderID = admin_selected_order.OrderID, OrderNotes = CarePartnerNotes};
 
+            List<OrderStatus> order_status_list = await new OrderStatusRestService().RefreshDataAsync();
+
+            // get the order status ID for In Progress order
+            foreach(var status in order_status_list)
+            {
+                if (status.Status.Trim() == "In Progress")
+                    admin_selected_order.OrderStatusID = status.OrderStatusID;
+            }
+
             try
             {
                 await serviceRequestRestService.SaveServiceRequestAsync(serviceRequest, true);
-
+                await new OrderRestService().SaveOrderAsync(admin_selected_order, false);   // Update the order in db to reflect new status
                 await Application.Current.MainPage.DisplayAlert("Success", "Request assigned successfully", "OK");
                 await Application.Current.MainPage.Navigation.PushAsync(new AdminNavBar());
 

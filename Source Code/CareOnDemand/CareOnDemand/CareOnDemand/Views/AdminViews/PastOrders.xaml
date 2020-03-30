@@ -27,7 +27,8 @@
                     <ActivityIndicator IsVisible="{Binding ActivityIndicatorVisible}" IsRunning="{Binding ActivityIndicatorRunning}" Scale="0.25" /> <!-- Activity indicator to define visibility of list-->
                     <ListView x:Name="OrderListView" ItemsSource="{Binding PastOrders}" StyleClass="main"
                     SeparatorVisibility="Default"
-                    RowHeight="100"> <!-- Listview or Past orders-->
+                    RowHeight="100"
+                    SelectedItem="{Binding SelectedOrder}"> <!-- Listview or Past orders-->
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <ViewCell Tapped="ViewCellTapped">

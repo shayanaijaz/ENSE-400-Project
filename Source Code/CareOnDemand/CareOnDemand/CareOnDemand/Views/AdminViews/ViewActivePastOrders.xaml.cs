@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CareOnDemand.ViewModels.AdminViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,11 +11,13 @@ using Xamarin.Forms.Xaml;
 namespace CareOnDemand.Views.AdminViews
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class ActivePastOrderReview : ContentPage
+    public partial class ViewActivePastOrders : ContentPage
     {
-        public ActivePastOrderReview()
+        public ViewActivePastOrders()
         {
             InitializeComponent();
+
+            BindingContext = new ViewActivePastOrderViewModel();
         }
     }
 }

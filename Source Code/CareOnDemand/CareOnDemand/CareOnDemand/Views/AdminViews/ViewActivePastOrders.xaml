@@ -1,29 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<!-- 
-   Care on Demand Application
-    Capstone 2020 - ENSE 400/477
-    The Ni(c)(k)S
-  
-    Author: Nikolas Lendvoy 
-    Contributor(s): 
-    Last Modified: March 27
--->
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="CareOnDemand.Views.AdminViews.ViewNewOrder"
-             NavigationPage.HasNavigationBar="True"
-             NavigationPage.HasBackButton="True"
-             Title="New Orders Details">
+             x:Class="CareOnDemand.Views.AdminViews.ViewActivePastOrders">
     <ContentPage.Resources>
         <StyleSheet Source="/Views/StyleSheet.css" />
     </ContentPage.Resources>
     <ContentPage.Content>
-        
         <ContentView>
-            <ScrollView VerticalScrollBarVisibility="Always">
+            <ScrollView>
                 <Grid StyleClass="main"> <!-- Page layout Grid-->
                     <Grid.RowDefinitions> <!-- Grid rows-->
                         <RowDefinition Height="Auto" /> <!--Services-->
@@ -36,36 +23,36 @@
                         <RowDefinition Height="0.2*" />
                         <RowDefinition Height="0.1*" /> <!--Additional Admin Instructions-->
                         <RowDefinition Height="0.1*" />
-                        <RowDefinition Height="0.1*" /> <!--Buttons-->
-                        <RowDefinition Height="0.1*" />
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions> <!-- Grid Columns-->
                         <ColumnDefinition Width="0.333*" />
                         <ColumnDefinition Width="0.333*" />
                         <ColumnDefinition Width="0.333*" />
                     </Grid.ColumnDefinitions>
-                    <ListView x:Name="ServicesOrdered" MinimumHeightRequest="70" RowHeight="70" VerticalOptions="FillAndExpand" Grid.Row="0" Grid.ColumnSpan="3" ItemsSource="{Binding OrderServicesList}" SelectionMode="None" VerticalScrollBarVisibility="Never">
-                        <ListView.ItemTemplate> <!-- List view of orders from Database-->
+                    <ListView x:Name="ServicesOrdered" MinimumHeightRequest="70" RowHeight="70" VerticalOptions="FillAndExpand" Grid.Row="0" Grid.ColumnSpan="3" ItemsSource="{Binding OrderServicesList}" SelectionMode="None">
+                        <ListView.ItemTemplate>
                             <DataTemplate>
                                 <ViewCell>
                                     <Grid>
                                         <Grid.RowDefinitions>
-                                            <RowDefinition Height="40"/>
+                                            <RowDefinition Height="35"/>
                                         </Grid.RowDefinitions>
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition Width="0.45*"/>
                                             <ColumnDefinition Width="0.03*" />
                                             <ColumnDefinition Width="0.37*" />
+                                            <ColumnDefinition Width="0.15*"/>
                                         </Grid.ColumnDefinitions>
                                         <Label Grid.Row="0" Grid.Column="0" FontSize="Subtitle" Text="{Binding ServiceName}" VerticalOptions="Center"/>
                                         <Label Grid.Row="0" Grid.Column="1" FontSize="Subtitle" Text="{Binding RequestedLength}" VerticalOptions="Center"/>
                                         <Label Grid.Row="0" Grid.Column="2" FontSize="Subtitle" Text="hours" VerticalOptions="Center"/>
+                                      
                                     </Grid>
                                 </ViewCell>
                             </DataTemplate>
                         </ListView.ItemTemplate>
                     </ListView>
-                    
+
                     <Label Text="Location" StyleClass="listPrimaryLabel" Grid.Row="1" Grid.Column="0" VerticalOptions="Center"/>
                     <Label Text="{Binding Location}"  StyleClass="listSecondryLabel" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" VerticalOptions="Center" />
 
@@ -83,15 +70,9 @@
 
                     <Label Text="Additonal Instructions" StyleClass="listPrimaryLabel" Grid.Row="6" Grid.ColumnSpan="3" VerticalOptions="Center"/>
                     <Label Text="{Binding AdditionalInstructions}"  StyleClass="listSecondaryLabel" FontSize="Medium" Grid.Row="7" Grid.ColumnSpan="3" VerticalOptions="Center"/>
-                    <Picker Title="Select Care Partner" VerticalOptions="Center" FontSize="Large" Grid.Row="8" Grid.ColumnSpan="3"
-                            ItemsSource="{Binding CarePartnerAccounts}"
-                            ItemDisplayBinding="{Binding CarePartnerAccount.FullName}"
-                            SelectedItem="{Binding SelectedCarePartner}"/>
 
-                    <Editor Placeholder="Notes to Care Partner" VerticalOptions="Center" Grid.Row="9" Grid.ColumnSpan="3" Text="{Binding CarePartnerNotes}" />
-
-                    <Button StyleClass="secondaryButton" Text="Edit Order" Grid.Row="10" Grid.ColumnSpan="3" />
-                    <Button StyleClass="primaryButton" Text="Assign Order" Grid.Row="11" Grid.ColumnSpan="3" Command="{Binding AssignOrderCommand}" />
+                    <Label Text="Care Partner Instructions" StyleClass="listPrimaryLabel" Grid.Row="7" Grid.ColumnSpan="3" VerticalOptions="Center"/>
+                    <Label Text="{Binding CarePartnerNotes}"  StyleClass="listSecondaryLabel" FontSize="Medium" Grid.Row="7" Grid.ColumnSpan="3" VerticalOptions="Center"/>
 
                 </Grid>
             </ScrollView>

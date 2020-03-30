@@ -85,6 +85,7 @@ namespace CareOnDemand.Data
                 }
                 else
                 {
+                    uri = new Uri(string.Format(Constants.OrdersUrl, item.OrderID));
                     response = await _client.PutAsync(uri, content);
                 }
 
