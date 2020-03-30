@@ -18,7 +18,7 @@ using System.Threading.Tasks;
 using CareOnDemand.Models;
 using CareOnDemand.Data;
 using CareOnDemand.Views.SharedViews;
-
+using System.Linq;
 
 namespace CareOnDemand.ViewModels
 {
@@ -26,15 +26,17 @@ namespace CareOnDemand.ViewModels
     {
         public AccountManagementViewModel()
         {
-            GoToRegisterAddressCommand = new Command(async () => await RegisterAddressButtonClicked());
-            LogOutCommand = new Command(async () => await LogOut());
-            GoToChangePassCommand = new Command(async () => await ChangePassButtonClicked());
+            GoToRegisterAddressCommand = new Command(async () => await RegisterAddressButtonClicked()); //add an address button
+            LogOutCommand = new Command(async () => await LogOut());                                    //log out button
+            GoToChangePassCommand = new Command(async () => await ChangePassButtonClicked());           //change password button
         }
 
+        //commands
         public Command GoToRegisterAddressCommand { private set; get; }
         public Command LogOutCommand { private set; get; }
         public Command GoToChangePassCommand { private set; get; }
 
+        //tasks
         async Task RegisterAddressButtonClicked()
         {
             await Application.Current.MainPage.Navigation.PushAsync(new RegisterAddressPage());
@@ -46,9 +48,15 @@ namespace CareOnDemand.ViewModels
 
         async Task LogOut()
         {
+            //remove accountID and set login bool to false
             Application.Current.Properties["isLoggedIn"] = Boolean.FalseString;
-            Application.Current.Properties["accountLevelID"] = null;
             Application.Current.Properties["accountID"] = null;
+            //clear nav stack
+            /*var navStack = Application.Current.MainPage.Navigation.NavigationStack.ToList();
+            foreach (var page in navStack)
+                Application.Current.MainPage.Navigation.RemovePage(page);*/
+
+            //redirect to login page
             await Application.Current.MainPage.Navigation.PushAsync(new LoginPage());
         }
     }
