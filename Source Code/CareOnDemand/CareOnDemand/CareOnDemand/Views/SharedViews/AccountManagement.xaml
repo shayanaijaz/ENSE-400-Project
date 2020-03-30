@@ -5,8 +5,8 @@
     The Ni(c)(k)S
   
     Author: Nickolas Schmidt 
-    Contributor(s): Nikolas Lendvoy
-    Last Modified: Mar. 11 2020
+    Contributor(s): Nikolas Lendvoy, Nicolas Achter
+    Last Modified: Mar. 30, 2020
 -->
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
@@ -24,10 +24,10 @@
     <ContentPage.Content>
         <StackLayout  StyleClass="main"> <!-- Page Layout Stack-->
             <Image HeightRequest="150" HorizontalOptions="Center" Source="https://careondemand-storage.s3.ca-central-1.amazonaws.com/EdenCare_PlainLogo.png"/>
-            <Button Text="Add an Address" HorizontalOptions="Fill" StyleClass="secondaryButton" /> <!-- Button to add address, redirects to RegisterAddress Page-->
-            <Button StyleClass="primaryButton" VerticalOptions="Start" Text="Log Out" HorizontalOptions="Fill" />
+            <Button Text="Add an Address" HorizontalOptions="Fill" StyleClass="secondaryButton" Command="{Binding GoToRegisterAddressCommand}"/> <!-- Button to add address, redirects to RegisterAddress Page-->
+            <Button StyleClass="primaryButton" VerticalOptions="Start" Text="Log Out" HorizontalOptions="Fill" Command="{Binding LogOutCommand}"/>
             <!--Logout Button redirects to login page-->
-            <Button StyleClass="secondaryButton" Text="Change Password"  HorizontalOptions="Fill" Command="{Binding GoToForgotCommand}" /> <!-- Change Password button redirects to ForgotPassPage-->
+            <Button StyleClass="secondaryButton" Text="Change Password"  HorizontalOptions="Fill" Command="{Binding GoToChangePassCommand}" /> <!-- Change Password button redirects to ForgotPassPage-->
             <Button StyleClass="contactButton" VerticalOptions="EndAndExpand" Text="Contact Eden Care" HorizontalOptions="Center" Command="{Binding ContactCommand}" />
             <!-- Contact Eden Care Button-->
         </StackLayout>
