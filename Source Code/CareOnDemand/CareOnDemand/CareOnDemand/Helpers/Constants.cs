@@ -20,6 +20,7 @@ namespace CareOnDemand.Helpers
         public static string Order_ServicesUrl = Settings.UriBase + "/api/Order_Services/{0}";
         public static string OrderStatusesUrl = Settings.UriBase + "/api/OrderStatuses/{0}";
         public static string ServiceRequestsUrl = Settings.UriBase + "/api/ServiceRequests/{0}";
+        public static string ServiceRequestsByCarePartnerIdUrl = Settings.UriBase + "/api/ServiceRequests/CarePartner/{0}";
         public static string OrderForsUrl = Settings.UriBase + "/api/OrderFors/{0}";
         public static string PaymentMethodsUrl = Settings.UriBase + "/api/PaymentMethods/{0}";
         public static string ServicesUrl = Settings.UriBase + "/api/Services/{0}";

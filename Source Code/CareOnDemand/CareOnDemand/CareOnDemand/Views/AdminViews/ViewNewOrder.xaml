@@ -31,6 +31,7 @@
                         <RowDefinition Height="0.1*" /> <!--Time-->
                         <RowDefinition Height="0.1*" />
                         <RowDefinition Height="0.1*" /> <!--Recipient-->
+                        <RowDefinition Height="0.1*" />
                         <RowDefinition Height="0.1*" /> <!--Price-->
                         <RowDefinition Height="0.1*" /> <!--Additional Customer Instructions-->
                         <RowDefinition Height="0.2*" />
@@ -53,9 +54,9 @@
                                             <RowDefinition Height="40"/>
                                         </Grid.RowDefinitions>
                                         <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="0.45*"/>
+                                            <ColumnDefinition Width="0.33*"/>
                                             <ColumnDefinition Width="0.03*" />
-                                            <ColumnDefinition Width="0.37*" />
+                                            <ColumnDefinition Width="0.64*" />
                                         </Grid.ColumnDefinitions>
                                         <Label Grid.Row="0" Grid.Column="0" FontSize="Subtitle" Text="{Binding ServiceName}" VerticalOptions="Center"/>
                                         <Label Grid.Row="0" Grid.Column="1" FontSize="Subtitle" Text="{Binding RequestedLength}" VerticalOptions="Center"/>
@@ -78,20 +79,23 @@
                     <Label Text="Recipient" StyleClass="listPrimaryLabel" Grid.Row="4" Grid.Column="0" VerticalOptions="Center"/>
                     <Label Text="{Binding Recipient}"  StyleClass="listSecondryLabel" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2" VerticalOptions="Center" />
 
-                    <Label Text="Final Price" StyleClass="listPrimaryLabel" Grid.Row="5" Grid.Column="0" VerticalOptions="Center"/>
-                    <Label Text="{Binding FinalPrice}"  StyleClass="listSecondryLabel" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2" VerticalOptions="Center"/>
+                    <Label Text="Status" StyleClass="listPrimaryLabel" Grid.Row="5" Grid.Column="0" VerticalOptions="Center"/>
+                    <Label Text="{Binding Status}"  StyleClass="listSecondryLabel" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2" VerticalOptions="Center" />
 
-                    <Label Text="Additonal Instructions" StyleClass="listPrimaryLabel" Grid.Row="6" Grid.ColumnSpan="3" VerticalOptions="Center"/>
-                    <Label Text="{Binding AdditionalInstructions}"  StyleClass="listSecondaryLabel" FontSize="Medium" Grid.Row="7" Grid.ColumnSpan="3" VerticalOptions="Center"/>
-                    <Picker Title="Select Care Partner" VerticalOptions="Center" FontSize="Large" Grid.Row="8" Grid.ColumnSpan="3"
+                    <Label Text="Final Price" StyleClass="listPrimaryLabel" Grid.Row="6" Grid.Column="0" VerticalOptions="Center"/>
+                    <Label Text="{Binding FinalPrice}"  StyleClass="listSecondryLabel" Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="2" VerticalOptions="Center"/>
+
+                    <Label Text="Additonal Instructions" StyleClass="listPrimaryLabel" Grid.Row="7" Grid.ColumnSpan="3" VerticalOptions="Center"/>
+                    <Label Text="{Binding AdditionalInstructions}"  StyleClass="listSecondaryLabel" FontSize="Medium" Grid.Row="8" Grid.ColumnSpan="3" VerticalOptions="Center"/>
+                    <Picker Title="Select Care Partner" VerticalOptions="Center" FontSize="Large" Grid.Row="9" Grid.ColumnSpan="3"
                             ItemsSource="{Binding CarePartnerAccounts}"
                             ItemDisplayBinding="{Binding CarePartnerAccount.FullName}"
                             SelectedItem="{Binding SelectedCarePartner}"/>
 
-                    <Editor Placeholder="Notes to Care Partner" VerticalOptions="Center" Grid.Row="9" Grid.ColumnSpan="3" Text="{Binding CarePartnerNotes}" />
+                    <Editor Placeholder="Notes to Care Partner" VerticalOptions="Center" Grid.Row="10" Grid.ColumnSpan="3" Text="{Binding CarePartnerNotes}" />
 
-                    <Button StyleClass="secondaryButton" Text="Edit Order" Grid.Row="10" Grid.ColumnSpan="3" />
-                    <Button StyleClass="primaryButton" Text="Assign Order" Grid.Row="11" Grid.ColumnSpan="3" Command="{Binding AssignOrderCommand}" />
+                    <Button StyleClass="secondaryButton" Text="Edit Order" Grid.Row="11" Grid.ColumnSpan="3" />
+                    <Button StyleClass="primaryButton" Text="Assign Order" Grid.Row="12" Grid.ColumnSpan="3" Command="{Binding AssignOrderCommand}" />
 
                 </Grid>
             </ScrollView>

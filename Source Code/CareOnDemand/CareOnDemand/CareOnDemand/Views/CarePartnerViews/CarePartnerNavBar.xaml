@@ -6,7 +6,11 @@
              xmlns:local1="clr-namespace:CareOnDemand.Views.CarePartnerViews"
              xmlns:local11="clr-namespace:CareOnDemand.Views.SharedViews"
              mc:Ignorable="d"
-             x:Class="CareOnDemand.Views.CarePartnerViews.CarePartnerNavBar">
+             x:Class="CareOnDemand.Views.CarePartnerViews.CarePartnerNavBar"
+             NavigationPage.HasNavigationBar="False"
+             SelectedTabColor="White"
+             BarBackgroundColor="#119bcc"
+             UnselectedTabColor="Black">
 
     <NavigationPage Title="Assigned Orders" IconImageSource="https://careondemand-storage.s3.ca-central-1.amazonaws.com/inProgOrdersIcon.png">
         <x:Arguments>

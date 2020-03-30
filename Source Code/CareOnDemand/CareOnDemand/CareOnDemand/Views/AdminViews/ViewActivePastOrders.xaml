@@ -18,6 +18,7 @@
                         <RowDefinition Height="0.1*" /> <!--Time-->
                         <RowDefinition Height="0.1*" />
                         <RowDefinition Height="0.1*" /> <!--Recipient-->
+                        <RowDefinition Height="0.1*" />
                         <RowDefinition Height="0.1*" /> <!--Price-->
                         <RowDefinition Height="0.1*" /> <!--Additional Customer Instructions-->
                         <RowDefinition Height="0.2*" />
@@ -65,14 +66,17 @@
                     <Label Text="Recipient" StyleClass="listPrimaryLabel" Grid.Row="4" Grid.Column="0" VerticalOptions="Center"/>
                     <Label Text="{Binding Recipient}"  StyleClass="listSecondryLabel" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2" VerticalOptions="Center" />
 
-                    <Label Text="Final Price" StyleClass="listPrimaryLabel" Grid.Row="5" Grid.Column="0" VerticalOptions="Center"/>
-                    <Label Text="{Binding FinalPrice}"  StyleClass="listSecondryLabel" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2" VerticalOptions="Center"/>
+                    <Label Text="Status" StyleClass="listPrimaryLabel" Grid.Row="5" Grid.Column="0" VerticalOptions="Center"/>
+                    <Label Text="{Binding Status}"  StyleClass="listSecondryLabel" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2" VerticalOptions="Center" />
 
-                    <Label Text="Additonal Instructions" StyleClass="listPrimaryLabel" Grid.Row="6" Grid.ColumnSpan="3" VerticalOptions="Center"/>
-                    <Label Text="{Binding AdditionalInstructions}"  StyleClass="listSecondaryLabel" FontSize="Medium" Grid.Row="7" Grid.ColumnSpan="3" VerticalOptions="Center"/>
+                    <Label Text="Final Price" StyleClass="listPrimaryLabel" Grid.Row="6" Grid.Column="0" VerticalOptions="Center"/>
+                    <Label Text="{Binding FinalPrice}"  StyleClass="listSecondryLabel" Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="2" VerticalOptions="Center"/>
 
-                    <Label Text="Care Partner Instructions" StyleClass="listPrimaryLabel" Grid.Row="7" Grid.ColumnSpan="3" VerticalOptions="Center"/>
-                    <Label Text="{Binding CarePartnerNotes}"  StyleClass="listSecondaryLabel" FontSize="Medium" Grid.Row="7" Grid.ColumnSpan="3" VerticalOptions="Center"/>
+                    <Label Text="Additonal Instructions" StyleClass="listPrimaryLabel" Grid.Row="7" Grid.ColumnSpan="3" VerticalOptions="Center"/>
+                    <Label Text="{Binding AdditionalInstructions}"  StyleClass="listSecondaryLabel" FontSize="Medium" Grid.Row="8" Grid.ColumnSpan="3" VerticalOptions="Center"/>
+
+                    <Label Text="Care Partner Instructions" StyleClass="listPrimaryLabel" Grid.Row="9" Grid.ColumnSpan="3" VerticalOptions="Center"/>
+                    <Label Text="{Binding CarePartnerNotes}"  StyleClass="listSecondaryLabel" FontSize="Medium" Grid.Row="10" Grid.ColumnSpan="3" VerticalOptions="Center"/>
 
                 </Grid>
             </ScrollView>

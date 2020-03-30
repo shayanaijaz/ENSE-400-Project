@@ -21,6 +21,7 @@ namespace CareOnDemand.ViewModels.AdminViewModels
         public string DateString { get; set; }
         public string TimeString { get; set; }
         public string Recipient { get; set; }
+        public string Status { get; set; }
         public string FinalPrice { get; set; }
         public string AdditionalInstructions { get; set; }
         public string CarePartnerNotes { get; set; }
@@ -91,10 +92,12 @@ namespace CareOnDemand.ViewModels.AdminViewModels
         {
             Customer customer = await new CustomerRestService().GetCustomerByIDAsync(order.CustomerID);
             Account account = await new AccountRestService().GetAccountByIDAsync(customer.AccountID);
+            List<OrderStatus> orderStatusList = await new OrderStatusRestService().RefreshDataAsync();
 
             List<Order_Service> order_services = await new Order_ServiceRestService().GetOrderServiceByID(order.OrderID);
 
             double finalPrice = 0;
+
 
             foreach (var service in order_services)
             {
@@ -106,6 +109,16 @@ namespace CareOnDemand.ViewModels.AdminViewModels
             Address user_address = await new AddressRestService().GetAddressByIDAsync(order.AddressID);
 
             ObservableCollection<Order_Service> orderServiceCollection = new ObservableCollection<Order_Service>(order_services as List<Order_Service>);
+
+            foreach (var status in orderStatusList)
+            {
+                if (status.OrderStatusID == admin_selected_order.OrderStatusID)
+                {
+                    Status = status.Status.Trim();
+                    OnPropertyChanged(nameof(Status));
+                }
+
+            }
 
             OrderServicesList = orderServiceCollection;
             OnPropertyChanged(nameof(OrderServicesList));

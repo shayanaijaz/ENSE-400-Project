@@ -350,6 +350,20 @@ namespace CareOnDemandRestApi.Controllers
             return carePartner;
         }
 
+        // GET: api/CarePartners/Account/{AccountID}
+        [HttpGet("Account/{accountID}")]
+        public async Task<ActionResult<Customer>> GetAccount(int accountID)
+        {
+            var care_partner = await _context.CarePartners.Where(a => a.AccountID == accountID).ToListAsync();
+
+            if (care_partner == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(care_partner);
+        }
+
         // PUT: api/CarePartners/{id}
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.

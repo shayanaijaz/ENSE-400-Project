@@ -4,7 +4,7 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="CareOnDemand.Views.CarePartnerViews.CurrentOrder"
+             x:Class="CareOnDemand.Views.CarePartnerViews.ViewAssignedOrder"
              NavigationPage.HasBackButton="True"
              NavigationPage.HasNavigationBar="True"
              Title="Assigned Order">
