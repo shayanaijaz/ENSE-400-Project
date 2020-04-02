@@ -286,6 +286,31 @@ namespace CareOnDemand.Data
 
             return orderStatuses;
         }
+
+        public async Task<OrderStatus> GetOrderStatusByIDAsync(int orderStatusID)
+        {
+            OrderStatus orderStatus = new OrderStatus();
+
+            try
+            {
+                var uri = new Uri(string.Format(Constants.OrderStatusesUrl, orderStatusID));
+
+                var response = await _client.GetAsync(uri);
+                if (response.IsSuccessStatusCode)
+                {
+                    var content = await response.Content.ReadAsStringAsync();
+                    orderStatus = JsonConvert.DeserializeObject<OrderStatus>(content);
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(@"\tERROR {0}", ex.Message);
+            }
+
+            return orderStatus;
+        }
+
+
     }
 
     class ServiceRequestRestService

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CareOnDemand.ViewModels.CarePartnerViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,8 @@ namespace CareOnDemand.Views.CarePartnerViews
         public ViewAssignedOrder()
         {
             InitializeComponent();
+
+            BindingContext = new ViewAssignedOrderViewModel();
         }
     }
 }

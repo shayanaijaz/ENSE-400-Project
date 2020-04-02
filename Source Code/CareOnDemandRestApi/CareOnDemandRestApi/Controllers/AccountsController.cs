@@ -352,16 +352,16 @@ namespace CareOnDemandRestApi.Controllers
 
         // GET: api/CarePartners/Account/{AccountID}
         [HttpGet("Account/{accountID}")]
-        public async Task<ActionResult<Customer>> GetAccount(int accountID)
+        public async Task<ActionResult<CarePartner>> GetAccount(int accountID)
         {
-            var care_partner = await _context.CarePartners.Where(a => a.AccountID == accountID).ToListAsync();
+            var care_partner = _context.CarePartners.Where(a => a.AccountID == accountID).FirstOrDefault();
 
             if (care_partner == null)
             {
                 return NotFound();
             }
 
-            return Ok(care_partner);
+            return care_partner;
         }
 
         // PUT: api/CarePartners/{id}

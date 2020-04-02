@@ -7,17 +7,17 @@ using Xamarin.Forms;
 
 namespace CareOnDemand.ViewModels.CarePartnerViewModels
 {
-    public class AssignedOrdersViewModel : BaseCarePartnerOrdersViewModel
+    public class PastOrdersViewModel : BaseCarePartnerOrdersViewModel
     {
-        public AssignedOrdersViewModel()
+        public PastOrdersViewModel()
         {
-            AssignedOrders = new ObservableCollection<OrdersList>();
+            PastOrders = new ObservableCollection<OrdersList>();
             ActivityIndicatorVisible = true;
             ActivityIndicatorRunning = true;
             GetAssignedOrder();
         }
 
-        public ObservableCollection<OrdersList> AssignedOrders { get; set; }
+        public ObservableCollection<OrdersList> PastOrders { get; set; }
 
         private OrdersList selectedOrder;
         public OrdersList SelectedOrder
@@ -37,20 +37,19 @@ namespace CareOnDemand.ViewModels.CarePartnerViewModels
         }
         async void OrderSelected()
         {
-            await Application.Current.MainPage.Navigation.PushAsync(new ViewAssignedOrder());
+            await Application.Current.MainPage.Navigation.PushAsync(new ViewPastOrders());
         }
         async void GetAssignedOrder()
         {
-            string[] newOrderStatusArray = { "In Progress", "On The Way", "Waiting" };
+            string[] newOrderStatusArray = { "Completed", "Cancelled" };
 
-            AssignedOrders = await GetOrdersFromDb(newOrderStatusArray);
+            PastOrders = await GetOrdersFromDb(newOrderStatusArray);
 
             ActivityIndicatorRunning = false;
             ActivityIndicatorVisible = false;
             OnPropertyChanged(nameof(ActivityIndicatorRunning));
             OnPropertyChanged(nameof(ActivityIndicatorVisible));
-            OnPropertyChanged(nameof(AssignedOrders));
+            OnPropertyChanged(nameof(PastOrders));
         }
-
     }
 }

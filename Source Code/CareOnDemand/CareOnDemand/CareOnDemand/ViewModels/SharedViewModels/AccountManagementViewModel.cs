@@ -51,13 +51,10 @@ namespace CareOnDemand.ViewModels
             //remove accountID and set login bool to false
             Application.Current.Properties["isLoggedIn"] = Boolean.FalseString;
             Application.Current.Properties["accountID"] = null;
-            //clear nav stack
-            /*var navStack = Application.Current.MainPage.Navigation.NavigationStack.ToList();
-            foreach (var page in navStack)
-                Application.Current.MainPage.Navigation.RemovePage(page);*/
 
             //redirect to login page
-            await Application.Current.MainPage.Navigation.PushAsync(new LoginPage());
+            Application.Current.MainPage.Navigation.InsertPageBefore(new LoginPage(), Application.Current.MainPage.Navigation.NavigationStack[0]);
+            await Application.Current.MainPage.Navigation.PopToRootAsync();
         }
     }
 }

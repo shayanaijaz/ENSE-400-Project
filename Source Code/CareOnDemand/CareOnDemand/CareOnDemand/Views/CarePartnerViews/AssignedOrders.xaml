@@ -8,33 +8,42 @@
              NavigationPage.HasBackButton="False"
              NavigationPage.HasNavigationBar="True"
              Title="Assigned Orders">
-    
+
     <ContentPage.Resources>
         <StyleSheet Source="/Views/StyleSheet.css" />
     </ContentPage.Resources>
     <ContentPage.Content>
         <ContentView>
-            <ListView x:Name="ServiceListView" ItemsSource="{Binding AssignedOrderList}" StyleClass="main"
+            <ContentView.Content>
+                <Grid StyleClass="serviceSelectionGrid">
+                    <!-- Page layout Grid-->
+                    <ActivityIndicator IsVisible="{Binding ActivityIndicatorVisible}" IsRunning="{Binding ActivityIndicatorRunning}" Scale="0.25" />
+                    <ListView x:Name="OrderListView" ItemsSource="{Binding AssignedOrders}" StyleClass="main"
                     SeparatorVisibility="Default"
-                    RowHeight="80"
-                      SelectedItem="{Binding AssignedOrders}">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <!--<ViewCell Tapped="ViewCellTapped">
-                            <Grid StyleClass="main">
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="20"/>
-                                    <RowDefinition Height="20"/>
-                                </Grid.RowDefinitions>
-
-                                <Label Grid.Row="0" FontAttributes="Bold" FontSize="Small" Text="{Binding OrderName}" />
-                                <Label Grid.Row="1" VerticalOptions="Start"  Text="{Binding OrderTime}" />
-
-                            </Grid>
-                        </ViewCell>-->
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+                    RowHeight="100"
+                    SelectedItem="{Binding SelectedOrder}">
+                        <!-- Listview of NewOrders-->
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell Tapped="ViewCellTapped">
+                                    <Grid StyleClass="main">
+                                        <!-- Second grid used to display orders-->
+                                        <Grid.RowDefinitions>
+                                            <!-- Grid rows-->
+                                            <RowDefinition Height="30"/>
+                                            <RowDefinition Height="60"/>
+                                        </Grid.RowDefinitions>
+                                        <Label Grid.Row="0" FontAttributes="Bold" FontSize="Medium" Text="{Binding CustomerName}" />
+                                        <!-- Customer name label-->
+                                        <Label Grid.Row="1" VerticalOptions="Start"  Text="{Binding ServicesOrderedString}" />
+                                        <!-- Services ordered label-->
+                                    </Grid>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </Grid>
+            </ContentView.Content>
         </ContentView>
     </ContentPage.Content>
 </ContentPage>

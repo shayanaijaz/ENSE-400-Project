@@ -18,7 +18,9 @@ namespace CareOnDemand.ViewModels.AdminViewModels
             GetCarePartnerData();
             AssignOrderCommand = new Command(async () => await CreateServiceRequest());
             OrderServicesList = new ObservableCollection<Order_Service>();
-
+            ElementVisible = false;
+            ActivityIndicatorVisible = true;
+            ActivityIndicatorRunning = true;
         }
 
         public ObservableCollection<CarePartnerDetails> CarePartnerAccounts { get; set; }

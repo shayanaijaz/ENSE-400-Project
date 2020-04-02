@@ -300,18 +300,18 @@ namespace CareOnDemand.Data
             return CarePartners;
         }
 
-        public async Task<List<CarePartner>> GetCarePartnerByAccountIDAsync(int accountID)
+        public async Task<CarePartner> GetCarePartnerByAccountIDAsync(int accountID)
         {
-            CarePartners = new List<CarePartner>();
+            CarePartner CarePartners = new CarePartner();
 
-            var uri = new Uri(string.Format(Constants.CustomersAccountIDUrl, accountID));
+            var uri = new Uri(string.Format(Constants.CarePartnerAccountIDUrl, accountID));
             try
             {
                 var response = await _client.GetAsync(uri);
                 if (response.IsSuccessStatusCode)
-                {
+                { 
                     var content = await response.Content.ReadAsStringAsync();
-                    CarePartners = JsonConvert.DeserializeObject<List<CarePartner>>(content);
+                    CarePartners = JsonConvert.DeserializeObject<CarePartner>(content);
                 }
             }
             catch (Exception ex)

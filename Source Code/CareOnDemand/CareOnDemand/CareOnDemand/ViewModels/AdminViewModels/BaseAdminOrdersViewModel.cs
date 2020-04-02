@@ -25,6 +25,10 @@ namespace CareOnDemand.ViewModels.AdminViewModels
         public string FinalPrice { get; set; }
         public string AdditionalInstructions { get; set; }
         public string CarePartnerNotes { get; set; }
+        public bool ElementVisible { get; set; }
+        public bool ActivityIndicatorVisible { get; set; }
+        public bool ActivityIndicatorRunning { get; set; }
+
 
 
         public ObservableCollection<Order_Service> OrderServicesList { get; set; }
@@ -115,35 +119,44 @@ namespace CareOnDemand.ViewModels.AdminViewModels
                 if (status.OrderStatusID == admin_selected_order.OrderStatusID)
                 {
                     Status = status.Status.Trim();
-                    OnPropertyChanged(nameof(Status));
                 }
 
             }
 
             OrderServicesList = orderServiceCollection;
-            OnPropertyChanged(nameof(OrderServicesList));
 
             Location = user_address.AddrLine1.Trim() + ", " + user_address.City.Trim() + ", " + user_address.Province.Trim() + ", " + user_address.PostalCode.Trim();
-            OnPropertyChanged(nameof(Location));
 
             DateString = order.RequestedTime.Date.ToString("yyyy-MM-dd");
-            OnPropertyChanged(nameof(DateString));
 
 
             TimeString = new DateTime(order.RequestedTime.Ticks).ToString("h:mm tt");
-            OnPropertyChanged(nameof(TimeString));
 
             Recipient = account.FirstName.Trim() + " " + account.LastName.Trim();
-            OnPropertyChanged(nameof(Recipient));
 
             FinalPrice = "$" + finalPrice.ToString();
-            OnPropertyChanged(nameof(FinalPrice));
 
             if (order.OrderInstructions != null)
             {
                 AdditionalInstructions = order.OrderInstructions.Trim();
-                OnPropertyChanged(nameof(AdditionalInstructions));
             }
+
+            ElementVisible = true;
+            ActivityIndicatorRunning = false;
+            ActivityIndicatorVisible = false;
+
+            OnPropertyChanged(nameof(ActivityIndicatorRunning));
+            OnPropertyChanged(nameof(ActivityIndicatorVisible));
+            OnPropertyChanged(nameof(ElementVisible));
+            OnPropertyChanged(nameof(Status));
+            OnPropertyChanged(nameof(OrderServicesList));
+            OnPropertyChanged(nameof(Location));
+            OnPropertyChanged(nameof(DateString));
+            OnPropertyChanged(nameof(Recipient));
+            OnPropertyChanged(nameof(TimeString));
+            OnPropertyChanged(nameof(FinalPrice));
+            OnPropertyChanged(nameof(AdditionalInstructions));
+
         }
 
     }

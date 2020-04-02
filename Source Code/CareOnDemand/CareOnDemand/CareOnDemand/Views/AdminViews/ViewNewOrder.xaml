@@ -24,6 +24,7 @@
         
         <ContentView>
             <ScrollView VerticalScrollBarVisibility="Always">
+                
                 <Grid StyleClass="main"> <!-- Page layout Grid-->
                     <Grid.RowDefinitions> <!-- Grid rows-->
                         <RowDefinition Height="Auto" /> <!--Services-->
@@ -45,6 +46,7 @@
                         <ColumnDefinition Width="0.333*" />
                         <ColumnDefinition Width="0.333*" />
                     </Grid.ColumnDefinitions>
+                    <ActivityIndicator IsVisible="{Binding ActivityIndicatorVisible}" IsRunning="{Binding ActivityIndicatorRunning}" Scale="2.00" Grid.ColumnSpan="3" Grid.Row="6"/>
                     <ListView x:Name="ServicesOrdered" MinimumHeightRequest="70" RowHeight="70" VerticalOptions="FillAndExpand" Grid.Row="0" Grid.ColumnSpan="3" ItemsSource="{Binding OrderServicesList}" SelectionMode="None" VerticalScrollBarVisibility="Never">
                         <ListView.ItemTemplate> <!-- List view of orders from Database-->
                             <DataTemplate>
@@ -67,35 +69,36 @@
                         </ListView.ItemTemplate>
                     </ListView>
                     
-                    <Label Text="Location" StyleClass="listPrimaryLabel" Grid.Row="1" Grid.Column="0" VerticalOptions="Center"/>
+                    <Label Text="Location" StyleClass="listPrimaryLabel" Grid.Row="1" Grid.Column="0" VerticalOptions="Center" IsVisible="{Binding ElementVisible}"/>
                     <Label Text="{Binding Location}"  StyleClass="listSecondryLabel" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" VerticalOptions="Center" />
 
-                    <Label Text="Date" StyleClass="listPrimaryLabel" Grid.Row="2" Grid.Column="0" VerticalOptions="Center"/>
-                    <Label Text="{Binding DateString}"  StyleClass="listSecondryLabel" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" VerticalOptions="Center"/>
+                    <Label Text="Date" StyleClass="listPrimaryLabel" Grid.Row="2" Grid.Column="0" VerticalOptions="Center" IsVisible="{Binding ElementVisible}"/>
+                    <Label Text="{Binding DateString}"  StyleClass="listSecondryLabel" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" VerticalOptions="Center" IsVisible="{Binding ElementVisible}"/>
 
-                    <Label Text="Time" StyleClass="listPrimaryLabel" Grid.Row="3" Grid.Column="0" VerticalOptions="Center"/>
+                    <Label Text="Time" StyleClass="listPrimaryLabel" Grid.Row="3" Grid.Column="0" VerticalOptions="Center" IsVisible="{Binding ElementVisible}"/>
                     <Label Text="{Binding TimeString}"  StyleClass="listSecondryLabel" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" VerticalOptions="Center"/>
 
-                    <Label Text="Recipient" StyleClass="listPrimaryLabel" Grid.Row="4" Grid.Column="0" VerticalOptions="Center"/>
+                    <Label Text="Recipient" StyleClass="listPrimaryLabel" Grid.Row="4" Grid.Column="0" VerticalOptions="Center" IsVisible="{Binding ElementVisible}"/>
                     <Label Text="{Binding Recipient}"  StyleClass="listSecondryLabel" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2" VerticalOptions="Center" />
 
-                    <Label Text="Status" StyleClass="listPrimaryLabel" Grid.Row="5" Grid.Column="0" VerticalOptions="Center"/>
+                    <Label Text="Status" StyleClass="listPrimaryLabel" Grid.Row="5" Grid.Column="0" VerticalOptions="Center" IsVisible="{Binding ElementVisible}"/>
                     <Label Text="{Binding Status}"  StyleClass="listSecondryLabel" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2" VerticalOptions="Center" />
 
-                    <Label Text="Final Price" StyleClass="listPrimaryLabel" Grid.Row="6" Grid.Column="0" VerticalOptions="Center"/>
+                    <Label Text="Final Price" StyleClass="listPrimaryLabel" Grid.Row="6" Grid.Column="0" VerticalOptions="Center" IsVisible="{Binding ElementVisible}"/>
                     <Label Text="{Binding FinalPrice}"  StyleClass="listSecondryLabel" Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="2" VerticalOptions="Center"/>
 
-                    <Label Text="Additonal Instructions" StyleClass="listPrimaryLabel" Grid.Row="7" Grid.ColumnSpan="3" VerticalOptions="Center"/>
+                    <Label Text="Additonal Instructions" StyleClass="listPrimaryLabel" Grid.Row="7" Grid.ColumnSpan="3" VerticalOptions="Center" IsVisible="{Binding ElementVisible}" />
                     <Label Text="{Binding AdditionalInstructions}"  StyleClass="listSecondaryLabel" FontSize="Medium" Grid.Row="8" Grid.ColumnSpan="3" VerticalOptions="Center"/>
                     <Picker Title="Select Care Partner" VerticalOptions="Center" FontSize="Large" Grid.Row="9" Grid.ColumnSpan="3"
                             ItemsSource="{Binding CarePartnerAccounts}"
                             ItemDisplayBinding="{Binding CarePartnerAccount.FullName}"
-                            SelectedItem="{Binding SelectedCarePartner}"/>
+                            SelectedItem="{Binding SelectedCarePartner}"
+                            IsVisible="{Binding ElementVisible}"/>
 
-                    <Editor Placeholder="Notes to Care Partner" VerticalOptions="Center" Grid.Row="10" Grid.ColumnSpan="3" Text="{Binding CarePartnerNotes}" />
+                    <Editor Placeholder="Notes to Care Partner" VerticalOptions="Center" Grid.Row="10" Grid.ColumnSpan="3" Text="{Binding CarePartnerNotes}" IsVisible="{Binding ElementVisible}" />
 
-                    <Button StyleClass="secondaryButton" Text="Edit Order" Grid.Row="11" Grid.ColumnSpan="3" />
-                    <Button StyleClass="primaryButton" Text="Assign Order" Grid.Row="12" Grid.ColumnSpan="3" Command="{Binding AssignOrderCommand}" />
+                    <Button StyleClass="secondaryButton" Text="Edit Order" Grid.Row="11" Grid.ColumnSpan="3" IsVisible="{Binding ElementVisible}" />
+                    <Button StyleClass="primaryButton" Text="Assign Order" Grid.Row="12" Grid.ColumnSpan="3" Command="{Binding AssignOrderCommand}" IsVisible="{Binding ElementVisible}" />
 
                 </Grid>
             </ScrollView>

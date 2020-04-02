@@ -62,6 +62,8 @@ namespace CareOnDemand.ViewModels
                 }
                 else if (account_level_id == 2)
                 {
+                    CarePartner carePartner = await new CarePartnerRestService().GetCarePartnerByAccountIDAsync(account_id);
+                    Application.Current.Properties["carePartnerID"] = carePartner.CarePartnerID;
                     Application.Current.MainPage.Navigation.InsertPageBefore(new CarePartnerNavBar(), Application.Current.MainPage.Navigation.NavigationStack[0]);
                     await Application.Current.MainPage.Navigation.PopToRootAsync();
                 }

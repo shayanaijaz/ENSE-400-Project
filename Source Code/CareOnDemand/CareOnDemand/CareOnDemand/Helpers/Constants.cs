@@ -11,6 +11,7 @@ namespace CareOnDemand.Helpers
         public static string AccountLevelsUrl = Settings.UriBase + "/api/AccountLevels/{0}";
         public static string AdminsUrl = Settings.UriBase + "/api/Admins/{0}";
         public static string CarePartnersUrl = Settings.UriBase + "/api/CarePartners/{0}";
+        public static string CarePartnerAccountIDUrl = Settings.UriBase + "/api/CarePartners/Account/{0}";
         public static string CustomersUrl = Settings.UriBase + "/api/Customers/{0}";
         public static string CustomersAccountIDUrl = Settings.UriBase + "/api/Customers/Account/{0}";
         public static string AddressesUrl = Settings.UriBase + "/api/Addresses/{0}";
