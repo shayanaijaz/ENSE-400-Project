@@ -27,11 +27,11 @@
             <ScrollView> <!-- Page is scrollable -->
                 <StackLayout StyleClass="main">
                     <Frame StyleClass="plainFrame">
-                        <ListView x:Name="ServicesOrdered" MinimumHeightRequest="50" RowHeight="50" VerticalOptions="FillAndExpand" ItemsSource="{Binding Order_Service_List}" SelectionMode="None">
+                        <ListView x:Name="ServicesOrdered" MinimumHeightRequest="60" RowHeight="60" VerticalOptions="FillAndExpand" ItemsSource="{Binding Order_Service_List}" SelectionMode="None">
                             <ListView.ItemTemplate> <!-- List view of orders from Database-->
                                 <DataTemplate>
                                     <ViewCell>
-                                        <Grid StyleClass="main">
+                                        <Grid>
                                             <Grid.RowDefinitions>
                                                 <RowDefinition Height="45"/>
                                             </Grid.RowDefinitions>
@@ -41,9 +41,9 @@
                                                 <ColumnDefinition Width="0.37*" />
                                                 <ColumnDefinition Width="0.15*"/>
                                             </Grid.ColumnDefinitions>
-                                            <Label Grid.Row="0" Grid.Column="0" FontSize="Subtitle" Text="{Binding ServiceName}" VerticalOptions="Center"/>
-                                            <Label Grid.Row="0" Grid.Column="1" FontSize="Subtitle" Text="{Binding RequestedLength}" VerticalOptions="Center"/>
-                                            <Label Grid.Row="0" Grid.Column="2" FontSize="Subtitle" Text="hours" VerticalOptions="Center"/>
+                                            <Label Grid.Row="0" Grid.Column="0" FontSize="Subtitle" TextColor="Black" Text="{Binding ServiceName}" VerticalOptions="Center"/>
+                                            <Label Grid.Row="0" Grid.Column="1" FontSize="Subtitle" TextColor="Black" Text="{Binding RequestedLength}" VerticalOptions="Center"/>
+                                            <Label Grid.Row="0" Grid.Column="2" FontSize="Subtitle" TextColor="Black" Text="hours" VerticalOptions="Center"/>
                                             <Button Grid.Row="0" Grid.Column="3" Text="X" StyleClass="itemRemovalButton" VerticalOptions="Start" Command="{Binding Source={x:Reference OrderDetailsPage}, Path=BindingContext.DeleteItemCommand}"  CommandParameter="{Binding}" />
                                         </Grid>
                                     </ViewCell>
@@ -53,7 +53,7 @@
                     </Frame>
 
                     <Frame StyleClass="plainFrame">
-                        <Grid StyleClass="main"> <!-- Page layout Grid-->
+                        <Grid> <!-- Page layout Grid-->
                             <Grid.RowDefinitions> <!-- Grid Rows-->
                                 <RowDefinition Height="0.05*" />
                                 <RowDefinition Height="0.05*" />
