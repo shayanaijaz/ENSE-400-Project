@@ -1,24 +1,23 @@
-﻿using CareOnDemand.Models;
-using CareOnDemand.Views.AdminViews;
+﻿using CareOnDemand.Views.CarePartnerViews;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
 using Xamarin.Forms;
 
-namespace CareOnDemand.ViewModels.AdminViewModels
+namespace CareOnDemand.ViewModels.CarePartnerViewModels
 {
-    public class PastOrdersViewModel : BaseAdminOrdersViewModel
+    public class PastOrdersViewModel : BaseCarePartnerOrdersViewModel
     {
         public PastOrdersViewModel()
         {
-            PastOrders = new List<OrdersList>();
+            PastOrders = new ObservableCollection<OrdersList>();
             ActivityIndicatorVisible = true;
             ActivityIndicatorRunning = true;
-            GetPastOrders();
+            GetAssignedOrder();
         }
 
-        public List<OrdersList> PastOrders { get; set; }
+        public ObservableCollection<OrdersList> PastOrders { get; set; }
 
         private OrdersList selectedOrder;
         public OrdersList SelectedOrder
@@ -31,21 +30,20 @@ namespace CareOnDemand.ViewModels.AdminViewModels
                 if (selectedOrder == null)
                     return;
 
-                admin_selected_order = selectedOrder.CustomerOrder;
+                care_partner_selected_order = selectedOrder.CustomerOrder;
 
                 OrderSelected();
             }
         }
-
         async void OrderSelected()
         {
-            await Application.Current.MainPage.Navigation.PushAsync(new ViewActivePastOrders());
+            await Application.Current.MainPage.Navigation.PushAsync(new ViewPastOrders());
         }
-        async void GetPastOrders()
+        async void GetAssignedOrder()
         {
-            string[] pastOrderStatusArray = { "Cancelled", "Completed" };
+            string[] newOrderStatusArray = { "Completed", "Cancelled" };
 
-            PastOrders = await GetOrdersFromDb(pastOrderStatusArray);
+            PastOrders = await GetOrdersFromDb(newOrderStatusArray);
 
             ActivityIndicatorRunning = false;
             ActivityIndicatorVisible = false;

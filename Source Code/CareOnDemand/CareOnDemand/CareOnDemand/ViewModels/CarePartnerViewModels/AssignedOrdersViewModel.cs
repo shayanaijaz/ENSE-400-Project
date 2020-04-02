@@ -1,24 +1,23 @@
-﻿using CareOnDemand.Models;
-using CareOnDemand.Views.AdminViews;
+﻿using CareOnDemand.Views.CarePartnerViews;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
 using Xamarin.Forms;
 
-namespace CareOnDemand.ViewModels.AdminViewModels
+namespace CareOnDemand.ViewModels.CarePartnerViewModels
 {
-    public class PastOrdersViewModel : BaseAdminOrdersViewModel
+    public class AssignedOrdersViewModel : BaseCarePartnerOrdersViewModel
     {
-        public PastOrdersViewModel()
+        public AssignedOrdersViewModel()
         {
-            PastOrders = new List<OrdersList>();
+            AssignedOrders = new ObservableCollection<OrdersList>();
             ActivityIndicatorVisible = true;
             ActivityIndicatorRunning = true;
-            GetPastOrders();
+            GetAssignedOrder();
         }
 
-        public List<OrdersList> PastOrders { get; set; }
+        public ObservableCollection<OrdersList> AssignedOrders { get; set; }
 
         private OrdersList selectedOrder;
         public OrdersList SelectedOrder
@@ -31,27 +30,27 @@ namespace CareOnDemand.ViewModels.AdminViewModels
                 if (selectedOrder == null)
                     return;
 
-                admin_selected_order = selectedOrder.CustomerOrder;
+                care_partner_selected_order = selectedOrder.CustomerOrder;
 
                 OrderSelected();
             }
         }
-
         async void OrderSelected()
         {
-            await Application.Current.MainPage.Navigation.PushAsync(new ViewActivePastOrders());
+            await Application.Current.MainPage.Navigation.PushAsync(new ViewAssignedOrder());
         }
-        async void GetPastOrders()
+        async void GetAssignedOrder()
         {
-            string[] pastOrderStatusArray = { "Cancelled", "Completed" };
+            string[] newOrderStatusArray = { "In Progress", "On The Way", "Waiting" };
 
-            PastOrders = await GetOrdersFromDb(pastOrderStatusArray);
+            AssignedOrders = await GetOrdersFromDb(newOrderStatusArray);
 
             ActivityIndicatorRunning = false;
             ActivityIndicatorVisible = false;
             OnPropertyChanged(nameof(ActivityIndicatorRunning));
             OnPropertyChanged(nameof(ActivityIndicatorVisible));
-            OnPropertyChanged(nameof(PastOrders));
+            OnPropertyChanged(nameof(AssignedOrders));
         }
+
     }
 }
