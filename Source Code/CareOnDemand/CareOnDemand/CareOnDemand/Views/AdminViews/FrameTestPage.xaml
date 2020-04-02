@@ -15,7 +15,7 @@
     <ContentPage.Content>
         <ContentView>
             <ScrollView>
-                <StackLayout Padding="15" StyleClass="main">
+                <StackLayout StyleClass="main">
 
                     <Frame StyleClass="secondaryFrame">
                         <Label Text="Item 1 &#10;Item 2 &#10;Item 3" StyleClass="listSecondaryLabel" Grid.Row="0" Grid.ColumnSpan="3" VerticalOptions="Start"/>
@@ -24,20 +24,15 @@
                     <Frame StyleClass="plainFrame">
                         <Grid>
                             <Grid.RowDefinitions>
-                                <RowDefinition Height="0.1*" />
-                                <!--Location-->
+                                <RowDefinition Height="0.1*" /> <!--Location-->
 
-                                <RowDefinition Height="0.1*" />
-                                <!--Time-->
+                                <RowDefinition Height="0.1*" /> <!--Time-->
 
-                                <RowDefinition Height="0.1*" />
-                                <!--Recipient-->
+                                <RowDefinition Height="0.1*" /> <!--Recipient-->
 
-                                <RowDefinition Height="0.1*" />
-                                <!--Price-->
+                                <RowDefinition Height="0.1*" /> <!--Price-->
 
-                                <RowDefinition Height="0.1*" />
-                                <!--Add_Instructions-->
+                                <RowDefinition Height="0.1*" /> <!--Add_Instructions-->
                                 <RowDefinition Height="0.2*" />
                             </Grid.RowDefinitions>
                             <Grid.ColumnDefinitions>
