@@ -19,9 +19,6 @@ namespace CareOnDemand.ViewModels.AdminViewModels
             GetNewOrder();
         }
 
-        public bool ActivityIndicatorVisible { get; set; }
-        public bool ActivityIndicatorRunning { get; set; }
-
         public List<OrdersList> NewOrders { get; set; }
 
         private OrdersList selectedOrder;
