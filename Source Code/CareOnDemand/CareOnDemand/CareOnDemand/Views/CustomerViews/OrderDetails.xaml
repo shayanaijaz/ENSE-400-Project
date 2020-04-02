@@ -25,74 +25,76 @@
     <ContentPage.Content>
         <ContentView>
             <ScrollView> <!-- Page is scrollable -->
-                <Grid StyleClass="main"> <!-- Page layout Grid-->
-                    <Grid.RowDefinitions> <!-- Grid Rows-->
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="0.08*" />
-                        <RowDefinition Height="0.05*" />
-                        <RowDefinition Height="0.05*" />
-                        <RowDefinition Height="0.05*" />
-                        <RowDefinition Height="0.05*" />
-                        <RowDefinition Height="0.05*" />
-                        <RowDefinition Height="0.05*" />
-                        <RowDefinition Height="0.05*" />
-                        <RowDefinition Height="0.08*" />
-                        <RowDefinition Height="0.08*" />
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions> <!-- Grid Columns-->
-                        <ColumnDefinition Width="1*" />
-                    </Grid.ColumnDefinitions>
-                    <ListView x:Name="ServicesOrdered" MinimumHeightRequest="70" RowHeight="70" VerticalOptions="FillAndExpand" Grid.Row="0" ItemsSource="{Binding Order_Service_List}" SelectionMode="None">
-                        <ListView.ItemTemplate> <!-- List view of orders from Database-->
-                            <DataTemplate>
-                                <ViewCell>
-                                    <Grid StyleClass="main">
-                                        <Grid.RowDefinitions>
-                                            <RowDefinition Height="45"/>
-                                        </Grid.RowDefinitions>
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="0.45*"/>
-                                            <ColumnDefinition Width="0.03*" />
-                                            <ColumnDefinition Width="0.37*" />
-                                            <ColumnDefinition Width="0.15*"/>
-                                        </Grid.ColumnDefinitions>
-                                        <Label Grid.Row="0" Grid.Column="0" FontSize="Subtitle" Text="{Binding ServiceName}" VerticalOptions="Center"/>
-                                        <Label Grid.Row="0" Grid.Column="1" FontSize="Subtitle" Text="{Binding RequestedLength}" VerticalOptions="Center"/>
-                                        <Label Grid.Row="0" Grid.Column="2" FontSize="Subtitle" Text="hours" VerticalOptions="Center"/>
-                                        <Button Grid.Row="0" Grid.Column="3" Text="X" StyleClass="itemRemovalButton" VerticalOptions="Start" Command="{Binding Source={x:Reference OrderDetailsPage}, Path=BindingContext.DeleteItemCommand}"  CommandParameter="{Binding}" />
-                                    </Grid>
-                                </ViewCell>
-                            </DataTemplate>
-                        </ListView.ItemTemplate>
-                    </ListView>
+                <StackLayout StyleClass="main">
+                    <Frame StyleClass="plainFrame">
+                        <ListView x:Name="ServicesOrdered" MinimumHeightRequest="50" RowHeight="50" VerticalOptions="FillAndExpand" ItemsSource="{Binding Order_Service_List}" SelectionMode="None">
+                            <ListView.ItemTemplate> <!-- List view of orders from Database-->
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <Grid StyleClass="main">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="45"/>
+                                            </Grid.RowDefinitions>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="0.45*"/>
+                                                <ColumnDefinition Width="0.03*" />
+                                                <ColumnDefinition Width="0.37*" />
+                                                <ColumnDefinition Width="0.15*"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Label Grid.Row="0" Grid.Column="0" FontSize="Subtitle" Text="{Binding ServiceName}" VerticalOptions="Center"/>
+                                            <Label Grid.Row="0" Grid.Column="1" FontSize="Subtitle" Text="{Binding RequestedLength}" VerticalOptions="Center"/>
+                                            <Label Grid.Row="0" Grid.Column="2" FontSize="Subtitle" Text="hours" VerticalOptions="Center"/>
+                                            <Button Grid.Row="0" Grid.Column="3" Text="X" StyleClass="itemRemovalButton" VerticalOptions="Start" Command="{Binding Source={x:Reference OrderDetailsPage}, Path=BindingContext.DeleteItemCommand}"  CommandParameter="{Binding}" />
+                                        </Grid>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </Frame>
 
-                    <Picker Title="Where?" Grid.Row="1" VerticalOptions="Start" FontSize="Medium" 
-                    ItemsSource="{Binding AddressList}"
-                    ItemDisplayBinding="{Binding AddrLine1}"
-                    SelectedItem="{Binding SelectedAddress}" />
-                    <!-- List view of added addresses -->
+                    <Frame StyleClass="plainFrame">
+                        <Grid StyleClass="main"> <!-- Page layout Grid-->
+                            <Grid.RowDefinitions> <!-- Grid Rows-->
+                                <RowDefinition Height="0.05*" />
+                                <RowDefinition Height="0.05*" />
+                                <RowDefinition Height="0.05*" />
+                                <RowDefinition Height="0.05*" />
+                                <RowDefinition Height="0.05*" />
+                                <RowDefinition Height="0.05*" />
+                                <RowDefinition Height="0.05*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions> <!-- Grid Columns-->
+                                <ColumnDefinition Width="1*" />
+                            </Grid.ColumnDefinitions>
 
-                    <Label Text="What day?" Grid.Row="2" VerticalOptions="End" FontSize="Medium"/>
-                    <DatePicker Grid.Row="3" VerticalOptions="Start" FontSize="Medium" MinimumDate="{x:Static sys:DateTime.Today}" Date="{Binding SelectedDate}"/>
+                            <Picker Title="Where?" Grid.Row="0" VerticalOptions="Start" FontSize="Medium" 
+                                ItemsSource="{Binding AddressList}"
+                                ItemDisplayBinding="{Binding AddrLine1}"
+                                SelectedItem="{Binding SelectedAddress}" /> <!-- List view of added addresses -->
 
-                    <Label Text="What time?" Grid.Row="4" VerticalOptions="End" FontSize="Medium"/>
-                    <TimePicker Grid.Row="5" VerticalOptions="Start" FontSize="Medium" Time="{Binding SelectedTime}"/>
+                            <Label Text="What day?" Grid.Row="1" VerticalOptions="End" FontSize="Medium" TextColor="Black"/>
+                            <DatePicker Grid.Row="2" VerticalOptions="Start" FontSize="Medium" MinimumDate="{x:Static sys:DateTime.Today}" Date="{Binding SelectedDate}"/>
 
-                    <Picker Title="Who is the service for?" Grid.Row="6" VerticalOptions="End" FontSize="Medium"
-                    ItemsSource="{Binding RecipientList}"
-                    ItemDisplayBinding="{Binding FullName}"
-                    SelectedItem="{Binding SelectedRecipient}"/>
-                    <!-- List view of added persons-->
+                            <Label Text="What time?" Grid.Row="3" VerticalOptions="End" FontSize="Medium" TextColor="Black"/>
+                            <TimePicker Grid.Row="4" VerticalOptions="Start" FontSize="Medium" Time="{Binding SelectedTime}"/>
 
-                    <Picker Title="Select your desired Care Partner" Grid.Row="7" VerticalOptions="End" FontSize="Medium"
-                    ItemsSource="{Binding CarePartnerList}"
-                    ItemDisplayBinding="{Binding FullName}"
-                    SelectedItem="{Binding SelectedCarePartner}"/>
-                    <!-- List view of available care partners-->
-                    <Button StyleClass="primaryButton" Text="Continue Order" Grid.Row="8" VerticalOptions="Center" Command="{Binding ContinueOrderCommand}"/> <!-- Continue order button-->
-                    <Button StyleClass="contactButton" Text="Contact Eden Care" Grid.Row="9" HorizontalOptions="Center" VerticalOptions="End" /> <!-- Contact Eden Care button-->
-                </Grid>
-          </ScrollView>
+                            <Picker Title="Who is the service for?" Grid.Row="5" VerticalOptions="End" FontSize="Medium"
+                                ItemsSource="{Binding RecipientList}"
+                                ItemDisplayBinding="{Binding FullName}"
+                                SelectedItem="{Binding SelectedRecipient}"/> <!-- List view of added persons-->
+
+                            <Picker Title="Select your desired Care Partner" Grid.Row="6" VerticalOptions="End" FontSize="Medium"
+                                ItemsSource="{Binding CarePartnerList}"
+                                ItemDisplayBinding="{Binding FullName}"
+                                SelectedItem="{Binding SelectedCarePartner}"/> <!-- List view of available care partners-->
+                        </Grid>
+                    </Frame>
+                    
+                    <Button StyleClass="primaryButton" Text="Continue Order" VerticalOptions="Center" Command="{Binding ContinueOrderCommand}"/> <!-- Continue order button-->
+                    <Button StyleClass="contactButton" Text="Contact Eden Care" VerticalOptions="End" /> <!-- Contact Eden Care button-->
+                    
+                </StackLayout>
+            </ScrollView>
         </ContentView>
     </ContentPage.Content>
 </ContentPage>
