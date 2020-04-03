@@ -53,9 +53,9 @@
                             <RowDefinition Height="0.1*" />
                             <RowDefinition Height="0.1*" />
                             <RowDefinition Height="0.1*" />
-                            <RowDefinition Height="0.2*" />
+                            <RowDefinition Height="Auto" />
                             <RowDefinition Height="0.1*" />
-                            <RowDefinition Height="0.2*" />
+                            <RowDefinition Height="Auto" />
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="0.333*" />
@@ -81,10 +81,10 @@
                         <Label Text="Final Price" StyleClass="listPrimaryLabel" Grid.Row="5" Grid.Column="0" VerticalOptions="Center" IsVisible="{Binding ElementVisible}"/>
                         <Label Text="{Binding FinalPrice}"  StyleClass="listSecondryLabel" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2" VerticalOptions="Center"/>
 
-                        <Label Text="Customer Instructions" StyleClass="listPrimaryLabel" Grid.Row="6" Grid.ColumnSpan="3" VerticalOptions="Center" IsVisible="{Binding ElementVisible}" />
+                        <Label Text="Customer Instructions:" StyleClass="listPrimaryLabel" Grid.Row="6" Grid.ColumnSpan="3" VerticalOptions="Center" IsVisible="{Binding ElementVisible}" />
                         <Label Text="{Binding AdditionalInstructions}"  StyleClass="listSecondaryLabel" FontSize="Medium" Grid.Row="7" Grid.ColumnSpan="3" VerticalOptions="Center"/>
 
-                        <Label Text="Admin Instructions" StyleClass="listPrimaryLabel" Grid.Row="8" Grid.ColumnSpan="3" VerticalOptions="CenterAndExpand" IsVisible="{Binding ElementVisible}"/>
+                        <Label Text="Admin Instructions:" StyleClass="listPrimaryLabel" Grid.Row="8" Grid.ColumnSpan="3" VerticalOptions="CenterAndExpand" IsVisible="{Binding ElementVisible}"/>
                         <Label Text="{Binding CarePartnerNotes}"  StyleClass="listSecondaryLabel" FontSize="Medium" Grid.Row="9" Grid.ColumnSpan="3" VerticalOptions="Center"/>
                     </Grid>
                 </Frame>

@@ -143,6 +143,10 @@ namespace CareOnDemand.ViewModels.AdminViewModels
             {
                 AdditionalInstructions = order.OrderInstructions.Trim();
             }
+            else
+            {
+                AdditionalInstructions = "None";
+            }
 
             ElementVisible = true;
             ActivityIndicatorRunning = false;

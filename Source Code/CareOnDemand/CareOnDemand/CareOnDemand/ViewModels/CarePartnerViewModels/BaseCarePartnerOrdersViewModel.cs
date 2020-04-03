@@ -47,6 +47,8 @@ namespace CareOnDemand.ViewModels.CarePartnerViewModels
 
                 OrderStatus orderStatus = await new OrderStatusRestService().GetOrderStatusByIDAsync(order.OrderStatusID);
 
+                order.ServiceRequest = service_request;
+
                 if (OrderStatusList.Contains(orderStatus.Status.Trim()))
                 {
                     List<Order_Service> order_services = await new Order_ServiceRestService().GetOrderServiceByID(order.OrderID);
@@ -70,7 +72,8 @@ namespace CareOnDemand.ViewModels.CarePartnerViewModels
                     {
                         CustomerName = account.FirstName.Trim() + " " + account.LastName.Trim(),
                         CustomerOrder = order,
-                        ServicesOrderedString = servicesString
+                        ServicesOrderedString = servicesString,
+                        CarePartnerServiceRequest = service_request
                     });
                 }
             }
@@ -140,12 +143,26 @@ namespace CareOnDemand.ViewModels.CarePartnerViewModels
             if (order.OrderInstructions != null)
             {
                 AdditionalInstructions = order.OrderInstructions.Trim();
+            } 
+            else
+            {
+                AdditionalInstructions = "None";
+            }
+
+            if (order.ServiceRequest.OrderNotes != null)
+            {
+                CarePartnerNotes = order.ServiceRequest.OrderNotes.Trim();
+            }
+            else
+            {
+                CarePartnerNotes = "None";
             }
 
             ElementVisible = true;
             ActivityIndicatorRunning = false;
             ActivityIndicatorVisible = false;
 
+            OnPropertyChanged(nameof(CarePartnerNotes));
             OnPropertyChanged(nameof(ActivityIndicatorRunning));
             OnPropertyChanged(nameof(ActivityIndicatorVisible));
             OnPropertyChanged(nameof(ElementVisible));
@@ -166,6 +183,7 @@ namespace CareOnDemand.ViewModels.CarePartnerViewModels
             public string CustomerName { get; set; }
             public string ServicesOrderedString { get; set; }
             public Order CustomerOrder { get; set; }
+            public ServiceRequest CarePartnerServiceRequest { get; set; }
 
         }
 

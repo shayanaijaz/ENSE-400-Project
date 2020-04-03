@@ -84,10 +84,10 @@
                         <Label Text="Final Price" StyleClass="listPrimaryLabel" Grid.Row="5" Grid.Column="0" VerticalOptions="Center" IsVisible="{Binding ElementVisible}"/>
                         <Label Text="{Binding FinalPrice}"  StyleClass="listSecondryLabel" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2" VerticalOptions="Center"/>
 
-                        <Label Text="Additonal Instructions" StyleClass="listPrimaryLabel" Grid.Row="6" Grid.ColumnSpan="3" VerticalOptions="Center" IsVisible="{Binding ElementVisible}"/>
+                        <Label Text="Additonal Instructions:" StyleClass="listPrimaryLabel" Grid.Row="6" Grid.ColumnSpan="3" VerticalOptions="Center" IsVisible="{Binding ElementVisible}"/>
                         <Label Text="{Binding AdditionalInstructions}"  StyleClass="listSecondaryLabel" FontSize="Medium" Grid.Row="7" Grid.ColumnSpan="3" VerticalOptions="Center"/>
 
-                        <Label Text="Care Partner Instructions" StyleClass="listPrimaryLabel" Grid.Row="8" Grid.ColumnSpan="3" VerticalOptions="Center" IsVisible="{Binding ElementVisible}"/>
+                        <Label Text="Care Partner Instructions:" StyleClass="listPrimaryLabel" Grid.Row="8" Grid.ColumnSpan="3" VerticalOptions="Center" IsVisible="{Binding ElementVisible}"/>
                         <Label Text="{Binding CarePartnerNotes}"  StyleClass="listSecondaryLabel" FontSize="Medium" Grid.Row="9" Grid.ColumnSpan="3" VerticalOptions="Center"/>
 
                     </Grid>
