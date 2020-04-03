@@ -5,11 +5,94 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="CareOnDemand.Views.CarePartnerViews.ViewPastOrders">
+    <ContentPage.Resources>
+        <StyleSheet Source="/Views/StyleSheet.css" />
+    </ContentPage.Resources>
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <ScrollView>
+            <StackLayout StyleClass="main">
+                <Frame StyleClass="plainFrame" IsVisible="{Binding ElementVisible}">
+                    <ListView x:Name="ServicesOrdered" MinimumHeightRequest="50" RowHeight="50" VerticalOptions="FillAndExpand" ItemsSource="{Binding OrderServicesList}" SelectionMode="None">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="45"/>
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="0.45*"/>
+                                            <ColumnDefinition Width="0.03*" />
+                                            <ColumnDefinition Width="0.37*" />
+                                            <ColumnDefinition Width="0.15*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Label Grid.Row="0" Grid.Column="0" FontSize="Subtitle" TextColor="Black" Text="{Binding ServiceName}" VerticalOptions="Center"/>
+                                        <Label Grid.Row="0" Grid.Column="1" FontSize="Subtitle" TextColor="Black" Text="{Binding RequestedLength}" VerticalOptions="Center"/>
+                                        <Label Grid.Row="0" Grid.Column="2" FontSize="Subtitle" TextColor="Black" Text="hours" VerticalOptions="Center"/>
+                                    </Grid>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </Frame>
+                <ActivityIndicator IsVisible="{Binding ActivityIndicatorVisible}" IsRunning="{Binding ActivityIndicatorRunning}" Scale="2.00" HorizontalOptions="CenterAndExpand"
+                            VerticalOptions="CenterAndExpand" />
+                <Frame StyleClass="plainFrame" IsVisible="{Binding ElementVisible}">
+                    <Grid>
+                        <!-- Page layout Grid-->
+                        <Grid.RowDefinitions>
+                            <!-- Grid rows-->
+                            <RowDefinition Height="0.1*" />
+                            <!--Location-->
+                            <RowDefinition Height="0.1*" />
+                            <!--Time-->
+                            <RowDefinition Height="0.1*" />
+                            <RowDefinition Height="0.1*" />
+                            <!--Recipient-->
+                            <RowDefinition Height="0.1*" />
+                            <RowDefinition Height="0.1*" />
+                            <!--Price-->
+                            <RowDefinition Height="0.1*" />
+                            <!--Additional Customer Instructions-->
+                            <RowDefinition Height="0.2*" />
+                            <RowDefinition Height="0.1*" />
+                            <!--Additional Admin Instructions-->
+                            <RowDefinition Height="0.1*" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <!-- Grid Columns-->
+                            <ColumnDefinition Width="0.333*" />
+                            <ColumnDefinition Width="0.333*" />
+                            <ColumnDefinition Width="0.333*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Label Text="Location" StyleClass="listPrimaryLabel" Grid.Row="0" Grid.Column="0" VerticalOptions="Center" IsVisible="{Binding ElementVisible}"/>
+                        <Label Text="{Binding Location}"  StyleClass="listSecondryLabel" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" VerticalOptions="Center" />
+
+                        <Label Text="Date" StyleClass="listPrimaryLabel" Grid.Row="1" Grid.Column="0" VerticalOptions="Center" IsVisible="{Binding ElementVisible}"/>
+                        <Label Text="{Binding DateString}"  StyleClass="listSecondryLabel" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" VerticalOptions="Center" IsVisible="{Binding ElementVisible}"/>
+
+                        <Label Text="Time" StyleClass="listPrimaryLabel" Grid.Row="2" Grid.Column="0" VerticalOptions="Center" IsVisible="{Binding ElementVisible}"/>
+                        <Label Text="{Binding TimeString}"  StyleClass="listSecondryLabel" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" VerticalOptions="Center"/>
+
+                        <Label Text="Recipient" StyleClass="listPrimaryLabel" Grid.Row="3" Grid.Column="0" VerticalOptions="Center" IsVisible="{Binding ElementVisible}"/>
+                        <Label Text="{Binding Recipient}"  StyleClass="listSecondryLabel" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" VerticalOptions="Center" />
+
+                        <Label Text="Status" StyleClass="listPrimaryLabel" Grid.Row="4" Grid.Column="0" VerticalOptions="Center" IsVisible="{Binding ElementVisible}"/>
+                        <Label Text="{Binding Status}"  StyleClass="listSecondryLabel" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2" VerticalOptions="Center" />
+
+                        <Label Text="Final Price" StyleClass="listPrimaryLabel" Grid.Row="5" Grid.Column="0" VerticalOptions="Center" IsVisible="{Binding ElementVisible}"/>
+                        <Label Text="{Binding FinalPrice}"  StyleClass="listSecondryLabel" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2" VerticalOptions="Center"/>
+
+                        <Label Text="Additonal Instructions" StyleClass="listPrimaryLabel" Grid.Row="6" Grid.ColumnSpan="3" VerticalOptions="Center" IsVisible="{Binding ElementVisible}"/>
+                        <Label Text="{Binding AdditionalInstructions}"  StyleClass="listSecondaryLabel" FontSize="Medium" Grid.Row="7" Grid.ColumnSpan="3" VerticalOptions="Center"/>
+
+                        <Label Text="Care Partner Instructions" StyleClass="listPrimaryLabel" Grid.Row="8" Grid.ColumnSpan="3" VerticalOptions="Center" IsVisible="{Binding ElementVisible}"/>
+                        <Label Text="{Binding CarePartnerNotes}"  StyleClass="listSecondaryLabel" FontSize="Medium" Grid.Row="9" Grid.ColumnSpan="3" VerticalOptions="Center"/>
+
+                    </Grid>
+                </Frame>
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>
