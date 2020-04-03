@@ -62,7 +62,7 @@
                             <RowDefinition Height="0.1*" /> <!-- Recipient-->
                             <RowDefinition Height="0.1*" /> <!-- Final Price -->
                             <RowDefinition Height="0.1*" /> <!-- Additional Instruction Label-->
-                            <RowDefinition Height="0.2*" /> <!-- Additional Instructions-->
+                            <RowDefinition Height="Auto" /> <!-- Additional Instructions-->
                             <RowDefinition Height="0.1*" /> <!-- Select Care Partner-->
                             <RowDefinition Height="0.2*" /> <!-- Notes to Care Partner-->
                             </Grid.RowDefinitions>

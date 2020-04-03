@@ -11,13 +11,13 @@ namespace CareOnDemand.ViewModels.CarePartnerViewModels
     {
         public PastOrdersViewModel()
         {
-            PastOrders = new ObservableCollection<OrdersList>();
+            PastOrders = new List<OrdersList>();
             ActivityIndicatorVisible = true;
             ActivityIndicatorRunning = true;
             GetPastOrders();
         }
 
-        public ObservableCollection<OrdersList> PastOrders { get; set; }
+        public List<OrdersList> PastOrders { get; set; }
 
         private OrdersList selectedOrder;
         public OrdersList SelectedOrder

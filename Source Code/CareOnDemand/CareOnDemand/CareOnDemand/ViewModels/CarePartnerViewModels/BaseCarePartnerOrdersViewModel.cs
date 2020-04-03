@@ -34,12 +34,12 @@ namespace CareOnDemand.ViewModels.CarePartnerViewModels
         public ObservableCollection<Order_Service> OrderServicesList { get; set; }
 
 
-        public async Task<ObservableCollection<OrdersList>> GetOrdersFromDb(string[] OrderStatusList)
+        public async Task<List<OrdersList>> GetOrdersFromDb(string[] OrderStatusList)
         {
             int carePartnerID = (int)Application.Current.Properties["carePartnerID"];
             List<ServiceRequest> serviceRequestList = await new ServiceRequestRestService().GetServiceRequestsByCarePartnerIDAsync(carePartnerID);
 
-            ObservableCollection<OrdersList> order_list_to_display = new ObservableCollection<OrdersList>();
+            List<OrdersList> order_list_to_display = new List<OrdersList>();
 
             foreach (var service_request in serviceRequestList)
             {
@@ -74,6 +74,9 @@ namespace CareOnDemand.ViewModels.CarePartnerViewModels
                     });
                 }
             }
+
+            // Sort in descending order
+            order_list_to_display.Sort((a, b) => b.CustomerOrder.CreationTime.CompareTo(a.CustomerOrder.CreationTime));
 
             return order_list_to_display;
 

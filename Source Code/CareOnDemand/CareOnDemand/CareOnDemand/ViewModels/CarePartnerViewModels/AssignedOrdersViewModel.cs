@@ -11,13 +11,13 @@ namespace CareOnDemand.ViewModels.CarePartnerViewModels
     {
         public AssignedOrdersViewModel()
         {
-            AssignedOrders = new ObservableCollection<OrdersList>();
+            AssignedOrders = new List<OrdersList>();
             ActivityIndicatorVisible = true;
             ActivityIndicatorRunning = true;
             GetAssignedOrder();
         }
 
-        public ObservableCollection<OrdersList> AssignedOrders { get; set; }
+        public List<OrdersList> AssignedOrders { get; set; }
 
         private OrdersList selectedOrder;
         public OrdersList SelectedOrder

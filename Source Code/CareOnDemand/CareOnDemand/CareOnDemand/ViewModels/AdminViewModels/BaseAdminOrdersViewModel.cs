@@ -89,6 +89,9 @@ namespace CareOnDemand.ViewModels.AdminViewModels
                 });
             }
 
+            // Sort in descending order
+            order_list_to_display.Sort((a, b) => b.CustomerOrder.CreationTime.CompareTo(a.CustomerOrder.CreationTime));
+
             return order_list_to_display;
         }
 
