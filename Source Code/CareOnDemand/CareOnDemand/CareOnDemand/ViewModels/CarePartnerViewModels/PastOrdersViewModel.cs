@@ -14,7 +14,7 @@ namespace CareOnDemand.ViewModels.CarePartnerViewModels
             PastOrders = new ObservableCollection<OrdersList>();
             ActivityIndicatorVisible = true;
             ActivityIndicatorRunning = true;
-            GetAssignedOrder();
+            GetPastOrders();
         }
 
         public ObservableCollection<OrdersList> PastOrders { get; set; }
@@ -39,7 +39,7 @@ namespace CareOnDemand.ViewModels.CarePartnerViewModels
         {
             await Application.Current.MainPage.Navigation.PushAsync(new ViewPastOrders());
         }
-        async void GetAssignedOrder()
+        async void GetPastOrders()
         {
             string[] newOrderStatusArray = { "Completed", "Cancelled" };
 
