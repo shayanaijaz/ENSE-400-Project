@@ -75,11 +75,22 @@ namespace CareOnDemand.ViewModels
         {
             if (user_order != null)
             {
+                if (user_order_service.Count == 0)
+                {
+                    CheckoutIsVisible = false;
+                    OnPropertyChanged(nameof(CheckoutIsVisible));
+                    return;
+                }
+
                 CheckoutIsVisible = true;
                 //CheckoutText = "Checkout " + "(" + user_order.Order_Services.Count + ")";
                 // placeholder
                 CheckoutText = "Checkout " + "(" + user_order_service.Count + ")";
+
+
             }
+
+
         }
 
         async Task CheckoutButtonClicked()

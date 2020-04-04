@@ -30,8 +30,18 @@ namespace CareOnDemand.ViewModels
         {
             user_order_service.Remove((Order_Service) item);
             OnPropertyChanged(nameof(Order_Service_List));
-            await Application.Current.MainPage.Navigation.PopAsync();
-            await Application.Current.MainPage.Navigation.PushAsync(new OrderDetails());
+
+            if (user_order_service.Count == 0)
+            {
+                await Application.Current.MainPage.Navigation.PopAsync();
+                await Application.Current.MainPage.Navigation.PushAsync(new CustomerNavBar());
+            } 
+            else
+            {
+                await Application.Current.MainPage.Navigation.PopAsync();
+                await Application.Current.MainPage.Navigation.PushAsync(new OrderDetails());
+            }
+
 
         }
         public List<Address> AddressList { get; set; }

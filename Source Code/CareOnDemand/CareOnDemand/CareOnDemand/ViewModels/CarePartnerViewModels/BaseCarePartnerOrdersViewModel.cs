@@ -73,7 +73,6 @@ namespace CareOnDemand.ViewModels.CarePartnerViewModels
                         CustomerName = account.FirstName.Trim() + " " + account.LastName.Trim(),
                         CustomerOrder = order,
                         ServicesOrderedString = servicesString,
-                        CarePartnerServiceRequest = service_request
                     });
                 }
             }
@@ -183,8 +182,6 @@ namespace CareOnDemand.ViewModels.CarePartnerViewModels
             public string CustomerName { get; set; }
             public string ServicesOrderedString { get; set; }
             public Order CustomerOrder { get; set; }
-            public ServiceRequest CarePartnerServiceRequest { get; set; }
-
         }
 
     }
