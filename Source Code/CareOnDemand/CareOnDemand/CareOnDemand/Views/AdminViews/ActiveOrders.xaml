@@ -25,17 +25,20 @@
             <ContentView.Content>
                 <Grid StyleClass="serviceSelectionGrid"> <!-- Page Layout Grid-->
                     <ActivityIndicator IsVisible="{Binding ActivityIndicatorVisible}" IsRunning="{Binding ActivityIndicatorRunning}" Scale="0.25" />
-                    <ListView x:Name="OrderListView" ItemsSource="{Binding ActiveOrders}" StyleClass="main"
+                    <ListView x:Name="OrderListView" ItemsSource="{Binding Orders}" StyleClass="main"
                     SeparatorVisibility="Default"
-                    RowHeight="100"
-                    SelectedItem="{Binding SelectedOrder}"> <!-- Listview of current active orders-->
+                    HasUnevenRows="True"
+                    SelectedItem="{Binding SelectedOrder}"
+                    IsPullToRefreshEnabled="True"
+                    RefreshCommand="{Binding RefreshCommand}"
+                    IsRefreshing="{Binding IsRefreshing}"> <!-- Listview of current active orders-->
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <ViewCell Tapped="ViewCellTapped">
                                     <Grid StyleClass="main"> <!-- Grid layout to show orders-->
                                         <Grid.RowDefinitions>
-                                            <RowDefinition Height="30"/>
-                                            <RowDefinition Height="60"/>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
                                         </Grid.RowDefinitions>
                                         <Label Grid.Row="0" FontAttributes="Bold" FontSize="Medium" Text="{Binding CustomerName}" /> <!-- Customer name label-->
                                         <Label Grid.Row="1" VerticalOptions="Start"  Text="{Binding ServicesOrderedString}" /> <!-- Customer services label-->

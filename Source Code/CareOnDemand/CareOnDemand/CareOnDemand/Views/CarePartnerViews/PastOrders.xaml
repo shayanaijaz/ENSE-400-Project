@@ -15,10 +15,13 @@
                 <Grid StyleClass="serviceSelectionGrid">
                     <!-- Page layout Grid-->
                     <ActivityIndicator IsVisible="{Binding ActivityIndicatorVisible}" IsRunning="{Binding ActivityIndicatorRunning}" Scale="0.25" />
-                    <ListView x:Name="OrderListView" ItemsSource="{Binding PastOrders}" StyleClass="main"
+                    <ListView x:Name="OrderListView" ItemsSource="{Binding Orders}" StyleClass="main"
                     SeparatorVisibility="Default"
-                    RowHeight="100"
-                    SelectedItem="{Binding SelectedOrder}">
+                    HasUnevenRows="True"
+                    SelectedItem="{Binding SelectedOrder}"
+                    IsPullToRefreshEnabled="True"
+                    RefreshCommand="{Binding RefreshCommand}"
+                    IsRefreshing="{Binding IsRefreshing}">
                         <!-- Listview of NewOrders-->
                         <ListView.ItemTemplate>
                             <DataTemplate>
@@ -27,8 +30,8 @@
                                         <!-- Second grid used to display orders-->
                                         <Grid.RowDefinitions>
                                             <!-- Grid rows-->
-                                            <RowDefinition Height="30"/>
-                                            <RowDefinition Height="60"/>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
                                         </Grid.RowDefinitions>
                                         <Label Grid.Row="0" FontAttributes="Bold" FontSize="Medium" Text="{Binding CustomerName}" />
                                         <!-- Customer name label-->

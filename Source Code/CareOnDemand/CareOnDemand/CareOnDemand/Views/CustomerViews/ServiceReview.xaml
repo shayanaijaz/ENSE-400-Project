@@ -74,7 +74,7 @@
                         <Label Text="{Binding FinalPrice}" StyleClass="listSecondryLabel" Grid.Row="4" Grid.Column="1" VerticalOptions="CenterAndExpand"/> <!-- price autofilled from previous page-->
 
                         <Label Text="Additonal Instructions" StyleClass="listPrimaryLabel" Grid.Row="5" Grid.ColumnSpan="2" VerticalOptions="End"/> <!-- Entry for additional instructions-->
-                        <Entry StyleClass="listSecondryLabel" Grid.Row="6" Grid.ColumnSpan="2" VerticalOptions="CenterAndExpand"/>
+                        <Entry StyleClass="listSecondryLabel" Grid.Row="6" Grid.ColumnSpan="2" VerticalOptions="CenterAndExpand" Text="{Binding AdditionalInstructions}"/>
                     </Grid>
                 </Frame>
 

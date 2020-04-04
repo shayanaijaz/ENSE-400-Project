@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
+using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace CareOnDemand.ViewModels.CarePartnerViewModels
@@ -11,13 +12,18 @@ namespace CareOnDemand.ViewModels.CarePartnerViewModels
     {
         public AssignedOrdersViewModel()
         {
-            AssignedOrders = new ObservableCollection<OrdersList>();
+            Orders = new List<OrdersList>();
             ActivityIndicatorVisible = true;
             ActivityIndicatorRunning = true;
-            GetAssignedOrder();
-        }
 
-        public ObservableCollection<OrdersList> AssignedOrders { get; set; }
+            string[] assignedOrderStatusArray = { "In Progress", "On The Way", "Waiting" };
+
+            Task.Run(async () => await GetOrders(assignedOrderStatusArray));
+
+            RefreshCommand = new Command(async () => await ManualRefreshOrderList(assignedOrderStatusArray));
+            Device.StartTimer(TimeSpan.FromMinutes(5), () => AutoRefreshOrderList(assignedOrderStatusArray));
+
+        }
 
         private OrdersList selectedOrder;
         public OrdersList SelectedOrder
@@ -38,18 +44,6 @@ namespace CareOnDemand.ViewModels.CarePartnerViewModels
         async void OrderSelected()
         {
             await Application.Current.MainPage.Navigation.PushAsync(new ViewAssignedOrder());
-        }
-        async void GetAssignedOrder()
-        {
-            string[] newOrderStatusArray = { "In Progress", "On The Way", "Waiting" };
-
-            AssignedOrders = await GetOrdersFromDb(newOrderStatusArray);
-
-            ActivityIndicatorRunning = false;
-            ActivityIndicatorVisible = false;
-            OnPropertyChanged(nameof(ActivityIndicatorRunning));
-            OnPropertyChanged(nameof(ActivityIndicatorVisible));
-            OnPropertyChanged(nameof(AssignedOrders));
         }
 
     }

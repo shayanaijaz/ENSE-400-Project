@@ -32,20 +32,51 @@ namespace CareOnDemand.ViewModels.CarePartnerViewModels
         public bool StartOrderVisible { get; set; }
         public bool CompleteOrderVisible { get; set; }
         public ObservableCollection<Order_Service> OrderServicesList { get; set; }
+        public Command RefreshCommand { get; set; }
+        public bool IsRefreshing { get; set; }
+        public List<OrdersList> Orders { get; set; }
 
+        public async Task GetOrders(string[] orderStatusArray)
+        {
+            Orders = await GetOrdersFromDb(orderStatusArray);
+            ActivityIndicatorRunning = false;
+            ActivityIndicatorVisible = false;
+            OnPropertyChanged(nameof(ActivityIndicatorRunning));
+            OnPropertyChanged(nameof(ActivityIndicatorVisible));
+            OnPropertyChanged(nameof(Orders));
+        }
 
-        public async Task<ObservableCollection<OrdersList>> GetOrdersFromDb(string[] OrderStatusList)
+        public bool AutoRefreshOrderList(string[] orderStatusArray)
+        {
+            Device.BeginInvokeOnMainThread(async () => await GetOrders(orderStatusArray));
+            return true;
+        }
+
+        public async Task ManualRefreshOrderList(string[] orderStatusArray)
+        {
+            IsRefreshing = true;
+            OnPropertyChanged(nameof(IsRefreshing));
+
+            await GetOrders(orderStatusArray);
+
+            IsRefreshing = false;
+            OnPropertyChanged(nameof(IsRefreshing));
+        }
+
+        public async Task<List<OrdersList>> GetOrdersFromDb(string[] OrderStatusList)
         {
             int carePartnerID = (int)Application.Current.Properties["carePartnerID"];
             List<ServiceRequest> serviceRequestList = await new ServiceRequestRestService().GetServiceRequestsByCarePartnerIDAsync(carePartnerID);
 
-            ObservableCollection<OrdersList> order_list_to_display = new ObservableCollection<OrdersList>();
+            List<OrdersList> order_list_to_display = new List<OrdersList>();
 
             foreach (var service_request in serviceRequestList)
             {
                 Order order = await new OrderRestService().GetOrdersByOrderIDAsync(service_request.OrderID);
 
                 OrderStatus orderStatus = await new OrderStatusRestService().GetOrderStatusByIDAsync(order.OrderStatusID);
+
+                order.ServiceRequest = service_request;
 
                 if (OrderStatusList.Contains(orderStatus.Status.Trim()))
                 {
@@ -70,10 +101,13 @@ namespace CareOnDemand.ViewModels.CarePartnerViewModels
                     {
                         CustomerName = account.FirstName.Trim() + " " + account.LastName.Trim(),
                         CustomerOrder = order,
-                        ServicesOrderedString = servicesString
+                        ServicesOrderedString = servicesString,
                     });
                 }
             }
+
+            // Sort in descending order
+            order_list_to_display.Sort((a, b) => b.CustomerOrder.CreationTime.CompareTo(a.CustomerOrder.CreationTime));
 
             return order_list_to_display;
 
@@ -137,12 +171,26 @@ namespace CareOnDemand.ViewModels.CarePartnerViewModels
             if (order.OrderInstructions != null)
             {
                 AdditionalInstructions = order.OrderInstructions.Trim();
+            } 
+            else
+            {
+                AdditionalInstructions = "None";
+            }
+
+            if (order.ServiceRequest.OrderNotes != null)
+            {
+                CarePartnerNotes = order.ServiceRequest.OrderNotes.Trim();
+            }
+            else
+            {
+                CarePartnerNotes = "None";
             }
 
             ElementVisible = true;
             ActivityIndicatorRunning = false;
             ActivityIndicatorVisible = false;
 
+            OnPropertyChanged(nameof(CarePartnerNotes));
             OnPropertyChanged(nameof(ActivityIndicatorRunning));
             OnPropertyChanged(nameof(ActivityIndicatorVisible));
             OnPropertyChanged(nameof(ElementVisible));
@@ -163,7 +211,6 @@ namespace CareOnDemand.ViewModels.CarePartnerViewModels
             public string CustomerName { get; set; }
             public string ServicesOrderedString { get; set; }
             public Order CustomerOrder { get; set; }
-
         }
 
     }

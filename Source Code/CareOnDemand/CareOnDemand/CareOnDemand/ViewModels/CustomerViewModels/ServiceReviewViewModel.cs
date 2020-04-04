@@ -115,7 +115,8 @@ namespace CareOnDemand.ViewModels
             }
 
             await Application.Current.MainPage.DisplayAlert("Success", "Order placed successfully!", "OK");
-            await Application.Current.MainPage.Navigation.PushAsync(new ServiceSelectionList());
+            user_order = null;
+            await Application.Current.MainPage.Navigation.PushAsync(new CustomerNavBar());
 
         }
     }
