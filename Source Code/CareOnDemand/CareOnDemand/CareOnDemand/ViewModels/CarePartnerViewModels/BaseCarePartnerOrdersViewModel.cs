@@ -32,7 +32,36 @@ namespace CareOnDemand.ViewModels.CarePartnerViewModels
         public bool StartOrderVisible { get; set; }
         public bool CompleteOrderVisible { get; set; }
         public ObservableCollection<Order_Service> OrderServicesList { get; set; }
+        public Command RefreshCommand { get; set; }
+        public bool IsRefreshing { get; set; }
+        public List<OrdersList> Orders { get; set; }
 
+        public async Task GetOrders(string[] orderStatusArray)
+        {
+            Orders = await GetOrdersFromDb(orderStatusArray);
+            ActivityIndicatorRunning = false;
+            ActivityIndicatorVisible = false;
+            OnPropertyChanged(nameof(ActivityIndicatorRunning));
+            OnPropertyChanged(nameof(ActivityIndicatorVisible));
+            OnPropertyChanged(nameof(Orders));
+        }
+
+        public bool AutoRefreshOrderList(string[] orderStatusArray)
+        {
+            Device.BeginInvokeOnMainThread(async () => await GetOrders(orderStatusArray));
+            return true;
+        }
+
+        public async Task ManualRefreshOrderList(string[] orderStatusArray)
+        {
+            IsRefreshing = true;
+            OnPropertyChanged(nameof(IsRefreshing));
+
+            await GetOrders(orderStatusArray);
+
+            IsRefreshing = false;
+            OnPropertyChanged(nameof(IsRefreshing));
+        }
 
         public async Task<List<OrdersList>> GetOrdersFromDb(string[] OrderStatusList)
         {

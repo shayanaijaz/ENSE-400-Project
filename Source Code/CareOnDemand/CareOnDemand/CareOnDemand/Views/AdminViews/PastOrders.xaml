@@ -25,10 +25,13 @@
             <ContentView.Content>
                 <Grid StyleClass="serviceSelectionGrid"> <!-- Page Layout Grid-->
                     <ActivityIndicator IsVisible="{Binding ActivityIndicatorVisible}" IsRunning="{Binding ActivityIndicatorRunning}" Scale="0.25" /> <!-- Activity indicator to define visibility of list-->
-                    <ListView x:Name="OrderListView" ItemsSource="{Binding PastOrders}" StyleClass="main"
+                    <ListView x:Name="OrderListView" ItemsSource="{Binding Orders}" StyleClass="main"
                     SeparatorVisibility="Default"
                     HasUnevenRows="True"
-                    SelectedItem="{Binding SelectedOrder}"> <!-- Listview or Past orders-->
+                    SelectedItem="{Binding SelectedOrder}"
+                    IsPullToRefreshEnabled="True"
+                    RefreshCommand="{Binding RefreshCommand}"
+                    IsRefreshing="{Binding IsRefreshing}"> <!-- Listview or Past orders-->
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <ViewCell Tapped="ViewCellTapped">

@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
+using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace CareOnDemand.ViewModels.CarePartnerViewModels
@@ -11,13 +12,17 @@ namespace CareOnDemand.ViewModels.CarePartnerViewModels
     {
         public PastOrdersViewModel()
         {
-            PastOrders = new List<OrdersList>();
+            Orders = new List<OrdersList>();
             ActivityIndicatorVisible = true;
             ActivityIndicatorRunning = true;
-            GetPastOrders();
-        }
 
-        public List<OrdersList> PastOrders { get; set; }
+            string[] pastOrderStatusArray = { "Completed", "Cancelled" };
+
+            Task.Run(async () => await GetOrders(pastOrderStatusArray));
+
+            RefreshCommand = new Command(async () => await ManualRefreshOrderList(pastOrderStatusArray));
+            Device.StartTimer(TimeSpan.FromMinutes(5), () => AutoRefreshOrderList(pastOrderStatusArray));
+        }
 
         private OrdersList selectedOrder;
         public OrdersList SelectedOrder
@@ -38,18 +43,6 @@ namespace CareOnDemand.ViewModels.CarePartnerViewModels
         async void OrderSelected()
         {
             await Application.Current.MainPage.Navigation.PushAsync(new ViewPastOrders());
-        }
-        async void GetPastOrders()
-        {
-            string[] newOrderStatusArray = { "Completed", "Cancelled" };
-
-            PastOrders = await GetOrdersFromDb(newOrderStatusArray);
-
-            ActivityIndicatorRunning = false;
-            ActivityIndicatorVisible = false;
-            OnPropertyChanged(nameof(ActivityIndicatorRunning));
-            OnPropertyChanged(nameof(ActivityIndicatorVisible));
-            OnPropertyChanged(nameof(PastOrders));
         }
     }
 }

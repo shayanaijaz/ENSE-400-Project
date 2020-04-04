@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
+using System.Threading.Tasks;
 using CareOnDemand.Data;
 using CareOnDemand.Models;
 using CareOnDemand.Views.AdminViews;
@@ -13,13 +14,18 @@ namespace CareOnDemand.ViewModels.AdminViewModels
     {
         public NewOrdersViewModel()
         {
-            NewOrders = new List<OrdersList>();
-            ActivityIndicatorVisible = true;
-            ActivityIndicatorRunning = true;
-            GetNewOrder();
-        }
+            Orders = new List<OrdersList>();
 
-        public List<OrdersList> NewOrders { get; set; }
+            string[] newOrderStatusArray = { "New" };
+
+            ActivityIndicatorRunning = true;
+            ActivityIndicatorVisible = true;
+
+            Task.Run(async () => await GetOrders(newOrderStatusArray));
+
+            RefreshCommand = new Command(async () => await ManualRefreshOrderList(newOrderStatusArray));
+            Device.StartTimer(TimeSpan.FromMinutes(5), () => AutoRefreshOrderList(newOrderStatusArray));
+        }
 
         private OrdersList selectedOrder;
         public OrdersList SelectedOrder
@@ -42,18 +48,8 @@ namespace CareOnDemand.ViewModels.AdminViewModels
         {
             await Application.Current.MainPage.Navigation.PushAsync(new ViewNewOrder());
         }
-        async void GetNewOrder()
-        {
-            string[] newOrderStatusArray = {"New"};
 
-            NewOrders = await GetOrdersFromDb(newOrderStatusArray);
 
-            ActivityIndicatorRunning = false;
-            ActivityIndicatorVisible = false;
-            OnPropertyChanged(nameof(ActivityIndicatorRunning));
-            OnPropertyChanged(nameof(ActivityIndicatorVisible));
-            OnPropertyChanged(nameof(NewOrders));
-        }
 
     }
 }

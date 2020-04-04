@@ -15,10 +15,13 @@
                 <Grid StyleClass="serviceSelectionGrid">
                     <!-- Page layout Grid-->
                     <ActivityIndicator IsVisible="{Binding ActivityIndicatorVisible}" IsRunning="{Binding ActivityIndicatorRunning}" Scale="0.25" />
-                    <ListView x:Name="OrderListView" ItemsSource="{Binding PastOrders}" StyleClass="main"
+                    <ListView x:Name="OrderListView" ItemsSource="{Binding Orders}" StyleClass="main"
                     SeparatorVisibility="Default"
                     HasUnevenRows="True"
-                    SelectedItem="{Binding SelectedOrder}">
+                    SelectedItem="{Binding SelectedOrder}"
+                    IsPullToRefreshEnabled="True"
+                    RefreshCommand="{Binding RefreshCommand}"
+                    IsRefreshing="{Binding IsRefreshing}">
                         <!-- Listview of NewOrders-->
                         <ListView.ItemTemplate>
                             <DataTemplate>
