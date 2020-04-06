@@ -43,7 +43,7 @@ namespace CareOnDemand.ViewModels
         }
         async Task ChangePassButtonClicked()
         {
-            await Application.Current.MainPage.Navigation.PushAsync(new ChangePassPage());
+            await Application.Current.MainPage.Navigation.PushAsync(new ForgotPassPage());
         }
 
         async Task LogOut()
