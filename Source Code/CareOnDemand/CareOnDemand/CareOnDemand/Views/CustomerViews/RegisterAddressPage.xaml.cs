@@ -20,7 +20,7 @@ namespace CareOnDemand.Views.CustomerViews
 
             BindingContext = new RegisterAddressViewModel();
             //if there is an account, display the add address button instead of the create account button
-            if ((int)Application.Current.Properties["accountLevelID"] == 3)
+            if (Application.Current.Properties["accountID"] != null)
             {
                 addr_label.IsVisible = true;
                 create_acct.IsVisible = false;

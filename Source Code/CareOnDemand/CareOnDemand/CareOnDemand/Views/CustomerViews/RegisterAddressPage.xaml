@@ -5,7 +5,7 @@
     The Ni(c)(k)S
 
     Author: Nickolas Schmidt
-    Contributor(s): 
+    Contributor(s): Nicolas Achter
     Last Modified: March 14th
 -->
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
@@ -22,6 +22,7 @@
     <ContentPage.Content>
         <Grid StyleClass="main"> <!-- Page layout Grid-->
             <Grid.RowDefinitions> <!-- Grid Rows -->
+                <RowDefinition Height="0.1*" />
                 <RowDefinition Height="0.1*" />
                 <RowDefinition Height="0.1*" />
                 <RowDefinition Height="0.1*" />
@@ -53,10 +54,10 @@
             </Picker>
 
             <Entry Grid.Row="3"  Grid.Column="0"  VerticalOptions="Start" Grid.ColumnSpan="3" FontSize="20" Placeholder="Postal Code" Text="{Binding AddressPostalCode}"/> <!-- Postal code entry-->
-            <Entry Grid.Row="3" x:Name="addr_label" Grid.Column="0" VerticalOptions="Start" Grid.ColumnSpan="3" FontSize="20" Placeholder="Address Name" IsVisible="False" Text="{Binding AddressLabel}"/> <!-- Address label entry-->
-            <Button StyleClass="primaryButton" x:Name="create_acct" Grid.Row="4" Text="Create Account"  VerticalOptions="Start" Grid.ColumnSpan="3" IsVisible="True" Command="{Binding CreateAccountCommand}"/> <!-- Creates an account-->
-            <Button StyleClass="primaryButton" x:Name="add_addr" Grid.Row="4" Text="Add Address"  VerticalOptions="Start" Grid.ColumnSpan="3" IsVisible="False" Command="{Binding AddAddressCommand}"/> <!-- Adds an address to customer account -->
-            <Button Grid.Row="5" Grid.Column="0" StyleClass="contactButton" Grid.ColumnSpan="3" VerticalOptions="End" HorizontalOptions="CenterAndExpand" Text="Contact Eden Care" Command="{Binding ContactCommand}" /> <!-- Contact Eden Care button-->
+            <Entry Grid.Row="4" x:Name="addr_label" Grid.Column="0" VerticalOptions="Start" Grid.ColumnSpan="3" FontSize="20" Placeholder="Address Name" IsVisible="False" Text="{Binding AddressLabel}"/> <!-- Address label entry-->
+            <Button StyleClass="primaryButton" x:Name="create_acct" Grid.Row="5" Text="Create Account"  VerticalOptions="Start" Grid.ColumnSpan="3" IsVisible="True" Command="{Binding CreateAccountCommand}"/> <!-- Creates an account-->
+            <Button StyleClass="primaryButton" x:Name="add_addr" Grid.Row="5" Text="Add Address"  VerticalOptions="Start" Grid.ColumnSpan="3" IsVisible="False" Command="{Binding AddAddressCommand}"/> <!-- Adds an address to customer account -->
+            <Button Grid.Row="6" Grid.Column="0" StyleClass="contactButton" Grid.ColumnSpan="3" VerticalOptions="End" HorizontalOptions="CenterAndExpand" Text="Contact Eden Care" Command="{Binding ContactCommand}" /> <!-- Contact Eden Care button-->
 
         </Grid>
     </ContentPage.Content>

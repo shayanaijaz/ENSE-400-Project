@@ -1,4 +1,14 @@
-﻿using CareOnDemand.Models;
+﻿/*
+    Care on Demand Application
+    Capstone 2020 - ENSE 400/477
+    The Ni(c)(k)S
+
+    Author: Shayan Khan
+    Contributor(s): Nicolas Achter
+    Last Modified: Apr. 06, 2020
+*/
+
+using CareOnDemand.Models;
 using System;
 
 namespace CareOnDemand.ViewModels
