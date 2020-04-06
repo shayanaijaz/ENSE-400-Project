@@ -1,5 +1,6 @@
 ﻿using CareOnDemand.Data;
 using CareOnDemand.Models;
+using CareOnDemand.Views.AdminViews;
 using CareOnDemand.Views.SharedViews;
 using System;
 using System.Collections.Generic;
@@ -15,11 +16,13 @@ namespace CareOnDemand.ViewModels.AdminViewModels
         {
             GetAdminName();
 
-            GoToMyAccountCommand = new Command(async () => await MyAccountButtonClicked()); //my account button
+            GoToCreateAccountCommand = new Command(async () => await CreateAccountButtonClicked()); //create account button
+            GoToMyAccountCommand = new Command(async () => await MyAccountButtonClicked());         //my account button
         }
 
         public string AdminName { get; set; }
 
+        public Command GoToCreateAccountCommand { private set; get; }
         public Command GoToMyAccountCommand { private set; get; }
 
         async void GetAdminName()
@@ -31,6 +34,12 @@ namespace CareOnDemand.ViewModels.AdminViewModels
                 AdminName = "Welcome " + account.FirstName.Trim();
                 OnPropertyChanged(nameof(AdminName));
             }
+        }
+
+        //go to account management page
+        async Task CreateAccountButtonClicked()
+        {
+            await Application.Current.MainPage.Navigation.PushAsync(new AccountCreationPage());
         }
 
         //go to account management page
