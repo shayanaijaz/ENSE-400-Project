@@ -10,9 +10,9 @@ using Xamarin.Forms.Xaml;
 namespace CareOnDemand.Views.CarePartnerViews
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class CurrentOrder : ContentPage
+    public partial class ViewPastOrders : ContentPage
     {
-        public CurrentOrder()
+        public ViewPastOrders()
         {
             InitializeComponent();
         }

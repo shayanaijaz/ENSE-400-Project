@@ -6,7 +6,7 @@
   
     Author: Nikolas Lendvoy 
     Contributor(s): 
-    Last Modified: March 27
+    Last Modified: April 2
 -->
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
@@ -21,80 +21,92 @@
         <StyleSheet Source="/Views/StyleSheet.css" />
     </ContentPage.Resources>
     <ContentPage.Content>
-        
         <ContentView>
             <ScrollView VerticalScrollBarVisibility="Always">
-                <Grid StyleClass="main"> <!-- Page layout Grid-->
-                    <Grid.RowDefinitions> <!-- Grid rows-->
-                        <RowDefinition Height="Auto" /> <!--Services-->
-                        <RowDefinition Height="0.1*" /> <!--Location-->
-                        <RowDefinition Height="0.1*" /> <!--Time-->
-                        <RowDefinition Height="0.1*" />
-                        <RowDefinition Height="0.1*" /> <!--Recipient-->
-                        <RowDefinition Height="0.1*" /> <!--Price-->
-                        <RowDefinition Height="0.1*" /> <!--Additional Customer Instructions-->
-                        <RowDefinition Height="0.2*" />
-                        <RowDefinition Height="0.1*" /> <!--Additional Admin Instructions-->
-                        <RowDefinition Height="0.1*" />
-                        <RowDefinition Height="0.1*" /> <!--Buttons-->
-                        <RowDefinition Height="0.1*" />
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions> <!-- Grid Columns-->
-                        <ColumnDefinition Width="0.333*" />
-                        <ColumnDefinition Width="0.333*" />
-                        <ColumnDefinition Width="0.333*" />
-                    </Grid.ColumnDefinitions>
-                    <ListView x:Name="ServicesOrdered" MinimumHeightRequest="70" RowHeight="70" VerticalOptions="FillAndExpand" Grid.Row="0" Grid.ColumnSpan="3" ItemsSource="{Binding OrderServicesList}" SelectionMode="None" VerticalScrollBarVisibility="Never">
-                        <ListView.ItemTemplate> <!-- List view of orders from Database-->
-                            <DataTemplate>
-                                <ViewCell>
-                                    <Grid>
-                                        <Grid.RowDefinitions>
-                                            <RowDefinition Height="40"/>
-                                        </Grid.RowDefinitions>
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="0.45*"/>
-                                            <ColumnDefinition Width="0.03*" />
-                                            <ColumnDefinition Width="0.37*" />
-                                        </Grid.ColumnDefinitions>
-                                        <Label Grid.Row="0" Grid.Column="0" FontSize="Subtitle" Text="{Binding ServiceName}" VerticalOptions="Center"/>
-                                        <Label Grid.Row="0" Grid.Column="1" FontSize="Subtitle" Text="{Binding RequestedLength}" VerticalOptions="Center"/>
-                                        <Label Grid.Row="0" Grid.Column="2" FontSize="Subtitle" Text="hours" VerticalOptions="Center"/>
-                                    </Grid>
-                                </ViewCell>
-                            </DataTemplate>
-                        </ListView.ItemTemplate>
-                    </ListView>
+                <StackLayout StyleClass="main">
+                    <Frame StyleClass="plainFrame" IsVisible="{Binding ElementVisible}">
+                        <ListView x:Name="ServicesOrdered" MinimumHeightRequest="45" RowHeight="45" VerticalOptions="FillAndExpand" ItemsSource="{Binding OrderServicesList}" SelectionMode="None" VerticalScrollBarVisibility="Never">
+                            <ListView.ItemTemplate>
+                                <!-- List view of orders from Database-->
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <Grid>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="40"/>
+                                            </Grid.RowDefinitions>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="0.45*"/>
+                                                <ColumnDefinition Width="0.03*" />
+                                                <ColumnDefinition Width="0.37*" />
+                                            </Grid.ColumnDefinitions>
+                                            <Label Grid.Row="0" Grid.Column="0" TextColor="Black" FontSize="Subtitle" Text="{Binding ServiceName}" VerticalOptions="Center"/>
+                                            <Label Grid.Row="0" Grid.Column="1" TextColor="Black" FontSize="Subtitle" Text="{Binding RequestedLength}" VerticalOptions="Center"/>
+                                            <Label Grid.Row="0" Grid.Column="2" TextColor="Black" FontSize="Subtitle" Text="hours" VerticalOptions="Center"/>
+                                        </Grid>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </Frame>
+
+                    <ActivityIndicator IsVisible="{Binding ActivityIndicatorVisible}" IsRunning="{Binding ActivityIndicatorRunning}" Scale="2.00" HorizontalOptions="CenterAndExpand"
+                            VerticalOptions="CenterAndExpand" />
+                    <Frame StyleClass="plainFrame" IsVisible="{Binding ElementVisible}">
+                    <Grid>
+                        <!-- Page layout Grid-->
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="0.1*" /> <!-- Location-->
+                            <RowDefinition Height="0.1*" /> <!-- Date-->
+                            <RowDefinition Height="0.1*" /> <!-- Time-->
+                            <RowDefinition Height="0.1*" /> <!-- Status-->
+                            <RowDefinition Height="0.1*" /> <!-- Recipient-->
+                            <RowDefinition Height="0.1*" /> <!-- Final Price -->
+                            <RowDefinition Height="0.1*" /> <!-- Additional Instruction Label-->
+                            <RowDefinition Height="Auto" /> <!-- Additional Instructions-->
+                            <RowDefinition Height="0.1*" /> <!-- Select Care Partner-->
+                            <RowDefinition Height="0.2*" /> <!-- Notes to Care Partner-->
+                            </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <!-- Grid Columns-->
+                            <ColumnDefinition Width="0.333*" />
+                            <ColumnDefinition Width="0.333*" />
+                            <ColumnDefinition Width="0.333*" />
+                        </Grid.ColumnDefinitions>
                     
-                    <Label Text="Location" StyleClass="listPrimaryLabel" Grid.Row="1" Grid.Column="0" VerticalOptions="Center"/>
-                    <Label Text="{Binding Location}"  StyleClass="listSecondryLabel" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" VerticalOptions="Center" />
+                    <Label Text="Location" StyleClass="listPrimaryLabel" Grid.Row="0" Grid.Column="0" VerticalOptions="Center" IsVisible="{Binding ElementVisible}"/>
+                    <Label Text="{Binding Location}"  StyleClass="listSecondryLabel" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" VerticalOptions="Center" />
 
-                    <Label Text="Date" StyleClass="listPrimaryLabel" Grid.Row="2" Grid.Column="0" VerticalOptions="Center"/>
-                    <Label Text="{Binding DateString}"  StyleClass="listSecondryLabel" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" VerticalOptions="Center"/>
+                    <Label Text="Date" StyleClass="listPrimaryLabel" Grid.Row="1" Grid.Column="0" VerticalOptions="Center" IsVisible="{Binding ElementVisible}"/>
+                    <Label Text="{Binding DateString}"  StyleClass="listSecondryLabel" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" VerticalOptions="Center" IsVisible="{Binding ElementVisible}"/>
 
-                    <Label Text="Time" StyleClass="listPrimaryLabel" Grid.Row="3" Grid.Column="0" VerticalOptions="Center"/>
-                    <Label Text="{Binding TimeString}"  StyleClass="listSecondryLabel" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" VerticalOptions="Center"/>
+                    <Label Text="Time" StyleClass="listPrimaryLabel" Grid.Row="2" Grid.Column="0" VerticalOptions="Center" IsVisible="{Binding ElementVisible}"/>
+                    <Label Text="{Binding TimeString}"  StyleClass="listSecondryLabel" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" VerticalOptions="Center"/>
 
-                    <Label Text="Recipient" StyleClass="listPrimaryLabel" Grid.Row="4" Grid.Column="0" VerticalOptions="Center"/>
-                    <Label Text="{Binding Recipient}"  StyleClass="listSecondryLabel" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2" VerticalOptions="Center" />
+                    <Label Text="Recipient" StyleClass="listPrimaryLabel" Grid.Row="3" Grid.Column="0" VerticalOptions="Center" IsVisible="{Binding ElementVisible}"/>
+                    <Label Text="{Binding Recipient}"  StyleClass="listSecondryLabel" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" VerticalOptions="Center" />
 
-                    <Label Text="Final Price" StyleClass="listPrimaryLabel" Grid.Row="5" Grid.Column="0" VerticalOptions="Center"/>
+                    <Label Text="Status" StyleClass="listPrimaryLabel" Grid.Row="4" Grid.Column="0" VerticalOptions="Center" IsVisible="{Binding ElementVisible}"/>
+                    <Label Text="{Binding Status}"  StyleClass="listSecondryLabel" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2" VerticalOptions="Center" />
+
+                    <Label Text="Final Price" StyleClass="listPrimaryLabel" Grid.Row="5" Grid.Column="0" VerticalOptions="Center" IsVisible="{Binding ElementVisible}"/>
                     <Label Text="{Binding FinalPrice}"  StyleClass="listSecondryLabel" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2" VerticalOptions="Center"/>
 
-                    <Label Text="Additonal Instructions" StyleClass="listPrimaryLabel" Grid.Row="6" Grid.ColumnSpan="3" VerticalOptions="Center"/>
+                    <Label Text="Additonal Instructions" StyleClass="listPrimaryLabel" Grid.Row="6" Grid.ColumnSpan="3" VerticalOptions="Center" IsVisible="{Binding ElementVisible}" />
                     <Label Text="{Binding AdditionalInstructions}"  StyleClass="listSecondaryLabel" FontSize="Medium" Grid.Row="7" Grid.ColumnSpan="3" VerticalOptions="Center"/>
                     <Picker Title="Select Care Partner" VerticalOptions="Center" FontSize="Large" Grid.Row="8" Grid.ColumnSpan="3"
                             ItemsSource="{Binding CarePartnerAccounts}"
                             ItemDisplayBinding="{Binding CarePartnerAccount.FullName}"
-                            SelectedItem="{Binding SelectedCarePartner}"/>
+                            SelectedItem="{Binding SelectedCarePartner}"
+                            IsVisible="{Binding ElementVisible}"/>
 
-                    <Editor Placeholder="Notes to Care Partner" VerticalOptions="Center" Grid.Row="9" Grid.ColumnSpan="3" Text="{Binding CarePartnerNotes}" />
-
-                    <Button StyleClass="secondaryButton" Text="Edit Order" Grid.Row="10" Grid.ColumnSpan="3" />
-                    <Button StyleClass="primaryButton" Text="Assign Order" Grid.Row="11" Grid.ColumnSpan="3" Command="{Binding AssignOrderCommand}" />
-
-                </Grid>
-            </ScrollView>
+                    <Editor Placeholder="Notes to Care Partner" VerticalOptions="Center" Grid.Row="9" Grid.ColumnSpan="3" Text="{Binding CarePartnerNotes}" IsVisible="{Binding ElementVisible}" />
+                    </Grid>
+                </Frame>
+                <Button StyleClass="secondaryButton" Text="Edit Order" IsVisible="{Binding ElementVisible}" />
+                <Button StyleClass="primaryButton" Text="Assign Order" Command="{Binding AssignOrderCommand}" IsVisible="{Binding ElementVisible}" />
+                    
+                 </StackLayout>
+           </ScrollView>
         </ContentView>
     </ContentPage.Content>
 </ContentPage>

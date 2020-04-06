@@ -101,7 +101,7 @@ stacklayout.main{
 .plainFrame {
     background-color: white;
     border-radius: 5;
-    border-color: black;
+    border-color: lightgray;
     border-width: 1;
 }
 

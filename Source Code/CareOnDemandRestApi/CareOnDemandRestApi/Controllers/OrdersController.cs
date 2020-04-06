@@ -43,9 +43,23 @@ namespace CareOnDemandRestApi.Controllers
 
         // GET: api/Orders/OrderStatus/{orderStatus}
         [HttpGet("OrderStatus/{orderStatus}")]
-        public async Task<ActionResult<Order>> GetAccount(int orderStatus)
+        public async Task<ActionResult<Order>> GetOrderByOrderStatusIDAsync(int orderStatus)
         {
             var order = await _context.Orders.Where(a => a.OrderStatusID == orderStatus).ToListAsync();
+
+            if (order == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(order);
+        }
+
+        // GET: api/Orders/Customer/{customerID}
+        [HttpGet("Customer/{customerID}")]
+        public async Task<ActionResult<Order>> GetOrderByCustomerID(int customerID)
+        {
+            List<Order> order = await _context.Orders.Where(a => a.CustomerID == customerID).ToListAsync();
 
             if (order == null)
             {
@@ -348,6 +362,20 @@ namespace CareOnDemandRestApi.Controllers
             }
 
             return serviceRequest;
+        }
+
+        // GET: api/ServiceRequests/CarePartner/{carePartnerID}
+        [HttpGet("CarePartner/{carePartnerID}")]
+        public async Task<ActionResult<ServiceRequest>> GetServiceRequestByCarePartnerID(int carePartnerID)
+        {
+            var serviceRequest = await _context.ServiceRequests.Where(a => a.CarePartnerID == carePartnerID).ToListAsync();
+
+            if (serviceRequest == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(serviceRequest);
         }
 
         // PUT: api/ServiceRequests/5

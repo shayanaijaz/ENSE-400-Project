@@ -1,4 +1,4 @@
-﻿using CareOnDemand.ViewModels.CarePartnerViewModels;
+﻿using CareOnDemand.ViewModels.AdminViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,14 +11,14 @@ using Xamarin.Forms.Xaml;
 namespace CareOnDemand.Views.CarePartnerViews
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class AssignedOrders : ContentPage
+    public partial class PastOrders : ContentPage
     {
         ViewCell lastCell;
-        public AssignedOrders()
+        public PastOrders()
         {
             InitializeComponent();
 
-            BindingContext = new AssignedOrdersViewModel();
+            BindingContext = new PastOrdersViewModel();
         }
 
         private void ViewCellTapped(object sender, System.EventArgs e)

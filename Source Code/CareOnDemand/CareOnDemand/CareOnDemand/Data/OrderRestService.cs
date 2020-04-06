@@ -66,6 +66,52 @@ namespace CareOnDemand.Data
             return Orders;
         }
 
+        public async Task<List<Order>> GetOrderByCustomerIDAsync(int customerID)
+        {
+            Orders = new List<Order>();
+
+            try
+            {
+                var uri = new Uri(string.Format(Constants.OrdersByCustomerIDUrl, customerID));
+
+                var response = await _client.GetAsync(uri);
+                if (response.IsSuccessStatusCode)
+                {
+                    var content = await response.Content.ReadAsStringAsync();
+                    Orders = JsonConvert.DeserializeObject<List<Order>>(content);
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(@"\tERROR {0}", ex.Message);
+            }
+
+            return Orders;
+        }
+
+        public async Task<Order> GetOrdersByOrderIDAsync(int orderID)
+        {
+            Order order = new Order();
+
+            try
+            {
+                var uri = new Uri(string.Format(Constants.OrdersUrl, orderID));
+
+                var response = await _client.GetAsync(uri);
+                if (response.IsSuccessStatusCode)
+                {
+                    var content = await response.Content.ReadAsStringAsync();
+                    order = JsonConvert.DeserializeObject<Order>(content);
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(@"\tERROR {0}", ex.Message);
+            }
+
+            return order;
+        }
+
         public async Task<Order> SaveOrderAsync(Order item, bool isNewItem = false)
         {
             var uri = new Uri(string.Format(Constants.OrdersUrl, string.Empty));
@@ -263,6 +309,31 @@ namespace CareOnDemand.Data
 
             return orderStatuses;
         }
+
+        public async Task<OrderStatus> GetOrderStatusByIDAsync(int orderStatusID)
+        {
+            OrderStatus orderStatus = new OrderStatus();
+
+            try
+            {
+                var uri = new Uri(string.Format(Constants.OrderStatusesUrl, orderStatusID));
+
+                var response = await _client.GetAsync(uri);
+                if (response.IsSuccessStatusCode)
+                {
+                    var content = await response.Content.ReadAsStringAsync();
+                    orderStatus = JsonConvert.DeserializeObject<OrderStatus>(content);
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(@"\tERROR {0}", ex.Message);
+            }
+
+            return orderStatus;
+        }
+
+
     }
 
     class ServiceRequestRestService
@@ -283,6 +354,51 @@ namespace CareOnDemand.Data
             var uri = new Uri(string.Format(Constants.ServiceRequestsUrl, string.Empty));
             try
             {
+                var response = await _client.GetAsync(uri);
+                if (response.IsSuccessStatusCode)
+                {
+                    var content = await response.Content.ReadAsStringAsync();
+                    ServiceRequests = JsonConvert.DeserializeObject<List<ServiceRequest>>(content);
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(@"\tERROR {0}", ex.Message);
+            }
+
+            return ServiceRequests;
+        }
+
+        public async Task<ServiceRequest> GetServiceRequestByIDAsync(int serviceRequestID)
+        {
+            ServiceRequest ServiceRequests = new ServiceRequest();
+
+            var uri = new Uri(string.Format(Constants.ServiceRequestsUrl, serviceRequestID));
+            try
+            {
+                var response = await _client.GetAsync(uri);
+                if (response.IsSuccessStatusCode)
+                {
+                    var content = await response.Content.ReadAsStringAsync();
+                    ServiceRequests = JsonConvert.DeserializeObject<ServiceRequest>(content);
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(@"\tERROR {0}", ex.Message);
+            }
+
+            return ServiceRequests;
+        }
+
+        public async Task<List<ServiceRequest>> GetServiceRequestsByCarePartnerIDAsync(int carePartnerID)
+        {
+            ServiceRequests = new List<ServiceRequest>();
+
+            try
+            {
+                var uri = new Uri(string.Format(Constants.ServiceRequestsByCarePartnerIdUrl, carePartnerID));
+
                 var response = await _client.GetAsync(uri);
                 if (response.IsSuccessStatusCode)
                 {

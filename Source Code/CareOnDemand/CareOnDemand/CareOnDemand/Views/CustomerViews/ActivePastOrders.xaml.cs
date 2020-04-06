@@ -1,4 +1,4 @@
-﻿using CareOnDemand.ViewModels.CarePartnerViewModels;
+﻿using CareOnDemand.ViewModels.CustomerViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,17 +8,17 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace CareOnDemand.Views.CarePartnerViews
+namespace CareOnDemand.Views.CustomerViews
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class AssignedOrders : ContentPage
+    public partial class ActivePastOrders : ContentPage
     {
         ViewCell lastCell;
-        public AssignedOrders()
+        public ActivePastOrders()
         {
             InitializeComponent();
 
-            BindingContext = new AssignedOrdersViewModel();
+            BindingContext = new ActivePastOrdersViewModel();
         }
 
         private void ViewCellTapped(object sender, System.EventArgs e)
@@ -37,7 +37,8 @@ namespace CareOnDemand.Views.CarePartnerViews
         protected override void OnAppearing()
         {
             base.OnAppearing();
-            OrderListView.SelectedItem = null;
+            ActiveOrderListView.SelectedItem = null;
+            PastOrderListView.SelectedItem = null;
             if (lastCell != null)
                 lastCell.View.BackgroundColor = Color.Transparent;
         }

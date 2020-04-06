@@ -20,29 +20,12 @@ namespace CareOnDemand.ViewModels
         {
 
         }
-
-        public ObservableCollection<String> OrderServicesList { get; set; }
-
         public ObservableCollection<Order_Service> Order_Service_List
         {
             get => user_order_service;
             set
             {
                 user_order_service = value;
-            }
-        }
-
-        public void PopulateOrderServicesList()
-        {
-            //foreach (var service in user_order.Order_Services)
-            //{
-            //    OrderServicesList.Add(service.ServiceName.Trim() + " - " + service.RequestedLength + " hours");
-            //}
-
-            // placeholder
-            foreach (var service in user_order_service)
-            {
-                OrderServicesList.Add(service.ServiceName.Trim() + " - " + service.RequestedLength + " hours");
             }
         }
 

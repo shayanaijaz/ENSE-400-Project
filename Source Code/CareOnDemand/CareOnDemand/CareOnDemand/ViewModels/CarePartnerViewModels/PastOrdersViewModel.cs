@@ -1,5 +1,4 @@
-﻿using CareOnDemand.Models;
-using CareOnDemand.Views.AdminViews;
+﻿using CareOnDemand.Views.CarePartnerViews;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -7,9 +6,9 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
-namespace CareOnDemand.ViewModels.AdminViewModels
+namespace CareOnDemand.ViewModels.CarePartnerViewModels
 {
-    public class PastOrdersViewModel : BaseAdminOrdersViewModel
+    public class PastOrdersViewModel : BaseCarePartnerOrdersViewModel
     {
         public PastOrdersViewModel()
         {
@@ -17,13 +16,12 @@ namespace CareOnDemand.ViewModels.AdminViewModels
             ActivityIndicatorVisible = true;
             ActivityIndicatorRunning = true;
 
-            string[] pastOrderStatusArray = { "Cancelled", "Completed" };
+            string[] pastOrderStatusArray = { "Completed", "Cancelled" };
 
             Task.Run(async () => await GetOrders(pastOrderStatusArray));
 
             RefreshCommand = new Command(async () => await ManualRefreshOrderList(pastOrderStatusArray));
             Device.StartTimer(TimeSpan.FromMinutes(5), () => AutoRefreshOrderList(pastOrderStatusArray));
-
         }
 
         private OrdersList selectedOrder;
@@ -37,15 +35,14 @@ namespace CareOnDemand.ViewModels.AdminViewModels
                 if (selectedOrder == null)
                     return;
 
-                admin_selected_order = selectedOrder.CustomerOrder;
+                care_partner_selected_order = selectedOrder.CustomerOrder;
 
                 OrderSelected();
             }
         }
-
         async void OrderSelected()
         {
-            await Application.Current.MainPage.Navigation.PushAsync(new ViewActivePastOrders());
+            await Application.Current.MainPage.Navigation.PushAsync(new ViewPastOrders());
         }
     }
 }

@@ -22,65 +22,73 @@
     </ContentPage.Resources>
     <ContentPage.Content>
         <ScrollView>
-        <ContentView>
-            <Grid Padding="15" StyleClass="main"> <!-- Page layout Grid-->
-                <Grid.RowDefinitions> <!-- Grid rows-->
-                    <RowDefinition Height="0.06*" /> <!--Items-->
-                    <RowDefinition Height="0.03*" /> <!--Location-->
-                    <RowDefinition Height="0.03*" /> <!--Time-->
-                    <RowDefinition Height="0.03*" /> <!--Time-->
-                    <RowDefinition Height="0.03*" /> <!--Recipient-->
-                    <RowDefinition Height="0.03*" /> <!--Price-->
-                    <RowDefinition Height="0.03*" /> <!--Add_Instructions-->
-                    <RowDefinition Height="0.03*" />
-                    <RowDefinition Height="0.04*" /> <!--Buttons-->
-                    <RowDefinition Height="0.04*" />
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <!-- Grid columns-->
-                    <ColumnDefinition Width="0.334*" />
-                    <ColumnDefinition Width="0.666*" />
-                </Grid.ColumnDefinitions>
-                <ListView RowHeight="40" ItemsSource="{Binding OrderServicesList}" SelectionMode="None" Grid.ColumnSpan="2"> <!-- Listview from Selected Services from previous page-->
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <ViewCell>
-                                <Grid StyleClass="main">
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="20"/>
-                                    </Grid.RowDefinitions>
-                                    <Label Grid.Row="0" Grid.Column="0" FontSize="Subtitle" Text="{Binding}" />
-                                </Grid>
-                            </ViewCell>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
+            <StackLayout StyleClass="main">
+                <Frame StyleClass="plainFrame">
+                    <ListView MinimumHeightRequest="40" RowHeight="40" ItemsSource="{Binding Order_Service_List}" SelectionMode="None" Grid.ColumnSpan="2">
+                        <!-- Listview from Selected Services from previous page-->
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="45"/>
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="0.45*"/>
+                                            <ColumnDefinition Width="0.03*" />
+                                            <ColumnDefinition Width="0.37*" />
+                                            <ColumnDefinition Width="0.15*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Label Grid.Row="0" Grid.Column="0" FontSize="Subtitle" TextColor="Black" Text="{Binding ServiceName}" VerticalOptions="Center"/>
+                                        <Label Grid.Row="0" Grid.Column="1" FontSize="Subtitle" TextColor="Black" Text="{Binding RequestedLength}" VerticalOptions="Center"/>
+                                        <Label Grid.Row="0" Grid.Column="2" FontSize="Subtitle" TextColor="Black" Text="hours" VerticalOptions="Center"/>
+                                    </Grid>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </Frame>
 
-                <Label Text="Location" StyleClass="listPrimaryLabel" Grid.Row="1" Grid.Column="0" VerticalOptions="CenterAndExpand"/>
-                <Label Text="{Binding Address}"  StyleClass="listSecondryLabel" Grid.Row="1" Grid.Column="1" VerticalOptions="CenterAndExpand" />
-                <!-- Location autofilled from previous page-->
+                <Frame StyleClass="plainFrame">
+                    <Grid> <!-- Page layout Grid-->
+                        <Grid.RowDefinitions> <!-- Grid rows-->
+                            <RowDefinition Height="0.03*" /> <!--Location-->
+                            <RowDefinition Height="0.03*" /> <!--Time-->
+                            <RowDefinition Height="0.03*" /> <!--Time-->
+                            <RowDefinition Height="0.03*" /> <!--Recipient-->
+                            <RowDefinition Height="0.03*" /> <!--Price-->
+                            <RowDefinition Height="0.03*" /> <!--Add_Instructions-->
+                            <RowDefinition Height="0.03*" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <!-- Grid columns-->
+                            <ColumnDefinition Width="0.334*" />
+                            <ColumnDefinition Width="0.666*" />
+                        </Grid.ColumnDefinitions>
 
-                <Label Text="Date" StyleClass="listPrimaryLabel" Grid.Row="2" Grid.Column="0" VerticalOptions="CenterAndExpand"/>
-                <Label Text="{Binding DateString}" StyleClass="listSecondryLabel" Grid.Row="2" Grid.Column="1" VerticalOptions="CenterAndExpand"/>
+                        <Label Text="Location" StyleClass="listPrimaryLabel" Grid.Row="0" Grid.Column="0" VerticalOptions="CenterAndExpand"/>
+                        <Label Text="{Binding Address}"  StyleClass="listSecondryLabel" Grid.Row="0" Grid.Column="1" VerticalOptions="CenterAndExpand" /> <!-- Location autofilled from previous page-->
 
-                <Label Text="Time" StyleClass="listPrimaryLabel" Grid.Row="3" Grid.Column="0" VerticalOptions="CenterAndExpand"/>
-                <Label Text="{Binding TimeString}" StyleClass="listSecondryLabel" Grid.Row="3" Grid.Column="1" VerticalOptions="CenterAndExpand"/>
+                        <Label Text="Date" StyleClass="listPrimaryLabel" Grid.Row="1" Grid.Column="0" VerticalOptions="CenterAndExpand"/>
+                        <Label Text="{Binding DateString}" StyleClass="listSecondryLabel" Grid.Row="1" Grid.Column="1" VerticalOptions="CenterAndExpand"/>
 
-                <Label Text="Recipient" StyleClass="listPrimaryLabel" Grid.Row="4" Grid.Column="0" VerticalOptions="CenterAndExpand"/>
-                <Label Text="{Binding Recipient}"  StyleClass="listSecondryLabel" Grid.Row="4" Grid.Column="1" VerticalOptions="CenterAndExpand" />
-                <!-- Recipient autofilled from previous page-->
+                        <Label Text="Time" StyleClass="listPrimaryLabel" Grid.Row="2" Grid.Column="0" VerticalOptions="CenterAndExpand"/>
+                        <Label Text="{Binding TimeString}" StyleClass="listSecondryLabel" Grid.Row="2" Grid.Column="1" VerticalOptions="CenterAndExpand"/>
 
-                <Label Text="Final Price" StyleClass="listPrimaryLabel" Grid.Row="5" Grid.Column="0" VerticalOptions="CenterAndExpand"/>
-                <Label Text="{Binding FinalPrice}" StyleClass="listSecondryLabel" Grid.Row="5" Grid.Column="1" VerticalOptions="CenterAndExpand"/>
-                <!-- price autofilled from previous page-->
+                        <Label Text="Recipient" StyleClass="listPrimaryLabel" Grid.Row="3" Grid.Column="0" VerticalOptions="CenterAndExpand"/>
+                        <Label Text="{Binding Recipient}"  StyleClass="listSecondryLabel" Grid.Row="3" Grid.Column="1" VerticalOptions="CenterAndExpand" /> <!-- Recipient autofilled from previous page-->
 
-                <Label Text="Additonal Instructions" StyleClass="listPrimaryLabel" Grid.Row="6" Grid.ColumnSpan="2" VerticalOptions="End"/> <!-- Entry for additional instructions-->
-                <Entry StyleClass="listSecondryLabel" Grid.Row="7" Grid.ColumnSpan="2" VerticalOptions="CenterAndExpand"/>
+                        <Label Text="Final Price" StyleClass="listPrimaryLabel" Grid.Row="4" Grid.Column="0" VerticalOptions="CenterAndExpand"/>
+                        <Label Text="{Binding FinalPrice}" StyleClass="listSecondryLabel" Grid.Row="4" Grid.Column="1" VerticalOptions="CenterAndExpand"/> <!-- price autofilled from previous page-->
 
-                <Button StyleClass="primaryButton" Text="Submit Order" Grid.Row="8" Grid.ColumnSpan="2" VerticalOptions="CenterAndExpand" Command="{Binding SubmitOrderCommand}"/> <!-- Button to submit order-->
-                <Button StyleClass="contactButton" Text="Contact Eden Care" Grid.Row="9" Grid.ColumnSpan="2" HorizontalOptions="Center" VerticalOptions="End" /> <!-- Contact Eden Care button-->
-            </Grid>
-        </ContentView>
+                        <Label Text="Additonal Instructions" StyleClass="listPrimaryLabel" Grid.Row="5" Grid.ColumnSpan="2" VerticalOptions="End"/> <!-- Entry for additional instructions-->
+                        <Entry StyleClass="listSecondryLabel" Grid.Row="6" Grid.ColumnSpan="2" VerticalOptions="CenterAndExpand" Text="{Binding AdditionalInstructions}"/>
+                    </Grid>
+                </Frame>
+
+                <Button StyleClass="primaryButton" Text="Submit Order" VerticalOptions="CenterAndExpand" Command="{Binding SubmitOrderCommand}"/> <!-- Button to submit order-->
+                <Button StyleClass="contactButton" Text="Contact Eden Care" VerticalOptions="End" /> <!-- Contact Eden Care button-->
+        </StackLayout>
         </ScrollView>
     </ContentPage.Content>
 </ContentPage>
