@@ -1,19 +1,27 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
+<!-- 
+   Care on Demand Application
+    Capstone 2020 - ENSE 400/477
+    The Ni(c)(k)S
+
+    Author: Nikolas Lendvoy
+    Contributor(s): Nickolas Schmidt, 
+    Last Modified: April 6th
+-->
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              NavigationPage.HasNavigationBar="False"
+             Title="Care Partner Home"
              x:Class="CareOnDemand.Views.CarePartnerViews.CarePartnerHome">
     <ContentPage.Resources>
         <StyleSheet Source="/Views/StyleSheet.css" />
     </ContentPage.Resources>
-
     <ContentPage.Content>
-        
-        <Grid StyleClass="main">
-            <Grid.RowDefinitions>
+        <Grid StyleClass="main"> <!-- Page Layout Grid-->
+            <Grid.RowDefinitions> <!-- Grid rows-->
                 <RowDefinition Height="0.35*"/>
                 <RowDefinition Height="0.15*"/>
                 <RowDefinition Height="0.10*"/>
@@ -21,18 +29,12 @@
                 <RowDefinition Height="0.20*"/>
                 <RowDefinition Height="0.25*"/>
             </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-
-            </Grid.ColumnDefinitions>
-
-            <Image Grid.Row="0" Source="https://careondemand-storage.s3.ca-central-1.amazonaws.com/EdenCare_PlainLogo.png" />
-            <Label StyleClass="primaryLabel" HorizontalOptions="CenterAndExpand" VerticalOptions="Center" Text="Welcome *first name*" Grid.Row="1" Grid.Column="0" />
-            <Label StyleClass="secondaryLabel" Text="What are you searching for?" HorizontalOptions="CenterAndExpand" VerticalOptions="Center" Grid.Row="2" Grid.Column="0" />
-
-            <Button StyleClass="secondaryButton" Text="Orders" HorizontalOptions="Fill" VerticalOptions="Center" Grid.Row="3" Grid.Column="0" />
-            <Button StyleClass="secondaryButton" Text="My Account" HorizontalOptions="Fill" VerticalOptions="Start" Grid.Row="4" Grid.Column="0" />
-            <Label StyleClass="secondaryLabel" Text="Next Appointment:" VerticalOptions="Start" HorizontalOptions="Center" Grid.Row="5" />
+            <Image Grid.Row="0" Source="https://careondemand-storage.s3.ca-central-1.amazonaws.com/EdenCare_PlainLogo.png" /> <!-- Eden Care logo-->
+            <Label StyleClass="primaryLabel" HorizontalOptions="CenterAndExpand" VerticalOptions="Center" Text="Welcome *first name*" Grid.Row="1" /> <!-- Welcome label-->
+            <Label StyleClass="secondaryLabel" Text="What are you searching for?" HorizontalOptions="CenterAndExpand" VerticalOptions="Center" Grid.Row="2"  /> <!-- secondary label-->
+            <Button StyleClass="secondaryButton" Text="Orders" HorizontalOptions="Fill" VerticalOptions="Center" Grid.Row="3" Grid.Column="0" /> <!-- Button directing to AssignedOrders-->
+            <Button StyleClass="secondaryButton" Text="My Account" HorizontalOptions="Fill" VerticalOptions="Start" Grid.Row="4" Grid.Column="0" /> <!-- Button directing to Account Management-->
+            <Label StyleClass="secondaryLabel" Text="Next Appointment:" VerticalOptions="Start" HorizontalOptions="Center" Grid.Row="5" /> <!-- Will autofill with next appointment time-->
         </Grid>
-
     </ContentPage.Content>
 </ContentPage>
