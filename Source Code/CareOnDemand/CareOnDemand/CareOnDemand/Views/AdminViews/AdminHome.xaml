@@ -36,11 +36,11 @@
             <!-- Label indicating which admin account is logged in-->
             <Button StyleClass="secondaryButton" Text="Create Order" VerticalOptions="Start" Grid.Row="2"  />
             <!-- Button directing to Admin create order page-->
-            <Button StyleClass="secondaryButton" Text="Create Account" VerticalOptions="Start" Grid.Row="3" />
+            <Button StyleClass="secondaryButton" Text="Create Account" VerticalOptions="Start" Grid.Row="3" Command="{Binding GoToCreateAccountCommand}"/>
             <!-- Button directing to AccountCreation page-->
             <Button StyleClass="secondaryButton" Text="Modify User" VerticalOptions="Start" Grid.Row="4" />
             <!-- Button navigating to Modify User page-->
-            <Button StyleClass="secondaryButton" Text="My Account" VerticalOptions="Start" Grid.Row="5" />
+            <Button StyleClass="secondaryButton" Text="My Account" VerticalOptions="Start" Grid.Row="5"  Command="{Binding GoToMyAccountCommand}"/>
             <!-- Button navigating to my account page-->
         </Grid>
     </ContentPage.Content>

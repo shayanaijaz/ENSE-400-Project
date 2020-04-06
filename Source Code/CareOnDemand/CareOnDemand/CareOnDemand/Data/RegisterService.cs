@@ -38,6 +38,14 @@ namespace CareOnDemand.Models
             address_postal_code = customer_address.PostalCode;
         }
 
+        public RegisterService(Account account)
+        {
+            email = account.Email;
+            password = account.Password;
+            number = account.PhoneNumber;
+            name = account.FirstName + " " + account.LastName;
+        }
+
         public async Task CreateCognitoUser()
         {
             AmazonCognitoIdentityProviderClient client =
@@ -93,6 +101,13 @@ namespace CareOnDemand.Models
                     account.AccountLevelID = level.AccountLevelID;
             }
 
+            created_account = await accountRestService.SaveAccountAsync(account, true);
+        }
+
+        public async Task CreateDatabaseUser(Account account, int accountLevelID)
+        {
+            AccountRestService accountRestService = new AccountRestService();
+            account.AccountLevelID = accountLevelID;
             created_account = await accountRestService.SaveAccountAsync(account, true);
         }
 

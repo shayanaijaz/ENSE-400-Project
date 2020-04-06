@@ -13,7 +13,7 @@ using CareOnDemand.Data;
 
 namespace CareOnDemand.ViewModels
 {
-    public class AccountCreationViewModel : BaseViewModel
+    /*public class AccountCreationViewModel : BaseViewModel
     {
         public AccountCreationViewModel()
         {
@@ -38,5 +38,5 @@ namespace CareOnDemand.ViewModels
             return Accounts;
         }
         
-    }
+    }*/
 }

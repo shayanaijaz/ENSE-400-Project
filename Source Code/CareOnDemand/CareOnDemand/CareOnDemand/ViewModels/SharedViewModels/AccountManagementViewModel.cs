@@ -3,9 +3,9 @@
     Capstone 2020 - ENSE 400/477
     The Ni(c)(k)S
 
-    Author: Nicolas AChter
+    Author: Nicolas Achter
     Contributor(s):
-    Last Modified: Mar. 30, 2020
+    Last Modified: Apr. 06, 2020
 */
 
 using System;

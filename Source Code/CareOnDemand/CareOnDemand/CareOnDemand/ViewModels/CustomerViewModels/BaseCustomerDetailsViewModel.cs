@@ -1,7 +1,15 @@
-﻿using CareOnDemand.Models;
+﻿/*
+    Care on Demand Application
+    Capstone 2020 - ENSE 400/477
+    The Ni(c)(k)S
+
+    Author: Shayan Khan
+    Contributor(s): Nicolas Achter
+    Last Modified: Apr. 06, 2020
+*/
+
+using CareOnDemand.Models;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace CareOnDemand.ViewModels
 {
@@ -13,13 +21,16 @@ namespace CareOnDemand.ViewModels
             account = new Account();
             account.Customer = new Customer();
 
-            customer_address = new Address();
+            address = new Address();
             //customer_address.Customer_Addresses = new List<Customer_Address>();
             //account.Customer.Customer_Addresses = new List<Customer_Address>();
+
+            customer_address = new Customer_Address();
         }
 
         protected static Account account;
-        protected static Address customer_address;
+        protected static Address address;
+        protected static Customer_Address customer_address;
 
         //public Account Account
         //{
@@ -82,34 +93,42 @@ namespace CareOnDemand.ViewModels
 
         public String AddressLine1
         {
-            get => customer_address.AddrLine1;
+            get => address.AddrLine1;
             set
             {
-                customer_address.AddrLine1 = value;
+                address.AddrLine1 = value;
             }
         }
         public String AddressCity
         {
-            get => customer_address.City;
+            get => address.City;
             set
             {
-                customer_address.City = value;
+                address.City = value;
             }
         }
         public String AddressProvince
         {
-            get => customer_address.Province;
+            get => address.Province;
             set
             {
-                customer_address.Province = value;
+                address.Province = value;
             }
         }
         public String AddressPostalCode
         {
-            get => customer_address.PostalCode;
+            get => address.PostalCode;
             set
             {
-                customer_address.PostalCode = value.Trim().Replace(" ", String.Empty);
+                address.PostalCode = value.Trim().Replace(" ", String.Empty);
+            }
+        }
+        public String AddressLabel
+        {
+            get => customer_address.AddressLabel; 
+            set
+            {
+                customer_address.AddressLabel = value.Trim().Replace(" ", String.Empty);
             }
         }
     }

@@ -16,7 +16,7 @@
              NavigationPage.HasNavigationBar="True"
              NavigationPage.HasBackButton="False"
              Title="My Account"
-             x:Class="CareOnDemand.Views.SharedViews.AccountManagement">
+             x:Class="CareOnDemand.Views.SharedViews.AccountManagementPage">
     
     <ContentPage.Resources>
         <StyleSheet Source="/Views/StyleSheet.css" />
@@ -24,7 +24,7 @@
     <ContentPage.Content>
         <StackLayout  StyleClass="main"> <!-- Page Layout Stack-->
             <Image HeightRequest="150" HorizontalOptions="Center" Source="https://careondemand-storage.s3.ca-central-1.amazonaws.com/EdenCare_PlainLogo.png"/>
-            <Button Text="Add an Address" HorizontalOptions="Fill" StyleClass="secondaryButton" Command="{Binding GoToRegisterAddressCommand}"/> <!-- Button to add address, redirects to RegisterAddress Page-->
+            <Button Text="Add an Address" x:Name="add_addr" HorizontalOptions="Fill" StyleClass="secondaryButton" IsVisible="false" Command="{Binding GoToRegisterAddressCommand}"/> <!-- Button to add address, redirects to RegisterAddress Page-->
             <Button StyleClass="primaryButton" VerticalOptions="Start" Text="Log Out" HorizontalOptions="Fill" Command="{Binding LogOutCommand}"/>
             <!--Logout Button redirects to login page-->
             <Button StyleClass="secondaryButton" Text="Change Password"  HorizontalOptions="Fill" Command="{Binding GoToChangePassCommand}" /> <!-- Change Password button redirects to ForgotPassPage-->

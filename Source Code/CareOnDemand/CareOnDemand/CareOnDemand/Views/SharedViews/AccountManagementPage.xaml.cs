@@ -11,13 +11,17 @@ using CareOnDemand.ViewModels;
 namespace CareOnDemand.Views.SharedViews
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class AccountManagement : ContentPage
+    public partial class AccountManagementPage : ContentPage
     {
-        public AccountManagement()
+        public AccountManagementPage()
         {
             InitializeComponent();
             BindingContext = new AccountManagementViewModel();
-
+            //if the account is a customer, display the add address button
+            if((int)Application.Current.Properties["accountLevelID"] == 3)
+            {
+                add_addr.IsVisible = true;
+            }
         }
     }
 }
