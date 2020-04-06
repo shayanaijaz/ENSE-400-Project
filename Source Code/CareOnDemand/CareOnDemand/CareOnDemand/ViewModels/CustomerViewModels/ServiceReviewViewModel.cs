@@ -14,8 +14,6 @@ namespace CareOnDemand.ViewModels
     {
         public ServiceReviewViewModel()
         {
-            OrderServicesList = new ObservableCollection<string>();
-            PopulateOrderServicesList();
             GetFullUserAddress();
             GetDatetime();
             GetFinalPrice();
@@ -23,8 +21,8 @@ namespace CareOnDemand.ViewModels
         }
 
         public Command SubmitOrderCommand { private set; get; }
-        public String Address { get; set; }
-        public String Recipient
+        public string Address { get; set; }
+        public string Recipient
         {
             get => recipient.FullName;
             set
@@ -33,10 +31,10 @@ namespace CareOnDemand.ViewModels
             }
         }
 
-        public String DateString { get; set; }
-        public String TimeString { get; set; }
-        public String FinalPrice { get; set; }
-        public String AdditionalInstructions { get; set; }
+        public string DateString { get; set; }
+        public string TimeString { get; set; }
+        public string FinalPrice { get; set; }
+        public string AdditionalInstructions { get; set; }
 
         public void GetFullUserAddress()
         {
@@ -116,7 +114,8 @@ namespace CareOnDemand.ViewModels
 
             await Application.Current.MainPage.DisplayAlert("Success", "Order placed successfully!", "OK");
             user_order = null;
-            await Application.Current.MainPage.Navigation.PushAsync(new CustomerNavBar());
+            Application.Current.MainPage.Navigation.InsertPageBefore(new CustomerNavBar(), Application.Current.MainPage.Navigation.NavigationStack[0]);
+            await Application.Current.MainPage.Navigation.PopToRootAsync();
 
         }
     }

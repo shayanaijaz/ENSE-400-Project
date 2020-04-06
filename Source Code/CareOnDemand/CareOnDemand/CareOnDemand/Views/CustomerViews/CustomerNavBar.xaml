@@ -23,12 +23,20 @@
             >
              <!-- Page style tabbed-->
 
-    <NavigationPage Title="Orders" IconImageSource="https://careondemand-storage.s3.ca-central-1.amazonaws.com/customerOrderIcon.png">
+    <NavigationPage Title="New Order" IconImageSource="https://careondemand-storage.s3.ca-central-1.amazonaws.com/customerOrderIcon.png">
         <!-- Navigation to ServiceSelection page-->
         <x:Arguments>
             <local1:ServiceSelectionList />
         </x:Arguments>
     </NavigationPage>
+
+    <NavigationPage Title="Order History" IconImageSource="https://careondemand-storage.s3.ca-central-1.amazonaws.com/customerOrderIcon.png">
+        <!-- Navigation to ServiceSelection page-->
+        <x:Arguments>
+            <local1:ActivePastOrders />
+        </x:Arguments>
+    </NavigationPage>
+
     <NavigationPage Title="My Account" IconImageSource="https://careondemand-storage.s3.ca-central-1.amazonaws.com/accountIcon.png"> <!-- Navigation to AccountManagement page-->
         <x:Arguments>
             <local11:AccountManagement />

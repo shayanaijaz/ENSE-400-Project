@@ -24,16 +24,24 @@
         <ScrollView>
             <StackLayout StyleClass="main">
                 <Frame StyleClass="plainFrame">
-                    <ListView MinimumHeightRequest="40" RowHeight="40" ItemsSource="{Binding OrderServicesList}" SelectionMode="None" Grid.ColumnSpan="2">
+                    <ListView MinimumHeightRequest="40" RowHeight="40" ItemsSource="{Binding Order_Service_List}" SelectionMode="None" Grid.ColumnSpan="2">
                         <!-- Listview from Selected Services from previous page-->
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <ViewCell>
                                     <Grid>
                                         <Grid.RowDefinitions>
-                                            <RowDefinition Height="20"/>
+                                            <RowDefinition Height="45"/>
                                         </Grid.RowDefinitions>
-                                        <Label Grid.Row="0" Grid.Column="0" FontSize="Subtitle" TextColor="Black" Text="{Binding}" />
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="0.45*"/>
+                                            <ColumnDefinition Width="0.03*" />
+                                            <ColumnDefinition Width="0.37*" />
+                                            <ColumnDefinition Width="0.15*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Label Grid.Row="0" Grid.Column="0" FontSize="Subtitle" TextColor="Black" Text="{Binding ServiceName}" VerticalOptions="Center"/>
+                                        <Label Grid.Row="0" Grid.Column="1" FontSize="Subtitle" TextColor="Black" Text="{Binding RequestedLength}" VerticalOptions="Center"/>
+                                        <Label Grid.Row="0" Grid.Column="2" FontSize="Subtitle" TextColor="Black" Text="hours" VerticalOptions="Center"/>
                                     </Grid>
                                 </ViewCell>
                             </DataTemplate>

@@ -36,17 +36,9 @@ namespace CareOnDemand.ViewModels
             {
                 PhoneDialer.Open(Settings.EDEN_CARE_PHONE_NUMBER);
             }
-            catch (ArgumentNullException anEx)
-            {
-                // Number was null or white space
-            }
             catch (FeatureNotSupportedException ex)
             {
-                // Phone Dialer is not supported on this device.
-            }
-            catch (Exception ex)
-            {
-                // Other error has occurred.
+                Console.WriteLine(ex.Message);
             }
         }
     }
