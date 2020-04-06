@@ -38,7 +38,7 @@
             <Image Grid.Row="0"  Grid.ColumnSpan="2" HorizontalOptions="CenterAndExpand" Source="https://careondemand-storage.s3.ca-central-1.amazonaws.com/EdenCare_PlainLogo.png"/>
             <Picker Title="Account Type" 
                     VerticalOptions="End" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" FontSize="20" TextColor="Black"
-                    ItemsSource="{Binding AccountList}" >
+                    SelectedItem="{Binding AccountLevel}">
                 <!-- Picker used to choose account type-->
                 <Picker.Items>
                     <x:String>Administrator</x:String>

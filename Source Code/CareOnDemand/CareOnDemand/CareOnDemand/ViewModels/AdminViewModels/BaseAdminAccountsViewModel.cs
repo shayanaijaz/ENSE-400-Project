@@ -94,7 +94,7 @@ namespace CareOnDemand.ViewModels
             {
                 switch (value)
                 {
-                    case ("Admin"):
+                    case ("Administrator"):
                         account_level = 1;
                         break;
                     case ("Care Partner"):

@@ -28,13 +28,27 @@ namespace CareOnDemand.ViewModels
             }
             else
             {
+                switch(account_level)
+                {
+                    case 1:
+                        account.Admin = new Admin();
+                        break;
+                    case 2:
+                        account.CarePartner = new CarePartner();
+                        account.CarePartner.Company = "Default";
+                        break;
+                    case 3:
+                        account.Customer = new Customer();
+                        break;
+                }
+
                 RegisterService registerModel = new RegisterService(account);
                 try //to save account entry to db
                 {
                     await registerModel.CreateCognitoUser();
                     await registerModel.CreateDatabaseUser(account, account_level);
                     await Application.Current.MainPage.DisplayAlert("Account Created", " ", "OK");
-                    await Application.Current.MainPage.Navigation.PushAsync(new AdminHome());
+                    await Application.Current.MainPage.Navigation.PushAsync(new AdminNavBar());
                 }
                 catch (Exception e)
                 {
