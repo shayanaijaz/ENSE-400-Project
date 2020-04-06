@@ -53,7 +53,9 @@
             </Picker>
 
             <Entry Grid.Row="3"  Grid.Column="0"  VerticalOptions="Start" Grid.ColumnSpan="3" FontSize="20" Placeholder="Postal Code" Text="{Binding AddressPostalCode}"/> <!-- Postal code entry-->
-            <Button StyleClass="primaryButton" Grid.Row="4" Text="Create Account"  VerticalOptions="Start" Grid.ColumnSpan="3" Command="{Binding CreateAccountCommand}"/> <!-- Creates an account-->
+            <Entry Grid.Row="3" x:Name="addr_label" Grid.Column="0" VerticalOptions="Start" Grid.ColumnSpan="3" FontSize="20" Placeholder="Address Name" IsVisible="False" Text="{Binding AddressLabel}"/> <!-- Address label entry-->
+            <Button StyleClass="primaryButton" x:Name="create_acct" Grid.Row="4" Text="Create Account"  VerticalOptions="Start" Grid.ColumnSpan="3" IsVisible="True" Command="{Binding CreateAccountCommand}"/> <!-- Creates an account-->
+            <Button StyleClass="primaryButton" x:Name="add_addr" Grid.Row="4" Text="Add Address"  VerticalOptions="Start" Grid.ColumnSpan="3" IsVisible="False" Command="{Binding AddAddressCommand}"/> <!-- Adds an address to customer account -->
             <Button Grid.Row="5" Grid.Column="0" StyleClass="contactButton" Grid.ColumnSpan="3" VerticalOptions="End" HorizontalOptions="CenterAndExpand" Text="Contact Eden Care" Command="{Binding ContactCommand}" /> <!-- Contact Eden Care button-->
 
         </Grid>
