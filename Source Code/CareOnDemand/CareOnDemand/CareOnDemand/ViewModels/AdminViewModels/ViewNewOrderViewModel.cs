@@ -14,8 +14,8 @@ namespace CareOnDemand.ViewModels.AdminViewModels
     {
         public ViewNewOrderViewModel()
         {
-            GetOrderDetailsFromDb(admin_selected_order);
-            GetCarePartnerData();
+            Task.Run(async () => await GetOrderDetailsFromDb(admin_selected_order));
+            Task.Run(async () => await GetCarePartnerData());
             AssignOrderCommand = new Command(async () => await CreateServiceRequest());
             OrderServicesList = new ObservableCollection<Order_Service>();
             ElementVisible = false;
@@ -28,7 +28,7 @@ namespace CareOnDemand.ViewModels.AdminViewModels
 
         public CarePartnerDetails SelectedCarePartner { get; set; }
 
-        async void GetCarePartnerData()
+        async Task GetCarePartnerData()
         {
             ObservableCollection<CarePartnerDetails> carePartnerDetails = new ObservableCollection<CarePartnerDetails>();
 

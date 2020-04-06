@@ -83,6 +83,7 @@ namespace CareOnDemand.ViewModels
             user_order_service.Add(orderService);
 
             await Application.Current.MainPage.DisplayAlert("Success", "Item succesfully added to cart", "OK");
+            await Application.Current.MainPage.Navigation.PopAsync();
             await Application.Current.MainPage.Navigation.PushAsync(new CustomerNavBar());
         }
         public class Duration

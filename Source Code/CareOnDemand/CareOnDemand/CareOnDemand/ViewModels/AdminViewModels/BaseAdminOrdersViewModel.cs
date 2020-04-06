@@ -124,7 +124,7 @@ namespace CareOnDemand.ViewModels.AdminViewModels
             return order_list_to_display;
         }
 
-        public async void GetOrderDetailsFromDb(Order order)
+        public async Task GetOrderDetailsFromDb(Order order)
         {
             Customer customer = await new CustomerRestService().GetCustomerByIDAsync(order.CustomerID);
             Account account = await new AccountRestService().GetAccountByIDAsync(customer.AccountID);
