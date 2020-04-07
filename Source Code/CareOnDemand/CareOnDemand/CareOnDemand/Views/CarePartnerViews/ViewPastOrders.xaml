@@ -13,7 +13,10 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="CareOnDemand.Views.CarePartnerViews.ViewPastOrders">
+             x:Class="CareOnDemand.Views.CarePartnerViews.ViewPastOrders"
+             Title="Past Order"
+             NavigationPage.HasNavigationBar="True"
+             NavigationPage.HasBackButton="True">
     <ContentPage.Resources>
         <StyleSheet Source="/Views/StyleSheet.css" />
     </ContentPage.Resources>

@@ -25,7 +25,7 @@
         <ScrollView>
             <StackLayout StyleClass="main"> <!-- Page Layout Stack-->
                 <Frame StyleClass="plainFrame" IsVisible="{Binding ElementVisible}">
-                    <ListView x:Name="ServicesOrdered" MinimumHeightRequest="50" RowHeight="50" VerticalOptions="FillAndExpand" ItemsSource="{Binding OrderServicesList}" SelectionMode="None" SeparatorColor="#119bcc">
+                    <ListView x:Name="ServicesOrdered" MinimumHeightRequest="50" RowHeight="50" VerticalOptions="FillAndExpand" ItemsSource="{Binding OrderServicesList}" SelectionMode="None">
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <ViewCell>
