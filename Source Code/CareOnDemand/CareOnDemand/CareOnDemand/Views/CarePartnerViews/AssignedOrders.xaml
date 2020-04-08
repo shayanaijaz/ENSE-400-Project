@@ -21,7 +21,7 @@
         <StyleSheet Source="/Views/StyleSheet.css" />
     </ContentPage.Resources>
     <ContentPage.Content>
-        <StackLayout StyleClass="main">
+        <Grid StyleClass="serviceSelectionGrid">
             <!-- Page layout Grid-->
             <ActivityIndicator IsVisible="{Binding ActivityIndicatorVisible}" IsRunning="{Binding ActivityIndicatorRunning}" Scale="0.25" />
             <ListView x:Name="OrderListView" ItemsSource="{Binding Orders}" StyleClass="main" VerticalScrollBarVisibility="Always"
@@ -51,6 +51,6 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-        </StackLayout>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>
