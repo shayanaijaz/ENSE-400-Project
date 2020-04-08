@@ -21,35 +21,36 @@
         <StyleSheet Source="/Views/StyleSheet.css" />
     </ContentPage.Resources>
     <ContentPage.Content>
-        <ContentView>
-            <ContentView.Content>
-                <Grid StyleClass="serviceSelectionGrid"> <!-- Page Layout Grid-->
-                    <ActivityIndicator IsVisible="{Binding ActivityIndicatorVisible}" IsRunning="{Binding ActivityIndicatorRunning}" Scale="0.25" />
-                    <ListView x:Name="OrderListView" ItemsSource="{Binding Orders}" StyleClass="main"
+        <StackLayout StyleClass="main">
+            <!-- Page Layout Grid-->
+            <ActivityIndicator IsVisible="{Binding ActivityIndicatorVisible}" IsRunning="{Binding ActivityIndicatorRunning}" Scale="0.25" />
+            <ListView x:Name="OrderListView" ItemsSource="{Binding Orders}" StyleClass="main" VerticalScrollBarVisibility="Always"
                     SeparatorVisibility="Default"
                     HasUnevenRows="True"
                     SelectedItem="{Binding SelectedOrder}"
                     IsPullToRefreshEnabled="True"
                     RefreshCommand="{Binding RefreshCommand}"
-                    IsRefreshing="{Binding IsRefreshing}"> <!-- Listview of current active orders-->
-                        <ListView.ItemTemplate>
-                            <DataTemplate>
-                                <ViewCell Tapped="ViewCellTapped">
-                                    <Grid StyleClass="main"> <!-- Grid layout to show orders-->
-                                        <Grid.RowDefinitions>
-                                            <RowDefinition Height="Auto"/>
-                                            <RowDefinition Height="Auto"/>
-                                        </Grid.RowDefinitions>
-                                        <Label Grid.Row="0" FontAttributes="Bold" FontSize="Medium" Text="{Binding CustomerName}" /> <!-- Customer name label-->
-                                        <Label Grid.Row="1" VerticalOptions="Start"  Text="{Binding ServicesOrderedString}" /> <!-- Customer services label-->
+                    IsRefreshing="{Binding IsRefreshing}">
+                <!-- Listview of current active orders-->
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell Tapped="ViewCellTapped">
+                            <Grid StyleClass="main">
+                                <!-- Grid layout to show orders-->
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <Label Grid.Row="0" FontAttributes="Bold" FontSize="Medium" Text="{Binding CustomerName}" />
+                                <!-- Customer name label-->
+                                <Label Grid.Row="1" VerticalOptions="Start"  Text="{Binding ServicesOrderedString}" />
+                                <!-- Customer services label-->
 
-                                    </Grid>
-                                </ViewCell>
-                            </DataTemplate>
-                        </ListView.ItemTemplate>
-                    </ListView>
-                </Grid>
-            </ContentView.Content>
-        </ContentView>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>

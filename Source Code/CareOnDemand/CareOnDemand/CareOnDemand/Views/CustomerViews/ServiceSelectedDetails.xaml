@@ -14,15 +14,16 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              NavigationPage.HasNavigationBar="True"
+             NavigationPage.HasBackButton="True"
              Title="Select a service"
              x:Class="CareOnDemand.Views.CustomerViews.ServiceSelectedDetails">
     <ContentPage.Resources>
         <StyleSheet Source="/Views/StyleSheet.css" />
     </ContentPage.Resources>
     <ContentPage.Content>
-        <StackLayout>
+        <StackLayout StyleClass="main">
             <!-- Page Layout Stack-->
-            <Frame BorderColor="LightGray">
+            <Frame StyleClass="plainFrame">
                 <Label Text="{Binding ServiceDescription}"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
@@ -32,19 +33,20 @@
             <ListView ItemsSource="{Binding DurationList}" 
                       SeparatorVisibility="Default"
                       RowHeight="50"
-                      SelectedItem="{Binding SelectedDuration}">
+                      SelectedItem="{Binding SelectedDuration}"
+                      VerticalScrollBarVisibility="Never">
                 <!-- List for selected durations-->
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell Tapped="ViewCellTapped">
-                            <Grid StyleClass="main"> <!-- Page layout Grid-->
+                            <Grid StyleClass="main">
+                                <!-- Page layout Grid-->
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="20"/>
                                 </Grid.RowDefinitions>
                                 <Label Grid.Row="0" Text="{Binding TimeSentence}"/>
                             </Grid>
                         </ViewCell>
-
                     </DataTemplate>
                 </ListView.ItemTemplate>
 

@@ -13,7 +13,10 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="CareOnDemand.Views.CustomerViews.ViewActivePastOrder">
+             x:Class="CareOnDemand.Views.CustomerViews.ViewActivePastOrder"
+                 NavigationPage.HasNavigationBar="True"
+                 NavigationPage.HasBackButton="False"
+                 Title="Order History">
     <ContentPage.Resources>
         <StyleSheet Source="/Views/StyleSheet.css" />
     </ContentPage.Resources>
@@ -21,7 +24,8 @@
         <ScrollView>
             <StackLayout StyleClass="main">
                 <Frame StyleClass="plainFrame" IsVisible="{Binding ElementVisible}">
-                    <ListView x:Name="ServicesOrdered" MinimumHeightRequest="50" RowHeight="50" VerticalOptions="FillAndExpand" ItemsSource="{Binding OrderServicesList}" SelectionMode="None">
+                    <ListView x:Name="ServicesOrdered" MinimumHeightRequest="50" RowHeight="50" VerticalOptions="FillAndExpand" 
+                              ItemsSource="{Binding OrderServicesList}" SelectionMode="None" VerticalScrollBarVisibility="Never">
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <ViewCell>

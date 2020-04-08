@@ -16,6 +16,7 @@
              Title="Create an Account"
              x:Class="CareOnDemand.Views.CustomerViews.RegisterPage"
              NavigationPage.HasNavigationBar="True"
+             NavigationPage.HasBackButton="True"
              >
     <ContentPage.Resources>
         <StyleSheet Source="/Views/StyleSheet.css" />

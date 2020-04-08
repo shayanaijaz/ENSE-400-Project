@@ -16,6 +16,7 @@
              x:Class="CareOnDemand.Views.CustomerViews.ServiceSelectionList"
              x:Name="ServiceSelectionListPage"
              NavigationPage.HasNavigationBar="True"
+             NavigationPage.HasBackButton="False"
              Title="Select a Service">
     <ContentPage.Resources>
         <StyleSheet Source="/Views/StyleSheet.css" />
@@ -24,7 +25,7 @@
         <Grid StyleClass="serviceSelectionGrid">
             <!-- Page layout Grid-->
             <ActivityIndicator IsVisible="{Binding ActivityIndicatorVisible}" IsRunning="{Binding ActivityIndicatorRunning}" Scale="0.25" />
-            <ListView x:Name="ServiceListView" ItemsSource="{Binding ServiceList}"
+            <ListView x:Name="ServiceListView" ItemsSource="{Binding ServiceList}" VerticalScrollBarVisibility="Always"
                     SeparatorVisibility="Default"
                     RowHeight="80"
                     SelectedItem="{Binding SelectedService}">
