@@ -1,4 +1,12 @@
-﻿using CareOnDemand.Models;
+﻿/*
+    Care on Demand Application
+    Capstone 2020 - ENSE 400/477
+    The Ni(c)(k)S
+
+    Author: Shayan Khan
+    Last Modified: Apr. 07, 2020
+*/
+using CareOnDemand.Models;
 using CareOnDemand.Views.CustomerViews;
 using System;
 using System.Collections.Generic;
@@ -9,8 +17,13 @@ using Xamarin.Forms;
 
 namespace CareOnDemand.ViewModels
 {
+    /*
+     * This class defines bindings and functions for elements located on the ServiceSelectedDetails page. It inherits from 
+     * the BaseServiceAndOrderViewModel class. 
+     */
     class ServiceSelectedDetailsViewModel : BaseServiceAndOrderViewModel
     {
+        // Constructor that initializes the bindings
         public ServiceSelectedDetailsViewModel()
         {
             DurationList = new ObservableCollection<Duration>();
@@ -20,7 +33,9 @@ namespace CareOnDemand.ViewModels
 
         }
 
+        // Bindings used on this page
         public ObservableCollection<Duration> DurationList { get; set; }
+
         protected static Duration selected_duration;
         public string PriceText { get; set; }
         public bool AddToCartIsVisible { get; set; }
@@ -54,6 +69,7 @@ namespace CareOnDemand.ViewModels
             }
         }
 
+        // Function that populates the duration for all the services (1, 2, and 3 hours)
         public void PopulateDurationList()
         {
             if (user_selected_service.Length == 1)
@@ -65,27 +81,29 @@ namespace CareOnDemand.ViewModels
             }
         }
 
+        /*
+         * This function runs when user clicks the Add to Cart button. It starts a new Order if one does not already exists and 
+         * add the service to the order. 
+         */
         async Task AddToCartClicked()
         {
 
             if (user_order == null)
             {
                 user_order = new Order();
-                //user_order.Order_Services = new List<Order_Service>();
-                //placeholder
                 user_order_service = new ObservableCollection<Order_Service>();
             }
 
             Order_Service orderService = new Order_Service{ ServiceID = user_selected_service.ServiceID, RequestedLength = selected_duration.Time, ServiceName = user_selected_service.ServiceName.Trim()};
 
-            //user_order.Order_Services.Add(orderService);
-            // placeholder
             user_order_service.Add(orderService);
 
             await Application.Current.MainPage.DisplayAlert("Success", "Item succesfully added to cart", "OK");
             await Application.Current.MainPage.Navigation.PopAsync();
             await Application.Current.MainPage.Navigation.PushAsync(new CustomerNavBar());
         }
+
+        // Class that defines the Duration object that is used to show the durations of a service
         public class Duration
         {
             public int Time { get; set; }

@@ -1,4 +1,12 @@
-﻿using System;
+﻿/*
+    Care on Demand Application
+    Capstone 2020 - ENSE 400/477
+    The Ni(c)(k)S
+
+    Author: Shayan Khan
+    Last Modified: Apr. 07, 2020
+*/
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,8 +20,13 @@ using CareOnDemand.Models;
 
 namespace CareOnDemand.ViewModels
 {
+    /*
+     * This class defines bindings and functions relating to elements located on the OrderDetailsPage. It inherits variables and objects
+     *  from the  BaseServiceAndOrderViewModel class.
+     */
     public class OrderDetailsViewModel : BaseServiceAndOrderViewModel
     {
+        // Constructor that initializes the bindings
         public OrderDetailsViewModel()
         {
             selected_date = DateTime.Today;
@@ -22,26 +35,8 @@ namespace CareOnDemand.ViewModels
             DeleteItemCommand = new Command<object>(async (x) => await DeleteItem(x));
         }
 
+        // Bindings used on this page
         public Command<object> DeleteItemCommand { private set; get; }
-        
-        async Task DeleteItem(object item)
-        {
-            user_order_service.Remove((Order_Service) item);
-            OnPropertyChanged(nameof(Order_Service_List));
-
-            if (user_order_service.Count == 0)
-            {
-                await Application.Current.MainPage.Navigation.PopAsync();
-                await Application.Current.MainPage.Navigation.PushAsync(new CustomerNavBar());
-            } 
-            else
-            {
-                await Application.Current.MainPage.Navigation.PopAsync();
-                await Application.Current.MainPage.Navigation.PushAsync(new OrderDetails());
-            }
-
-
-        }
         public List<Address> AddressList { get; set; }
 
         public Address SelectedAddress
@@ -91,17 +86,36 @@ namespace CareOnDemand.ViewModels
                 care_partner = value;
             }
         }
-        
-
+      
         public Command ContinueOrderCommand { get; set; }
 
+        // Function that removes a service added to the order
+        async Task DeleteItem(object item)
+        {
+            user_order_service.Remove((Order_Service)item);
+            OnPropertyChanged(nameof(Order_Service_List));
+
+            // Redirects user back to ServiceSelectionList page if there are no services in the order
+            if (user_order_service.Count == 0)
+            {
+                await Application.Current.MainPage.Navigation.PopAsync();
+                await Application.Current.MainPage.Navigation.PushAsync(new CustomerNavBar());
+            }
+            else
+            {
+                await Application.Current.MainPage.Navigation.PopAsync();
+                await Application.Current.MainPage.Navigation.PushAsync(new OrderDetails());
+            }
+
+
+        }
         async Task ContinueOrderClicked()
         {
             await Application.Current.MainPage.Navigation.PushAsync(new ServiceReview());
         }
 
 
-
+        // Function that populates the picker bindings on the page
         async void PopulateLists()
         {
             var address_result = await GetAddressList();
@@ -116,6 +130,8 @@ namespace CareOnDemand.ViewModels
             CarePartnerList = care_partner_result.ToList();
             OnPropertyChanged(nameof(CarePartnerList));
         }
+
+        // Function that uses the REST services to retrieve the addresses from the database
         public async Task<List<Address>> GetAddressList()
         {
             int customerID = Application.Current.Properties.ContainsKey("customerID") ? Convert.ToInt32(Application.Current.Properties["customerID"]) : 0;
@@ -124,7 +140,6 @@ namespace CareOnDemand.ViewModels
             Customer_AddressRestService customer_AddressRestService = new Customer_AddressRestService();
 
             List<Customer_Address> customer_addresses = await customer_AddressRestService.GetCustomerAddressesByCustomerIDAsync(customerID);
-
 
             List<Address> address_list = new List<Address>();
 
@@ -137,6 +152,7 @@ namespace CareOnDemand.ViewModels
             return address_list;
         }
 
+        // Function that uses the REST services to retrieve user information
         public async Task<List<Account>> GetRecipientList()
         {
             int accountID = Application.Current.Properties.ContainsKey("accountID") ? Convert.ToInt32(Application.Current.Properties["accountID"]) : 0;
@@ -152,6 +168,7 @@ namespace CareOnDemand.ViewModels
             return account_list;
         }
 
+        // Function that uses the REST services to retrieve list of care partners that the user can choose from
         public async Task<List<Account>> GetCarePartnerList()
         {
             CarePartnerRestService carePartnerRestService = new CarePartnerRestService();

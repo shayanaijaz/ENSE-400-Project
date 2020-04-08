@@ -1,4 +1,12 @@
-﻿using System;
+﻿/*
+    Care on Demand Application
+    Capstone 2020 - ENSE 400/477
+    The Ni(c)(k)S
+
+    Author: Shayan Khan
+    Last Modified: Apr. 07, 2020
+*/
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using CareOnDemand.Data;
@@ -11,8 +19,13 @@ using System.Windows.Input;
 
 namespace CareOnDemand.ViewModels
 {
+    /*
+     * Class that defines binding and functions relating to elements on the ServiceSelectionList page. This class
+     * inherits from the BaseServiceAndOrderViewModel.
+     */ 
     class ServiceSelectionListViewModel : BaseServiceAndOrderViewModel
     {
+        // Constructor that initializes the bindings
         public ServiceSelectionListViewModel()
         {
             user_selected_service = new Service();
@@ -24,6 +37,7 @@ namespace CareOnDemand.ViewModels
             CheckoutCommand = new Command(async () => await CheckoutButtonClicked());
         }
 
+        // Bindings used on this page
         public ObservableCollection<Service> ServiceList { get; set; }
         public Command CheckoutCommand { private set; get; }
         public bool CheckoutIsVisible { get; set; }
@@ -44,7 +58,9 @@ namespace CareOnDemand.ViewModels
             }
         }
 
-
+        /* This function uses the ServiceRestService class and retrieves the list of services from the database and assigns 
+         * it to the binding for ServiceList
+        */
         async void PopulateServiceList()
         {
             ServiceRestService serviceRestService = new ServiceRestService();
@@ -66,11 +82,14 @@ namespace CareOnDemand.ViewModels
             OnPropertyChanged(nameof(ActivityIndicatorVisible));
         }
 
+        // Function that redirects user to the ServiceSelectedDetails page
         async void ServiceSelectedClicked()
         {
             await Application.Current.MainPage.Navigation.PushAsync(new ServiceSelectedDetails());
         }
 
+        /* This function shows or hides the checkout button depending on whether the user has any services in the cart or not
+         */ 
         public void PopulateCheckoutButton()
         {
             if (user_order != null)
@@ -87,10 +106,9 @@ namespace CareOnDemand.ViewModels
 
                 OnPropertyChanged(nameof(CheckoutIsVisible));
             }
-
-
         }
 
+        // Function that redirects user to the OrderDetails page when the Checkout button is clicked
         async Task CheckoutButtonClicked()
         {
             await Application.Current.MainPage.Navigation.PushAsync(new OrderDetails());

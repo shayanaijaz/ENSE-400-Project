@@ -5,7 +5,7 @@
 
     Author: Shayan Khan
     Contributor(s): Nicolas Achter
-    Last Modified: Apr. 06, 2020
+    Last Modified: Apr. 07, 2020
 */
 using System;
 using System.Collections.Generic;
@@ -23,9 +23,13 @@ using CareOnDemand.Data;
 
 namespace CareOnDemand.ViewModels
 {
+    /*
+     * This class provides services related to elements located on the login page. It inherits from the 
+     * BaseCustomerDetailsViewModel class
+     */
     public class LoginViewModel : BaseCustomerDetailsViewModel
     {
-
+        // Constructor that initializes the bindings
         public LoginViewModel()
         {
             GoToRegisterPageCommand = new Command(async () => await RegisterButtonClicked());
@@ -33,21 +37,30 @@ namespace CareOnDemand.ViewModels
             GoToForgotCommand = new Command(async () => await ForgotButtonClicked());
         }
 
+        // Bindings for elements on the login page
         public Command GoToRegisterPageCommand { private set; get; }
         public Command LoginCommand { private set; get; }
-
         public Command GoToForgotCommand { private set; get; }
 
+        // Function that runs on Register button click. Redirects user to the Register page
         async Task RegisterButtonClicked()
         {
             Application.Current.Properties["accountID"] = null; //init accountID to null as user is not yet logged in
 
             await Application.Current.MainPage.Navigation.PushAsync(new RegisterPage());
         }
+
+        // Function that redirects user to Forgot Password page
         async Task ForgotButtonClicked()
         {
             await Application.Current.MainPage.Navigation.PushAsync(new ForgotPassPage());
         }
+
+        /*
+         * Function that runs when user clicks login. Uses the LoginService class to login a user and get their 
+         * information from the database. Depending on the type of user that logs in, it redirects them to the 
+         * appropriate page and also saves some information in persistent storage for future use.
+         */
         async void Login()
         {
             LoginService loginService = new LoginService(Email, Password);
@@ -61,11 +74,13 @@ namespace CareOnDemand.ViewModels
                 int account_level_id = retrieved_user.AccountLevelID;
                 int account_id = retrieved_user.AccountID;
 
+                // Save information in persistent storage
                 Application.Current.Properties["isLoggedIn"] = Boolean.TrueString;
                 Application.Current.Properties["accountLevelID"] = account_level_id;
                 Application.Current.Properties["accountID"] = account_id;
 
 
+                // If statement depending on the type of user that logged in (Admin, Care Partner, or Customer)
                 if (account_level_id == 1)
                 {
                     Application.Current.MainPage.Navigation.InsertPageBefore(new AdminNavBar(), Application.Current.MainPage.Navigation.NavigationStack[0]);

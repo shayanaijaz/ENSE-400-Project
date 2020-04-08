@@ -1,4 +1,12 @@
-﻿using System;
+﻿/*
+    Care on Demand Application
+    Capstone 2020 - ENSE 400/477
+    The Ni(c)(k)S
+
+    Author: Shayan Khan
+    Last Modified: Apr. 07, 2020
+*/
+using System;
 using System.Collections.Generic;
 using System.Text;
 using CareOnDemand.Helpers;
@@ -11,6 +19,10 @@ using CareOnDemand.Data;
 
 namespace CareOnDemand.Models
 {
+    /*
+     * This class contains functions related to logging in a user. It uses the Amazon Cognito packages to 
+     * log in a user and also uses the REST service to interact with the database and retrieve a user
+     */
     public class LoginService
     {
         private string username;
@@ -21,6 +33,7 @@ namespace CareOnDemand.Models
             password = userPassword;
         }
 
+        // Log in a user using credential provided. Initializes a secure connection to AWS and logs in the user.
         public async Task Login()
         {
             AmazonCognitoIdentityProviderClient provider =
@@ -33,11 +46,9 @@ namespace CareOnDemand.Models
             };
 
             AuthFlowResponse authResponse = await user.StartWithSrpAuthAsync(authRequest).ConfigureAwait(false);
-            var accessToken = authResponse.AuthenticationResult.AccessToken;
-
-            Console.Out.WriteLine(accessToken);
         }
 
+        // Function that uses the REST service to retrieve a user from the database.
         public async Task<Account> GetUserFromDatabase()
         {
             AccountRestService accountRestService = new AccountRestService();

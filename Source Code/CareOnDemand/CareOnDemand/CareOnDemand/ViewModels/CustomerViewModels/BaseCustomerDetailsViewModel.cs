@@ -5,7 +5,7 @@
 
     Author: Shayan Khan
     Contributor(s): Nicolas Achter
-    Last Modified: Apr. 06, 2020
+    Last Modified: Apr. 07, 2020
 */
 
 using CareOnDemand.Models;
@@ -13,34 +13,27 @@ using System;
 
 namespace CareOnDemand.ViewModels
 {
+    /*
+     * This base class defines bindings that will be shared between other customer related classes.
+     * Bindings relating to customer information are defined in this class. 
+     */
     public class BaseCustomerDetailsViewModel : BaseViewModel
     {
-
         static BaseCustomerDetailsViewModel()
         {
             account = new Account();
             account.Customer = new Customer();
 
             address = new Address();
-            //customer_address.Customer_Addresses = new List<Customer_Address>();
-            //account.Customer.Customer_Addresses = new List<Customer_Address>();
-
             customer_address = new Customer_Address();
         }
 
+        // static variable declartions
         protected static Account account;
         protected static Address address;
         protected static Customer_Address customer_address;
 
-        //public Account Account
-        //{
-        //    get { return account; }
-        //    set
-        //    {
-        //        account = value;
-        //    }
-        //}
-
+        // Various customer information bindings that use the Account and Address model
         public String Email
         {
             get => account.Email;
