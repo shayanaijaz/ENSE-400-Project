@@ -58,9 +58,6 @@
     <EmbeddedResource Update="Views\AdminViews\AdminNavBar.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\AdminViews\FrameTestPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
     <EmbeddedResource Update="Views\AdminViews\NewOrdersPage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>

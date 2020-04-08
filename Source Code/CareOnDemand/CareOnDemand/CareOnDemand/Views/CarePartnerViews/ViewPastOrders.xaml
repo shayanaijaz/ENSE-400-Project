@@ -24,7 +24,9 @@
         <ScrollView>
             <StackLayout StyleClass="main"> <!-- Primary page layout Stack-->
                 <Frame StyleClass="plainFrame" IsVisible="{Binding ElementVisible}"> <!-- Frame to encapsulate services in order-->
-                    <ListView x:Name="ServicesOrdered" MinimumHeightRequest="50" RowHeight="50" VerticalOptions="FillAndExpand" ItemsSource="{Binding OrderServicesList}" SelectionMode="None"> <!-- Listview containing services-->
+                    <ListView x:Name="ServicesOrdered" MinimumHeightRequest="50" RowHeight="50" VerticalOptions="FillAndExpand" 
+                              ItemsSource="{Binding OrderServicesList}" SelectionMode="None" VerticalScrollBarVisibility="Never"
+                              > <!-- Listview containing services-->
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <ViewCell>

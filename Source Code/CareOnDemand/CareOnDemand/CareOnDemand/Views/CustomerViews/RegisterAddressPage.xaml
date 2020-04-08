@@ -15,7 +15,8 @@
              mc:Ignorable="d"
              Title="Add Address"
              x:Class="CareOnDemand.Views.CustomerViews.RegisterAddressPage"
-             NavigationPage.HasNavigationBar="True">
+             NavigationPage.HasNavigationBar="True"
+             NavigationPage.HasBackButton="True">
     <ContentPage.Resources>
         <StyleSheet Source="/Views/StyleSheet.css" />
     </ContentPage.Resources>

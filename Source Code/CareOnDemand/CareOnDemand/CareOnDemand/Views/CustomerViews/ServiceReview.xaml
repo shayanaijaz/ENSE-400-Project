@@ -24,7 +24,8 @@
         <ScrollView>
             <StackLayout StyleClass="main">
                 <Frame StyleClass="plainFrame">
-                    <ListView MinimumHeightRequest="40" RowHeight="40" ItemsSource="{Binding Order_Service_List}" SelectionMode="None" Grid.ColumnSpan="2">
+                    <ListView MinimumHeightRequest="40" RowHeight="40" VerticalScrollBarVisibility="Never"
+                              ItemsSource="{Binding Order_Service_List}" SelectionMode="None" Grid.ColumnSpan="2">
                         <!-- Listview from Selected Services from previous page-->
                         <ListView.ItemTemplate>
                             <DataTemplate>
