@@ -64,12 +64,13 @@ namespace CareOnDemand.ViewModels.CustomerViewModels
                     {
                         CustomerName = account.FirstName.Trim() + " " + account.LastName.Trim(),
                         CustomerOrder = order,
-                        ServicesOrderedString = servicesString,
+                        ServicesOrderedString = servicesString.Trim(),
                     });
                 }
             }
             // Sort in descending order
             order_list_to_display.Sort((a, b) => b.CustomerOrder.CreationTime.CompareTo(a.CustomerOrder.CreationTime));
+
 
             return order_list_to_display;
         }

@@ -11,14 +11,14 @@ using Xamarin.Forms.Xaml;
 namespace CareOnDemand.Views.CustomerViews
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class ActivePastOrders : ContentPage
+    public partial class CustomerActivePastOrders : ContentPage
     {
         ViewCell lastCell;
-        public ActivePastOrders()
+        public CustomerActivePastOrders()
         {
             InitializeComponent();
 
-            BindingContext = new ActivePastOrdersViewModel();
+            BindingContext = new CustomerActivePastOrdersViewModel();
         }
 
         private void ViewCellTapped(object sender, System.EventArgs e)

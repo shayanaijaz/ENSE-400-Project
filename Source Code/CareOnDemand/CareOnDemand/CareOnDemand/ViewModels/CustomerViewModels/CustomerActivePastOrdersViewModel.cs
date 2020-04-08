@@ -10,10 +10,13 @@ using Xamarin.Forms;
 
 namespace CareOnDemand.ViewModels.CustomerViewModels
 {
-    public class ActivePastOrdersViewModel : BaseCustomerOrderHistoryViewModel
+    public class CustomerActivePastOrdersViewModel : BaseCustomerOrderHistoryViewModel
     {
-        public ActivePastOrdersViewModel()
+        public CustomerActivePastOrdersViewModel()
         {
+            ActiveOrders = new List<OrdersList>();
+            PastOrders = new List<OrdersList>();
+
             ActivityIndicatorVisible = true;
             ActivityIndicatorRunning = true;
             ElementVisible = false;
@@ -26,14 +29,17 @@ namespace CareOnDemand.ViewModels.CustomerViewModels
                 ActiveOrders = await GetOrdersFromDb(activeOrderStatusArray);
                 PastOrders = await GetOrdersFromDb(pastOrderStatusArray);
 
+
                 ActivityIndicatorVisible = false;
                 ActivityIndicatorRunning = false;
                 ElementVisible = true;
+
+                OnPropertyChanged(nameof(ActiveOrders));
+                OnPropertyChanged(nameof(PastOrders));
                 OnPropertyChanged(nameof(ActivityIndicatorRunning));
                 OnPropertyChanged(nameof(ActivityIndicatorVisible));
                 OnPropertyChanged(nameof(ElementVisible));
-                OnPropertyChanged(nameof(ActiveOrders));
-                OnPropertyChanged(nameof(PastOrders));
+
 
             });
         }

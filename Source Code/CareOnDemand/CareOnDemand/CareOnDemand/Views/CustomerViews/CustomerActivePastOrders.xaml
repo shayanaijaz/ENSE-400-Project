@@ -13,7 +13,7 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="CareOnDemand.Views.CustomerViews.ActivePastOrders"
+             x:Class="CareOnDemand.Views.CustomerViews.CustomerActivePastOrders"
              NavigationPage.HasNavigationBar="True"
              NavigationPage.HasBackButton="False"
              Title="Order History">
@@ -22,13 +22,14 @@
         <StyleSheet Source="/Views/StyleSheet.css"/>
     </ContentPage.Resources>
     <ContentPage.Content>
-        <ScrollView>
             <StackLayout StyleClass="main">
-                <ActivityIndicator IsVisible="{Binding ActivityIndicatorVisible}" IsRunning="{Binding ActivityIndicatorRunning}" Scale="1" />
+                <ActivityIndicator IsVisible="{Binding ActivityIndicatorVisible}" IsRunning="{Binding ActivityIndicatorRunning}" Scale="2.00" HorizontalOptions="CenterAndExpand"
+                            VerticalOptions="CenterAndExpand" />
 
                 <Label Text="Active Orders" StyleClass="primaryLabel" IsVisible="{Binding ElementVisible}"/>
-                <Frame StyleClass="plainFrame">
+                <Frame StyleClass="plainFrame"  IsVisible="{Binding ElementVisible}">
                     <ListView x:Name="ActiveOrderListView" ItemsSource="{Binding ActiveOrders}"
+                    StyleClass="main"
                     SeparatorVisibility="Default"
                     HasUnevenRows="True"
                     SelectedItem="{Binding SelectedOrder}"
@@ -37,7 +38,7 @@
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <ViewCell Tapped="ViewCellTapped">
-                                    <Grid> <!-- First grid used to display orders-->
+                                    <Grid StyleClass="main"> <!-- First grid used to display orders-->
                                         <Grid.RowDefinitions> <!-- Grid rows-->
                                             <RowDefinition Height="Auto"/>
                                             <RowDefinition Height="Auto"/>
@@ -52,8 +53,9 @@
                 </Frame>
 
                 <Label Text="Past Orders" StyleClass="primaryLabel" IsVisible="{Binding ElementVisible}"/>
-                <Frame StyleClass="plainFrame">
+                <Frame StyleClass="plainFrame"  IsVisible="{Binding ElementVisible}">
                     <ListView x:Name="PastOrderListView" ItemsSource="{Binding PastOrders}"
+                              StyleClass="main"
                     SeparatorVisibility="Default"
                     HasUnevenRows="True"
                     SelectedItem="{Binding SelectedOrder}"
@@ -76,6 +78,5 @@
                     </ListView>
                 </Frame>
             </StackLayout>
-        </ScrollView>
     </ContentPage.Content>
 </ContentPage>
