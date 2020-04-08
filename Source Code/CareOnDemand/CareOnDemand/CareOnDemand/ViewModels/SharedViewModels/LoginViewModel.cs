@@ -1,4 +1,13 @@
-﻿using System;
+﻿/*
+    Care on Demand Application
+    Capstone 2020 - ENSE 400/477
+    The Ni(c)(k)S
+
+    Author: Shayan Khan
+    Contributor(s): Nicolas Achter
+    Last Modified: Apr. 06, 2020
+*/
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Text;
@@ -31,6 +40,8 @@ namespace CareOnDemand.ViewModels
 
         async Task RegisterButtonClicked()
         {
+            Application.Current.Properties["accountID"] = null; //init accountID to null as user is not yet logged in
+
             await Application.Current.MainPage.Navigation.PushAsync(new RegisterPage());
         }
         async Task ForgotButtonClicked()

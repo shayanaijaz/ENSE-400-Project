@@ -1,4 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
+<!-- 
+   Care on Demand Application
+    Capstone 2020 - ENSE 400/477
+    The Ni(c)(k)S
+
+    Author: Nikolas Lendvoy
+    Contributor(s): Shayan Khan
+    Last Modified: April 6th
+-->
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
@@ -14,14 +23,14 @@
     </ContentPage.Resources>
     <ContentPage.Content>
         <ScrollView>
-            <StackLayout StyleClass="main">
+            <StackLayout StyleClass="main"> <!-- Page Layout Stack-->
                 <Frame StyleClass="plainFrame" IsVisible="{Binding ElementVisible}">
                     <ListView x:Name="ServicesOrdered" MinimumHeightRequest="50" RowHeight="50" VerticalOptions="FillAndExpand" 
                               ItemsSource="{Binding OrderServicesList}" SelectionMode="None" SeparatorColor="#119bcc" VerticalScrollBarVisibility="Never">
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <ViewCell>
-                                    <Grid>
+                                    <Grid> <!-- Grid for listview elements-->
                                         <Grid.RowDefinitions>
                                             <RowDefinition Height="40"/>
                                         </Grid.RowDefinitions>
@@ -30,10 +39,9 @@
                                             <ColumnDefinition Width="0.03*" />
                                             <ColumnDefinition Width="0.31*" />
                                         </Grid.ColumnDefinitions>
-                                        <Label Grid.Row="0" Grid.Column="0" FontSize="Subtitle" Text="{Binding ServiceName}" VerticalOptions="Center"/>
-                                        <Label Grid.Row="0" Grid.Column="1" FontSize="Subtitle" Text="{Binding RequestedLength}" VerticalOptions="Center"/>
+                                        <Label Grid.Row="0" Grid.Column="0" FontSize="Subtitle" Text="{Binding ServiceName}" VerticalOptions="Center"/> <!-- Service Name label-->
+                                        <Label Grid.Row="0" Grid.Column="1" FontSize="Subtitle" Text="{Binding RequestedLength}" VerticalOptions="Center"/> <!-- Time label-->
                                         <Label Grid.Row="0" Grid.Column="2" FontSize="Subtitle" Text="hours" VerticalOptions="Center"/>
-
                                     </Grid>
                                 </ViewCell>
                             </DataTemplate>
@@ -42,11 +50,13 @@
                 </Frame>
 
                 <ActivityIndicator IsVisible="{Binding ActivityIndicatorVisible}" IsRunning="{Binding ActivityIndicatorRunning}" Scale="2.00" HorizontalOptions="CenterAndExpand"
-                            VerticalOptions="CenterAndExpand" />
-
+                            VerticalOptions="CenterAndExpand" /> <!-- Is visible activity indicator-->
                 <Frame StyleClass="plainFrame" IsVisible="{Binding ElementVisible}">
+                    <!-- Frame for Service Order -->
                     <Grid>
+                        <!-- Service order details grid-->
                         <Grid.RowDefinitions>
+                            <!-- Grid Rows-->
                             <RowDefinition Height="0.1*" />
                             <RowDefinition Height="0.1*" />
                             <RowDefinition Height="0.1*" />
@@ -59,6 +69,7 @@
                             <RowDefinition Height="Auto" />
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
+                            <!-- Grid Columns-->
                             <ColumnDefinition Width="0.333*" />
                             <ColumnDefinition Width="0.333*" />
                             <ColumnDefinition Width="0.333*" />
@@ -66,33 +77,33 @@
 
                         <Label Text="Location" StyleClass="listPrimaryLabel" Grid.Row="0" Grid.Column="0" VerticalOptions="Center" IsVisible="{Binding ElementVisible}"/>
                         <Label Text="{Binding Location}"  StyleClass="listSecondryLabel" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" VerticalOptions="Center" />
-
+                        <!-- Location of service-->
                         <Label Text="Date" StyleClass="listPrimaryLabel" Grid.Row="1" Grid.Column="0" VerticalOptions="Center" IsVisible="{Binding ElementVisible}"/>
                         <Label Text="{Binding DateString}"  StyleClass="listSecondryLabel" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" VerticalOptions="Center" IsVisible="{Binding ElementVisible}"/>
-
+                        <!-- Date of service-->
                         <Label Text="Time" StyleClass="listPrimaryLabel" Grid.Row="2" Grid.Column="0" VerticalOptions="Center" IsVisible="{Binding ElementVisible}"/>
                         <Label Text="{Binding TimeString}"  StyleClass="listSecondryLabel" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" VerticalOptions="Center"/>
-
+                        <!-- Time of service-->
                         <Label Text="Recipient" StyleClass="listPrimaryLabel" Grid.Row="3" Grid.Column="0" VerticalOptions="Center" IsVisible="{Binding ElementVisible}"/>
                         <Label Text="{Binding Recipient}"  StyleClass="listSecondryLabel" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" VerticalOptions="Center" />
-
+                        <!-- Recipient of service-->
                         <Label Text="Status" StyleClass="listPrimaryLabel" Grid.Row="4" Grid.Column="0" VerticalOptions="Center" IsVisible="{Binding ElementVisible}"/>
                         <Label Text="{Binding Status}"  StyleClass="listSecondryLabel" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2" VerticalOptions="Center" />
-
+                        <!-- Status of service order-->
                         <Label Text="Final Price" StyleClass="listPrimaryLabel" Grid.Row="5" Grid.Column="0" VerticalOptions="Center" IsVisible="{Binding ElementVisible}"/>
                         <Label Text="{Binding FinalPrice}"  StyleClass="listSecondryLabel" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2" VerticalOptions="Center"/>
-
+                        <!-- Price of order-->
                         <Label Text="Customer Instructions:" StyleClass="listPrimaryLabel" Grid.Row="6" Grid.ColumnSpan="3" VerticalOptions="Center" IsVisible="{Binding ElementVisible}" />
                         <Label Text="{Binding AdditionalInstructions}"  StyleClass="listSecondaryLabel" FontSize="Medium" Grid.Row="7" Grid.ColumnSpan="3" VerticalOptions="Center"/>
-
+                        <!-- Additional instructions to Care Partner-->
                         <Label Text="Admin Instructions:" StyleClass="listPrimaryLabel" Grid.Row="8" Grid.ColumnSpan="3" VerticalOptions="CenterAndExpand" IsVisible="{Binding ElementVisible}"/>
                         <Label Text="{Binding CarePartnerNotes}"  StyleClass="listSecondaryLabel" FontSize="Medium" Grid.Row="9" Grid.ColumnSpan="3" VerticalOptions="Center"/>
                     </Grid>
-                </Frame>
-                        
-                        <Button StyleClass="secondaryButton" Text="View Map Location" IsVisible="{Binding ElementVisible}" Command="{Binding OpenMapCommand}" />
-                        <Button StyleClass="primaryButton" Text="Start Order" IsVisible="{Binding StartOrderVisible}" Command="{Binding StartOrderCommand}" />
-                        <Button StyleClass="primaryButton" Text="Mark as Complete" IsVisible="{Binding CompleteOrderVisible}" Command="{Binding CompleteOrderCommand}" />
+                </Frame> 
+                <!-- Buttons held in stacklayout-->
+                <Button StyleClass="secondaryButton" Text="View Map Location" IsVisible="{Binding ElementVisible}" Command="{Binding OpenMapCommand}" /> <!-- Opens to Maps-->
+                        <Button StyleClass="primaryButton" Text="Start Order" IsVisible="{Binding StartOrderVisible}" Command="{Binding StartOrderCommand}" /> <!-- Start order confirmation-->
+                        <Button StyleClass="primaryButton" Text="Mark as Complete" IsVisible="{Binding CompleteOrderVisible}" Command="{Binding CompleteOrderCommand}" /> <!-- Order completion-->
 
             </StackLayout>
         </ScrollView>

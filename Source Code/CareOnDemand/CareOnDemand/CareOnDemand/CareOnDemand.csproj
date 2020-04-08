@@ -34,13 +34,19 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Views\AdminViews\AccountCreationPage.xaml.cs">
+      <DependentUpon>AccountCreationPage.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\CarePartnerViews\ViewAssignedOrder.xaml.cs">
       <DependentUpon>ViewAssignedOrder.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\SharedViews\AccountManagementPage.xaml.cs">
+      <DependentUpon>AccountManagementPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="Views\AdminViews\AccountCreation.xaml">
+    <EmbeddedResource Update="Views\AdminViews\AccountCreationPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\AdminViews\ActiveOrders.xaml">
@@ -88,7 +94,7 @@
     <EmbeddedResource Update="Views\CustomerViews\ViewActivePastOrder.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\SharedViews\AccountManagement.xaml">
+    <EmbeddedResource Update="Views\SharedViews\AccountManagementPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\CustomerViews\CustomerNavBar.xaml">

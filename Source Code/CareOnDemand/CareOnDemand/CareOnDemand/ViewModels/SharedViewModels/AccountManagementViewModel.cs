@@ -3,9 +3,9 @@
     Capstone 2020 - ENSE 400/477
     The Ni(c)(k)S
 
-    Author: Nicolas AChter
+    Author: Nicolas Achter
     Contributor(s):
-    Last Modified: Mar. 30, 2020
+    Last Modified: Apr. 06, 2020
 */
 
 using System;
@@ -43,7 +43,7 @@ namespace CareOnDemand.ViewModels
         }
         async Task ChangePassButtonClicked()
         {
-            await Application.Current.MainPage.Navigation.PushAsync(new ChangePassPage());
+            await Application.Current.MainPage.Navigation.PushAsync(new ForgotPassPage());
         }
 
         async Task LogOut()

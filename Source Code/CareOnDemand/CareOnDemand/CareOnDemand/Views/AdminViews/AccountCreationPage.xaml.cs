@@ -12,12 +12,12 @@ using CareOnDemand.Models;
 namespace CareOnDemand.Views.AdminViews
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class AccountCreation : ContentPage
+    public partial class AccountCreationPage : ContentPage
     {
-        public AccountCreation()
+        public AccountCreationPage()
         {
             InitializeComponent();
-            BindingContext = new AccountManagementViewModel();
+            BindingContext = new AccountCreationViewModel();
         }
     }
 }
