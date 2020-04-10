@@ -11,9 +11,12 @@ Contributors:
 - Shayan Khan - shayanaijaz
 
 ## Objective
-The objective of this project is to deliver a home care on demand mobile application to Eden Care Communities. This application will allow users to order home care from Eden Care as required, through the application, to receieve service sooner than the current appointment model employed. The Ni(c)(k)S are working with Eden Care Communities to develop the application to meet their needs within the available timeframe.
+The objective of this project is to deliver a home care on demand mobile application to Eden Care Communities. This application will allow users to order home care from Eden Care as required, through the application, to receive service sooner than the current appointment model employed. The Ni(c)(k)S are working with Eden Care Communities to develop the application to meet their needs within the available timeframe.
 
 ## Quick Links
+Video Presentation:
+- [Youtube](https://youtu.be/XJdy95f_kFY)
+
 Documentation:
 - [Functional Requirements Document](./Documentation/Functional%20Requirements%20Document.pdf)
 - [User Experience Report](./Documentation/Experience%20Report.pdf)
@@ -22,7 +25,7 @@ Documentation:
 - [User Flows](./Documentation/User%20Flows.pdf)
 - [Personas](./Documentation/Eden%20Care%20Personas.pdf)
 - [Trello Screenshots](./Documentation/Screenshots)
-
+- [Poster](./)
 Prototyping:
 - [Wireframes](./Prototypes/Wireframes)
 - [High Fidelity Prototypes](./Prototypes/HighFidelityPrototypes)
