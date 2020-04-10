@@ -25,7 +25,7 @@ Documentation:
 - [User Flows](./Documentation/User%20Flows.pdf)
 - [Personas](./Documentation/Eden%20Care%20Personas.pdf)
 - [Trello Screenshots](./Documentation/Screenshots)
-- [Poster](./Documentation/Poster%20.png?raw=true)
+- [Poster](./Documentation/Poster.png)
 
 Prototyping:
 - [Wireframes](./Prototypes/Wireframes)
