@@ -1,7 +1,17 @@
-﻿using System;
+﻿/*
+    Care on Demand Application
+    Capstone 2020 - ENSE 400/477
+    The Ni(c)(k)S
+
+    Author: Nicolas Achter
+    Contributor(s): 
+    Last Modified: Feb. 1, 2020
+*/
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+
 
 namespace CareOnDemand.Models
 {
