@@ -13,6 +13,12 @@ Contributors:
 ## Objective
 The objective of this project is to deliver a home care on demand mobile application to Eden Care Communities. This application will allow users to order home care from Eden Care as required, through the application, to receive service sooner than the current appointment model employed. The Ni(c)(k)S are working with Eden Care Communities to develop the application to meet their needs within the available timeframe.
 
+## Installation Instructions
+In order to download the application on an Android device
+- Enable Developer Options
+- Enable Installation from unknown sources
+- Download the file:
+-[Download Care on Demand](Source Code/com.companyname.careondemand.apk)
 ## Quick Links
 Video Presentation:
 - [Youtube](https://www.youtube.com/watch?v=LBN8w-EYp8w)
