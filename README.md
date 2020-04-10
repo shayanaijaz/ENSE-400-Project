@@ -15,8 +15,9 @@ The objective of this project is to deliver a home care on demand mobile applica
 
 ## Installation Instructions
 In order to download the application on an Android device
-- Enable Developer Options
-- Enable Installation from unknown sources
+- Enable developer options
+- Enable installation from unknown sources
+- Ignore any installation warnings and select install anyway
 - Download the file: [Care on Demand](./Source%20Code/com.companyname.careondemand.apk)
 
 ## Quick Links
