@@ -5,7 +5,7 @@
 
     Author: Shayan Khan
     Contributor(s): Nicolas Achter
-    Last Modified: Apr. 06, 2020
+    Last Modified: Apr. 09, 2020
 */
 
 using System;
@@ -22,17 +22,26 @@ using CareOnDemand.Data;
 
 namespace CareOnDemand.ViewModels
 {
+    /* This class defines bindings and commands relating to elements located on the RegisterAddress page. It inherits variables and objects from the 
+     * BaseCustomerDetailsViewModel class.
+     */ 
     public class RegisterAddressViewModel : BaseCustomerDetailsViewModel
     {
+        // Constructor that initializes the bindings and commands
         public RegisterAddressViewModel()
         {
             CreateAccountCommand = new Command(CreateAccountClicked);
             AddAddressCommand = new Command(AddAddressClicked);
         }
 
+        // Bindings and commands used on this page
         public Command CreateAccountCommand { private set; get; }
         public Command AddAddressCommand { private set; get; }
 
+        /* This function is run when the user clicks the Create Account button. It first validates the data on the page and displays an error if there is any 
+         * missing or incorrect data. If no errors exist it uses the RegisterService class and creates a new Cognito user in AWS as well creates a user and stores 
+         * their information in the database. Redirects user to login page upon successful registration.
+         */ 
         async void CreateAccountClicked()
         {
             CustomerAddressValidator customer_address_validator = new CustomerAddressValidator();

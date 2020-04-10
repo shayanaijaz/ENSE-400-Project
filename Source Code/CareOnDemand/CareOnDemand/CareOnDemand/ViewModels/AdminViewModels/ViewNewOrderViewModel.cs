@@ -1,17 +1,28 @@
-﻿using CareOnDemand.Data;
+﻿/*
+    Care on Demand Application
+    Capstone 2020 - ENSE 400/477
+    The Ni(c)(k)S
+
+    Author: Shayan Khan
+    Last Modified: Apr. 10, 2020
+*/
+using CareOnDemand.Data;
 using CareOnDemand.Models;
 using CareOnDemand.Views.AdminViews;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace CareOnDemand.ViewModels.AdminViewModels
 {
+    /* This class contains bindings and functions relating to elements on the ViewNewOrder page. It inherits variables, objects and 
+     * functions from the BaseAdminOrdersViewModel class.
+     */
     public class ViewNewOrderViewModel : BaseAdminOrdersViewModel
     {
+        // Constructor that initializes the bindings and commands and runs functions to populate the bindings
         public ViewNewOrderViewModel()
         {
             Task.Run(async () => await GetOrderDetailsFromDb(admin_selected_order));
@@ -23,11 +34,14 @@ namespace CareOnDemand.ViewModels.AdminViewModels
             ActivityIndicatorRunning = true;
         }
 
+        // Bindings and commands on this page
         public ObservableCollection<CarePartnerDetails> CarePartnerAccounts { get; set; }
         public Command AssignOrderCommand { get; set; }
 
         public CarePartnerDetails SelectedCarePartner { get; set; }
 
+        /* This Task gets a list of the care partners to display in the Picker
+         */ 
         async Task GetCarePartnerData()
         {
             ObservableCollection<CarePartnerDetails> carePartnerDetails = new ObservableCollection<CarePartnerDetails>();
@@ -51,6 +65,9 @@ namespace CareOnDemand.ViewModels.AdminViewModels
 
         }
 
+        /* This Task creates a new service request for a care partner. It uses the REST services to assign the service request to a care partner 
+         * and also updates the status of the order in the database
+         */ 
         async Task CreateServiceRequest()
         {
             ServiceRequestRestService serviceRequestRestService = new ServiceRequestRestService();

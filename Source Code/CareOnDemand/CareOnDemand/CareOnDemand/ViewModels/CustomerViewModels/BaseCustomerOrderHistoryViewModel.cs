@@ -1,4 +1,12 @@
-﻿using CareOnDemand.Data;
+﻿/*
+    Care on Demand Application
+    Capstone 2020 - ENSE 400/477
+    The Ni(c)(k)S
+
+    Author: Shayan Khan
+    Last Modified: Apr. 10, 2020
+*/
+using CareOnDemand.Data;
 using CareOnDemand.Models;
 using System;
 using System.Collections.Generic;
@@ -10,10 +18,14 @@ using Xamarin.Forms;
 
 namespace CareOnDemand.ViewModels.CustomerViewModels
 {
+    /* This base class defines bindings and objects that will be shared between classes relating to viewing a customers order history.
+     */ 
     public class BaseCustomerOrderHistoryViewModel : BaseViewModel
     {
+        // Static variable declaration
         protected static Order customer_selected_order;
 
+        // Defining bindings that will be common among the pages
         public bool ActivityIndicatorVisible { get; set; }
         public bool ActivityIndicatorRunning { get; set; }
         public string Location { get; set; }
@@ -25,11 +37,18 @@ namespace CareOnDemand.ViewModels.CustomerViewModels
         public string AdditionalInstructions { get; set; }
         public ObservableCollection<Order_Service> OrderServicesList { get; set; }
         public bool ElementVisible { get; set; }
+
+        // Constructor that initializes the static variable
         static BaseCustomerOrderHistoryViewModel()
         {
             customer_selected_order = new Order();
         }
 
+        /* This function is used to get all the orders from the database that are created by the user that is logged in. It takes in an OrderStatusList
+         * arguement which is an array of strings that contains the order statuses that need to be retrieved (New, Completed etc.) It uses the REST services to 
+         * retrieve the orders from the database using the logged in customers ID. It also retrieves the customers detailed information from the database to display
+         * on the page. It returns the list of orders that will be displayed on the page.
+         */ 
         public async Task<List<OrdersList>> GetOrdersFromDb(string[] OrderStatusList)
         {
             int customerID = (int)Application.Current.Properties["customerID"];
@@ -41,6 +60,7 @@ namespace CareOnDemand.ViewModels.CustomerViewModels
             {
                 OrderStatus orderStatus = await new OrderStatusRestService().GetOrderStatusByIDAsync(order.OrderStatusID);
 
+                // Use only orders whose status matches one of the statuses in OrderStatusList
                 if (OrderStatusList.Contains(orderStatus.Status.Trim()))
                 {
                     List<Order_Service> order_services = await new Order_ServiceRestService().GetOrderServiceByID(order.OrderID);
@@ -75,6 +95,10 @@ namespace CareOnDemand.ViewModels.CustomerViewModels
             return order_list_to_display;
         }
 
+        /* This function is run when the user clicks into one of the orders displayed on the page and retrieves detailed information about that order. 
+         * It takes in an Order arguement which is the order that was clicked by the user. It uses the REST services to retrieve customer information 
+         * as well as details about the selected order. It also formats the data to display on the page and updates the elements with the new data. 
+         */ 
         public async Task GetOrderDetailsFromDb(Order order)
         {
             Customer customer = await new CustomerRestService().GetCustomerByIDAsync(order.CustomerID);
@@ -132,6 +156,7 @@ namespace CareOnDemand.ViewModels.CustomerViewModels
             ActivityIndicatorRunning = false;
             ActivityIndicatorVisible = false;
 
+            // Update the elements
             OnPropertyChanged(nameof(ActivityIndicatorRunning));
             OnPropertyChanged(nameof(ActivityIndicatorVisible));
             OnPropertyChanged(nameof(ElementVisible));

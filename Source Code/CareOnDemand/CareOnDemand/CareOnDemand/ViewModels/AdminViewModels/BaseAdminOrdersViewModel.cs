@@ -1,4 +1,12 @@
-﻿using CareOnDemand.Data;
+﻿/*
+    Care on Demand Application
+    Capstone 2020 - ENSE 400/477
+    The Ni(c)(k)S
+
+    Author: Shayan Khan
+    Last Modified: Apr. 10, 2020
+*/
+using CareOnDemand.Data;
 using CareOnDemand.Models;
 using System;
 using System.Collections.Generic;
@@ -10,14 +18,20 @@ using Xamarin.Forms;
 
 namespace CareOnDemand.ViewModels.AdminViewModels
 {
+    /* This base class defines bindings and objects that will be shared between classes relating to an admins orders.
+     */
     public class BaseAdminOrdersViewModel : BaseViewModel
     {
+        // Static variable declaration
         protected static Order admin_selected_order;
+
+        // Constructor that initializes the static variable
         static BaseAdminOrdersViewModel()
         {
             admin_selected_order = new Order();
         }
 
+        // Bindings shared between pages
         public string Location { get; set; }
         public string DateString { get; set; }
         public string TimeString { get; set; }
@@ -36,6 +50,7 @@ namespace CareOnDemand.ViewModels.AdminViewModels
 
         public ObservableCollection<Order_Service> OrderServicesList { get; set; }
 
+        // Task that retrieves orders from the database and sets bindings
         public async Task GetOrders(string[] orderStatusArray)
         {
             Orders = await GetOrdersFromDb(orderStatusArray);
@@ -46,12 +61,14 @@ namespace CareOnDemand.ViewModels.AdminViewModels
             OnPropertyChanged(nameof(Orders));
         }
 
+        // Function that is run at intervals and refreshes the data
         public bool AutoRefreshOrderList(string[] orderStatusArray)
         {
             Device.BeginInvokeOnMainThread(async () => await GetOrders(orderStatusArray));
             return true;
         }
 
+        // Task that is run when the user manually refreshes the page
         public async Task ManualRefreshOrderList(string[] orderStatusArray)
         {
             IsRefreshing = true;
@@ -62,6 +79,12 @@ namespace CareOnDemand.ViewModels.AdminViewModels
             IsRefreshing = false;
             OnPropertyChanged(nameof(IsRefreshing));
         }
+
+        /* This Task is used to get all the orders from the database. It takes in an OrderStatusList arguement which is an array of strings that 
+         * contains the order statuses that need to be retrieved (New, Completed etc.) It uses the REST services to retrieve the orders from the database/
+         * It also retrieves the customers detailed information from the database to display on the page. It returns the list of orders 
+         * that will be displayed on the page.
+         */
         public async Task<List<OrdersList>> GetOrdersFromDb(string[] OrderStatus)
         {
             List<OrderStatus> order_status_list_from_db = await new OrderStatusRestService().RefreshDataAsync();
@@ -124,6 +147,10 @@ namespace CareOnDemand.ViewModels.AdminViewModels
             return order_list_to_display;
         }
 
+        /* This Task is run when the admin clicks into one of the orders displayed on the page and retrieves detailed information about that order. 
+         * It takes in an Order arguement which is the order that was clicked by the user. It uses the REST services to retrieve customer information 
+         * as well as details about the selected order. It also formats the data to display on the page and updates the elements with the new data. 
+         */
         public async Task GetOrderDetailsFromDb(Order order)
         {
             Customer customer = await new CustomerRestService().GetCustomerByIDAsync(order.CustomerID);
@@ -180,7 +207,8 @@ namespace CareOnDemand.ViewModels.AdminViewModels
             ElementVisible = true;
             ActivityIndicatorRunning = false;
             ActivityIndicatorVisible = false;
-
+            
+            // Update the elements
             OnPropertyChanged(nameof(ActivityIndicatorRunning));
             OnPropertyChanged(nameof(ActivityIndicatorVisible));
             OnPropertyChanged(nameof(ElementVisible));
@@ -197,6 +225,8 @@ namespace CareOnDemand.ViewModels.AdminViewModels
 
     }
 
+    /* This class is a model for what information an item displayed on the page should contain. 
+    */
     public class OrdersList
     {
         public string CustomerName { get; set; }

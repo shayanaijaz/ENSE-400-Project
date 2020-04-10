@@ -1,23 +1,36 @@
-﻿using CareOnDemand.Data;
+﻿/*
+    Care on Demand Application
+    Capstone 2020 - ENSE 400/477
+    The Ni(c)(k)S
+
+    Author: Shayan Khan
+    Last Modified: Apr. 10, 2020
+*/
+using CareOnDemand.Data;
 using CareOnDemand.Models;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Text;
 using Xamarin.Forms;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace CareOnDemand.ViewModels.CarePartnerViewModels
 {
+    /* This base class defines bindings and objects that will be shared between classes relating to a care partner's orders.
+     */
     public class BaseCarePartnerOrdersViewModel : BaseViewModel
     {
+        // Static variable declaration
         protected static Order care_partner_selected_order;
+
+        // Constructor that initializes the static variable
         static BaseCarePartnerOrdersViewModel()
         {
             care_partner_selected_order = new Order();
         }
 
+        // Bindings that are shared between pages
         public string Location { get; set; }
         public string DateString { get; set; }
         public string TimeString { get; set; }
@@ -36,6 +49,7 @@ namespace CareOnDemand.ViewModels.CarePartnerViewModels
         public bool IsRefreshing { get; set; }
         public List<OrdersList> Orders { get; set; }
 
+        // Task that retrieves orders from the database and sets bindings
         public async Task GetOrders(string[] orderStatusArray)
         {
             Orders = await GetOrdersFromDb(orderStatusArray);
@@ -46,12 +60,14 @@ namespace CareOnDemand.ViewModels.CarePartnerViewModels
             OnPropertyChanged(nameof(Orders));
         }
 
+        // Function that is run at intervals and refreshes the data
         public bool AutoRefreshOrderList(string[] orderStatusArray)
         {
             Device.BeginInvokeOnMainThread(async () => await GetOrders(orderStatusArray));
             return true;
         }
 
+        // Task that is run when the user manually refreshes the page
         public async Task ManualRefreshOrderList(string[] orderStatusArray)
         {
             IsRefreshing = true;
@@ -63,6 +79,11 @@ namespace CareOnDemand.ViewModels.CarePartnerViewModels
             OnPropertyChanged(nameof(IsRefreshing));
         }
 
+        /* This function is used to get all the orders from the database that are assigned to the care partner that is logged in. It takes in an OrderStatusList
+         * arguement which is an array of strings that contains the order statuses that need to be retrieved (New, Completed etc.) It uses the REST services to 
+         * retrieve the orders from the database using the logged in care partners ID. It also retrieves the customers detailed information from the database to display
+         * on the page. It returns the list of orders that will be displayed on the page.
+         */
         public async Task<List<OrdersList>> GetOrdersFromDb(string[] OrderStatusList)
         {
             int carePartnerID = (int)Application.Current.Properties["carePartnerID"];
@@ -78,6 +99,7 @@ namespace CareOnDemand.ViewModels.CarePartnerViewModels
 
                 order.ServiceRequest = service_request;
 
+                // Use only orders whose status matches one of the statuses in OrderStatusList
                 if (OrderStatusList.Contains(orderStatus.Status.Trim()))
                 {
                     List<Order_Service> order_services = await new Order_ServiceRestService().GetOrderServiceByID(order.OrderID);
@@ -113,7 +135,11 @@ namespace CareOnDemand.ViewModels.CarePartnerViewModels
 
         }
 
-        public async void GetOrderDetailsFromDb(Order order)
+        /* This function is run when the care partner clicks into one of the orders displayed on the page and retrieves detailed information about that order. 
+         * It takes in an Order arguement which is the order that was clicked by the user. It uses the REST services to retrieve customer information 
+         * as well as details about the selected order. It also formats the data to display on the page and updates the elements with the new data. 
+         */
+        public async Task GetOrderDetailsFromDb(Order order)
         {
             Customer customer = await new CustomerRestService().GetCustomerByIDAsync(order.CustomerID);
             Account account = await new AccountRestService().GetAccountByIDAsync(customer.AccountID);
@@ -190,6 +216,7 @@ namespace CareOnDemand.ViewModels.CarePartnerViewModels
             ActivityIndicatorRunning = false;
             ActivityIndicatorVisible = false;
 
+            // Update the elements
             OnPropertyChanged(nameof(CarePartnerNotes));
             OnPropertyChanged(nameof(ActivityIndicatorRunning));
             OnPropertyChanged(nameof(ActivityIndicatorVisible));
@@ -206,6 +233,10 @@ namespace CareOnDemand.ViewModels.CarePartnerViewModels
             OnPropertyChanged(nameof(StartOrderVisible));
 
         }
+
+
+        /* This class is a model for what information an item displayed on the page should contain. 
+         */
         public class OrdersList
         {
             public string CustomerName { get; set; }

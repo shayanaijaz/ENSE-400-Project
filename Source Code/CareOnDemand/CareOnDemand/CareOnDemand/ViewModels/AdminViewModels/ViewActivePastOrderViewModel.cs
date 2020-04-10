@@ -1,13 +1,21 @@
-﻿using CareOnDemand.Data;
+﻿/*
+    Care on Demand Application
+    Capstone 2020 - ENSE 400/477
+    The Ni(c)(k)S
+
+    Author: Shayan Khan
+    Last Modified: Apr. 10, 2020
+*/
+using CareOnDemand.Data;
 using CareOnDemand.Models;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace CareOnDemand.ViewModels.AdminViewModels
 {
+    /* This class inherits variables and objects from the BaseAdminOrderViewModel class and initializes those variables with the required information. This 
+     * ViewModel class is shared by ViewActiveOrder and ViewPastOrder page.
+     */
     public class ViewActivePastOrderViewModel : BaseAdminOrdersViewModel
     {
         public ViewActivePastOrderViewModel()
