@@ -22,61 +22,71 @@
         <StyleSheet Source="/Views/StyleSheet.css"/>
     </ContentPage.Resources>
     <ContentPage.Content>
-            <StackLayout StyleClass="main">
-                <ActivityIndicator IsVisible="{Binding ActivityIndicatorVisible}" IsRunning="{Binding ActivityIndicatorRunning}" Scale="2.00" HorizontalOptions="CenterAndExpand"
+        <StackLayout StyleClass="main">
+            <ActivityIndicator IsVisible="{Binding ActivityIndicatorVisible}" IsRunning="{Binding ActivityIndicatorRunning}" Scale="2.00" HorizontalOptions="CenterAndExpand"
                             VerticalOptions="CenterAndExpand" />
 
-                <Label Text="Active Orders" StyleClass="primaryLabel" IsVisible="{Binding ElementVisible}"/>
-                <Frame StyleClass="plainFrame"  IsVisible="{Binding ElementVisible}">
-                    <ListView x:Name="ActiveOrderListView" ItemsSource="{Binding ActiveOrders}"
+            <Label Text="Active Orders" StyleClass="primaryLabel" IsVisible="{Binding ElementVisible}"/>
+            <Frame StyleClass="plainFrame"  IsVisible="{Binding ElementVisible}">
+                <ListView x:Name="ActiveOrderListView" ItemsSource="{Binding ActiveOrders}"
                     StyleClass="main"
                     SeparatorVisibility="Default"
                     HasUnevenRows="True"
                     SelectedItem="{Binding SelectedOrder}"
-                    VerticalScrollBarVisibility="Never"
-                    > <!-- Listview of NewOrders-->
-                        <ListView.ItemTemplate>
-                            <DataTemplate>
-                                <ViewCell Tapped="ViewCellTapped">
-                                    <Grid StyleClass="main"> <!-- First grid used to display orders-->
-                                        <Grid.RowDefinitions> <!-- Grid rows-->
-                                            <RowDefinition Height="Auto"/>
-                                            <RowDefinition Height="Auto"/>
-                                        </Grid.RowDefinitions>
-                                        <Label Grid.Row="0" FontAttributes="Bold" FontSize="Medium" Text="{Binding CustomerName}" /> <!-- Customer name label-->
-                                        <Label Grid.Row="1" VerticalOptions="Start"  Text="{Binding ServicesOrderedString}" /> <!-- Services ordered label-->
-                                    </Grid>
-                                </ViewCell>
-                            </DataTemplate>
-                        </ListView.ItemTemplate>
-                    </ListView>
-                </Frame>
+                    VerticalScrollBarVisibility="Always"
+                    >
+                    <!-- Listview of NewOrders-->
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell Tapped="ViewCellTapped">
+                                <Grid StyleClass="main">
+                                    <!-- First grid used to display orders-->
+                                    <Grid.RowDefinitions>
+                                        <!-- Grid rows-->
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <Label Grid.Row="0" FontAttributes="Bold" FontSize="Medium" Text="{Binding CustomerName}" />
+                                    <!-- Customer name label-->
+                                    <Label Grid.Row="1" VerticalOptions="Start"  Text="{Binding ServicesOrderedString}" />
+                                    <!-- Services ordered label-->
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Frame>
 
-                <Label Text="Past Orders" StyleClass="primaryLabel" IsVisible="{Binding ElementVisible}"/>
-                <Frame StyleClass="plainFrame"  IsVisible="{Binding ElementVisible}">
-                    <ListView x:Name="PastOrderListView" ItemsSource="{Binding PastOrders}"
-                              StyleClass="main"
+            <Label Text="Past Orders" StyleClass="primaryLabel" IsVisible="{Binding ElementVisible}"/>
+            <Frame StyleClass="plainFrame"  IsVisible="{Binding ElementVisible}">
+                <ListView x:Name="PastOrderListView" ItemsSource="{Binding PastOrders}"
+                    StyleClass="main"
                     SeparatorVisibility="Default"
                     HasUnevenRows="True"
                     SelectedItem="{Binding SelectedOrder}"
-                     VerticalScrollBarVisibility="Never"
-                    > <!-- Listview of NewOrders-->
-                        <ListView.ItemTemplate>
-                            <DataTemplate>
-                                <ViewCell Tapped="ViewCellTapped">
-                                    <Grid StyleClass="main"> <!-- Second grid used to display orders-->
-                                        <Grid.RowDefinitions> <!-- Grid rows-->
-                                            <RowDefinition Height="Auto"/>
-                                            <RowDefinition Height="Auto"/>
-                                        </Grid.RowDefinitions>
-                                        <Label Grid.Row="0" FontAttributes="Bold" FontSize="Medium" Text="{Binding CustomerName}" /> <!-- Customer name label-->
-                                        <Label Grid.Row="1" VerticalOptions="Start"  Text="{Binding ServicesOrderedString}" /> <!-- Services ordered label-->
-                                    </Grid>
-                                </ViewCell>
-                            </DataTemplate>
-                        </ListView.ItemTemplate>
-                    </ListView>
-                </Frame>
-            </StackLayout>
+                     VerticalScrollBarVisibility="Always"
+                    >
+                    <!-- Listview of NewOrders-->
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell Tapped="ViewCellTapped">
+                                <Grid StyleClass="main">
+                                    <!-- Second grid used to display orders-->
+                                    <Grid.RowDefinitions>
+                                        <!-- Grid rows-->
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <Label Grid.Row="0" FontAttributes="Bold" FontSize="Medium" Text="{Binding CustomerName}" />
+                                    <!-- Customer name label-->
+                                    <Label Grid.Row="1" VerticalOptions="Start"  Text="{Binding ServicesOrderedString}" />
+                                    <!-- Services ordered label-->
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Frame>
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>

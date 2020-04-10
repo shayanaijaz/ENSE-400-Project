@@ -25,7 +25,7 @@
     </ContentPage.Resources>
     <ContentPage.Content>
         <ContentView>
-            <ScrollView> <!-- Page is scrollable -->
+            <ScrollView VerticalScrollBarVisibility="Always"> <!-- Page is scrollable -->
                 <StackLayout StyleClass="main">
                     <Frame StyleClass="plainFrame">
                         <ListView x:Name="ServicesOrdered" MinimumHeightRequest="60" RowHeight="60" VerticalOptions="FillAndExpand" VerticalScrollBarVisibility="Never"

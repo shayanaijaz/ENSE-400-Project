@@ -21,7 +21,7 @@
         <StyleSheet Source="/Views/StyleSheet.css" />
     </ContentPage.Resources>
     <ContentPage.Content>
-        <ScrollView>
+        <ScrollView VerticalScrollBarVisibility="Always">
             <StackLayout StyleClass="main">
                 <Frame StyleClass="plainFrame">
                     <ListView MinimumHeightRequest="40" RowHeight="40" VerticalScrollBarVisibility="Never"

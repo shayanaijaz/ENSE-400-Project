@@ -18,7 +18,7 @@
         <StyleSheet Source="/Views/StyleSheet.css" />
     </ContentPage.Resources>
     <ContentPage.Content>
-        <ScrollView>
+        <ScrollView VerticalScrollBarVisibility="Always">
             <StackLayout StyleClass="main"> <!-- Page Layout Stack -->
                 <Frame StyleClass="plainFrame" IsVisible="{Binding ElementVisible}"> <!-- Frame implementation for order list-->
                     <ListView x:Name="ServicesOrdered" MinimumHeightRequest="50" RowHeight="50" VerticalOptions="FillAndExpand" 
