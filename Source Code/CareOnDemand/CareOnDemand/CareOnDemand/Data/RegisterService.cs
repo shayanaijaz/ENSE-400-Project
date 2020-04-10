@@ -8,14 +8,10 @@
     Last Modified: Apr. 07, 2020
 */
 using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 using CareOnDemand.Helpers;
 using Amazon.CognitoIdentityProvider;
 using Amazon.CognitoIdentityProvider.Model;
-using Amazon.Runtime;
-using CareOnDemand.Models;
 using CareOnDemand.Data;
 
 namespace CareOnDemand.Models
@@ -23,7 +19,7 @@ namespace CareOnDemand.Models
     /*
      * This class defines functions relating to registering a new user. The user is registered in AWS and their details
      * are added to the database.
-     */ 
+     */
     public class RegisterService
     {
         private String email;
