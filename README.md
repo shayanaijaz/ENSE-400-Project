@@ -25,7 +25,6 @@ Documentation:
 - [User Flows](./Documentation/User%20Flows.pdf)
 - [Personas](./Documentation/Eden%20Care%20Personas.pdf)
 - [Trello Screenshots](./Documentation/Screenshots)
-![Poster](./Documentation/Poster.png)
 
 Prototyping:
 - [Wireframes](./Prototypes/Wireframes)
@@ -40,3 +39,5 @@ Presentations:
 - [Scrum Meeting 4](./Presentations/January%2014th%20Scrum.pdf)
 - [Scrum Meeting 5](./Presentations/February%204th%20Scrum.pdf)
 - [Scrum Meeting 6](./Presentations/March%2010th%20Scrum.pdf)
+
+![Poster](./Documentation/Poster.png)
