@@ -15,7 +15,7 @@ The objective of this project is to deliver a home care on demand mobile applica
 
 ## Quick Links
 Video Presentation:
-- [Youtube](https://youtu.be/XJdy95f_kFY)
+- [Youtube](https://www.youtube.com/watch?v=LBN8w-EYp8w)
 
 Documentation:
 - [Functional Requirements Document](./Documentation/Functional%20Requirements%20Document.pdf)
@@ -25,7 +25,7 @@ Documentation:
 - [User Flows](./Documentation/User%20Flows.pdf)
 - [Personas](./Documentation/Eden%20Care%20Personas.pdf)
 - [Trello Screenshots](./Documentation/Screenshots)
-- [Poster](./)
+- [Poster](./Documentation/Poster%20.png)
 Prototyping:
 - [Wireframes](./Prototypes/Wireframes)
 - [High Fidelity Prototypes](./Prototypes/HighFidelityPrototypes)
