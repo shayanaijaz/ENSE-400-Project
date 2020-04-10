@@ -15,13 +15,8 @@ namespace CareOnDemand
         {
             InitializeComponent();
 
-            //MainPage = new NavigationPage(new LoginPage());
-            //Xamarin.Forms.Application.Current.On<Xamarin.Forms.PlatformConfiguration.Android>().UseWindowSoftInputModeAdjust(WindowSoftInputModeAdjust.Resize);
-
             bool isLoggedIn = Current.Properties.ContainsKey("isLoggedIn") ? Convert.ToBoolean(Current.Properties["isLoggedIn"]) : false;
             int accountLevelID = Current.Properties.ContainsKey("accountLevelID") ? Convert.ToInt32(Current.Properties["accountLevelID"]) : 0;
-
-            //MainPage = new NavigationPage(new ViewNewOrder());
 
             isLoggedIn = false;
 
