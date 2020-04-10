@@ -17,6 +17,7 @@ The objective of this project is to deliver a home care on demand mobile applica
 Documentation:
 - [Functional Requirements Document](./Documentation/Functional%20Requirements%20Document.pdf)
 - [User Experience Report](./Documentation/Experience%20Report.pdf)
+- [Code Review Report](./Documentation/Code%20Review.pdf)
 - [User Stories](./Documentation/User%20Stories.pdf)
 - [User Flows](./Documentation/User%20Flows.pdf)
 - [Personas](./Documentation/Eden%20Care%20Personas.pdf)
