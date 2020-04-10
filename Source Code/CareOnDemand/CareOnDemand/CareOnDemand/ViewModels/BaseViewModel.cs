@@ -1,21 +1,28 @@
-﻿using System;
-using System.Collections.Generic;
+﻿/*
+    Care on Demand Application
+    Capstone 2020 - ENSE 400/477
+    The Ni(c)(k)S
+
+    Author: Shayan Khan
+    Last Modified: Apr. 10, 2020
+*/
+using System;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
-using CareOnDemand.Models;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 using CareOnDemand.Helpers;
 
 namespace CareOnDemand.ViewModels
 {
+    /* This ViewModel implements and defines bindings and functions that are used by several classes in the application.
+     */ 
     public abstract class BaseViewModel : INotifyPropertyChanged
     {
 
         public event PropertyChangedEventHandler PropertyChanged;
 
+        // Function used to update an element
         protected virtual void OnPropertyChanged(
         [CallerMemberName] string propertyName = null)
         {
@@ -30,6 +37,7 @@ namespace CareOnDemand.ViewModels
 
         public Command ContactCommand { private set; get; }
 
+        // Function that opens phone dialer on button click
         void ContactButtonClicked()
         {
             try
